@@ -9,12 +9,12 @@ public partial class DraggableCup : Node2D, IDraggable
     {
         if (InputManager.Instance?.currentDragItem == this)
         {
-            Position = GetGlobalMousePosition();
+            Position = Position.Lerp(GetGlobalMousePosition(), 20f * (float)delta);
             ZIndex = 2; // Ensure the dragged item is on top
         }
         else if (returnArea != null)
         {
-            Position = returnArea.GlobalPosition;
+            Position = Position.Lerp(returnArea.GlobalPosition, 10f * (float)delta);
             ZIndex = 1; // Reset ZIndex when not being dragged
         }
     }

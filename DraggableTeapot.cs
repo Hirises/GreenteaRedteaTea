@@ -9,12 +9,12 @@ public partial class DraggableTeapot : Node2D, IDraggable
     {
         if (InputManager.Instance?.currentDragItem == this)
         {
-            Position = GetGlobalMousePosition();
+            Position = Position.Lerp(GetGlobalMousePosition(), 20f * (float)delta);
             ZIndex = 2; // Ensure the dragged item is on top
         }
         else
         {
-            Position = originalPosition;
+            Position = Position.Lerp(originalPosition, 10f * (float)delta);
             ZIndex = 0; // Reset ZIndex when not being dragged
         }
     }
