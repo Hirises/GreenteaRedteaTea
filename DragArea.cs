@@ -12,4 +12,9 @@ public partial class DragArea : Area2D
     {
         InputManager.Instance?.OnAreaExited(this);
     }
+
+    public virtual IDraggable GetDraggable()
+    {
+        return null;
+    }
 }

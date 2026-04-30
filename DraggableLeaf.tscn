@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://m4d8ws80fk0i"]
+
+[ext_resource type="Texture2D" uid="uid://dltfxyeb6ltqk" path="res://Sprites/녹차.png" id="1_ecqhw"]
+[ext_resource type="Script" uid="uid://qpph2jxqsj1k" path="res://DraggableLeaf.cs" id="2_v6cep"]
+
+[node name="녹차잎" type="Sprite2D" unique_id=643804568]
+scale = Vector2(0.47999758, 0.3199975)
+texture = ExtResource("1_ecqhw")
+script = ExtResource("2_v6cep")

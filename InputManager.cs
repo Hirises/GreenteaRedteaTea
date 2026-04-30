@@ -19,6 +19,8 @@ public partial class InputManager : Node
     Vector2 lastClickPosition;
     [Export] float dragThreshold = 10f;
 
+    public IDraggable currentDragItem { get; private set; }
+
     public override void _Ready()
     {
         if (Instance != null)
@@ -81,14 +83,48 @@ public partial class InputManager : Node
 
     void OnClick(DragArea area)
     {
-        GD.Print($"Clicked on {area?.Name}");
+        if (currentDragItem != null)
+        {
+            currentDragItem.OnDrop(area);
+            currentDragItem = null;
+            return;
+        }
+
+        var draggable = area?.GetDraggable();
+        if (draggable != null)
+        {
+            currentDragItem = draggable;
+            currentDragItem.OnPick();
+        }
     }
+
     void OnDragStart(DragArea area)
     {
-        GD.Print($"Started dragging on {area?.Name}");
+        if (area == null)
+        {
+            return;
+        }
+
+        if (currentDragItem != null)
+        {
+            currentDragItem.OnCancelDrag();
+            currentDragItem = null;
+        }
+
+        var draggable = area?.GetDraggable();
+        if (draggable != null)
+        {
+            currentDragItem = draggable;
+            currentDragItem.OnPick();
+        }
     }
+
     void OnDragEnd(DragArea area)
     {
-        GD.Print($"Ended dragging on {area?.Name}");
+        if (currentDragItem != null)
+        {
+            currentDragItem.OnDrop(area);
+            currentDragItem = null;
+        }
     }
 }
