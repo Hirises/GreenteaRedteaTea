@@ -51,7 +51,7 @@ public partial class DraggableLeaf : Node2D, IDraggable
         ReturnToOriginalPosition();
     }
 
-    public void Destroy()
+    void Destroy()
     {
         GD.Print("Leaf destroyed.");
         QueueFree();

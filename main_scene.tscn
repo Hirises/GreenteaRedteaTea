@@ -8,7 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://bjoo3c60v3tta" path="res://Sprites/홍차.png" id="4_d5x1h"]
 [ext_resource type="PackedScene" uid="uid://m4d8ws80fk0i" path="res://DraggableLeaf.tscn" id="5_66tet"]
 [ext_resource type="Script" uid="uid://dnyq8dix5b66i" path="res://DragAreaContainer.cs" id="8_7ycvg"]
+[ext_resource type="Script" uid="uid://cpmli88ybuka1" path="res://DragAreaBaseJar.cs" id="8_mo76n"]
 [ext_resource type="Texture2D" uid="uid://babrx24smaet" path="res://Sprites/화분.png" id="9_7ycvg"]
+[ext_resource type="Texture2D" uid="uid://c4a8atyo2j1p4" path="res://Sprites/물.png" id="9_42l1d"]
+[ext_resource type="Script" uid="uid://cqfs3moev56ed" path="res://DraggableBaseJar.cs" id="10_2jcla"]
+[ext_resource type="Texture2D" uid="uid://c3hhub2ni5k7i" path="res://Sprites/우유.png" id="11_m35m6"]
 
 [node name="MainScene" type="Node2D" unique_id=2097108586]
 
@@ -37,6 +41,28 @@ leafScene = ExtResource("5_66tet")
 [node name="홍차" type="Sprite2D" parent="." unique_id=2023065100]
 position = Vector2(332, 557)
 texture = ExtResource("4_d5x1h")
+
+[node name="DragArea물" parent="." unique_id=308706680 node_paths=PackedStringArray("draggableJar") instance=ExtResource("3_d5x1h")]
+position = Vector2(109, 681)
+scale = Vector2(1.1990864, 1.6917455)
+script = ExtResource("8_mo76n")
+draggableJar = NodePath("../물")
+
+[node name="물" type="Sprite2D" parent="." unique_id=2112136896]
+position = Vector2(101, 662)
+texture = ExtResource("9_42l1d")
+script = ExtResource("10_2jcla")
+
+[node name="DragArea우유" parent="." unique_id=1902496306 node_paths=PackedStringArray("draggableJar") instance=ExtResource("3_d5x1h")]
+position = Vector2(285.00003, 676)
+scale = Vector2(1.1952131, 1.7656678)
+script = ExtResource("8_mo76n")
+draggableJar = NodePath("../우유")
+
+[node name="우유" type="Sprite2D" parent="." unique_id=1000126929]
+position = Vector2(274, 662)
+texture = ExtResource("11_m35m6")
+script = ExtResource("10_2jcla")
 
 [node name="DragArea도마1" parent="." unique_id=2060282876 instance=ExtResource("3_d5x1h")]
 position = Vector2(735, 657)
