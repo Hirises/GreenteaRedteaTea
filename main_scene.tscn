@@ -13,6 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://c4a8atyo2j1p4" path="res://Sprites/물.png" id="9_42l1d"]
 [ext_resource type="Script" uid="uid://cqfs3moev56ed" path="res://DraggableBaseJar.cs" id="10_2jcla"]
 [ext_resource type="Texture2D" uid="uid://c3hhub2ni5k7i" path="res://Sprites/우유.png" id="11_m35m6"]
+[ext_resource type="Texture2D" uid="uid://olmc677jxq27" path="res://Sprites/컵 목업.png" id="14_42l1d"]
+[ext_resource type="Texture2D" uid="uid://jfdkg7e7a6gh" path="res://Sprites/Teapot/포트_Back.png" id="15_fv2he"]
+[ext_resource type="Texture2D" uid="uid://ci1mcg13xpuwn" path="res://Sprites/Teapot/초_꺼짐.png" id="16_5smuj"]
+[ext_resource type="Texture2D" uid="uid://sa3og0mgifbo" path="res://Sprites/Teapot/주전자_FrontGrad.png" id="17_y5ved"]
+[ext_resource type="Texture2D" uid="uid://dhv8jangkpr65" path="res://Sprites/Teapot/주전자_Full.png" id="18_kv3aw"]
+[ext_resource type="Texture2D" uid="uid://cwq2lr05jgw45" path="res://Sprites/Teapot/주전자_Half.png" id="19_o7u2a"]
+[ext_resource type="Texture2D" uid="uid://c0m2lwkcodvap" path="res://Sprites/Teapot/주전자_Water_Side.png" id="20_ijoax"]
+[ext_resource type="Texture2D" uid="uid://cgbgqitus6pyi" path="res://Sprites/Teapot/주전자_Water_Top.png" id="21_j8kkg"]
+[ext_resource type="Texture2D" uid="uid://cjjr17u4vweat" path="res://Sprites/Teapot/거름망_Back.png" id="22_yh4yk"]
+[ext_resource type="Texture2D" uid="uid://cg3lcnelvqkew" path="res://Sprites/Teapot/거름망_Front.png" id="23_p8s74"]
+[ext_resource type="Texture2D" uid="uid://d4j6f3iyhsjux" path="res://Sprites/Teapot/포트_Front.png" id="24_o4fqm"]
 
 [node name="MainScene" type="Node2D" unique_id=2097108586]
 
@@ -54,7 +65,7 @@ texture = ExtResource("9_42l1d")
 script = ExtResource("10_2jcla")
 
 [node name="DragArea우유" parent="." unique_id=1902496306 node_paths=PackedStringArray("draggableJar") instance=ExtResource("3_d5x1h")]
-position = Vector2(285.00003, 676)
+position = Vector2(285.00003, 676.00006)
 scale = Vector2(1.1952131, 1.7656678)
 script = ExtResource("8_mo76n")
 draggableJar = NodePath("../우유")
@@ -81,3 +92,43 @@ texture = ExtResource("9_7ycvg")
 [node name="화분2" type="Sprite2D" parent="." unique_id=167836149]
 position = Vector2(895, 731)
 texture = ExtResource("9_7ycvg")
+
+[node name="컵목업" type="Sprite2D" parent="." unique_id=220143113]
+position = Vector2(1701, 667)
+texture = ExtResource("14_42l1d")
+
+[node name="포트Back" type="Sprite2D" parent="." unique_id=1502514953]
+position = Vector2(1241.5, 536.5)
+texture = ExtResource("15_fv2he")
+
+[node name="초꺼짐" type="Sprite2D" parent="." unique_id=555918164]
+position = Vector2(1241.5, 536.5)
+texture = ExtResource("16_5smuj")
+
+[node name="Teapot" type="Node2D" parent="." unique_id=1893496228]
+position = Vector2(1241.5, 536.5)
+
+[node name="주전자FrontGrad" type="Sprite2D" parent="Teapot" unique_id=1388659185]
+texture = ExtResource("17_y5ved")
+
+[node name="주전자Full" type="Sprite2D" parent="Teapot" unique_id=1719304946]
+texture = ExtResource("18_kv3aw")
+
+[node name="주전자Half" type="Sprite2D" parent="Teapot" unique_id=211672691]
+texture = ExtResource("19_o7u2a")
+
+[node name="주전자WaterSide" type="Sprite2D" parent="Teapot" unique_id=305523540]
+texture = ExtResource("20_ijoax")
+
+[node name="주전자WaterTop" type="Sprite2D" parent="Teapot" unique_id=1608082796]
+texture = ExtResource("21_j8kkg")
+
+[node name="거름망Back" type="Sprite2D" parent="Teapot" unique_id=259256027]
+texture = ExtResource("22_yh4yk")
+
+[node name="거름망Front" type="Sprite2D" parent="Teapot" unique_id=800210251]
+texture = ExtResource("23_p8s74")
+
+[node name="포트Front" type="Sprite2D" parent="." unique_id=6731051]
+position = Vector2(1241.5, 536.5)
+texture = ExtResource("24_o4fqm")
