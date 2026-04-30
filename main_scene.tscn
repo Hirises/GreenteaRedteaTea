@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://beypyudpl6dv1"]
+
+[ext_resource type="Texture2D" uid="uid://8ujk5dbp0mqs" path="res://Sprites/BG.png" id="1_0f027"]
+[ext_resource type="Script" uid="uid://bgivx2fjusyl0" path="res://InputManager.cs" id="1_gyfs4"]
+[ext_resource type="Texture2D" uid="uid://dltfxyeb6ltqk" path="res://Sprites/녹차.png" id="2_gyfs4"]
+[ext_resource type="PackedScene" uid="uid://baoyco4ib5mpd" path="res://drag_area.tscn" id="3_d5x1h"]
+[ext_resource type="Texture2D" uid="uid://bjoo3c60v3tta" path="res://Sprites/홍차.png" id="4_d5x1h"]
+
+[node name="MainScene" type="Node2D" unique_id=2097108586]
+
+[node name="InputManager" type="Node" parent="." unique_id=24486516]
+script = ExtResource("1_gyfs4")
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=2050139955]
+texture = ExtResource("1_0f027")
+centered = false
+
+[node name="DragArea녹차" parent="." unique_id=112241637 instance=ExtResource("3_d5x1h")]
+position = Vector2(161, 498)
+
+[node name="녹차" type="Sprite2D" parent="." unique_id=813621535]
+position = Vector2(168, 552)
+texture = ExtResource("2_gyfs4")
+
+[node name="DragArea홍차" parent="." unique_id=1076561759 instance=ExtResource("3_d5x1h")]
+position = Vector2(328, 500)
+
+[node name="홍차" type="Sprite2D" parent="." unique_id=2023065100]
+position = Vector2(332, 557)
+texture = ExtResource("4_d5x1h")

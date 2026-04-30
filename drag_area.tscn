@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://baoyco4ib5mpd"]
+
+[ext_resource type="Script" uid="uid://du4twfjx43uto" path="res://DragArea.cs" id="1_47cn0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mm7a"]
+size = Vector2(126, 113)
+
+[node name="DragArea" type="Area2D" unique_id=112241637]
+script = ExtResource("1_47cn0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1442386055]
+shape = SubResource("RectangleShape2D_8mm7a")
+
+[connection signal="mouse_entered" from="." to="." method="OnArea2DEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnArea2DExited"]
