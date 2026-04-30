@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dl0l7xxsms1ll"]
+
+[ext_resource type="Texture2D" uid="uid://babrx24smaet" path="res://Sprites/화분.png" id="1_rs16t"]
+[ext_resource type="Script" uid="uid://dfpuj12t88ggg" path="res://DraggableCup.cs" id="2_nfqwo"]
+
+[node name="화분3" type="Sprite2D" unique_id=312595368]
+scale = Vector2(0.5595238, 0.4051724)
+texture = ExtResource("1_rs16t")
+script = ExtResource("2_nfqwo")
