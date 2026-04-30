@@ -10,10 +10,12 @@ public partial class DraggableLeaf : Node2D, IDraggable
         if (InputManager.Instance?.currentDragItem == this)
         {
             Position = GetGlobalMousePosition();
+            ZIndex = 2; // Ensure the dragged item is on top
         }
         else if (returnArea != null)
         {
             Position = returnArea.GlobalPosition;
+            ZIndex = 1; // Reset ZIndex when not being dragged
         }
     }
 
