@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class LeafJarDragArea : DragArea
+public partial class DragAreaLeafJar : DragArea
 {
     [Export] PackedScene leafScene;
 

@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://bgivx2fjusyl0" path="res://InputManager.cs" id="1_gyfs4"]
 [ext_resource type="Texture2D" uid="uid://dltfxyeb6ltqk" path="res://Sprites/녹차.png" id="2_gyfs4"]
 [ext_resource type="PackedScene" uid="uid://baoyco4ib5mpd" path="res://drag_area.tscn" id="3_d5x1h"]
+[ext_resource type="Script" uid="uid://ds15sndrnjy83" path="res://DragAreaLeafJar.cs" id="4_66tet"]
 [ext_resource type="Texture2D" uid="uid://bjoo3c60v3tta" path="res://Sprites/홍차.png" id="4_d5x1h"]
-[ext_resource type="Script" uid="uid://crpo4ljnxln6" path="res://LeafJarDragArea.cs" id="4_nfk4m"]
 [ext_resource type="PackedScene" uid="uid://m4d8ws80fk0i" path="res://DraggableLeaf.tscn" id="5_66tet"]
+[ext_resource type="Script" uid="uid://dnyq8dix5b66i" path="res://DragAreaContainer.cs" id="8_7ycvg"]
+[ext_resource type="Texture2D" uid="uid://babrx24smaet" path="res://Sprites/화분.png" id="9_7ycvg"]
 
 [node name="MainScene" type="Node2D" unique_id=2097108586]
 
@@ -19,7 +21,7 @@ centered = false
 
 [node name="DragArea녹차" parent="." unique_id=112241637 instance=ExtResource("3_d5x1h")]
 position = Vector2(161, 498)
-script = ExtResource("4_nfk4m")
+script = ExtResource("4_66tet")
 leafScene = ExtResource("5_66tet")
 
 [node name="녹차" type="Sprite2D" parent="." unique_id=813621535]
@@ -29,9 +31,27 @@ texture = ExtResource("2_gyfs4")
 [node name="DragArea홍차" parent="." unique_id=1076561759 instance=ExtResource("3_d5x1h")]
 position = Vector2(328, 500)
 scale = Vector2(1.0095243, 1.0040802)
-script = ExtResource("4_nfk4m")
+script = ExtResource("4_66tet")
 leafScene = ExtResource("5_66tet")
 
 [node name="홍차" type="Sprite2D" parent="." unique_id=2023065100]
 position = Vector2(332, 557)
 texture = ExtResource("4_d5x1h")
+
+[node name="DragArea도마1" parent="." unique_id=2060282876 instance=ExtResource("3_d5x1h")]
+position = Vector2(735, 657)
+scale = Vector2(1.0191394, 1.008177)
+script = ExtResource("8_7ycvg")
+
+[node name="DragArea도마2" parent="." unique_id=209514780 instance=ExtResource("3_d5x1h")]
+position = Vector2(889.0001, 656)
+scale = Vector2(1.0386451, 1.016421)
+script = ExtResource("8_7ycvg")
+
+[node name="화분" type="Sprite2D" parent="." unique_id=1596414090]
+position = Vector2(733, 739)
+texture = ExtResource("9_7ycvg")
+
+[node name="화분2" type="Sprite2D" parent="." unique_id=167836149]
+position = Vector2(895, 731)
+texture = ExtResource("9_7ycvg")
