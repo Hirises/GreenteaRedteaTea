@@ -63,9 +63,66 @@
       ]
     }
   },
-  "PutinCustomer": {
+  "HardCustomer": {
+    "order": [
+      "{order} please"
+    ],
+    "thank": [
+      "thx"
+    ],
+    "complaint": {
+      "timeout": [
+        "Customer complains: order timed out."
+      ],
+      "wrongMenu": [
+        "Customer complains: wrong menu."
+      ],
+      "kickedOut": [
+        "Customer complains: kicked out."
+      ]
+    }
+  },
+    "PutinCustomer": {
     "order": [
       "{order}."
+    ],
+    "thank": [
+      "thx"
+    ],
+    "complaint": {
+      "timeout": [
+        "Customer complains: order timed out."
+      ],
+      "wrongMenu": [
+        "Customer complains: wrong menu."
+      ],
+      "kickedOut": [
+        "Customer complains: kicked out."
+      ]
+    }
+  },
+  "RyuCustomer": {
+    "order": [
+      "{order}."
+    ],
+    "thank": [
+      "So far so good"
+    ],
+    "complaint": {
+      "timeout": [
+        "Customer complains: order timed out."
+      ],
+      "wrongMenu": [
+        "Customer complains: wrong menu."
+      ],
+      "kickedOut": [
+        "Customer complains: kicked out."
+      ]
+    }
+  },
+  "RandomCustomer": {
+    "order": [
+      "{order} please"
     ],
     "thank": [
       "thx"

@@ -1,11 +1,11 @@
 using RedteaGreenteaTea.Domain;
 
-public class DefaultCustomer : Customer
+public class HardCustomer : Customer
 {
     private const float DefaultPatienceSeconds = 30f;
     private const int DefaultOrderMaxDepth = 2;
 
-    public DefaultCustomer(int number) : base(number)
+    public HardCustomer(int number) : base(number)
     {
         PatienceSeconds = DefaultPatienceSeconds;
     }
@@ -13,7 +13,7 @@ public class DefaultCustomer : Customer
     protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
-        Order = orderGenerator.GenerateProduct(Number);
+        Order = orderGenerator.GenerateProductByMaxLength(8);
         isOrderGenerated = true;
         return Order;
     }

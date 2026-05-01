@@ -149,6 +149,7 @@ public partial class GameManager : Node
 		customerUi?.sayText(text);
 
 		EmitSignal(SignalName.OrderEnded, (int)result, orderName);
+		startOrder();
 	}
 }
 

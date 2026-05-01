@@ -8,18 +8,12 @@ public class NormalCustomer : Customer
     public NormalCustomer(int number) : base(number)
     {
         PatienceSeconds = DefaultPatienceSeconds;
-        Name = GenerateName(number);
-    }
-
-    private string GenerateName(int seed)
-    {
-        return "Default";
     }
 
     protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
-        Order = orderGenerator.GenerateProduct(Number);
+        Order = orderGenerator.GenerateProductByMaxLength(5);
         isOrderGenerated = true;
         return Order;
     }

@@ -8,14 +8,13 @@ public class PutinCustomer : Customer
     public PutinCustomer(int number) : base(number)
     {
         PatienceSeconds = DefaultPatienceSeconds;
-        Name = "Putin";
     }
 
     protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
         var rules = TeaOrderGenerationRules.ForLeaf(BasicLeafKind.Black);
-        Order = orderGenerator.GenerateProductByLength(5, rules);
+        Order = orderGenerator.GenerateProduct(2, rules);
         isOrderGenerated = true;
         return Order;
     }

@@ -1,0 +1,24 @@
+{
+  "DefaultCustomer": [
+    "Default"
+  ],
+  "EasyCustomer": [
+    "Default",
+    "Putin"
+  ],
+  "NormalCustomer": [
+    "Default"
+  ],
+  "HardCustomer": [
+    "Default"
+  ],
+  "PutinCustomer": [
+    "Putin"
+  ],
+  "RyuCustomer": [
+    "Prof.Ryu"
+  ],
+  "RandomCustomer": [
+    "Ryu"
+  ]
+}

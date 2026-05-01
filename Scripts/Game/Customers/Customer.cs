@@ -5,6 +5,7 @@ public abstract class Customer
 	protected Customer(int number)
 	{
 		Number = number;
+		Name = CustomerNameBook.GetName(GetType().Name);
 	}
 
 	protected bool isOrderGenerated = false;
