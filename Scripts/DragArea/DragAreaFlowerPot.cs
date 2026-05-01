@@ -16,4 +16,14 @@ public partial class DragAreaFlowerPot : DragArea
         var leafContent = leaf.GetLeafContent();
         return flowerPot.TryBloom(leafContent);
     }
+
+    public override string GetTooltipText()
+    {
+        if (!flowerPot.Bloomed)
+        {
+            return "";
+        }
+        var leafContent = flowerPot.LeafContent;
+        return leafContent.DisplayName;
+    }
 }

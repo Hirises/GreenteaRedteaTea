@@ -108,4 +108,33 @@ public partial class DragAreaContainer : DragArea, IDragAreaContainer
         }
         return null;
     }
+
+    public override string GetTooltipText()
+    {
+        if (currentDraggable == null)
+        {
+            return "";
+        }
+        if (currentDraggable is DraggableLeaf)
+        {
+            var leaf = currentDraggable as DraggableLeaf;
+            var leafContent = leaf.GetLeafContent();
+            return leafContent.DisplayName;
+        }
+        if (currentDraggable is DraggableCup)
+        {
+            var cup = currentDraggable as DraggableCup;
+            if (cup.HasContent)
+                return cup.LiquidContent.DisplayName;
+            return "";
+        }
+        if (currentDraggable is DraggablePlate)
+        {
+            var plate = currentDraggable as DraggablePlate;
+            if (plate.DragArea.HasLeaf())
+                return plate.DragArea.GetLeaf().GetLeafContent().DisplayName;
+            return "";
+        }
+        return "";
+    }
 }

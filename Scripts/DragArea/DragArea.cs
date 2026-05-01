@@ -42,4 +42,9 @@ public partial class DragArea : Area2D
         base._ExitTree();
         InputManager.Instance.OnAreaExited(this);
     }
+
+    public virtual string GetTooltipText()
+    {
+        return string.Empty;
+    }
 }

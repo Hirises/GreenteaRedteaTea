@@ -15,4 +15,9 @@ public partial class DragAreaLeafJar : DragArea
         (leaf as DraggableLeaf).Initialize(leafKind); // Set the leaf's content based on the jar's leaf kind
         return leaf as IDraggable;
     }
+
+    public override string GetTooltipText()
+    {
+        return new BasicLeafExpression(leafKind).DisplayName;
+    }
 }

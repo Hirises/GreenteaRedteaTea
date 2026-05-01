@@ -9,7 +9,9 @@ public partial class DraggableTeapot : Node2D, IDraggable
     [Export] DragAreaTeapotInside insideArea;
     Vector2 originalPosition;
     bool hasContent = false;
+    public bool HasContent => hasContent;
     ProductExpression liquidContent;
+    public ProductExpression LiquidContent => liquidContent;
 
     public override void _Process(double delta)
     {

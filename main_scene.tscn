@@ -65,6 +65,7 @@
 [ext_resource type="Script" uid="uid://db1i2dsr7cm2o" path="res://HoverHighlightableTrash.cs" id="55_6a02w"]
 [ext_resource type="Script" uid="uid://f53ytjeptppo" path="res://Scripts/DragArea/DragAreaTrash.cs" id="55_clqk1"]
 [ext_resource type="Texture2D" uid="uid://dm0isqlby24mm" path="res://Sprites/쓰레기통_뚜껑.png" id="56_6a02w"]
+[ext_resource type="Script" uid="uid://iltb867oontm" path="res://Tooltip.cs" id="66_id12a"]
 
 [sub_resource type="Animation" id="Animation_6a02w"]
 length = 0.001
@@ -854,7 +855,8 @@ hoverHighlight = NodePath("../화분1")
 position = Vector2(106, 1085)
 script = ExtResource("7_p8s74")
 
-[node name="FlowerPot" parent="화분1" unique_id=729022517 instance=ExtResource("42_bqoel")]
+[node name="FlowerPot" parent="화분1" unique_id=729022517 node_paths=PackedStringArray("LeafRoot") instance=ExtResource("42_bqoel")]
+LeafRoot = NodePath("../..")
 
 [node name="DragArea화분2" parent="." unique_id=1199281266 node_paths=PackedStringArray("flowerPot", "hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(286, 952)
@@ -867,7 +869,8 @@ hoverHighlight = NodePath("../화분2")
 position = Vector2(282, 1084)
 script = ExtResource("7_p8s74")
 
-[node name="FlowerPot2" parent="화분2" unique_id=2004134079 instance=ExtResource("42_bqoel")]
+[node name="FlowerPot2" parent="화분2" unique_id=2004134079 node_paths=PackedStringArray("LeafRoot") instance=ExtResource("42_bqoel")]
+LeafRoot = NodePath("../..")
 
 [node name="DragArea화분3" parent="." unique_id=1756660582 node_paths=PackedStringArray("flowerPot", "hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(460, 954)
@@ -880,7 +883,8 @@ hoverHighlight = NodePath("../화분3")
 position = Vector2(460, 1082)
 script = ExtResource("7_p8s74")
 
-[node name="FlowerPot3" parent="화분3" unique_id=544094018 instance=ExtResource("42_bqoel")]
+[node name="FlowerPot3" parent="화분3" unique_id=544094018 node_paths=PackedStringArray("LeafRoot") instance=ExtResource("42_bqoel")]
+LeafRoot = NodePath("../..")
 
 [node name="DragArea제출" parent="." unique_id=988752156 node_paths=PackedStringArray("GameManager", "hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(772.00006, 339)
@@ -981,6 +985,25 @@ script = ExtResource("33_o4fqm")
 
 [node name="CustomerManager" type="Node" parent="GameManager" unique_id=265326387]
 script = ExtResource("34_7jlmu")
+
+[node name="Tooltip" type="Node2D" parent="." unique_id=1666607897 node_paths=PackedStringArray("textNode")]
+z_index = 100
+script = ExtResource("66_id12a")
+textNode = NodePath("Text")
+
+[node name="Text" type="Label" parent="Tooltip" unique_id=1567489454]
+offset_left = 49.0
+offset_top = 27.0
+offset_right = 776.0
+offset_bottom = 247.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8980392, 0.8627451, 0.7921569, 1)
+theme_override_colors/font_outline_color = Color(0.2901961, 0.18039216, 0.13333334, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 32
+text = "Default asdf asdf "
+autowrap_mode = 2
 
 [connection signal="OrderStarted" from="GameManager" to="Hourglass" method="OnGameStart"]
 [connection signal="OrderTimerChanged" from="GameManager" to="Hourglass" method="OnOrderTimerChanged"]

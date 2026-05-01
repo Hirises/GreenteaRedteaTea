@@ -72,4 +72,17 @@ public partial class DragAreaPlate : DragArea, IDragAreaContainer
         GD.Print($"Merged leaf on plate to create {mix.DisplayName}.");
         return true;
     }
+
+    public override string GetTooltipText()
+    {
+        if (currentDraggable == null)
+        {
+            return "";
+        }
+        else
+        {
+            var leafContent = currentDraggable.GetLeafContent();
+            return leafContent.DisplayName;
+        }
+    }
 }

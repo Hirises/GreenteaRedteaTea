@@ -83,4 +83,14 @@ public partial class DragAreaTeapotInside : DragArea, IDragAreaContainer
     {
         return teapot.TryFill(liquid);
     }
+
+    public override string GetTooltipText()
+    {
+        if (currentDraggable == null)
+        {
+            return "";
+        }
+        var leafContent = currentDraggable.GetLeafContent();
+        return leafContent.DisplayName;
+    }
 }

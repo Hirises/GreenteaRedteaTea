@@ -12,6 +12,7 @@ public partial class FlowerPot : Node2D
     [Export] Sprite2D[] leafSprites1;
     [Export] Sprite2D[] leafSprites2;
     [Export] PackedScene draggableLeafScene;
+    [Export] Node LeafRoot;
     bool isLeaf1 = true;
     bool bloomed = false;
     public bool Bloomed => bloomed;
@@ -21,6 +22,7 @@ public partial class FlowerPot : Node2D
     float bloomTimer = 0f;
 
     ProductExpression leafContent;
+    public ProductExpression LeafContent => leafContent;
 
     public override void _Ready()
     {
@@ -82,7 +84,7 @@ public partial class FlowerPot : Node2D
         }
 
         var leaf = draggableLeafScene.Instantiate<DraggableLeaf>();
-        AddSibling(leaf);
+        LeafRoot.AddChild(leaf);
         leaf.Position = GlobalPosition; // Start at the flower pot's position
         leaf.SetLeafContent(leafContent);
         return leaf;

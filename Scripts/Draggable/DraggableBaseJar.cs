@@ -5,6 +5,7 @@ using System;
 public partial class DraggableBaseJar : Node2D, IDraggable
 {
     [Export] BaseKind baseKind;
+    public BaseKind BaseKind => baseKind;
     Vector2 originalPosition;
 
     public override void _Process(double delta)

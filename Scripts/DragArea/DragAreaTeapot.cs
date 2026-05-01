@@ -35,4 +35,14 @@ public partial class DragAreaTeapot : DragArea
     {
         return draggableTeapot.TryFill(liquid);
     }
+
+    public override string GetTooltipText()
+    {
+        if (!draggableTeapot.HasContent)
+        {
+            return "";
+        }
+        var liquidContent = draggableTeapot.LiquidContent;
+        return liquidContent.DisplayName;
+    }
 }
