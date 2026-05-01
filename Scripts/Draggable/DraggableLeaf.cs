@@ -63,6 +63,21 @@ public partial class DraggableLeaf : Node2D, IDraggableContained
             }
             return;
         }
+        if (dropArea is DragAreaPlate)
+        {
+            var plate = dropArea as DragAreaPlate;
+            if (plate.TryMergeLeaf(this))
+            {
+                GD.Print("Leaf successfully merged with existing leaf on plate.");
+                Destroy();
+            }
+            else
+            {
+                GD.Print("Failed to merge with leaf in plate. Returning to original position.");
+                ReturnToOriginalPosition();
+            }
+            return;
+        }
         if (dropArea is DragAreaTeapot)
         {
             var teapot = dropArea as DragAreaTeapot;
