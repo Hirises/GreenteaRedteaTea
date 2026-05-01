@@ -1,3 +1,5 @@
+using System;
+using System.ComponentModel.DataAnnotations;
 using RedteaGreenteaTea.Domain;
 
 public class RandomCustomer : Customer
@@ -13,7 +15,7 @@ public class RandomCustomer : Customer
     protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
-        Order = orderGenerator.GenerateProductByMaxLength(Number);
+        Order = orderGenerator.GenerateProductByMaxLength(Math.Min(Number, 40));
         PatienceSeconds = Order.Length * 5 + 15;
         isOrderGenerated = true;
         return Order;

@@ -17,9 +17,9 @@ public class PutinCustomer : Customer
         Order = orderGenerator.GenerateProduct(2, rules);
         while(Order.Length <= 3)
         {
-            Order = orderGenerator.GenerateProduct(4, rules);
+            Order = orderGenerator.GenerateProduct(2, rules);
         }
-        PatienceSeconds = Order.Length * 5 + 5;
+        PatienceSeconds = Order.Length * 5 + 10;
         isOrderGenerated = true;
         return Order;
     }

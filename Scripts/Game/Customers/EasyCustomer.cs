@@ -13,7 +13,12 @@ public class EasyCustomer : Customer
     protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
-        Order = orderGenerator.GenerateProductByMaxLength(2);
+        Order = orderGenerator.GenerateProduct(5);
+        while(Order.Depth < 5)
+        {
+            Order = orderGenerator.GenerateProduct(5);
+        }
+        // Order = orderGenerator.GenerateProductByMaxLength(2);
         PatienceSeconds = Order.Length * 10 + 10;
         isOrderGenerated = true;
         return Order;

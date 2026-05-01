@@ -13,10 +13,10 @@ public class RyuCustomer : Customer
     protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
-        Order = orderGenerator.GenerateProduct(6);
+        Order = orderGenerator.GenerateProduct(5);
         while(Order.Depth <= 4)
         {
-            Order = orderGenerator.GenerateProduct(6);
+            Order = orderGenerator.GenerateProduct(5);
         }
         PatienceSeconds = Order.Length * 15;
         isOrderGenerated = true;
