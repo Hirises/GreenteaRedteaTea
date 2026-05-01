@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://c4a8atyo2j1p4" path="res://Sprites/물.png" id="9_42l1d"]
 [ext_resource type="Script" uid="uid://cqfs3moev56ed" path="res://DraggableBaseJar.cs" id="10_2jcla"]
 [ext_resource type="Texture2D" uid="uid://c3hhub2ni5k7i" path="res://Sprites/우유.png" id="11_m35m6"]
-[ext_resource type="Texture2D" uid="uid://olmc677jxq27" path="res://Sprites/컵 목업.png" id="14_42l1d"]
 [ext_resource type="Texture2D" uid="uid://jfdkg7e7a6gh" path="res://Sprites/Teapot/포트_Back.png" id="15_fv2he"]
 [ext_resource type="Texture2D" uid="uid://c8c7572qn20ln" path="res://Sprites/Teapot/초_켜짐.png" id="15_j8kkg"]
 [ext_resource type="Texture2D" uid="uid://ci1mcg13xpuwn" path="res://Sprites/Teapot/초_꺼짐.png" id="16_5smuj"]
@@ -32,6 +31,9 @@
 [ext_resource type="PackedScene" uid="uid://dl0l7xxsms1ll" path="res://DraggableCup.tscn" id="25_kv3aw"]
 [ext_resource type="Script" uid="uid://bn8nosouc8rdx" path="res://DragAreaFlowerPot.cs" id="29_ijoax"]
 [ext_resource type="Script" uid="uid://okjihqk21var" path="res://TimerGraph.cs" id="30_j8kkg"]
+[ext_resource type="Texture2D" uid="uid://bre1jmy3044v8" path="res://Sprites/찻잔/찻잔들.png" id="30_p8s74"]
+[ext_resource type="PackedScene" uid="uid://dhpchgbxmiqfp" path="res://DraggablePlate.tscn" id="31_gfmxp"]
+[ext_resource type="Texture2D" uid="uid://vg5dum1i2308" path="res://Sprites/접시들.png" id="31_o4fqm"]
 
 [sub_resource type="Animation" id="Animation_ijoax"]
 length = 0.001
@@ -264,15 +266,27 @@ position = Vector2(1241.5, 536.5)
 texture = ExtResource("24_o4fqm")
 
 [node name="DragArea컵" parent="." unique_id=1608700770 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
-position = Vector2(1793, 661)
-scale = Vector2(2.1737232, 2.1013157)
+position = Vector2(1822, 623.00006)
+scale = Vector2(1.4911515, 2.3032079)
 script = ExtResource("24_y5ved")
 cupScene = ExtResource("25_kv3aw")
-hoverHighlight = NodePath("../컵목업")
+hoverHighlight = NodePath("../찻잔들")
 
-[node name="컵목업" type="Sprite2D" parent="." unique_id=220143113]
-position = Vector2(1701, 667)
-texture = ExtResource("14_42l1d")
+[node name="찻잔들" type="Sprite2D" parent="." unique_id=1191660420]
+position = Vector2(1826, 623)
+texture = ExtResource("30_p8s74")
+script = ExtResource("7_p8s74")
+
+[node name="DragArea접시" parent="." unique_id=1088177615 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+position = Vector2(1607, 622)
+scale = Vector2(1.7012744, 2.3447175)
+script = ExtResource("24_y5ved")
+cupScene = ExtResource("31_gfmxp")
+hoverHighlight = NodePath("../접시들")
+
+[node name="접시들" type="Sprite2D" parent="." unique_id=303759334]
+position = Vector2(1602, 635)
+texture = ExtResource("31_o4fqm")
 script = ExtResource("7_p8s74")
 
 [node name="DragArea화분1" parent="." unique_id=1896093268 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]

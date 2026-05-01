@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class DraggableCup : Node2D, IDraggable
+public partial class DraggablePlate : Node2D, IDraggable
 {
     DragAreaContainer returnArea;
 
@@ -21,23 +21,23 @@ public partial class DraggableCup : Node2D, IDraggable
 
     public void OnPick()
     {
-        GD.Print("Cup picked up!");
+        GD.Print("Plate picked up!");
     }
 
     public void OnDrop(DragArea dropArea)
     {
-        GD.Print($"Cup dropped on {dropArea?.Name}!");
+        GD.Print($"Plate dropped on {dropArea?.Name}!");
         if (dropArea is DragAreaContainer)
         {
             var container = dropArea as DragAreaContainer;
             if (container.TryDropDraggable(this))
             {
                 returnArea = container;
-                GD.Print("Cup successfully dropped into container.");
+                GD.Print("Plate successfully dropped into container.");
             }
             else
             {
-                GD.Print("Failed to drop cup into container. Returning to original position.");
+                GD.Print("Failed to drop plate into container. Returning to original position.");
                 ReturnToOriginalPosition();
             }
             return;
@@ -47,13 +47,13 @@ public partial class DraggableCup : Node2D, IDraggable
 
     public void OnCancelDrag()
     {
-        GD.Print("Cup drag cancelled. Returning to original position.");
+        GD.Print("Plate drag cancelled. Returning to original position.");
         ReturnToOriginalPosition();
     }
 
     void Destroy()
     {
-        GD.Print("Cup destroyed.");
+        GD.Print("Plate destroyed.");
         QueueFree();
     }
 
@@ -61,17 +61,17 @@ public partial class DraggableCup : Node2D, IDraggable
     {
         if (returnArea == null)
         {
-            GD.Print("No return area set. Destroying cup.");
+            GD.Print("No return area set. Destroying plate.");
             Destroy();
             return;
         }
         if (returnArea.TryDropDraggable(this))
         {
-            GD.Print("Cup returned to original position.");
+            GD.Print("Plate returned to original position.");
         }
         else
         {
-            GD.Print("Failed to return cup to original position. Destroying cup.");
+            GD.Print("Failed to return plate to original position. Destroying plate.");
             Destroy();
         }
     }
