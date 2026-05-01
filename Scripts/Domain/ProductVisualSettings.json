@@ -56,13 +56,13 @@
     },
     "brewTea": {
       "tea": {
-        "liquid": 0.7,
-        "leaf": 0.3,
+        "liquid": 1.4,
+        "leaf": 0.6,
         "alphaAdd": 0.15
       },
       "steepedLeaf": {
-        "originalLeaf": 0.6,
-        "brewedTea": 0.4,
+        "originalLeaf": 1.2,
+        "brewedTea": 0.8,
         "resultAlpha": 1.0
       }
     },
