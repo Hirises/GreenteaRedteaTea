@@ -19,6 +19,8 @@ public abstract record ProductExpression
     public abstract ProductCategory Categories { get; }
     public abstract int Depth { get; }
     public abstract string DisplayName { get; }
+    public abstract string DisplayNameWithBrackets { get; }
+    public abstract ProductColor Color { get; }
 
     public bool Is(ProductCategory category)
     {
@@ -38,26 +40,18 @@ public sealed record BaseExpression(BaseKind Kind) : ProductExpression
 {
     public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Base | ProductCategory.Liquid;
     public override int Depth => 0;
-
-    public override string DisplayName => Kind switch
-    {
-        BaseKind.Tea => "차",
-        BaseKind.MilkTea => "밀크티",
-        _ => throw new ArgumentOutOfRangeException(nameof(Kind), Kind, null),
-    };
+    public override string DisplayName => ProductVisualCatalog.Current.GetBaseName(Kind);
+    public override string DisplayNameWithBrackets => DisplayName;
+    public override ProductColor Color => ProductVisualCatalog.Current.GetBaseColor(Kind);
 }
 
 public sealed record BasicLeafExpression(BasicLeafKind Kind) : ProductExpression
 {
     public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Leaf;
     public override int Depth => 0;
-
-    public override string DisplayName => Kind switch
-    {
-        BasicLeafKind.Green => "녹찻잎",
-        BasicLeafKind.Black => "홍찻잎",
-        _ => throw new ArgumentOutOfRangeException(nameof(Kind), Kind, null),
-    };
+    public override string DisplayName => ProductVisualCatalog.Current.GetBasicLeafName(Kind);
+    public override string DisplayNameWithBrackets => DisplayName;
+    public override ProductColor Color => ProductVisualCatalog.Current.GetBasicLeafColor(Kind);
 }
 
 public sealed record BrewedLeafExpression : ProductExpression
@@ -74,7 +68,10 @@ public sealed record BrewedLeafExpression : ProductExpression
     public ProductExpression Liquid { get; }
     public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Leaf;
     public override int Depth => 1 + Math.Max(Leaf.Depth, Liquid.Depth);
-    public override string DisplayName => $"{Leaf.DisplayName}{Liquid.DisplayName}우린찻잎";
+    public override string DisplayName => $"{Leaf.DisplayName}{Liquid.DisplayName}{ProductVisualCatalog.Current.BrewedLeafSuffix}";
+    public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
+        $"{Leaf.DisplayNameWithBrackets}{Liquid.DisplayNameWithBrackets}{ProductVisualCatalog.Current.BrewedLeafSuffix}");
+    public override ProductColor Color => ProductVisualCatalog.Current.CalculateBrewedLeafColor(Leaf.Color, Liquid.Color);
 }
 
 public sealed record CombinedLeafExpression : ProductExpression
@@ -91,7 +88,10 @@ public sealed record CombinedLeafExpression : ProductExpression
     public ProductExpression Right { get; }
     public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Leaf;
     public override int Depth => 1 + Math.Max(Left.Depth, Right.Depth);
-    public override string DisplayName => $"{Left.DisplayName}{Right.DisplayName}찻잎";
+    public override string DisplayName => $"{Left.DisplayName}{Right.DisplayName}{ProductVisualCatalog.Current.CombinedLeafSuffix}";
+    public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
+        $"{Left.DisplayNameWithBrackets}{Right.DisplayNameWithBrackets}{ProductVisualCatalog.Current.CombinedLeafSuffix}");
+    public override ProductColor Color => ProductVisualCatalog.Current.CalculateCombinedLeafColor(Left.Color, Right.Color);
 }
 
 public sealed record TeaExpression : ProductExpression
@@ -109,6 +109,9 @@ public sealed record TeaExpression : ProductExpression
     public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Tea | ProductCategory.Liquid;
     public override int Depth => 1 + Math.Max(Leaf.Depth, Liquid.Depth);
     public override string DisplayName => $"{Leaf.DisplayName}{Liquid.DisplayName}";
+    public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
+        $"{Leaf.DisplayNameWithBrackets}{Liquid.DisplayNameWithBrackets}");
+    public override ProductColor Color => ProductVisualCatalog.Current.CalculateBrewedTeaColor(Leaf.Color, Liquid.Color);
 }
 
 public sealed record MixedLiquidExpression : ProductExpression
@@ -125,5 +128,8 @@ public sealed record MixedLiquidExpression : ProductExpression
     public ProductExpression Right { get; }
     public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Liquid;
     public override int Depth => 1 + Math.Max(Left.Depth, Right.Depth);
-    public override string DisplayName => $"{Left.DisplayName}{Right.DisplayName}믹스";
+    public override string DisplayName => $"{Left.DisplayName}{Right.DisplayName}{ProductVisualCatalog.Current.MixedLiquidSuffix}";
+    public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
+        $"{Left.DisplayNameWithBrackets}{Right.DisplayNameWithBrackets}{ProductVisualCatalog.Current.MixedLiquidSuffix}");
+    public override ProductColor Color => ProductVisualCatalog.Current.CalculateMixedLiquidColor(Left.Color, Right.Color);
 }

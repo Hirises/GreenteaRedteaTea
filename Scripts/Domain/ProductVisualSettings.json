@@ -1,0 +1,73 @@
+{
+  "names": {
+    "base": {
+      "tea": "\uCC28",
+      "milkTea": "\uBC00\uD06C\uD2F0"
+    },
+    "leaf": {
+      "green": "\uB179\uCC3B\uC78E",
+      "black": "\uD64D\uCC3B\uC78E"
+    },
+    "suffix": {
+      "brewedLeaf": "\uC6B0\uB9B0\uCC3B\uC78E",
+      "combinedLeaf": "\uCC3B\uC78E",
+      "mixedLiquid": "\uBBF9\uC2A4"
+    },
+    "brackets": {
+      "open": "(",
+      "close": ")"
+    }
+  },
+  "colors": {
+    "base": {
+      "tea": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 0.1
+      },
+      "milkTea": {
+        "r": 255,
+        "g": 255,
+        "b": 240,
+        "a": 1.0
+      }
+    },
+    "leaf": {
+      "green": {
+        "r": 154,
+        "g": 205,
+        "b": 50,
+        "a": 1.0
+      },
+      "black": {
+        "r": 139,
+        "g": 69,
+        "b": 19,
+        "a": 1.0
+      }
+    }
+  },
+  "colorMixing": {
+    "combineLeaves": {
+      "left": 1.0,
+      "right": 1.0,
+      "resultAlpha": 1.0
+    },
+    "brewTea": {
+      "tea": {
+        "liquid": 0.7,
+        "leaf": 0.3,
+        "alphaAdd": 0.15
+      },
+      "steepedLeaf": {
+        "originalLeaf": 0.6,
+        "brewedTea": 0.4,
+        "resultAlpha": 1.0
+      }
+    },
+    "mixLiquids": {
+      "alphaMultiplier": 1.0
+    }
+  }
+}
