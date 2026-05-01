@@ -134,16 +134,19 @@ public sealed class ProductVisualCatalog
 
     private static ProductColor WeightedRgb(ProductColor left, float leftWeight, ProductColor right, float rightWeight)
     {
-        float totalWeight = leftWeight + rightWeight;
-        if (totalWeight <= 0f)
-        {
-            leftWeight = 0.5f;
-            rightWeight = 0.5f;
-            totalWeight = 1f;
-        }
+        // float totalWeight = leftWeight + rightWeight;
+        // if (totalWeight <= 0f)
+        // {
+        //     leftWeight = 0.5f;
+        //     rightWeight = 0.5f;
+        //     totalWeight = 1f;
+        // }
 
-        leftWeight /= totalWeight;
-        rightWeight /= totalWeight;
+        // leftWeight /= totalWeight;
+        // rightWeight /= totalWeight;
+        
+        leftWeight /= 2;
+        rightWeight /= 2;
 
         return new ProductColor(
             left.R * leftWeight + right.R * rightWeight,
