@@ -11,10 +11,11 @@ public class PutinCustomer : Customer
         Name = "Putin";
     }
 
-    public override ProductExpression GenerateOrder()
+    protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
         Order = orderGenerator.GenerateProductFromLeaf(3,BasicLeafKind.Black);
+        isOrderGenerated = true;
         return Order;
     }
 
