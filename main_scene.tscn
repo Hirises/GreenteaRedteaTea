@@ -32,6 +32,8 @@
 [ext_resource type="PackedScene" uid="uid://dl0l7xxsms1ll" path="res://DraggableCup.tscn" id="25_kv3aw"]
 [ext_resource type="Script" uid="uid://bn8nosouc8rdx" path="res://DragAreaFlowerPot.cs" id="29_ijoax"]
 [ext_resource type="Script" uid="uid://okjihqk21var" path="res://TimerGraph.cs" id="30_j8kkg"]
+[ext_resource type="Script" uid="uid://ceuu1mqtj0omh" path="res://Scripts/Game/GameManager.cs" id="33_o4fqm"]
+[ext_resource type="Script" uid="uid://bxql0al8axl3o" path="res://Scripts/Game/CustomerManager.cs" id="34_7jlmu"]
 
 [sub_resource type="Animation" id="Animation_ijoax"]
 length = 0.001
@@ -345,3 +347,9 @@ texture = ExtResource("9_42l1d")
 position = Vector2(-2, -85)
 scale = Vector2(0.2798165, 1)
 texture = ExtResource("11_m35m6")
+
+[node name="GameManager" type="Node" parent="." unique_id=2122933545]
+script = ExtResource("33_o4fqm")
+
+[node name="CustomerManager" type="Node" parent="GameManager"]
+script = ExtResource("34_7jlmu")
