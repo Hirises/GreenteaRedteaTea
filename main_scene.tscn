@@ -3,11 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://8ujk5dbp0mqs" path="res://Sprites/BG.png" id="1_0f027"]
 [ext_resource type="Script" uid="uid://bgivx2fjusyl0" path="res://InputManager.cs" id="1_gyfs4"]
 [ext_resource type="Texture2D" uid="uid://dltfxyeb6ltqk" path="res://Sprites/녹차.png" id="2_gyfs4"]
+[ext_resource type="Script" uid="uid://uimefd0gku1t" path="res://SoundManager.cs" id="2_jl0ou"]
+[ext_resource type="Script" uid="uid://uduehapgih3c" path="res://SoundPlayer.cs" id="3_2k5xf"]
 [ext_resource type="PackedScene" uid="uid://baoyco4ib5mpd" path="res://drag_area.tscn" id="3_d5x1h"]
 [ext_resource type="Script" uid="uid://d1wy472gcm56l" path="res://Scripts/DragArea/DragAreaLeafJar.cs" id="4_66tet"]
 [ext_resource type="Texture2D" uid="uid://bjoo3c60v3tta" path="res://Sprites/홍차.png" id="4_d5x1h"]
+[ext_resource type="AudioStream" uid="uid://l8i8dn7w61g0" path="res://SFX/sfx_sand.wav" id="4_v63vh"]
 [ext_resource type="Texture2D" uid="uid://w6ayy282jr2w" path="res://Sprites/말풍선.png" id="5_3wiol"]
 [ext_resource type="PackedScene" uid="uid://m4d8ws80fk0i" path="res://DraggableLeaf.tscn" id="5_66tet"]
+[ext_resource type="AudioStream" uid="uid://ddcclexhkcf30" path="res://SFX/sfx_fish_attack.wav" id="5_v63vh"]
 [ext_resource type="Texture2D" uid="uid://dwff0l8g8ph4q" path="res://Sprites/매대.png" id="7_3wiol"]
 [ext_resource type="Script" uid="uid://kn8cm2cmjirc" path="res://HoverHighlightable.cs" id="7_p8s74"]
 [ext_resource type="Texture2D" uid="uid://c4a8atyo2j1p4" path="res://Sprites/물.png" id="9_42l1d"]
@@ -269,6 +273,23 @@ tracks/3/keys = {
 "update": 1,
 "values": [ExtResource("34_1n88h"), ExtResource("35_opjno")]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../SoundManager")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"PlayHourglassFlip"
+}, {
+"args": [],
+"method": &"PlayHourglassLand"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_8quq7"]
 resource_name = "hourglass_progress"
@@ -284,6 +305,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 0.18946466, -2, -2, -2, -2, -2, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.452040276266531, -0.2617993877991494, 0.17453292519943295, -0.08726646259971647, 0.05235987755982989, 0.017453292]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../SoundManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PlayHourglassFlip"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yh4yk"]
@@ -612,6 +647,195 @@ _data = {
 script = ExtResource("1_gyfs4")
 
 [node name="SoundManager" type="Node" parent="." unique_id=990319057]
+script = ExtResource("2_jl0ou")
+
+[node name="HourglassFlip" type="Node" parent="SoundManager" unique_id=1627493191 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 1
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/HourglassFlip" unique_id=825925627]
+stream = ExtResource("4_v63vh")
+
+[node name="HourglassLand" type="Node" parent="SoundManager" unique_id=1892841593 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 2
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/HourglassLand" unique_id=133034133]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="PlatePick" type="Node" parent="SoundManager" unique_id=722875314 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 3
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/PlatePick" unique_id=1549550835]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="PlatePut" type="Node" parent="SoundManager" unique_id=598490868 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 4
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/PlatePut" unique_id=264569249]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="CupPick" type="Node" parent="SoundManager" unique_id=963710079 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 5
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CupPick" unique_id=125572657]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="CupPut" type="Node" parent="SoundManager" unique_id=1974399079 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 6
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CupPut" unique_id=1337845330]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="CupPour" type="Node" parent="SoundManager" unique_id=1924525984 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 7
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CupPour" unique_id=857245896]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="LeafJarPick" type="Node" parent="SoundManager" unique_id=319948819 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 8
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/LeafJarPick" unique_id=227910417]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="LeafPick" type="Node" parent="SoundManager" unique_id=1123551741 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 9
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/LeafPick" unique_id=1312870392]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="LeafPut" type="Node" parent="SoundManager" unique_id=1972719526 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 10
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/LeafPut" unique_id=706159236]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="JarPick" type="Node" parent="SoundManager" unique_id=1519675957 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 11
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/JarPick" unique_id=1810871882]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="JarPour" type="Node" parent="SoundManager" unique_id=803390786 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 12
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/JarPour" unique_id=2071214384]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="TeapotPick" type="Node" parent="SoundManager" unique_id=1410639770 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 13
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TeapotPick" unique_id=1080566911]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="TeapotPour" type="Node" parent="SoundManager" unique_id=1975278119 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 14
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TeapotPour" unique_id=1914147549]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="TeapotBrew" type="Node" parent="SoundManager" unique_id=853168842 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 15
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TeapotBrew" unique_id=1482041349]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="CandleLit" type="Node" parent="SoundManager" unique_id=1145611150 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 16
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CandleLit" unique_id=1117073331]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="TreeBloom" type="Node" parent="SoundManager" unique_id=54134880 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 17
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TreeBloom" unique_id=874364242]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="TreePick" type="Node" parent="SoundManager" unique_id=666173125 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 18
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TreePick" unique_id=1096899784]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="Trashbin" type="Node" parent="SoundManager" unique_id=1718887922 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 19
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/Trashbin" unique_id=10149730]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="Success" type="Node" parent="SoundManager" unique_id=271711304 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 20
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/Success" unique_id=746049080]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
+
+[node name="Fail" type="Node" parent="SoundManager" unique_id=1081517104 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 21
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/Fail" unique_id=1163702299]
+stream = ExtResource("5_v63vh")
+pitch_scale = 2.0
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=2050139955]
 z_index = -52
