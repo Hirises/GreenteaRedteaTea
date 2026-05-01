@@ -36,6 +36,7 @@
 [ext_resource type="Script" uid="uid://bxql0al8axl3o" path="res://Scripts/Game/CustomerManager.cs" id="34_7jlmu"]
 [ext_resource type="Script" uid="uid://brvmmisl2f4mw" path="res://Scripts/Game/UI/CustomerUi.cs" id="35_1n88h"]
 [ext_resource type="Texture2D" uid="uid://blmvx4aa5nkmi" path="res://Sprites/Customers/Default.png" id="35_opjno"]
+[ext_resource type="Script" uid="uid://d2lnljcifpjqh" path="res://Scripts/Game/UI/Text.cs" id="37_meb7l"]
 
 [sub_resource type="Animation" id="Animation_ijoax"]
 length = 0.001
@@ -360,3 +361,12 @@ script = ExtResource("34_7jlmu")
 position = Vector2(769, 274)
 texture = ExtResource("35_opjno")
 script = ExtResource("35_1n88h")
+
+[node name="Text" type="Label" parent="CustomerUI" unique_id=1591529178]
+offset_left = 180.0
+offset_top = -95.0
+offset_right = 220.0
+offset_bottom = -72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Default"
+script = ExtResource("37_meb7l")

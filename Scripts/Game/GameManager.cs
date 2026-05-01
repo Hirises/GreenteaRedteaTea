@@ -23,6 +23,7 @@ public partial class GameManager : Node
 	private bool isOnOrder;
 	private Customer currentCustomer;
 	private float timer;
+	public bool isHard {get; protected set;} = false;
 
 	public ProductExpression CurrentOrder => currentCustomer?.Order;
 	public bool IsOnOrder => isOnOrder;
@@ -76,9 +77,10 @@ public partial class GameManager : Node
 		}
 
 		currentCustomer = customerManager.GenerateNextCustomer();
-		customerUi?.setTexture(currentCustomer.Name);
+		customerUi?.setCustomer(currentCustomer);
 		timer = 0f;
 		isOnOrder = true;
+		customerUi?.sayText(currentCustomer.SayOrder());
 
 		GD.Print($"Customer {currentCustomer.Number} entered and ordered: {currentCustomer.Order.DisplayNameWithBrackets}");
 		EmitSignal(SignalName.OrderStarted, currentCustomer.Order.DisplayNameWithBrackets, currentCustomer.PatienceSeconds);
@@ -126,22 +128,25 @@ public partial class GameManager : Node
 		}
 
 		var orderName = currentCustomer.Order.DisplayNameWithBrackets;
+		string text = "";
 
 		switch (result)
 		{
 			case OrderResult.Success:
-				currentCustomer.Thank();
+				text = currentCustomer.Thank();
 				break;
 			case OrderResult.WrongMenu:
 			case OrderResult.Timeout:
 			case OrderResult.KickedOut:
-				currentCustomer.Complain(result);
+				text = currentCustomer.Complain(result);
 				break;
 		}
 
 		currentCustomer = null;
 		isOnOrder = false;
 		timer = 0f;
+
+		customerUi?.sayText(text);
 
 		EmitSignal(SignalName.OrderEnded, (int)result, orderName);
 	}
