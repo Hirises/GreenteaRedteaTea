@@ -3,7 +3,7 @@ using System;
 
 public partial class HoverHighlightable : Node2D
 {
-    bool hovering = false;
+    protected bool hovering = false;
 
     public override void _Process(double delta)
     {

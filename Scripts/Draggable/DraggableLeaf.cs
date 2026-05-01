@@ -63,7 +63,7 @@ public partial class DraggableLeaf : Node2D, IDraggableContained
             }
             return;
         }
-        else if (dropArea is DragAreaTeapot)
+        if (dropArea is DragAreaTeapot)
         {
             var teapot = dropArea as DragAreaTeapot;
             if (teapot.TryPutLeafInTeapot(this))
@@ -76,6 +76,13 @@ public partial class DraggableLeaf : Node2D, IDraggableContained
                 GD.Print("Failed to put leaf in teapot. Returning to original position.");
                 ReturnToOriginalPosition();
             }
+            return;
+        }
+        if (dropArea is DragAreaTrash)
+        {
+            GD.Print("Leaf dropped into trash. Destroying leaf.");
+            (dropArea as DragAreaTrash).OnTrash();
+            Destroy();
             return;
         }
         ReturnToOriginalPosition();

@@ -47,7 +47,14 @@ public partial class DraggablePlate : Node2D, IDraggableContained
             }
             return;
         }
-        Destroy();
+        if (dropArea is DragAreaTrash)
+        {
+            GD.Print("Plate dropped into trash. Destroying plate.");
+            (dropArea as DragAreaTrash).OnTrash();
+            Destroy();
+            return;
+        }
+        ReturnToOriginalPosition();
     }
 
     public void OnCancelDrag()

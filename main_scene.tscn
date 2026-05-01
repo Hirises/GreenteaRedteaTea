@@ -58,6 +58,8 @@
 [ext_resource type="Texture2D" uid="uid://ceyuoc7mdis64" path="res://Sprites/달력_Open.png" id="49_7tmle"]
 [ext_resource type="Texture2D" uid="uid://bmnwenkdlmmi" path="res://Sprites/쓰레기통_Back.png" id="54_ya33n"]
 [ext_resource type="Texture2D" uid="uid://byqtoxx1fterl" path="res://Sprites/쓰레기통_Front.png" id="55_3wiol"]
+[ext_resource type="Script" uid="uid://db1i2dsr7cm2o" path="res://HoverHighlightableTrash.cs" id="55_6a02w"]
+[ext_resource type="Script" uid="uid://f53ytjeptppo" path="res://Scripts/DragArea/DragAreaTrash.cs" id="55_clqk1"]
 [ext_resource type="Texture2D" uid="uid://dm0isqlby24mm" path="res://Sprites/쓰레기통_뚜껑.png" id="56_6a02w"]
 
 [sub_resource type="Animation" id="Animation_6a02w"]
@@ -505,6 +507,43 @@ _data = {
 &"flip_close": SubResource("Animation_0hwxg")
 }
 
+[sub_resource type="Animation" id="Animation_clqk1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fxe4o"]
+resource_name = "trash"
+length = 0.73333335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.13333334, 0.3, 0.53333336, 0.7),
+"transitions": PackedFloat32Array(0.29730177, 1, -2, -2, -2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.6, 0.5), Vector2(0.7, 1.3), Vector2(1.1, 0.9), Vector2(0.95, 1.05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8quq7"]
+_data = {
+&"RESET": SubResource("Animation_clqk1"),
+&"trash": SubResource("Animation_fxe4o")
+}
+
 [node name="MainScene" type="Node2D" unique_id=2097108586]
 
 [node name="InputManager" type="Node" parent="." unique_id=24486516]
@@ -532,12 +571,19 @@ centered = false
 offset = Vector2(0, -250)
 
 [node name="Text" type="Label" parent="CustomerUI/Speech/말풍선" unique_id=1591529178]
-offset_left = 111.0
-offset_top = -115.0
-offset_right = 168.0
-offset_bottom = -92.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Default"
+offset_left = 104.0
+offset_top = -215.0
+offset_right = 831.0
+offset_bottom = 5.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.44705883, 0.30980393, 0.22745098, 1)
+theme_override_colors/font_outline_color = Color(0.2901961, 0.18039216, 0.13333334, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 32
+text = "Default asdf asdf "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 script = ExtResource("37_meb7l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CustomerUI/Speech" unique_id=15386469]
@@ -870,17 +916,33 @@ texture = ExtResource("46_0hwxg")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Calendar" unique_id=612593321]
 libraries/ = SubResource("AnimationLibrary_si2mt")
 
-[node name="TrashBin" type="Node2D" parent="." unique_id=1300806526]
-position = Vector2(1699, 1101)
+[node name="DragArea쓰레기통" parent="." unique_id=476187581 node_paths=PackedStringArray("animationPlayer", "hoverHighlight") instance=ExtResource("3_d5x1h")]
+position = Vector2(1704, 1032)
+scale = Vector2(3.590551, 3.2570443)
+script = ExtResource("55_clqk1")
+animationPlayer = NodePath("../TrashBin/AnimationPlayer")
+hoverHighlight = NodePath("../TrashBin")
 
-[node name="쓰레기통Back" type="Sprite2D" parent="TrashBin" unique_id=1828322806]
+[node name="TrashBin" type="Node2D" parent="." unique_id=1300806526 node_paths=PackedStringArray("lid")]
+position = Vector2(1699, 1101)
+script = ExtResource("55_6a02w")
+lid = NodePath("Graphic/쓰레기통뚜껑")
+
+[node name="Graphic" type="Node2D" parent="TrashBin" unique_id=1240694930]
+
+[node name="쓰레기통Back" type="Sprite2D" parent="TrashBin/Graphic" unique_id=1828322806]
 texture = ExtResource("54_ya33n")
 
-[node name="쓰레기통Front" type="Sprite2D" parent="TrashBin" unique_id=1580613626]
+[node name="쓰레기통Front" type="Sprite2D" parent="TrashBin/Graphic" unique_id=1580613626]
 texture = ExtResource("55_3wiol")
 
-[node name="쓰레기통뚜껑" type="Sprite2D" parent="TrashBin" unique_id=1203594729]
+[node name="쓰레기통뚜껑" type="Sprite2D" parent="TrashBin/Graphic" unique_id=1203594729]
+position = Vector2(200, -150)
 texture = ExtResource("56_6a02w")
+offset = Vector2(-200, 150)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TrashBin" unique_id=2137246257]
+libraries/ = SubResource("AnimationLibrary_8quq7")
 
 [node name="GameManager" type="Node" parent="." unique_id=2122933545]
 script = ExtResource("33_o4fqm")

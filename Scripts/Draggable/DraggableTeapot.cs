@@ -58,6 +58,14 @@ public partial class DraggableTeapot : Node2D, IDraggable
                 GD.Print("Failed to pour teapot into container.");
             }
         }
+        else if (dropArea is DragAreaTrash)
+        {
+            GD.Print("Teapot dropped into trash. Emptying teapot.");
+            (dropArea as DragAreaTrash).OnTrash();
+            hasContent = false;
+            liquidContent = null;
+            return;
+        }
         GD.Print($"Teapot dropped on {dropArea?.Name}!");
     }
 

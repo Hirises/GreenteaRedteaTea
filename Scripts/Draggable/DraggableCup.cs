@@ -89,6 +89,13 @@ public partial class DraggableCup : Node2D, IDraggableContained
             }
             return;
         }
+        if (dropArea is DragAreaTrash)
+        {
+            GD.Print("Cup dropped into trash. Destroying cup.");
+            (dropArea as DragAreaTrash).OnTrash();
+            Destroy();
+            return;
+        }
         ReturnToOriginalPosition();
     }
 
