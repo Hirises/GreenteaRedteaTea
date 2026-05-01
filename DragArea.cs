@@ -3,6 +3,21 @@ using System;
 
 public partial class DragArea : Area2D
 {
+    [Export] HoverHighlightable hoverHighlight;
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+
+        if (hoverHighlight == null) return;
+
+        if (InputManager.Instance.currentHoverArea == this &&
+            InputManager.Instance.inputState == InputManager.InputState.None)
+        {
+            hoverHighlight.SetHover();
+        }
+    }
+
     public void OnArea2DEntered()
     {
         InputManager.Instance?.OnAreaEntered(this);

@@ -13,10 +13,10 @@ public partial class InputManager : Node
         Dragging,
     }
 
-    InputState inputState = InputState.None;
+    public InputState inputState { get; private set; } = InputState.None;
     DragArea lastClickArea;
     List<DragArea> currentHoverAreas = new();
-    DragArea currentHoverArea => currentHoverAreas.Count > 0 ? GetSmallestArea(currentHoverAreas) : null;
+    public DragArea currentHoverArea => currentHoverAreas.Count > 0 ? GetSmallestArea(currentHoverAreas) : null;
 
     Vector2 lastClickPosition;
     [Export] float dragThreshold = 10f;
