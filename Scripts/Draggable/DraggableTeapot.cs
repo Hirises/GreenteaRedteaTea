@@ -6,6 +6,7 @@ public partial class DraggableTeapot : Node2D, IDraggable
 {
     [Export] Sprite2D liquidTop;
     [Export] Sprite2D liquidBottom;
+    [Export] DragAreaTeapotInside insideArea;
     Vector2 originalPosition;
     bool hasContent = false;
     ProductExpression liquidContent;
@@ -82,6 +83,28 @@ public partial class DraggableTeapot : Node2D, IDraggable
         liquidContent = liquid;
         hasContent = true;
         GD.Print($"Teapot filled with {liquid.DisplayName}.");
+        return true;
+    }
+
+    public bool TryBrew()
+    {
+        if (!hasContent)
+        {
+            GD.Print("Cannot brew tea with an empty teapot.");
+            return false;
+        }
+        if (!insideArea.HasLeaf())
+        {
+            GD.Print("Cannot brew tea without a leaf inside the teapot.");
+            return false;
+        }
+
+        var leaf = insideArea.GetLeaf();
+        var brewed = new TeaExpression(leaf, liquidContent);
+        liquidContent = brewed;
+        insideArea.SetLeaf(new BrewedLeafExpression(leaf, brewed));
+        GD.Print($"Brewed tea in teapot. Now contains {brewed.DisplayName}.");
+
         return true;
     }
 }

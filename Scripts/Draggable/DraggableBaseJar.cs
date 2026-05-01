@@ -43,6 +43,11 @@ public partial class DraggableBaseJar : Node2D, IDraggable
             var teapotArea = dropArea as DragAreaTeapot;
             teapotArea.TryFill(new BaseExpression(baseKind));
         }
+        if (dropArea is DragAreaTeapotInside)
+        {
+            var teapotArea = dropArea as DragAreaTeapotInside;
+            teapotArea.TryFillTeapot(new BaseExpression(baseKind));
+        }
         GD.Print($"BaseJar dropped on {dropArea?.Name}!");
     }
 

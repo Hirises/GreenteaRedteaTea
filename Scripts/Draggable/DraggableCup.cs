@@ -72,6 +72,23 @@ public partial class DraggableCup : Node2D, IDraggableContained
             }
             return;
         }
+        if (dropArea is DragAreaTeapotInside)
+        {
+            var teapotArea = dropArea as DragAreaTeapotInside;
+            if (hasContent && teapotArea.TryFillTeapot(liquidContent))
+            {
+                hasContent = false;
+                liquidContent = null;
+                ReturnToOriginalPosition();
+                GD.Print("Cup successfully poured into teapot.");
+            }
+            else
+            {
+                GD.Print("Failed to pour cup into teapot. Returning to original position.");
+                ReturnToOriginalPosition();
+            }
+            return;
+        }
         ReturnToOriginalPosition();
     }
 

@@ -20,7 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://ci1mcg13xpuwn" path="res://Sprites/Teapot/초_꺼짐.png" id="16_5smuj"]
 [ext_resource type="Texture2D" uid="uid://sa3og0mgifbo" path="res://Sprites/Teapot/주전자_FrontGrad.png" id="17_y5ved"]
 [ext_resource type="Texture2D" uid="uid://dhv8jangkpr65" path="res://Sprites/Teapot/주전자_Full.png" id="18_kv3aw"]
+[ext_resource type="PackedScene" uid="uid://blfc3725i487a" path="res://click_area.tscn" id="18_uws2o"]
 [ext_resource type="Script" uid="uid://b5oee2s1w76rp" path="res://Scripts/DragArea/DragAreaTeapot.cs" id="18_xy6fp"]
+[ext_resource type="Script" uid="uid://u4ml7sm7kt5g" path="res://Scripts/DragArea/ClickAreaCandle.cs" id="19_iylel"]
 [ext_resource type="Texture2D" uid="uid://cwq2lr05jgw45" path="res://Sprites/Teapot/주전자_Half.png" id="19_o7u2a"]
 [ext_resource type="Script" uid="uid://ls14mvmdeo2u" path="res://Scripts/DragArea/DragAreaTeapotInside.cs" id="19_uws2o"]
 [ext_resource type="Script" uid="uid://pw6cex1g4tnc" path="res://Scripts/Draggable/DraggableTeapot.cs" id="19_xy6fp"]
@@ -221,92 +223,91 @@ z_index = -10
 position = Vector2(714, 681)
 texture = ExtResource("13_xy6fp")
 
-[node name="DragArea도마1" parent="." unique_id=2060282876 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea도마1" parent="." unique_id=2060282876 instance=ExtResource("3_d5x1h")]
 position = Vector2(572, 597)
 scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
-hoverHighlight = NodePath("")
 
-[node name="DragArea도마2" parent="." unique_id=1469751056 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea도마2" parent="." unique_id=1469751056 instance=ExtResource("3_d5x1h")]
 position = Vector2(732, 598)
 scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
-hoverHighlight = NodePath("")
 
-[node name="DragArea도마3" parent="." unique_id=1038028413 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea도마3" parent="." unique_id=1038028413 instance=ExtResource("3_d5x1h")]
 position = Vector2(896, 600)
 scale = Vector2(1.5460404, 0.6762489)
 script = ExtResource("13_w30ff")
-hoverHighlight = NodePath("")
 
-[node name="DragArea도마4" parent="." unique_id=331881062 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea도마4" parent="." unique_id=331881062 instance=ExtResource("3_d5x1h")]
 z_index = 1
 position = Vector2(549, 668)
 scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
-hoverHighlight = NodePath("")
 
-[node name="DragArea도마5" parent="." unique_id=274940628 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea도마5" parent="." unique_id=274940628 instance=ExtResource("3_d5x1h")]
 z_index = 1
 position = Vector2(721, 668.9999)
 scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
-hoverHighlight = NodePath("")
 
-[node name="DragArea도마6" parent="." unique_id=964057553 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea도마6" parent="." unique_id=964057553 instance=ExtResource("3_d5x1h")]
 z_index = 1
 position = Vector2(894, 670)
 scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
-hoverHighlight = NodePath("")
 
-[node name="DragArea도마7" parent="." unique_id=1120033533 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea도마7" parent="." unique_id=1120033533 instance=ExtResource("3_d5x1h")]
 z_index = 2
 position = Vector2(532, 739)
 scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
-hoverHighlight = NodePath("")
 
-[node name="DragArea도마8" parent="." unique_id=1877028849 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea도마8" parent="." unique_id=1877028849 instance=ExtResource("3_d5x1h")]
 z_index = 2
 position = Vector2(706.00006, 736.99994)
 scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
-hoverHighlight = NodePath("")
 
-[node name="DragArea도마9" parent="." unique_id=1455570040 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea도마9" parent="." unique_id=1455570040 instance=ExtResource("3_d5x1h")]
 z_index = 2
 position = Vector2(890, 739)
 scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
-hoverHighlight = NodePath("")
 
 [node name="포트Back" type="Sprite2D" parent="." unique_id=1502514953]
 position = Vector2(1241.5, 536.5)
 texture = ExtResource("15_fv2he")
 
-[node name="초꺼짐" type="Sprite2D" parent="." unique_id=555918164]
+[node name="초Graphic" type="Node2D" parent="." unique_id=1725709795]
 position = Vector2(1241.5, 536.5)
+script = ExtResource("7_p8s74")
+
+[node name="초꺼짐" type="Sprite2D" parent="초Graphic" unique_id=555918164]
 texture = ExtResource("16_5smuj")
 
-[node name="초켜짐" type="Sprite2D" parent="." unique_id=1162698434]
+[node name="초켜짐" type="Sprite2D" parent="초Graphic" unique_id=1162698434]
 visible = false
-position = Vector2(1241.5, 536.5)
 texture = ExtResource("15_j8kkg")
 
+[node name="ClickArea초" parent="." unique_id=1204339295 node_paths=PackedStringArray("teapot", "hoverHighlight") instance=ExtResource("18_uws2o")]
+script = ExtResource("19_iylel")
+teapot = NodePath("../Teapot")
+hoverHighlight = NodePath("../초Graphic")
+
 [node name="DragArea티팟" parent="." unique_id=1802254503 node_paths=PackedStringArray("draggableTeapot", "insideArea", "hoverHighlight") instance=ExtResource("3_d5x1h")]
-position = Vector2(1250, 494)
-scale = Vector2(3.3338063, 2.7465036)
+position = Vector2(1247, 478)
+scale = Vector2(3.3338063, 2.3808289)
 script = ExtResource("18_xy6fp")
 draggableTeapot = NodePath("../Teapot")
 insideArea = NodePath("../Teapot/DragArea거름망")
 hoverHighlight = NodePath("../Teapot/Graphic")
 
-[node name="Teapot" type="Node2D" parent="." unique_id=1893496228 node_paths=PackedStringArray("liquidTop", "liquidBottom")]
+[node name="Teapot" type="Node2D" parent="." unique_id=1893496228 node_paths=PackedStringArray("liquidTop", "liquidBottom", "insideArea")]
 position = Vector2(1241.5, 536.5)
 script = ExtResource("19_xy6fp")
 liquidTop = NodePath("Graphic/주전자WaterTop")
 liquidBottom = NodePath("Graphic/주전자WaterSide")
+insideArea = NodePath("DragArea거름망")
 
 [node name="Graphic" type="Node2D" parent="Teapot" unique_id=84795924]
 script = ExtResource("7_p8s74")
@@ -332,11 +333,12 @@ texture = ExtResource("22_yh4yk")
 [node name="거름망Front" type="Sprite2D" parent="Teapot/Graphic" unique_id=800210251]
 texture = ExtResource("23_p8s74")
 
-[node name="DragArea거름망" parent="Teapot" unique_id=992993842 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea거름망" parent="Teapot" unique_id=992993842 node_paths=PackedStringArray("teapot", "hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(4.500122, -87.50003)
 rotation = 0.00015149689
 scale = Vector2(0.92678493, 1.0842611)
 script = ExtResource("19_uws2o")
+teapot = NodePath("../../DragArea티팟")
 hoverHighlight = NodePath("../Graphic")
 
 [node name="포트Front" type="Sprite2D" parent="." unique_id=6731051]

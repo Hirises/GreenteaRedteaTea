@@ -111,4 +111,29 @@ public partial class DraggableLeaf : Node2D, IDraggableContained
     {
         return hoverHighlight;
     }
+
+    public ProductExpression GetLeafContent()
+    {
+        if (leafContent == null)
+        {
+            GD.PrintErr("Leaf content is null! This should not happen.");
+            return null;
+        }
+        return leafContent;
+    }
+
+    public void SetLeafContent(ProductExpression content)
+    {
+        if (content == null)
+        {
+            GD.PrintErr("Cannot set leaf content to null!");
+            return;
+        }
+        if (!content.Is(ProductCategory.Leaf))
+        {
+            GD.PrintErr("Cannot set leaf content to non-leaf product!");
+            return;
+        }
+        leafContent = content;
+    }
 }
