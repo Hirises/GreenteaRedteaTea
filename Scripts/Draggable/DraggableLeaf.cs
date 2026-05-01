@@ -1,14 +1,30 @@
 using Godot;
+using RedteaGreenteaTea.Domain;
 using System;
 
 public partial class DraggableLeaf : Node2D, IDraggable
 {
+    [Export] Sprite2D leafSprite;
     DragAreaContainer returnArea;
+    ProductExpression leafContent;
+
+    public void Initialize(BasicLeafKind kind)
+    {
+        leafContent = new BasicLeafExpression(kind);
+    }
 
     public override void _Process(double delta)
     {
         base._Process(delta);
         DraggableUtil.DefaultDragBehavior(this, this, delta, returnArea);
+
+        if (leafContent == null)
+        {
+            GD.PrintErr("Leaf content is null! This should not happen.");
+            return;
+        }
+
+        leafSprite.Modulate = leafContent.Color.ToGodotColor();
     }
 
     public void OnPick()

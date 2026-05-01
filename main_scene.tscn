@@ -162,6 +162,7 @@ position = Vector2(160, 544)
 scale = Vector2(1.4562218, 2.171475)
 script = ExtResource("4_66tet")
 leafScene = ExtResource("5_66tet")
+leafKind = 0
 hoverHighlight = NodePath("../녹차")
 
 [node name="녹차" type="Sprite2D" parent="." unique_id=813621535]
@@ -174,6 +175,7 @@ position = Vector2(331, 552)
 scale = Vector2(1.4812725, 2.3731213)
 script = ExtResource("4_66tet")
 leafScene = ExtResource("5_66tet")
+leafKind = 1
 hoverHighlight = NodePath("../홍차")
 
 [node name="홍차" type="Sprite2D" parent="." unique_id=2023065100]
