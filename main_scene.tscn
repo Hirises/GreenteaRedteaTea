@@ -847,31 +847,40 @@ texture = ExtResource("31_o4fqm")
 position = Vector2(105.00012, 949)
 scale = Vector2(1.3501889, 1.9199816)
 script = ExtResource("33_iylel")
-flowerPot = NodePath("../FlowerPot")
-hoverHighlight = NodePath("../FlowerPot")
+flowerPot = NodePath("../화분1/FlowerPot")
+hoverHighlight = NodePath("../화분1")
 
-[node name="FlowerPot" parent="." unique_id=729022517 instance=ExtResource("42_bqoel")]
+[node name="화분1" type="Node2D" parent="." unique_id=1750973322]
 position = Vector2(106, 1085)
+script = ExtResource("7_p8s74")
+
+[node name="FlowerPot" parent="화분1" unique_id=729022517 instance=ExtResource("42_bqoel")]
 
 [node name="DragArea화분2" parent="." unique_id=1199281266 node_paths=PackedStringArray("flowerPot", "hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(286, 952)
 scale = Vector2(1.3501889, 1.9199816)
 script = ExtResource("33_iylel")
-flowerPot = NodePath("../FlowerPot2")
-hoverHighlight = NodePath("../FlowerPot2")
+flowerPot = NodePath("../화분2/FlowerPot2")
+hoverHighlight = NodePath("../화분2")
 
-[node name="FlowerPot2" parent="." unique_id=2004134079 instance=ExtResource("42_bqoel")]
+[node name="화분2" type="Node2D" parent="." unique_id=1483803814]
 position = Vector2(282, 1084)
+script = ExtResource("7_p8s74")
+
+[node name="FlowerPot2" parent="화분2" unique_id=2004134079 instance=ExtResource("42_bqoel")]
 
 [node name="DragArea화분3" parent="." unique_id=1756660582 node_paths=PackedStringArray("flowerPot", "hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(460, 954)
 scale = Vector2(1.3501889, 1.9199816)
 script = ExtResource("33_iylel")
-flowerPot = NodePath("../FlowerPot3")
-hoverHighlight = NodePath("../FlowerPot3")
+flowerPot = NodePath("../화분3/FlowerPot3")
+hoverHighlight = NodePath("../화분3")
 
-[node name="FlowerPot3" parent="." unique_id=544094018 instance=ExtResource("42_bqoel")]
+[node name="화분3" type="Node2D" parent="." unique_id=1201238864]
 position = Vector2(460, 1082)
+script = ExtResource("7_p8s74")
+
+[node name="FlowerPot3" parent="화분3" unique_id=544094018 instance=ExtResource("42_bqoel")]
 
 [node name="DragArea제출" parent="." unique_id=988752156 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(772.00006, 339)

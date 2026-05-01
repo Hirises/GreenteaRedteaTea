@@ -12,8 +12,6 @@ public partial class FlowerPot : Node2D
     [Export] Sprite2D[] leafSprites1;
     [Export] Sprite2D[] leafSprites2;
     [Export] PackedScene draggableLeafScene;
-    [Export] HoverHighlightable hoverHighlight;
-    public HoverHighlightable HoverHighlight => hoverHighlight;
     bool isLeaf1 = true;
     bool bloomed = false;
     public bool Bloomed => bloomed;

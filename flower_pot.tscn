@@ -180,7 +180,7 @@ _data = {
 &"shake": SubResource("Animation_uwk5n")
 }
 
-[node name="FlowerPot" type="Node2D" unique_id=729022517 node_paths=PackedStringArray("animPlayer", "tree1", "tree2", "deco1", "deco2", "leafSprites1", "leafSprites2", "hoverHighlight")]
+[node name="FlowerPot" type="Node2D" unique_id=729022517 node_paths=PackedStringArray("animPlayer", "tree1", "tree2", "deco1", "deco2", "leafSprites1", "leafSprites2")]
 script = ExtResource("1_raluq")
 animPlayer = NodePath("AnimationPlayer")
 tree1 = NodePath("Graphic/식물1")
@@ -190,10 +190,8 @@ deco2 = NodePath("Graphic/식물2/식물2Deco")
 leafSprites1 = [NodePath("Graphic/식물1/식물1Leaf1"), NodePath("Graphic/식물1/식물1Leaf2"), NodePath("Graphic/식물1/식물1Leaf3")]
 leafSprites2 = [NodePath("Graphic/식물2/식물2Leaf1"), NodePath("Graphic/식물2/식물2Laef2"), NodePath("Graphic/식물2/식물2Leaf3")]
 draggableLeafScene = ExtResource("2_6aff4")
-hoverHighlight = NodePath("Graphic")
 
 [node name="Graphic" type="Node2D" parent="." unique_id=74904717]
-script = ExtResource("2_3e14a")
 
 [node name="화분" type="Sprite2D" parent="Graphic" unique_id=567427423]
 texture = ExtResource("3_6aff4")

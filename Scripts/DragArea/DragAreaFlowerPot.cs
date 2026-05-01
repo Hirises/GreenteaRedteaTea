@@ -6,14 +6,6 @@ public partial class DragAreaFlowerPot : DragArea
 {
     [Export] FlowerPot flowerPot;
 
-    public override void _Ready()
-    {
-        base._Ready();
-
-        SetHoverHighlight(flowerPot.HoverHighlight);
-    }
-
-
     public override IDraggable GetDraggable()
     {
         return flowerPot.PickLeaf();
