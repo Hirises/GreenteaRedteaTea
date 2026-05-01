@@ -1,0 +1,250 @@
+[gd_scene format=3 uid="uid://78ufxvjm8sh0"]
+
+[ext_resource type="Script" uid="uid://dvtvedmm1h56c" path="res://FlowerPot.cs" id="1_raluq"]
+[ext_resource type="Script" uid="uid://kn8cm2cmjirc" path="res://HoverHighlightable.cs" id="2_3e14a"]
+[ext_resource type="PackedScene" uid="uid://m4d8ws80fk0i" path="res://DraggableLeaf.tscn" id="2_6aff4"]
+[ext_resource type="Texture2D" uid="uid://babrx24smaet" path="res://Sprites/화분.png" id="3_6aff4"]
+[ext_resource type="Texture2D" uid="uid://bcnp8o65nxwsq" path="res://Sprites/식물/식물_1_Base.png" id="4_6800h"]
+[ext_resource type="Texture2D" uid="uid://feflp7ifutjh" path="res://Sprites/식물/식물_1_Deco.png" id="5_wvslg"]
+[ext_resource type="Texture2D" uid="uid://mk5m3aln6eao" path="res://Sprites/식물/식물_1_Leaf_1.png" id="6_4fafi"]
+[ext_resource type="Texture2D" uid="uid://bp465muc7ln23" path="res://Sprites/식물/식물_1_Leaf_2.png" id="7_h1nij"]
+[ext_resource type="Texture2D" uid="uid://c3edfg2hd5gy1" path="res://Sprites/식물/식물_1_Leaf_3.png" id="8_7hme2"]
+[ext_resource type="Texture2D" uid="uid://pmnr64nj5uwi" path="res://Sprites/식물/식물_2_Base.png" id="9_sk1it"]
+[ext_resource type="Texture2D" uid="uid://cmwjqnf86ndqx" path="res://Sprites/식물/식물_2_Deco.png" id="10_m48nc"]
+[ext_resource type="Texture2D" uid="uid://lcdopw3faqm8" path="res://Sprites/식물/식물_2_Leaf_1.png" id="11_6rify"]
+[ext_resource type="Texture2D" uid="uid://btr1nrnx7hp0a" path="res://Sprites/식물/식물_2_Laef_2.png" id="12_t7d04"]
+[ext_resource type="Texture2D" uid="uid://dgotrm808fegn" path="res://Sprites/식물/식물_2_Leaf_3.png" id="13_kcjck"]
+
+[sub_resource type="Animation" id="Animation_iiypn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/식물1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphic/식물2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphic/식물1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphic/식물2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_iuxcr"]
+resource_name = "bloom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/식물1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(0.29730177, -2, -2, -2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.5, 1.5), Vector2(1.2, 0.8), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphic/식물2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666672, 0.20000005, 0.33333334, 0.49999997),
+"transitions": PackedFloat32Array(0.29730177, -2, -2, -2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.5, 1.5), Vector2(1.2, 0.8), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jl6hu"]
+resource_name = "disappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/식물1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8333333),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphic/식물2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8333333),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.001358e-05, 1.001358e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_uwk5n"]
+resource_name = "shake"
+length = 0.6333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/식물1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333333, 0.1, 0.23333333, 0.46666667),
+"transitions": PackedFloat32Array(0.5, -2, -2, -2, 1),
+"update": 0,
+"values": [0.0, -0.17453292519943295, 0.08726646259971647, -0.03490658503988659, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphic/식물1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.56666666),
+"transitions": PackedFloat32Array(2, 0.26794365, 0.2102241),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.7, 1.3), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphic/식물2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.03333333, 0.1, 0.23333333, 0.46666667),
+"transitions": PackedFloat32Array(0.5, -2, -2, -2, 1),
+"update": 0,
+"values": [0.0, -0.17453292519943295, 0.08726646259971647, -0.03490658503988659, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphic/식물2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.56666666),
+"transitions": PackedFloat32Array(2, 0.26794365, 0.2102241),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.7, 1.3), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jl6hu"]
+_data = {
+&"RESET": SubResource("Animation_iiypn"),
+&"bloom": SubResource("Animation_iuxcr"),
+&"disappear": SubResource("Animation_jl6hu"),
+&"shake": SubResource("Animation_uwk5n")
+}
+
+[node name="FlowerPot" type="Node2D" unique_id=729022517 node_paths=PackedStringArray("animPlayer", "tree1", "tree2", "deco1", "deco2", "leafSprites1", "leafSprites2", "hoverHighlight")]
+script = ExtResource("1_raluq")
+animPlayer = NodePath("AnimationPlayer")
+tree1 = NodePath("Graphic/식물1")
+tree2 = NodePath("Graphic/식물2")
+deco1 = NodePath("Graphic/식물1/식물1Deco")
+deco2 = NodePath("Graphic/식물2/식물2Deco")
+leafSprites1 = [NodePath("Graphic/식물1/식물1Leaf1"), NodePath("Graphic/식물1/식물1Leaf2"), NodePath("Graphic/식물1/식물1Leaf3")]
+leafSprites2 = [NodePath("Graphic/식물2/식물2Leaf1"), NodePath("Graphic/식물2/식물2Laef2"), NodePath("Graphic/식물2/식물2Leaf3")]
+draggableLeafScene = ExtResource("2_6aff4")
+hoverHighlight = NodePath("Graphic")
+
+[node name="Graphic" type="Node2D" parent="." unique_id=74904717]
+script = ExtResource("2_3e14a")
+
+[node name="화분" type="Sprite2D" parent="Graphic" unique_id=567427423]
+texture = ExtResource("3_6aff4")
+script = ExtResource("2_3e14a")
+
+[node name="식물1" type="Node2D" parent="Graphic" unique_id=1323793479]
+position = Vector2(0, -75)
+
+[node name="식물1Base" type="Sprite2D" parent="Graphic/식물1" unique_id=747843135]
+position = Vector2(0, -75)
+texture = ExtResource("4_6800h")
+
+[node name="식물1Deco" type="Sprite2D" parent="Graphic/식물1" unique_id=1318784631]
+position = Vector2(0, -75)
+texture = ExtResource("5_wvslg")
+
+[node name="식물1Leaf1" type="Sprite2D" parent="Graphic/식물1" unique_id=1522262970]
+position = Vector2(0, -75)
+texture = ExtResource("6_4fafi")
+
+[node name="식물1Leaf2" type="Sprite2D" parent="Graphic/식물1" unique_id=527846827]
+position = Vector2(0, -75)
+texture = ExtResource("7_h1nij")
+
+[node name="식물1Leaf3" type="Sprite2D" parent="Graphic/식물1" unique_id=272352810]
+position = Vector2(0, -75)
+texture = ExtResource("8_7hme2")
+
+[node name="식물2" type="Node2D" parent="Graphic" unique_id=1164415906]
+visible = false
+position = Vector2(0, -75)
+
+[node name="식물2Base" type="Sprite2D" parent="Graphic/식물2" unique_id=1591667801]
+position = Vector2(0, -75)
+texture = ExtResource("9_sk1it")
+
+[node name="식물2Deco" type="Sprite2D" parent="Graphic/식물2" unique_id=689495483]
+position = Vector2(0, -75)
+texture = ExtResource("10_m48nc")
+
+[node name="식물2Leaf1" type="Sprite2D" parent="Graphic/식물2" unique_id=1602696364]
+position = Vector2(0, -75)
+texture = ExtResource("11_6rify")
+
+[node name="식물2Laef2" type="Sprite2D" parent="Graphic/식물2" unique_id=1204373518]
+position = Vector2(0, -75)
+texture = ExtResource("12_t7d04")
+
+[node name="식물2Leaf3" type="Sprite2D" parent="Graphic/식물2" unique_id=338219408]
+position = Vector2(0, -75)
+texture = ExtResource("13_kcjck")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1897648617]
+libraries/ = SubResource("AnimationLibrary_jl6hu")

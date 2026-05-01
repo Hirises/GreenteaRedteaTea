@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://m4d8ws80fk0i" path="res://DraggableLeaf.tscn" id="5_66tet"]
 [ext_resource type="Texture2D" uid="uid://dwff0l8g8ph4q" path="res://Sprites/매대.png" id="7_3wiol"]
 [ext_resource type="Script" uid="uid://kn8cm2cmjirc" path="res://HoverHighlightable.cs" id="7_p8s74"]
-[ext_resource type="Texture2D" uid="uid://babrx24smaet" path="res://Sprites/화분.png" id="9_7ycvg"]
 [ext_resource type="Texture2D" uid="uid://c4a8atyo2j1p4" path="res://Sprites/물.png" id="9_42l1d"]
 [ext_resource type="Script" uid="uid://cpmli88ybuka1" path="res://Scripts/DragArea/DragAreaBaseJar.cs" id="9_meb7l"]
 [ext_resource type="Script" uid="uid://cqfs3moev56ed" path="res://Scripts/Draggable/DraggableBaseJar.cs" id="10_w30ff"]
@@ -47,6 +46,7 @@
 [ext_resource type="Script" uid="uid://brvmmisl2f4mw" path="res://Scripts/Game/UI/CustomerUi.cs" id="35_1n88h"]
 [ext_resource type="Texture2D" uid="uid://dsfpuk28h4us2" path="res://Sprites/모래시계/모래시계_1.png" id="35_opjno"]
 [ext_resource type="Script" uid="uid://d2lnljcifpjqh" path="res://Scripts/Game/UI/Text.cs" id="37_meb7l"]
+[ext_resource type="PackedScene" uid="uid://78ufxvjm8sh0" path="res://flower_pot.tscn" id="42_bqoel"]
 [ext_resource type="Texture2D" uid="uid://b76paxanslqrd" path="res://Sprites/시간 게이지_Bottom.png" id="42_jef5d"]
 [ext_resource type="Texture2D" uid="uid://cdfmnojr7erbe" path="res://Sprites/시간 게이지_Inner.png" id="43_q1yuq"]
 [ext_resource type="Texture2D" uid="uid://crvouhoel81vc" path="res://Sprites/메뉴.png" id="43_si2mt"]
@@ -843,38 +843,35 @@ texture = ExtResource("31_o4fqm")
 position = Vector2(-26, 51)
 texture = ExtResource("31_o4fqm")
 
-[node name="DragArea화분1" parent="." unique_id=1896093268 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea화분1" parent="." unique_id=1896093268 node_paths=PackedStringArray("flowerPot", "hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(105.00012, 949)
 scale = Vector2(1.3501889, 1.9199816)
 script = ExtResource("33_iylel")
-hoverHighlight = NodePath("../화분3")
+flowerPot = NodePath("../FlowerPot")
+hoverHighlight = NodePath("../FlowerPot")
 
-[node name="화분3" type="Sprite2D" parent="." unique_id=373862369]
+[node name="FlowerPot" parent="." unique_id=729022517 instance=ExtResource("42_bqoel")]
 position = Vector2(106, 1085)
-texture = ExtResource("9_7ycvg")
-script = ExtResource("7_p8s74")
 
-[node name="DragArea화분2" parent="." unique_id=1199281266 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea화분2" parent="." unique_id=1199281266 node_paths=PackedStringArray("flowerPot", "hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(286, 952)
 scale = Vector2(1.3501889, 1.9199816)
 script = ExtResource("33_iylel")
-hoverHighlight = NodePath("../화분4")
+flowerPot = NodePath("../FlowerPot2")
+hoverHighlight = NodePath("../FlowerPot2")
 
-[node name="화분4" type="Sprite2D" parent="." unique_id=664870024]
-position = Vector2(281, 1082)
-texture = ExtResource("9_7ycvg")
-script = ExtResource("7_p8s74")
+[node name="FlowerPot2" parent="." unique_id=2004134079 instance=ExtResource("42_bqoel")]
+position = Vector2(282, 1084)
 
-[node name="DragArea화분3" parent="." unique_id=1756660582 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea화분3" parent="." unique_id=1756660582 node_paths=PackedStringArray("flowerPot", "hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(460, 954)
 scale = Vector2(1.3501889, 1.9199816)
 script = ExtResource("33_iylel")
-hoverHighlight = NodePath("../화분5")
+flowerPot = NodePath("../FlowerPot3")
+hoverHighlight = NodePath("../FlowerPot3")
 
-[node name="화분5" type="Sprite2D" parent="." unique_id=598187701]
-position = Vector2(455, 1085)
-texture = ExtResource("9_7ycvg")
-script = ExtResource("7_p8s74")
+[node name="FlowerPot3" parent="." unique_id=544094018 instance=ExtResource("42_bqoel")]
+position = Vector2(460, 1082)
 
 [node name="DragArea제출" parent="." unique_id=988752156 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(772.00006, 339)

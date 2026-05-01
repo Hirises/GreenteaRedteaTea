@@ -1,10 +1,27 @@
 using Godot;
+using RedteaGreenteaTea.Domain;
 using System;
 
 public partial class DragAreaFlowerPot : DragArea
 {
+    [Export] FlowerPot flowerPot;
+
+    public override void _Ready()
+    {
+        base._Ready();
+
+        SetHoverHighlight(flowerPot.HoverHighlight);
+    }
+
+
     public override IDraggable GetDraggable()
     {
-        return null;
+        return flowerPot.PickLeaf();
+    }
+
+    public bool TryBloom(DraggableLeaf leaf)
+    {
+        var leafContent = leaf.GetLeafContent();
+        return flowerPot.TryBloom(leafContent);
     }
 }

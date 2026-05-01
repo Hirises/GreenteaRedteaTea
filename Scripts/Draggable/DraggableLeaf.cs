@@ -85,6 +85,21 @@ public partial class DraggableLeaf : Node2D, IDraggableContained
             Destroy();
             return;
         }
+        if (dropArea is DragAreaFlowerPot)
+        {
+            var flowerPot = dropArea as DragAreaFlowerPot;
+            if (flowerPot.TryBloom(this))
+            {
+                GD.Print("Leaf successfully bloomed in flower pot.");
+                Destroy();
+            }
+            else
+            {
+                GD.Print("Failed to bloom leaf in flower pot. Returning to original position.");
+                ReturnToOriginalPosition();
+            }
+            return;
+        }
         ReturnToOriginalPosition();
     }
 
