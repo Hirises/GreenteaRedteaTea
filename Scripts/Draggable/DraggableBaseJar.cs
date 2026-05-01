@@ -38,6 +38,11 @@ public partial class DraggableBaseJar : Node2D, IDraggable
             var container = dropArea as DragAreaContainer;
             container.TryFill(new BaseExpression(baseKind));
         }
+        else if (dropArea is DragAreaTeapot)
+        {
+            var teapotArea = dropArea as DragAreaTeapot;
+            teapotArea.TryFill(new BaseExpression(baseKind));
+        }
         GD.Print($"BaseJar dropped on {dropArea?.Name}!");
     }
 
@@ -45,6 +50,4 @@ public partial class DraggableBaseJar : Node2D, IDraggable
     {
         GD.Print("BaseJar drag cancelled.");
     }
-
-    
 }

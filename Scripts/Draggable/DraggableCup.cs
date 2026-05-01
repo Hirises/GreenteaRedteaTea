@@ -40,6 +40,14 @@ public partial class DraggableCup : Node2D, IDraggableContained
                 returnArea = container;
                 GD.Print("Cup successfully dropped into container.");
             }
+            else if (hasContent && container.TryFill(liquidContent))
+            {
+                hasContent = false;
+                liquidContent = null;
+                returnArea = container;
+                ReturnToOriginalPosition();
+                GD.Print("Cup successfully poured into container.");
+            }
             else
             {
                 GD.Print("Failed to drop cup into container. Returning to original position.");
@@ -47,7 +55,23 @@ public partial class DraggableCup : Node2D, IDraggableContained
             }
             return;
         }
-        Destroy();
+        if (dropArea is DragAreaTeapot)
+        {
+            var teapotArea = dropArea as DragAreaTeapot;
+            if (teapotArea.TryFill(liquidContent))
+            {
+                hasContent = false;
+                liquidContent = null;
+                GD.Print("Cup successfully poured into teapot.");
+            }
+            else
+            {
+                GD.Print("Failed to pour cup into teapot. Returning to original position.");
+                ReturnToOriginalPosition();
+            }
+            return;
+        }
+        ReturnToOriginalPosition();
     }
 
     public void OnCancelDrag()

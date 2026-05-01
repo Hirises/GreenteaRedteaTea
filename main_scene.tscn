@@ -300,9 +300,11 @@ draggableTeapot = NodePath("../Teapot")
 insideArea = NodePath("../Teapot/DragArea거름망")
 hoverHighlight = NodePath("../Teapot/Graphic")
 
-[node name="Teapot" type="Node2D" parent="." unique_id=1893496228]
+[node name="Teapot" type="Node2D" parent="." unique_id=1893496228 node_paths=PackedStringArray("liquidTop", "liquidBottom")]
 position = Vector2(1241.5, 536.5)
 script = ExtResource("19_xy6fp")
+liquidTop = NodePath("Graphic/주전자WaterTop")
+liquidBottom = NodePath("Graphic/주전자WaterSide")
 
 [node name="Graphic" type="Node2D" parent="Teapot" unique_id=84795924]
 script = ExtResource("7_p8s74")
