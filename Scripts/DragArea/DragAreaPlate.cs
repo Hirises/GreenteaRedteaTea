@@ -42,6 +42,11 @@ public partial class DragAreaPlate : DragArea, IDragAreaContainer
         return currentDraggable != null;
     }
 
+    public DraggableLeaf GetLeaf()
+    {
+        return currentDraggable;
+    }
+
     public override void _ExitTree()
     {
         base._ExitTree();

@@ -54,6 +54,21 @@ public partial class DraggablePlate : Node2D, IDraggableContained
             Destroy();
             return;
         }
+        if (dropArea is DragAreaSubmit)
+        {
+            var submitArea = dropArea as DragAreaSubmit;
+            if (submitArea.TrySubmit(this))
+            {
+                Destroy();
+                GD.Print("Plate successfully submitted.");
+            }
+            else
+            {
+                GD.Print("Failed to submit plate. Returning to original position.");
+                ReturnToOriginalPosition();
+            }
+            return;
+        }
         ReturnToOriginalPosition();
     }
 

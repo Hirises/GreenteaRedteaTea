@@ -10,7 +10,9 @@ public partial class DraggableCup : Node2D, IDraggableContained
     DragAreaContainer returnArea;
 
     bool hasContent = false;
+    public bool HasContent => hasContent;
     ProductExpression liquidContent;
+    public ProductExpression LiquidContent => liquidContent;
 
     public override void _Process(double delta)
     {
@@ -94,6 +96,21 @@ public partial class DraggableCup : Node2D, IDraggableContained
             GD.Print("Cup dropped into trash. Destroying cup.");
             (dropArea as DragAreaTrash).OnTrash();
             Destroy();
+            return;
+        }
+        if (dropArea is DragAreaSubmit)
+        {
+            var submitArea = dropArea as DragAreaSubmit;
+            if (submitArea.TrySubmit(this))
+            {
+                Destroy();
+                GD.Print("Cup successfully submitted.");
+            }
+            else
+            {
+                GD.Print("Failed to submit cup. Returning to original position.");
+                ReturnToOriginalPosition();
+            }
             return;
         }
         ReturnToOriginalPosition();
