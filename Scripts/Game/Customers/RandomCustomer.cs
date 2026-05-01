@@ -14,6 +14,7 @@ public class RandomCustomer : Customer
     {
         var orderGenerator = new TeaOrderGenerator();
         Order = orderGenerator.GenerateProductByMaxLength(Number);
+        PatienceSeconds = Order.Length * 5 + 15;
         isOrderGenerated = true;
         return Order;
     }

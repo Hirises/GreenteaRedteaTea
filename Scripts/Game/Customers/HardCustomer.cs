@@ -14,6 +14,7 @@ public class HardCustomer : Customer
     {
         var orderGenerator = new TeaOrderGenerator();
         Order = orderGenerator.GenerateProductByMaxLength(8);
+        PatienceSeconds = Order.Length * 5 + 15;
         isOrderGenerated = true;
         return Order;
     }

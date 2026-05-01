@@ -14,6 +14,7 @@ public class EasyCustomer : Customer
     {
         var orderGenerator = new TeaOrderGenerator();
         Order = orderGenerator.GenerateProductByMaxLength(2);
+        PatienceSeconds = Order.Length * 10 + 10;
         isOrderGenerated = true;
         return Order;
     }
