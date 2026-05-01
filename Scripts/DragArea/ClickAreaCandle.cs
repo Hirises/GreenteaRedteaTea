@@ -21,6 +21,7 @@ public partial class ClickAreaCandle : ClickArea
         isLit = true;
         candleTime = 0f;
         SetFlameState(true);
+        SoundManager.Play(SFXType.CandleLit);
     }
 
     public override void _Process(double delta)

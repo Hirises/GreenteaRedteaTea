@@ -13,6 +13,7 @@ public partial class DragAreaLeafJar : DragArea
         AddSibling(leaf);
         (leaf as Node2D).Position = GlobalPosition; // Start the leaf at the jar's position
         (leaf as DraggableLeaf).Initialize(leafKind); // Set the leaf's content based on the jar's leaf kind
+        SoundManager.Play(SFXType.LeafJarPick);
         return leaf as IDraggable;
     }
 

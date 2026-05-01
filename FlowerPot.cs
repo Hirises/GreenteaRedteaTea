@@ -64,6 +64,7 @@ public partial class FlowerPot : Node2D
         }
         deco.Modulate = leafColor;
         animPlayer.Play("bloom");
+        SoundManager.Play(SFXType.TreeBloom);
         return true;
     }
 
@@ -87,6 +88,7 @@ public partial class FlowerPot : Node2D
         LeafRoot.AddChild(leaf);
         leaf.Position = GlobalPosition; // Start at the flower pot's position
         leaf.SetLeafContent(leafContent);
+        SoundManager.Play(SFXType.TreePick);
         return leaf;
     }
 

@@ -29,6 +29,7 @@ public partial class DraggableCup : Node2D, IDraggableContained
     public void OnPick()
     {
         GD.Print("Cup picked up!");
+        SoundManager.Play(SFXType.CupPick);
     }
 
     public void OnDrop(DragArea dropArea)
@@ -41,6 +42,7 @@ public partial class DraggableCup : Node2D, IDraggableContained
             {
                 returnArea = container;
                 GD.Print("Cup successfully dropped into container.");
+                SoundManager.Play(SFXType.CupPut);
             }
             else if (hasContent && container.TryFill(liquidContent))
             {
@@ -48,11 +50,13 @@ public partial class DraggableCup : Node2D, IDraggableContained
                 liquidContent = null;
                 ReturnToOriginalPosition();
                 GD.Print("Cup successfully poured into container.");
+                SoundManager.Play(SFXType.CupPour);
             }
             else
             {
                 GD.Print("Failed to drop cup into container. Returning to original position.");
                 ReturnToOriginalPosition();
+                SoundManager.Play(SFXType.CupPut);
             }
             return;
         }
@@ -65,11 +69,13 @@ public partial class DraggableCup : Node2D, IDraggableContained
                 liquidContent = null;
                 ReturnToOriginalPosition();
                 GD.Print("Cup successfully poured into teapot.");
+                SoundManager.Play(SFXType.CupPour);
             }
             else
             {
                 GD.Print("Failed to pour cup into teapot. Returning to original position.");
                 ReturnToOriginalPosition();
+                SoundManager.Play(SFXType.CupPut);
             }
             return;
         }
@@ -82,11 +88,13 @@ public partial class DraggableCup : Node2D, IDraggableContained
                 liquidContent = null;
                 ReturnToOriginalPosition();
                 GD.Print("Cup successfully poured into teapot.");
+                SoundManager.Play(SFXType.CupPour);
             }
             else
             {
                 GD.Print("Failed to pour cup into teapot. Returning to original position.");
                 ReturnToOriginalPosition();
+                SoundManager.Play(SFXType.CupPut);
             }
             return;
         }

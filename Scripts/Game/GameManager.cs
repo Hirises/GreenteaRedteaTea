@@ -148,12 +148,14 @@ public partial class GameManager : Node
 			case OrderResult.Success:
 				rating = Math.Min(10, rating + 2);
 				text = currentCustomer.Thank();
+        		SoundManager.Play(SFXType.Success);
 				break;
 			case OrderResult.WrongMenu:
 			case OrderResult.Timeout:
 			case OrderResult.KickedOut:
 				rating--;
 				text = currentCustomer.Complain(result);
+        		SoundManager.Play(SFXType.Fail);
 				break;
 		}
 

@@ -46,6 +46,7 @@ public partial class DraggableTeapot : Node2D, IDraggable
     public void OnPick()
     {
         GD.Print("Teapot picked up!");
+        SoundManager.Play(SFXType.TeapotPick);
     }
 
     public void OnDrop(DragArea dropArea)
@@ -57,6 +58,7 @@ public partial class DraggableTeapot : Node2D, IDraggable
             {
                 hasContent = false;
                 liquidContent = null;
+                SoundManager.Play(SFXType.TeapotPour);
             }
             else
             {
@@ -69,6 +71,7 @@ public partial class DraggableTeapot : Node2D, IDraggable
             (dropArea as DragAreaTrash).OnTrash();
             hasContent = false;
             liquidContent = null;
+            SoundManager.Play(SFXType.TeapotPour);
             return;
         }
         GD.Print($"Teapot dropped on {dropArea?.Name}!");
@@ -119,6 +122,7 @@ public partial class DraggableTeapot : Node2D, IDraggable
         GD.Print($"Brewed tea in teapot. Now contains {brewed.DisplayName}.");
         
         animationPlayer.Play("shake");
+        SoundManager.Play(SFXType.TeapotBrew);
 
         return true;
     }

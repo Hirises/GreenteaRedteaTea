@@ -33,11 +33,13 @@ public partial class DraggableLeaf : Node2D, IDraggableContained
     public void OnPick()
     {
         GD.Print("Leaf picked up!");
+        SoundManager.Play(SFXType.LeafPick);
     }
 
     public void OnDrop(DragArea dropArea)
     {
         GD.Print($"Leaf dropped on {dropArea?.Name}!");
+        SoundManager.Play(SFXType.LeafPut);
         if (dropArea is DragAreaContainer)
         {
             var container = dropArea as DragAreaContainer;

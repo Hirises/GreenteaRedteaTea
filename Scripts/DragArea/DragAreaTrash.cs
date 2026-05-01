@@ -13,5 +13,6 @@ public partial class DragAreaTrash : DragArea
     public void OnTrash()
     {
         animationPlayer.Play("trash");
+        SoundManager.Play(SFXType.Trashbin);
     }
 }

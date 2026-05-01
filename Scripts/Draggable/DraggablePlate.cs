@@ -21,11 +21,13 @@ public partial class DraggablePlate : Node2D, IDraggableContained
     public void OnPick()
     {
         GD.Print("Plate picked up!");
+        SoundManager.Play(SFXType.PlatePick);
     }
 
     public void OnDrop(DragArea dropArea)
     {
         GD.Print($"Plate dropped on {dropArea?.Name}!");
+        SoundManager.Play(SFXType.PlatePut);
         if (dropArea == dragArea)
         {
             GD.Print("Plate dropped back on its own drag area. Returning to original position.");

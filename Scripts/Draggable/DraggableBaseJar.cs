@@ -32,6 +32,7 @@ public partial class DraggableBaseJar : Node2D, IDraggable
     public void OnPick()
     {
         GD.Print("BaseJar picked up!");
+        SoundManager.Play(SFXType.JarPick);
     }
 
     public void OnDrop(DragArea dropArea)
@@ -39,17 +40,20 @@ public partial class DraggableBaseJar : Node2D, IDraggable
         if (dropArea is DragAreaContainer)
         {
             var container = dropArea as DragAreaContainer;
-            container.TryFill(new BaseExpression(baseKind));
+            if (container.TryFill(new BaseExpression(baseKind)))
+                SoundManager.Play(SFXType.JarPour);
         }
         else if (dropArea is DragAreaTeapot)
         {
             var teapotArea = dropArea as DragAreaTeapot;
-            teapotArea.TryFill(new BaseExpression(baseKind));
+            if (teapotArea.TryFill(new BaseExpression(baseKind)))
+                SoundManager.Play(SFXType.JarPour);
         }
         if (dropArea is DragAreaTeapotInside)
         {
             var teapotArea = dropArea as DragAreaTeapotInside;
-            teapotArea.TryFillTeapot(new BaseExpression(baseKind));
+            if (teapotArea.TryFillTeapot(new BaseExpression(baseKind)))
+                SoundManager.Play(SFXType.JarPour);
         }
         GD.Print($"BaseJar dropped on {dropArea?.Name}!");
     }
