@@ -1,21 +1,25 @@
 using Godot;
 using System;
+using RedteaGreenteaTea.Domain;
 
 public partial class DraggableCup : Node2D, IDraggable
 {
+    [Export] Sprite2D liquidSprite;
+
     DragAreaContainer returnArea;
+
+    bool hasContent = false;
+    ProductExpression liquidContent;
 
     public override void _Process(double delta)
     {
-        if (InputManager.Instance?.currentDragItem == this)
+        base._Process(delta);
+        DraggableUtil.DefaultDragBehavior(this, this, delta, returnArea);
+
+        liquidSprite.Visible = hasContent;
+        if (hasContent)
         {
-            Position = Position.Lerp(GetGlobalMousePosition(), 20f * (float)delta);
-            ZIndex = 2; // Ensure the dragged item is on top
-        }
-        else if (returnArea != null)
-        {
-            Position = Position.Lerp(returnArea.GlobalPosition, 10f * (float)delta);
-            ZIndex = 1; // Reset ZIndex when not being dragged
+            liquidSprite.Modulate = liquidContent.Color.ToGodotColor();
         }
     }
 
@@ -74,5 +78,17 @@ public partial class DraggableCup : Node2D, IDraggable
             GD.Print("Failed to return cup to original position. Destroying cup.");
             Destroy();
         }
+    }
+
+    public void Fill(ProductExpression liquid)
+    {
+        if (!liquid.Is(ProductCategory.Liquid))
+        {
+            GD.Print("Cannot fill cup with non-liquid product.");
+            return;
+        }
+        liquidContent = liquid;
+        hasContent = true;
+        GD.Print($"Cup filled with {liquid.DisplayName}.");
     }
 }

@@ -1,8 +1,10 @@
 using Godot;
+using RedteaGreenteaTea.Domain;
 using System;
 
 public partial class DraggableBaseJar : Node2D, IDraggable
 {
+    [Export] BaseKind baseKind;
     Vector2 originalPosition;
 
     public override void _Process(double delta)
@@ -10,7 +12,7 @@ public partial class DraggableBaseJar : Node2D, IDraggable
         if (InputManager.Instance?.currentDragItem == this)
         {
             Position = Position.Lerp(GetGlobalMousePosition(), 20f * (float)delta);
-            ZIndex = 2; // Ensure the dragged item is on top
+            ZIndex = DraggableUtil.DragZIndex; // Ensure the dragged item is on top
         }
         else
         {
@@ -31,6 +33,11 @@ public partial class DraggableBaseJar : Node2D, IDraggable
 
     public void OnDrop(DragArea dropArea)
     {
+        if (dropArea is DragAreaContainer)
+        {
+            var container = dropArea as DragAreaContainer;
+            container.TryFill(new BaseExpression(baseKind));
+        }
         GD.Print($"BaseJar dropped on {dropArea?.Name}!");
     }
 

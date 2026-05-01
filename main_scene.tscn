@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cqfs3moev56ed" path="res://Scripts/Draggable/DraggableBaseJar.cs" id="10_w30ff"]
 [ext_resource type="Texture2D" uid="uid://c3hhub2ni5k7i" path="res://Sprites/우유.png" id="11_m35m6"]
 [ext_resource type="Script" uid="uid://dnyq8dix5b66i" path="res://Scripts/DragArea/DragAreaContainer.cs" id="13_w30ff"]
+[ext_resource type="Texture2D" uid="uid://d31beon55wiyd" path="res://Sprites/카펫.png" id="13_xy6fp"]
 [ext_resource type="Texture2D" uid="uid://jfdkg7e7a6gh" path="res://Sprites/Teapot/포트_Back.png" id="15_fv2he"]
 [ext_resource type="Texture2D" uid="uid://c8c7572qn20ln" path="res://Sprites/Teapot/초_켜짐.png" id="15_j8kkg"]
 [ext_resource type="Texture2D" uid="uid://ci1mcg13xpuwn" path="res://Sprites/Teapot/초_꺼짐.png" id="16_5smuj"]
@@ -205,32 +206,75 @@ hoverHighlight = NodePath("../우유병/우유")
 [node name="우유병" type="Node2D" parent="." unique_id=34631623]
 position = Vector2(274, 662)
 script = ExtResource("10_w30ff")
+baseKind = 1
 
 [node name="우유" type="Sprite2D" parent="우유병" unique_id=1000126929]
 texture = ExtResource("11_m35m6")
 script = ExtResource("7_p8s74")
 
+[node name="카펫" type="Sprite2D" parent="." unique_id=1790975314]
+position = Vector2(714, 681)
+texture = ExtResource("13_xy6fp")
+
 [node name="DragArea도마1" parent="." unique_id=2060282876 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
-position = Vector2(735, 657)
-scale = Vector2(1.0191394, 1.008177)
+position = Vector2(572, 597)
+scale = Vector2(1.1861987, 0.56245345)
 script = ExtResource("13_w30ff")
-hoverHighlight = NodePath("../화분")
+hoverHighlight = NodePath("")
 
-[node name="화분" type="Sprite2D" parent="." unique_id=1596414090]
-position = Vector2(733, 739)
-texture = ExtResource("9_7ycvg")
-script = ExtResource("7_p8s74")
-
-[node name="DragArea도마2" parent="." unique_id=209514780 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
-position = Vector2(889.0001, 656)
-scale = Vector2(1.0386451, 1.016421)
+[node name="DragArea도마2" parent="." unique_id=1469751056 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+position = Vector2(732, 598)
+scale = Vector2(1.1861987, 0.56245345)
 script = ExtResource("13_w30ff")
-hoverHighlight = NodePath("../화분2")
+hoverHighlight = NodePath("")
 
-[node name="화분2" type="Sprite2D" parent="." unique_id=167836149]
-position = Vector2(895, 731)
-texture = ExtResource("9_7ycvg")
-script = ExtResource("7_p8s74")
+[node name="DragArea도마3" parent="." unique_id=1038028413 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+position = Vector2(896, 600)
+scale = Vector2(1.1861987, 0.56245345)
+script = ExtResource("13_w30ff")
+hoverHighlight = NodePath("")
+
+[node name="DragArea도마4" parent="." unique_id=331881062 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+z_index = 1
+position = Vector2(549, 668)
+scale = Vector2(1.1861987, 0.56245345)
+script = ExtResource("13_w30ff")
+hoverHighlight = NodePath("")
+
+[node name="DragArea도마5" parent="." unique_id=274940628 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+z_index = 1
+position = Vector2(721, 668.9999)
+scale = Vector2(1.1861987, 0.56245345)
+script = ExtResource("13_w30ff")
+hoverHighlight = NodePath("")
+
+[node name="DragArea도마6" parent="." unique_id=964057553 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+z_index = 1
+position = Vector2(894, 670)
+scale = Vector2(1.1861987, 0.56245345)
+script = ExtResource("13_w30ff")
+hoverHighlight = NodePath("")
+
+[node name="DragArea도마7" parent="." unique_id=1120033533 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+z_index = 2
+position = Vector2(532, 739)
+scale = Vector2(1.1861987, 0.56245345)
+script = ExtResource("13_w30ff")
+hoverHighlight = NodePath("")
+
+[node name="DragArea도마8" parent="." unique_id=1877028849 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+z_index = 2
+position = Vector2(706.00006, 736.99994)
+scale = Vector2(1.1861987, 0.56245345)
+script = ExtResource("13_w30ff")
+hoverHighlight = NodePath("")
+
+[node name="DragArea도마9" parent="." unique_id=1455570040 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+z_index = 2
+position = Vector2(890, 739)
+scale = Vector2(1.1861987, 0.56245345)
+script = ExtResource("13_w30ff")
+hoverHighlight = NodePath("")
 
 [node name="포트Back" type="Sprite2D" parent="." unique_id=1502514953]
 position = Vector2(1241.5, 536.5)
@@ -299,10 +343,17 @@ script = ExtResource("28_uws2o")
 cupScene = ExtResource("25_kv3aw")
 hoverHighlight = NodePath("../찻잔들")
 
-[node name="찻잔들" type="Sprite2D" parent="." unique_id=1191660420]
+[node name="찻잔들" type="Node2D" parent="." unique_id=494467168]
 position = Vector2(1826, 623)
-texture = ExtResource("30_p8s74")
 script = ExtResource("7_p8s74")
+
+[node name="찻잔들2" type="Sprite2D" parent="찻잔들" unique_id=1569823222]
+position = Vector2(19, -28)
+texture = ExtResource("30_p8s74")
+
+[node name="찻잔들" type="Sprite2D" parent="찻잔들" unique_id=1191660420]
+position = Vector2(-32, 49)
+texture = ExtResource("30_p8s74")
 
 [node name="DragArea접시" parent="." unique_id=1088177615 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(1607, 622)
@@ -311,10 +362,17 @@ script = ExtResource("28_uws2o")
 cupScene = ExtResource("31_gfmxp")
 hoverHighlight = NodePath("../접시들")
 
-[node name="접시들" type="Sprite2D" parent="." unique_id=303759334]
+[node name="접시들" type="Node2D" parent="." unique_id=73588140]
 position = Vector2(1602, 635)
-texture = ExtResource("31_o4fqm")
 script = ExtResource("7_p8s74")
+
+[node name="접시들" type="Sprite2D" parent="접시들" unique_id=303759334]
+position = Vector2(20, -39)
+texture = ExtResource("31_o4fqm")
+
+[node name="접시들2" type="Sprite2D" parent="접시들" unique_id=1945615646]
+position = Vector2(-26, 51)
+texture = ExtResource("31_o4fqm")
 
 [node name="DragArea화분1" parent="." unique_id=1896093268 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(105.00012, 949)

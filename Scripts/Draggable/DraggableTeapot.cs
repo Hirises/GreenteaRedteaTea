@@ -10,7 +10,7 @@ public partial class DraggableTeapot : Node2D, IDraggable
         if (InputManager.Instance?.currentDragItem == this)
         {
             Position = Position.Lerp(GetGlobalMousePosition(), 20f * (float)delta);
-            ZIndex = 2; // Ensure the dragged item is on top
+            ZIndex = DraggableUtil.DragZIndex; // Ensure the dragged item is on top
         }
         else
         {

@@ -7,16 +7,8 @@ public partial class DraggableLeaf : Node2D, IDraggable
 
     public override void _Process(double delta)
     {
-        if (InputManager.Instance?.currentDragItem == this)
-        {
-            Position =  Position.Lerp(GetGlobalMousePosition(), 20f * (float)delta);
-            ZIndex = 2; // Ensure the dragged item is on top
-        }
-        else if (returnArea != null)
-        {
-            Position = Position.Lerp(returnArea.GlobalPosition, 10f * (float)delta);
-            ZIndex = 1; // Reset ZIndex when not being dragged
-        }
+        base._Process(delta);
+        DraggableUtil.DefaultDragBehavior(this, this, delta, returnArea);
     }
 
     public void OnPick()
