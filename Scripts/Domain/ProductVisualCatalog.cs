@@ -125,9 +125,9 @@ public sealed class ProductVisualCatalog
     public ProductColor CalculateMixedLiquidColor(ProductColor left, ProductColor right)
     {
         float totalAlpha = left.A + right.A;
-        float leftWeight = totalAlpha > 0f ? left.A / totalAlpha : 0.5f;
-        float rightWeight = totalAlpha > 0f ? right.A / totalAlpha : 0.5f;
-        float alpha = ((left.A + right.A) / 2f) * _settings.ColorMixing.MixLiquids.AlphaMultiplier;
+        float leftWeight = totalAlpha > 0f ? left.A / totalAlpha * 2f : 1f;
+        float rightWeight = totalAlpha > 0f ? right.A / totalAlpha * 2f : 1f;
+        float alpha = totalAlpha / 2f * _settings.ColorMixing.MixLiquids.AlphaMultiplier;
 
         return WeightedRgb(left, leftWeight, right, rightWeight).WithAlpha(alpha);
     }
