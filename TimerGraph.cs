@@ -8,6 +8,12 @@ public partial class TimerGraph : Node2D
     Vector2 graphOriginalPosition;
 
 
+    public override void _Ready()
+    {
+        graphOriginalPosition = graphSprite.Position;
+        graphSprite.RegionEnabled = true;
+    }
+
     public void OnOrderTimerChanged(float remainingSeconds, float timeLimitSeconds)
     {
         SetGraphFill(remainingSeconds / timeLimitSeconds);
