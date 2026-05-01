@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://8ujk5dbp0mqs" path="res://Sprites/BG.png" id="1_0f027"]
 [ext_resource type="Script" uid="uid://bgivx2fjusyl0" path="res://InputManager.cs" id="1_gyfs4"]
 [ext_resource type="Texture2D" uid="uid://dltfxyeb6ltqk" path="res://Sprites/녹차.png" id="2_gyfs4"]
-[ext_resource type="Texture2D" uid="uid://c4snac76bmbsk" path="res://Sprites/매대.png" id="3_0hwxg"]
 [ext_resource type="PackedScene" uid="uid://baoyco4ib5mpd" path="res://drag_area.tscn" id="3_d5x1h"]
 [ext_resource type="Script" uid="uid://d1wy472gcm56l" path="res://Scripts/DragArea/DragAreaLeafJar.cs" id="4_66tet"]
 [ext_resource type="Texture2D" uid="uid://bjoo3c60v3tta" path="res://Sprites/홍차.png" id="4_d5x1h"]
 [ext_resource type="Texture2D" uid="uid://w6ayy282jr2w" path="res://Sprites/말풍선.png" id="5_3wiol"]
 [ext_resource type="PackedScene" uid="uid://m4d8ws80fk0i" path="res://DraggableLeaf.tscn" id="5_66tet"]
+[ext_resource type="Texture2D" uid="uid://dwff0l8g8ph4q" path="res://Sprites/매대.png" id="7_3wiol"]
 [ext_resource type="Script" uid="uid://kn8cm2cmjirc" path="res://HoverHighlightable.cs" id="7_p8s74"]
 [ext_resource type="Texture2D" uid="uid://babrx24smaet" path="res://Sprites/화분.png" id="9_7ycvg"]
 [ext_resource type="Texture2D" uid="uid://c4a8atyo2j1p4" path="res://Sprites/물.png" id="9_42l1d"]
@@ -515,12 +515,13 @@ z_index = -52
 texture = ExtResource("1_0f027")
 centered = false
 
-[node name="CustomerUI" type="Sprite2D" parent="." unique_id=1782127251]
+[node name="CustomerUI" type="Sprite2D" parent="." unique_id=1782127251 node_paths=PackedStringArray("AnimationPlayer")]
 z_index = -51
 position = Vector2(769, 274)
 texture = ExtResource("35_opjno")
 script = ExtResource("35_1n88h")
 TextPath = NodePath("Speech/말풍선/Text")
+AnimationPlayer = NodePath("Speech/AnimationPlayer")
 
 [node name="Speech" type="Node2D" parent="CustomerUI" unique_id=1465021053]
 
@@ -545,7 +546,7 @@ libraries/ = SubResource("AnimationLibrary_6a02w")
 [node name="매대" type="Sprite2D" parent="." unique_id=1072516668]
 z_index = -50
 position = Vector2(0, 344)
-texture = ExtResource("3_0hwxg")
+texture = ExtResource("7_3wiol")
 centered = false
 
 [node name="DragArea녹차" parent="." unique_id=112241637 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]

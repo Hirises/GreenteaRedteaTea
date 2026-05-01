@@ -3,6 +3,8 @@ public partial class CustomerUi : Sprite2D
 {
 	[Export]
 	public NodePath TextPath { get; set; } = "Text";
+	[Export]
+	public AnimationPlayer AnimationPlayer;
 	private const string CustomerSpriteDirectory = "res://Sprites/Customers";
 	private const string DefaultCustomerName = "Default";
 	private Text textLabel;
@@ -54,6 +56,7 @@ public partial class CustomerUi : Sprite2D
 		}
 
 		textLabel.setText(text);
+		AnimationPlayer.Play("speech_open");
 	}
 
 	private bool FindTextLabel()
