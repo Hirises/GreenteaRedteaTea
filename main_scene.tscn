@@ -34,6 +34,11 @@
 [ext_resource type="PackedScene" uid="uid://dl0l7xxsms1ll" path="res://DraggableCup.tscn" id="25_kv3aw"]
 [ext_resource type="Script" uid="uid://dobquj4bam6hw" path="res://Scripts/DragArea/DragAreaCupPile.cs" id="28_uws2o"]
 [ext_resource type="Script" uid="uid://okjihqk21var" path="res://TimerGraph.cs" id="30_j8kkg"]
+[ext_resource type="Script" uid="uid://ceuu1mqtj0omh" path="res://Scripts/Game/GameManager.cs" id="33_o4fqm"]
+[ext_resource type="Script" uid="uid://bxql0al8axl3o" path="res://Scripts/Game/CustomerManager.cs" id="34_7jlmu"]
+[ext_resource type="Script" uid="uid://brvmmisl2f4mw" path="res://Scripts/Game/UI/CustomerUi.cs" id="35_1n88h"]
+[ext_resource type="Texture2D" uid="uid://blmvx4aa5nkmi" path="res://Sprites/Customers/Default.png" id="35_opjno"]
+[ext_resource type="Script" uid="uid://d2lnljcifpjqh" path="res://Scripts/Game/UI/Text.cs" id="37_meb7l"]
 [ext_resource type="Texture2D" uid="uid://bre1jmy3044v8" path="res://Sprites/찻잔/찻잔들.png" id="30_p8s74"]
 [ext_resource type="PackedScene" uid="uid://dhpchgbxmiqfp" path="res://DraggablePlate.tscn" id="31_gfmxp"]
 [ext_resource type="Texture2D" uid="uid://vg5dum1i2308" path="res://Sprites/접시들.png" id="31_o4fqm"]
@@ -454,3 +459,23 @@ texture = ExtResource("9_42l1d")
 position = Vector2(-2, -85)
 scale = Vector2(0.2798165, 1)
 texture = ExtResource("11_m35m6")
+
+[node name="GameManager" type="Node" parent="." unique_id=2122933545]
+script = ExtResource("33_o4fqm")
+
+[node name="CustomerManager" type="Node" parent="GameManager" unique_id=265326387]
+script = ExtResource("34_7jlmu")
+
+[node name="CustomerUI" type="Sprite2D" parent="." unique_id=1782127251]
+position = Vector2(769, 274)
+texture = ExtResource("35_opjno")
+script = ExtResource("35_1n88h")
+
+[node name="Text" type="Label" parent="CustomerUI" unique_id=1591529178]
+offset_left = 180.0
+offset_top = -95.0
+offset_right = 220.0
+offset_bottom = -72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Default"
+script = ExtResource("37_meb7l")
