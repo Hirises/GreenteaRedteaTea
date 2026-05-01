@@ -4,7 +4,7 @@ using System;
 
 public partial class DragAreaContainer : DragArea, IDragAreaContainer
 {
-    IDraggable currentDraggable;
+    IDraggableContained currentDraggable;
 
     public Node2D GetNode()
     {
@@ -15,6 +15,7 @@ public partial class DragAreaContainer : DragArea, IDragAreaContainer
     {
         var draggable = currentDraggable;
         currentDraggable = null;
+        SetHoverHighlight(null);
         return draggable;
     }
 
@@ -25,7 +26,13 @@ public partial class DragAreaContainer : DragArea, IDragAreaContainer
             GD.Print("Container already has a draggable item!");
             return false;
         }
-        currentDraggable = draggable;
+        if (draggable is not IDraggableContained)
+        {
+            GD.Print("Only draggable items that can be contained can be placed in the container!");
+            return false;
+        }
+        currentDraggable = draggable as IDraggableContained;
+        SetHoverHighlight(currentDraggable.GetHoverHighlight());
         return true;
     }
 

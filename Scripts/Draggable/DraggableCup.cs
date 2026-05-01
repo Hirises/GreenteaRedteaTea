@@ -2,9 +2,10 @@ using Godot;
 using System;
 using RedteaGreenteaTea.Domain;
 
-public partial class DraggableCup : Node2D, IDraggable
+public partial class DraggableCup : Node2D, IDraggableContained
 {
     [Export] Sprite2D liquidSprite;
+    [Export] HoverHighlightable hoverHighlight;
 
     DragAreaContainer returnArea;
 
@@ -90,5 +91,10 @@ public partial class DraggableCup : Node2D, IDraggable
         liquidContent = liquid;
         hasContent = true;
         GD.Print($"Cup filled with {liquid.DisplayName}.");
+    }
+
+    public HoverHighlightable GetHoverHighlight()
+    {
+        return hoverHighlight;
     }
 }

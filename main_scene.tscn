@@ -220,61 +220,61 @@ texture = ExtResource("13_xy6fp")
 
 [node name="DragArea도마1" parent="." unique_id=2060282876 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(572, 597)
-scale = Vector2(1.1861987, 0.56245345)
+scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
 hoverHighlight = NodePath("")
 
 [node name="DragArea도마2" parent="." unique_id=1469751056 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(732, 598)
-scale = Vector2(1.1861987, 0.56245345)
+scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
 hoverHighlight = NodePath("")
 
 [node name="DragArea도마3" parent="." unique_id=1038028413 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(896, 600)
-scale = Vector2(1.1861987, 0.56245345)
+scale = Vector2(1.5460404, 0.6762489)
 script = ExtResource("13_w30ff")
 hoverHighlight = NodePath("")
 
 [node name="DragArea도마4" parent="." unique_id=331881062 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 z_index = 1
 position = Vector2(549, 668)
-scale = Vector2(1.1861987, 0.56245345)
+scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
 hoverHighlight = NodePath("")
 
 [node name="DragArea도마5" parent="." unique_id=274940628 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 z_index = 1
 position = Vector2(721, 668.9999)
-scale = Vector2(1.1861987, 0.56245345)
+scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
 hoverHighlight = NodePath("")
 
 [node name="DragArea도마6" parent="." unique_id=964057553 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 z_index = 1
 position = Vector2(894, 670)
-scale = Vector2(1.1861987, 0.56245345)
+scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
 hoverHighlight = NodePath("")
 
 [node name="DragArea도마7" parent="." unique_id=1120033533 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 z_index = 2
 position = Vector2(532, 739)
-scale = Vector2(1.1861987, 0.56245345)
+scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
 hoverHighlight = NodePath("")
 
 [node name="DragArea도마8" parent="." unique_id=1877028849 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 z_index = 2
 position = Vector2(706.00006, 736.99994)
-scale = Vector2(1.1861987, 0.56245345)
+scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
 hoverHighlight = NodePath("")
 
 [node name="DragArea도마9" parent="." unique_id=1455570040 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 z_index = 2
 position = Vector2(890, 739)
-scale = Vector2(1.1861987, 0.56245345)
+scale = Vector2(1.5460404, 0.6762485)
 script = ExtResource("13_w30ff")
 hoverHighlight = NodePath("")
 

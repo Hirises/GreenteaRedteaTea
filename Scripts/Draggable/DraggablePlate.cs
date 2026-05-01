@@ -2,9 +2,10 @@ using Godot;
 using RedteaGreenteaTea.Domain;
 using System;
 
-public partial class DraggablePlate : Node2D, IDraggable
+public partial class DraggablePlate : Node2D, IDraggableContained
 {
     [Export] DragAreaPlate dragArea;
+    [Export] HoverHighlightable hoverHighlight;
     public DragAreaPlate DragArea => dragArea;
     DragAreaContainer returnArea;
 
@@ -84,5 +85,10 @@ public partial class DraggablePlate : Node2D, IDraggable
     {
         GD.Print("Putting leaf on plate.");
         return dragArea.TryDropDraggable(leaf);
+    }
+
+    public HoverHighlightable GetHoverHighlight()
+    {
+        return hoverHighlight;
     }
 }

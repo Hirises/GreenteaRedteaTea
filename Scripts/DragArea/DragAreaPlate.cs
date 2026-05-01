@@ -15,6 +15,7 @@ public partial class DragAreaPlate : DragArea, IDragAreaContainer
     {
         var draggable = currentDraggable;
         currentDraggable = null;
+        SetHoverHighlight(null);
         return draggable;
     }
 
@@ -31,7 +32,7 @@ public partial class DragAreaPlate : DragArea, IDragAreaContainer
             return false;
         }
         currentDraggable = draggable as DraggableLeaf;
-        SetHoverHighlight(currentDraggable.HoverHighlight);
+        SetHoverHighlight(currentDraggable.GetHoverHighlight());
         
         return true;
     }

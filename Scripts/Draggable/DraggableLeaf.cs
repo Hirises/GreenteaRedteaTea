@@ -2,11 +2,10 @@ using Godot;
 using RedteaGreenteaTea.Domain;
 using System;
 
-public partial class DraggableLeaf : Node2D, IDraggable
+public partial class DraggableLeaf : Node2D, IDraggableContained
 {
     [Export] Sprite2D leafSprite;
     [Export] HoverHighlightable hoverHighlight;
-    public HoverHighlightable HoverHighlight => hoverHighlight;
     IDragAreaContainer returnArea;
     ProductExpression leafContent;
 
@@ -90,5 +89,10 @@ public partial class DraggableLeaf : Node2D, IDraggable
             GD.Print("Failed to return leaf to original position. Destroying leaf.");
             Destroy();
         }
+    }
+
+    public HoverHighlightable GetHoverHighlight()
+    {
+        return hoverHighlight;
     }
 }

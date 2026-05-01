@@ -12,7 +12,8 @@ public partial class DragArea : Area2D
         if (hoverHighlight == null) return;
 
         if (InputManager.Instance.currentHoverArea == this &&
-            InputManager.Instance.inputState == InputManager.InputState.None)
+            InputManager.Instance.inputState == InputManager.InputState.None &&
+            Visible)
         {
             hoverHighlight.SetHover();
         }
