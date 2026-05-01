@@ -8,6 +8,7 @@ public partial class DraggableTeapot : Node2D, IDraggable
     [Export] Sprite2D liquidBottom;
     [Export] DragAreaTeapotInside insideArea;
     [Export] Vector2 dragOffset;
+    [Export] AnimationPlayer animationPlayer;
     Vector2 originalPosition;
     bool hasContent = false;
     public bool HasContent => hasContent;
@@ -116,6 +117,8 @@ public partial class DraggableTeapot : Node2D, IDraggable
         insideArea.SetLeaf(new BrewedLeafExpression(leaf, liquidContent));
         liquidContent = brewed;
         GD.Print($"Brewed tea in teapot. Now contains {brewed.DisplayName}.");
+        
+        animationPlayer.Play("shake");
 
         return true;
     }
