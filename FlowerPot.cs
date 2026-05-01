@@ -53,6 +53,9 @@ public partial class FlowerPot : Node2D
         var tree = isLeaf1 ? tree1 : tree2;
         var leafSprites = isLeaf1 ? leafSprites1 : leafSprites2;
         var deco = isLeaf1 ? deco1 : deco2;
+        
+        tree1.Visible = false;
+        tree2.Visible = false;
         tree.Visible = true;
         var leafColor = leafContent.Color.ToGodotColor();
         foreach (var leaf in leafSprites)
