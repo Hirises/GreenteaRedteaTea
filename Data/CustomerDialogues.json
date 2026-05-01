@@ -63,6 +63,25 @@
       ]
     }
   },
+  "RandomCustomer": {
+    "order": [
+      "{order} please"
+    ],
+    "thank": [
+      "thx"
+    ],
+    "complaint": {
+      "timeout": [
+        "Customer complains: order timed out."
+      ],
+      "wrongMenu": [
+        "Customer complains: wrong menu."
+      ],
+      "kickedOut": [
+        "Customer complains: kicked out."
+      ]
+    }
+  },
   "PutinCustomer": {
     "order": [
       "{order}."
