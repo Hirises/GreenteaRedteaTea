@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://blfc3725i487a"]
 
+[ext_resource type="Script" uid="uid://bxjax0l1c53hb" path="res://Scripts/DragArea/ClickArea.cs" id="1_3meqa"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy6fp"]
 
 [node name="ClickArea" type="Area2D" unique_id=1204339295]
 scale = Vector2(8.941459, 7.434281)
+script = ExtResource("1_3meqa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=102724102]
 position = Vector2(139.01535, 91.06461)
 scale = Vector2(0.7973277, 0.80919)
 shape = SubResource("RectangleShape2D_xy6fp")
 debug_color = Color(2.695322e-06, 0.63635087, 0.40990108, 0.41960785)
+
+[connection signal="mouse_entered" from="." to="." method="OnArea2DEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnArea2DExited"]
