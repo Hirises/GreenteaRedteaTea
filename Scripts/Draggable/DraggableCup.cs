@@ -46,7 +46,6 @@ public partial class DraggableCup : Node2D, IDraggableContained
             {
                 hasContent = false;
                 liquidContent = null;
-                returnArea = container;
                 ReturnToOriginalPosition();
                 GD.Print("Cup successfully poured into container.");
             }

@@ -7,6 +7,7 @@ public partial class DraggableTeapot : Node2D, IDraggable
     [Export] Sprite2D liquidTop;
     [Export] Sprite2D liquidBottom;
     [Export] DragAreaTeapotInside insideArea;
+    [Export] Vector2 dragOffset;
     Vector2 originalPosition;
     bool hasContent = false;
     public bool HasContent => hasContent;
@@ -17,7 +18,8 @@ public partial class DraggableTeapot : Node2D, IDraggable
     {
         if (InputManager.Instance?.currentDragItem == this)
         {
-            Position = Position.Lerp(GetGlobalMousePosition(), 20f * (float)delta);
+            var targetPosition = GetGlobalMousePosition() + dragOffset;
+            Position = Position.Lerp(targetPosition, 20f * (float)delta);
             ZIndex = DraggableUtil.DragZIndex; // Ensure the dragged item is on top
         }
         else

@@ -5,6 +5,7 @@ using System;
 public partial class DraggableBaseJar : Node2D, IDraggable
 {
     [Export] BaseKind baseKind;
+    [Export] Vector2 dragOffset;
     public BaseKind BaseKind => baseKind;
     Vector2 originalPosition;
 
@@ -12,7 +13,8 @@ public partial class DraggableBaseJar : Node2D, IDraggable
     {
         if (InputManager.Instance?.currentDragItem == this)
         {
-            Position = Position.Lerp(GetGlobalMousePosition(), 20f * (float)delta);
+            var targetPosition = GetGlobalMousePosition() + dragOffset;
+            Position = Position.Lerp(targetPosition, 20f * (float)delta);
             ZIndex = DraggableUtil.DragZIndex; // Ensure the dragged item is on top
         }
         else

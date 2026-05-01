@@ -653,6 +653,7 @@ hoverHighlight = NodePath("../물병/물")
 [node name="물병" type="Node2D" parent="." unique_id=526272523]
 position = Vector2(101, 662)
 script = ExtResource("10_w30ff")
+dragOffset = Vector2(60, 100)
 
 [node name="물" type="Sprite2D" parent="물병" unique_id=2112136896]
 texture = ExtResource("9_42l1d")
@@ -669,6 +670,7 @@ hoverHighlight = NodePath("../우유병/우유")
 position = Vector2(274, 662)
 script = ExtResource("10_w30ff")
 baseKind = 1
+dragOffset = Vector2(60, 100)
 
 [node name="우유" type="Sprite2D" parent="우유병" unique_id=1000126929]
 texture = ExtResource("11_m35m6")
@@ -767,6 +769,7 @@ script = ExtResource("19_xy6fp")
 liquidTop = NodePath("Graphic/주전자WaterTop")
 liquidBottom = NodePath("Graphic/주전자WaterSide")
 insideArea = NodePath("DragArea거름망")
+dragOffset = Vector2(220, 80)
 
 [node name="Graphic" type="Node2D" parent="Teapot" unique_id=84795924]
 script = ExtResource("7_p8s74")
