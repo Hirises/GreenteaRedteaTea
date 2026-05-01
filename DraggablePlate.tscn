@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dhpchgbxmiqfp"]
+
+[ext_resource type="Script" uid="uid://bji36fh8gwgua" path="res://Scripts/Draggable/DraggablePlate.cs" id="1_5g5e7"]
+[ext_resource type="Script" uid="uid://kn8cm2cmjirc" path="res://HoverHighlightable.cs" id="2_e5025"]
+[ext_resource type="Texture2D" uid="uid://b0quh50i7qton" path="res://Sprites/접시.png" id="3_5g5e7"]
+[ext_resource type="PackedScene" uid="uid://baoyco4ib5mpd" path="res://drag_area.tscn" id="4_bq1m3"]
+[ext_resource type="Script" uid="uid://b86ly8n3uqnks" path="res://Scripts/DragArea/DragAreaPlate.cs" id="5_0ixe1"]
+
+[node name="DraggablePlate" type="Node2D" unique_id=1037602541 node_paths=PackedStringArray("dragArea", "hoverHighlight")]
+script = ExtResource("1_5g5e7")
+dragArea = NodePath("DragArea")
+hoverHighlight = NodePath("Graphic")
+
+[node name="Graphic" type="Node2D" parent="." unique_id=1696305867]
+script = ExtResource("2_e5025")
+
+[node name="접시" type="Sprite2D" parent="Graphic" unique_id=1918203775]
+texture = ExtResource("3_5g5e7")
+
+[node name="DragArea" parent="." unique_id=112241637 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("4_bq1m3")]
+position = Vector2(0, -13)
+scale = Vector2(0.40944728, 0.46094987)
+script = ExtResource("5_0ixe1")
+hoverHighlight = NodePath("../Graphic")

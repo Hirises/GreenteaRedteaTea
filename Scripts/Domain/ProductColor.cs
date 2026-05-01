@@ -1,4 +1,5 @@
 using System;
+using Godot;
 
 namespace RedteaGreenteaTea.Domain;
 
@@ -21,5 +22,10 @@ public readonly record struct ProductColor(float R, float G, float B, float A)
             Math.Clamp(G, 0f, 1f),
             Math.Clamp(B, 0f, 1f),
             Math.Clamp(A, 0f, 1f));
+    }
+
+    public Color ToGodotColor()
+    {
+        return new Color(R, G, B, A);
     }
 }

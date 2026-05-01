@@ -4,46 +4,55 @@
 [ext_resource type="Script" uid="uid://bgivx2fjusyl0" path="res://InputManager.cs" id="1_gyfs4"]
 [ext_resource type="Texture2D" uid="uid://dltfxyeb6ltqk" path="res://Sprites/녹차.png" id="2_gyfs4"]
 [ext_resource type="PackedScene" uid="uid://baoyco4ib5mpd" path="res://drag_area.tscn" id="3_d5x1h"]
-[ext_resource type="Script" uid="uid://ds15sndrnjy83" path="res://DragAreaLeafJar.cs" id="4_66tet"]
+[ext_resource type="Script" uid="uid://d1wy472gcm56l" path="res://Scripts/DragArea/DragAreaLeafJar.cs" id="4_66tet"]
 [ext_resource type="Texture2D" uid="uid://bjoo3c60v3tta" path="res://Sprites/홍차.png" id="4_d5x1h"]
 [ext_resource type="PackedScene" uid="uid://m4d8ws80fk0i" path="res://DraggableLeaf.tscn" id="5_66tet"]
 [ext_resource type="Script" uid="uid://kn8cm2cmjirc" path="res://HoverHighlightable.cs" id="7_p8s74"]
-[ext_resource type="Script" uid="uid://dnyq8dix5b66i" path="res://DragAreaContainer.cs" id="8_7ycvg"]
-[ext_resource type="Script" uid="uid://cpmli88ybuka1" path="res://DragAreaBaseJar.cs" id="8_mo76n"]
 [ext_resource type="Texture2D" uid="uid://babrx24smaet" path="res://Sprites/화분.png" id="9_7ycvg"]
 [ext_resource type="Texture2D" uid="uid://c4a8atyo2j1p4" path="res://Sprites/물.png" id="9_42l1d"]
-[ext_resource type="Script" uid="uid://cqfs3moev56ed" path="res://DraggableBaseJar.cs" id="10_2jcla"]
+[ext_resource type="Script" uid="uid://cpmli88ybuka1" path="res://Scripts/DragArea/DragAreaBaseJar.cs" id="9_meb7l"]
+[ext_resource type="Script" uid="uid://cqfs3moev56ed" path="res://Scripts/Draggable/DraggableBaseJar.cs" id="10_w30ff"]
 [ext_resource type="Texture2D" uid="uid://c3hhub2ni5k7i" path="res://Sprites/우유.png" id="11_m35m6"]
-[ext_resource type="Texture2D" uid="uid://olmc677jxq27" path="res://Sprites/컵 목업.png" id="14_42l1d"]
+[ext_resource type="Script" uid="uid://dnyq8dix5b66i" path="res://Scripts/DragArea/DragAreaContainer.cs" id="13_w30ff"]
+[ext_resource type="Texture2D" uid="uid://d31beon55wiyd" path="res://Sprites/카펫.png" id="13_xy6fp"]
 [ext_resource type="Texture2D" uid="uid://jfdkg7e7a6gh" path="res://Sprites/Teapot/포트_Back.png" id="15_fv2he"]
 [ext_resource type="Texture2D" uid="uid://c8c7572qn20ln" path="res://Sprites/Teapot/초_켜짐.png" id="15_j8kkg"]
 [ext_resource type="Texture2D" uid="uid://ci1mcg13xpuwn" path="res://Sprites/Teapot/초_꺼짐.png" id="16_5smuj"]
-[ext_resource type="Script" uid="uid://b5oee2s1w76rp" path="res://DragAreaTeapot.cs" id="16_o7u2a"]
-[ext_resource type="Script" uid="uid://pw6cex1g4tnc" path="res://DraggableTeapot.cs" id="17_ijoax"]
 [ext_resource type="Texture2D" uid="uid://sa3og0mgifbo" path="res://Sprites/Teapot/주전자_FrontGrad.png" id="17_y5ved"]
 [ext_resource type="Texture2D" uid="uid://dhv8jangkpr65" path="res://Sprites/Teapot/주전자_Full.png" id="18_kv3aw"]
+[ext_resource type="PackedScene" uid="uid://blfc3725i487a" path="res://click_area.tscn" id="18_uws2o"]
+[ext_resource type="Script" uid="uid://b5oee2s1w76rp" path="res://Scripts/DragArea/DragAreaTeapot.cs" id="18_xy6fp"]
+[ext_resource type="Script" uid="uid://u4ml7sm7kt5g" path="res://Scripts/DragArea/ClickAreaCandle.cs" id="19_iylel"]
 [ext_resource type="Texture2D" uid="uid://cwq2lr05jgw45" path="res://Sprites/Teapot/주전자_Half.png" id="19_o7u2a"]
+[ext_resource type="Script" uid="uid://ls14mvmdeo2u" path="res://Scripts/DragArea/DragAreaTeapotInside.cs" id="19_uws2o"]
+[ext_resource type="Script" uid="uid://pw6cex1g4tnc" path="res://Scripts/Draggable/DraggableTeapot.cs" id="19_xy6fp"]
 [ext_resource type="Texture2D" uid="uid://c0m2lwkcodvap" path="res://Sprites/Teapot/주전자_Water_Side.png" id="20_ijoax"]
 [ext_resource type="Texture2D" uid="uid://cgbgqitus6pyi" path="res://Sprites/Teapot/주전자_Water_Top.png" id="21_j8kkg"]
 [ext_resource type="Texture2D" uid="uid://cjjr17u4vweat" path="res://Sprites/Teapot/거름망_Back.png" id="22_yh4yk"]
 [ext_resource type="Texture2D" uid="uid://cg3lcnelvqkew" path="res://Sprites/Teapot/거름망_Front.png" id="23_p8s74"]
 [ext_resource type="Texture2D" uid="uid://d4j6f3iyhsjux" path="res://Sprites/Teapot/포트_Front.png" id="24_o4fqm"]
-[ext_resource type="Script" uid="uid://dobquj4bam6hw" path="res://DragAreaCupPile.cs" id="24_y5ved"]
 [ext_resource type="PackedScene" uid="uid://dl0l7xxsms1ll" path="res://DraggableCup.tscn" id="25_kv3aw"]
-[ext_resource type="Script" uid="uid://bn8nosouc8rdx" path="res://DragAreaFlowerPot.cs" id="29_ijoax"]
+[ext_resource type="Script" uid="uid://dobquj4bam6hw" path="res://Scripts/DragArea/DragAreaCupPile.cs" id="28_uws2o"]
 [ext_resource type="Script" uid="uid://okjihqk21var" path="res://TimerGraph.cs" id="30_j8kkg"]
 [ext_resource type="Script" uid="uid://ceuu1mqtj0omh" path="res://Scripts/Game/GameManager.cs" id="33_o4fqm"]
 [ext_resource type="Script" uid="uid://bxql0al8axl3o" path="res://Scripts/Game/CustomerManager.cs" id="34_7jlmu"]
 [ext_resource type="Script" uid="uid://brvmmisl2f4mw" path="res://Scripts/Game/UI/CustomerUi.cs" id="35_1n88h"]
 [ext_resource type="Texture2D" uid="uid://blmvx4aa5nkmi" path="res://Sprites/Customers/Default.png" id="35_opjno"]
 [ext_resource type="Script" uid="uid://d2lnljcifpjqh" path="res://Scripts/Game/UI/Text.cs" id="37_meb7l"]
+[ext_resource type="Texture2D" uid="uid://bre1jmy3044v8" path="res://Sprites/찻잔/찻잔들.png" id="30_p8s74"]
+[ext_resource type="PackedScene" uid="uid://dhpchgbxmiqfp" path="res://DraggablePlate.tscn" id="31_gfmxp"]
+[ext_resource type="Texture2D" uid="uid://vg5dum1i2308" path="res://Sprites/접시들.png" id="31_o4fqm"]
+[ext_resource type="Script" uid="uid://bn8nosouc8rdx" path="res://Scripts/DragArea/DragAreaFlowerPot.cs" id="33_iylel"]
+[ext_resource type="Texture2D" uid="uid://cr06ruay45g11" path="res://Sprites/모래시계/모래시계_5.png" id="34_1n88h"]
+[ext_resource type="Script" uid="uid://cnvdxxhuh7fm2" path="res://Scripts/DragArea/DragAreaSubmit.cs" id="34_yj5sn"]
+[ext_resource type="Texture2D" uid="uid://dsfpuk28h4us2" path="res://Sprites/모래시계/모래시계_1.png" id="35_opjno"]
 
 [sub_resource type="Animation" id="Animation_ijoax"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("우유:position")
+tracks/0/path = NodePath("모래시계:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -55,7 +64,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("우유:rotation")
+tracks/1/path = NodePath("모래시계:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -67,7 +76,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("우유:scale")
+tracks/2/path = NodePath("모래시계:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -76,6 +85,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("모래시계:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("34_1n88h")]
+}
 
 [sub_resource type="Animation" id="Animation_j8kkg"]
 resource_name = "flip_hourglass"
@@ -83,7 +104,7 @@ length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("우유:position")
+tracks/0/path = NodePath("모래시계:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -95,7 +116,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("우유:rotation")
+tracks/1/path = NodePath("모래시계:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -107,7 +128,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("우유:scale")
+tracks/2/path = NodePath("모래시계:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -115,6 +136,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 0.34151006, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.1100917, 0.8787879), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("모래시계:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7674323),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("34_1n88h"), ExtResource("35_opjno")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yh4yk"]
@@ -129,6 +162,7 @@ _data = {
 script = ExtResource("1_gyfs4")
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=2050139955]
+z_index = -50
 texture = ExtResource("1_0f027")
 centered = false
 
@@ -137,6 +171,7 @@ position = Vector2(160, 544)
 scale = Vector2(1.4562218, 2.171475)
 script = ExtResource("4_66tet")
 leafScene = ExtResource("5_66tet")
+leafKind = 0
 hoverHighlight = NodePath("../녹차")
 
 [node name="녹차" type="Sprite2D" parent="." unique_id=813621535]
@@ -149,6 +184,7 @@ position = Vector2(331, 552)
 scale = Vector2(1.4812725, 2.3731213)
 script = ExtResource("4_66tet")
 leafScene = ExtResource("5_66tet")
+leafKind = 1
 hoverHighlight = NodePath("../홍차")
 
 [node name="홍차" type="Sprite2D" parent="." unique_id=2023065100]
@@ -159,13 +195,13 @@ script = ExtResource("7_p8s74")
 [node name="DragArea물" parent="." unique_id=308706680 node_paths=PackedStringArray("draggableJar", "hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(109, 681)
 scale = Vector2(1.1990864, 1.6917455)
-script = ExtResource("8_mo76n")
+script = ExtResource("9_meb7l")
 draggableJar = NodePath("../물병")
 hoverHighlight = NodePath("../물병/물")
 
 [node name="물병" type="Node2D" parent="." unique_id=526272523]
 position = Vector2(101, 662)
-script = ExtResource("10_2jcla")
+script = ExtResource("10_w30ff")
 
 [node name="물" type="Sprite2D" parent="물병" unique_id=2112136896]
 texture = ExtResource("9_42l1d")
@@ -174,71 +210,109 @@ script = ExtResource("7_p8s74")
 [node name="DragArea우유" parent="." unique_id=1902496306 node_paths=PackedStringArray("draggableJar", "hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(285.00003, 676.00006)
 scale = Vector2(1.1952131, 1.7656678)
-script = ExtResource("8_mo76n")
+script = ExtResource("9_meb7l")
 draggableJar = NodePath("../우유병")
 hoverHighlight = NodePath("../우유병/우유")
 
 [node name="우유병" type="Node2D" parent="." unique_id=34631623]
 position = Vector2(274, 662)
-script = ExtResource("10_2jcla")
+script = ExtResource("10_w30ff")
+baseKind = 1
 
 [node name="우유" type="Sprite2D" parent="우유병" unique_id=1000126929]
 texture = ExtResource("11_m35m6")
 script = ExtResource("7_p8s74")
 
-[node name="DragArea도마1" parent="." unique_id=2060282876 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
-position = Vector2(735, 657)
-scale = Vector2(1.0191394, 1.008177)
-script = ExtResource("8_7ycvg")
-hoverHighlight = NodePath("../화분")
+[node name="카펫" type="Sprite2D" parent="." unique_id=1790975314]
+z_index = -10
+position = Vector2(714, 681)
+texture = ExtResource("13_xy6fp")
 
-[node name="화분" type="Sprite2D" parent="." unique_id=1596414090]
-position = Vector2(733, 739)
-texture = ExtResource("9_7ycvg")
-script = ExtResource("7_p8s74")
+[node name="DragArea도마1" parent="." unique_id=2060282876 instance=ExtResource("3_d5x1h")]
+position = Vector2(572, 597)
+scale = Vector2(1.5460404, 0.6762485)
+script = ExtResource("13_w30ff")
 
-[node name="DragArea도마2" parent="." unique_id=209514780 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
-position = Vector2(889.0001, 656)
-scale = Vector2(1.0386451, 1.016421)
-script = ExtResource("8_7ycvg")
-hoverHighlight = NodePath("../화분2")
+[node name="DragArea도마2" parent="." unique_id=1469751056 instance=ExtResource("3_d5x1h")]
+position = Vector2(732, 598)
+scale = Vector2(1.5460404, 0.6762485)
+script = ExtResource("13_w30ff")
 
-[node name="화분2" type="Sprite2D" parent="." unique_id=167836149]
-position = Vector2(895, 731)
-texture = ExtResource("9_7ycvg")
-script = ExtResource("7_p8s74")
+[node name="DragArea도마3" parent="." unique_id=1038028413 instance=ExtResource("3_d5x1h")]
+position = Vector2(896, 600)
+scale = Vector2(1.5460404, 0.6762489)
+script = ExtResource("13_w30ff")
+
+[node name="DragArea도마4" parent="." unique_id=331881062 instance=ExtResource("3_d5x1h")]
+z_index = 1
+position = Vector2(549, 668)
+scale = Vector2(1.5460404, 0.6762485)
+script = ExtResource("13_w30ff")
+
+[node name="DragArea도마5" parent="." unique_id=274940628 instance=ExtResource("3_d5x1h")]
+z_index = 1
+position = Vector2(721, 668.9999)
+scale = Vector2(1.5460404, 0.6762485)
+script = ExtResource("13_w30ff")
+
+[node name="DragArea도마6" parent="." unique_id=964057553 instance=ExtResource("3_d5x1h")]
+z_index = 1
+position = Vector2(894, 670)
+scale = Vector2(1.5460404, 0.6762485)
+script = ExtResource("13_w30ff")
+
+[node name="DragArea도마7" parent="." unique_id=1120033533 instance=ExtResource("3_d5x1h")]
+z_index = 2
+position = Vector2(532, 739)
+scale = Vector2(1.5460404, 0.6762485)
+script = ExtResource("13_w30ff")
+
+[node name="DragArea도마8" parent="." unique_id=1877028849 instance=ExtResource("3_d5x1h")]
+z_index = 2
+position = Vector2(706.00006, 736.99994)
+scale = Vector2(1.5460404, 0.6762485)
+script = ExtResource("13_w30ff")
+
+[node name="DragArea도마9" parent="." unique_id=1455570040 instance=ExtResource("3_d5x1h")]
+z_index = 2
+position = Vector2(890, 739)
+scale = Vector2(1.5460404, 0.6762485)
+script = ExtResource("13_w30ff")
 
 [node name="포트Back" type="Sprite2D" parent="." unique_id=1502514953]
 position = Vector2(1241.5, 536.5)
 texture = ExtResource("15_fv2he")
 
-[node name="초꺼짐" type="Sprite2D" parent="." unique_id=555918164]
+[node name="초Graphic" type="Node2D" parent="." unique_id=1725709795]
 position = Vector2(1241.5, 536.5)
+script = ExtResource("7_p8s74")
+
+[node name="초꺼짐" type="Sprite2D" parent="초Graphic" unique_id=555918164]
 texture = ExtResource("16_5smuj")
 
-[node name="초켜짐" type="Sprite2D" parent="." unique_id=1162698434]
+[node name="초켜짐" type="Sprite2D" parent="초Graphic" unique_id=1162698434]
 visible = false
-position = Vector2(1241.5, 536.5)
 texture = ExtResource("15_j8kkg")
 
-[node name="DragArea티팟" parent="." unique_id=1802254503 node_paths=PackedStringArray("draggableTeapot", "hoverHighlight") instance=ExtResource("3_d5x1h")]
-position = Vector2(1250, 494)
-scale = Vector2(3.3338063, 2.7465036)
-script = ExtResource("16_o7u2a")
+[node name="ClickArea초" parent="." unique_id=1204339295 node_paths=PackedStringArray("teapot", "hoverHighlight") instance=ExtResource("18_uws2o")]
+script = ExtResource("19_iylel")
+teapot = NodePath("../Teapot")
+hoverHighlight = NodePath("../초Graphic")
+
+[node name="DragArea티팟" parent="." unique_id=1802254503 node_paths=PackedStringArray("draggableTeapot", "insideArea", "hoverHighlight") instance=ExtResource("3_d5x1h")]
+position = Vector2(1247, 478)
+scale = Vector2(3.3338063, 2.3808289)
+script = ExtResource("18_xy6fp")
 draggableTeapot = NodePath("../Teapot")
+insideArea = NodePath("../Teapot/DragArea거름망")
 hoverHighlight = NodePath("../Teapot/Graphic")
 
-[node name="DragArea거름망" parent="." unique_id=992993842 node_paths=PackedStringArray("draggableTeapot", "hoverHighlight") instance=ExtResource("3_d5x1h")]
-position = Vector2(1246.0001, 448.99997)
-rotation = 0.0001514969
-scale = Vector2(1.3464576, 1.8819572)
-script = ExtResource("16_o7u2a")
-draggableTeapot = NodePath("../Teapot")
-hoverHighlight = NodePath("../Teapot/Graphic")
-
-[node name="Teapot" type="Node2D" parent="." unique_id=1893496228]
+[node name="Teapot" type="Node2D" parent="." unique_id=1893496228 node_paths=PackedStringArray("liquidTop", "liquidBottom", "insideArea")]
 position = Vector2(1241.5, 536.5)
-script = ExtResource("17_ijoax")
+script = ExtResource("19_xy6fp")
+liquidTop = NodePath("Graphic/주전자WaterTop")
+liquidBottom = NodePath("Graphic/주전자WaterSide")
+insideArea = NodePath("DragArea거름망")
 
 [node name="Graphic" type="Node2D" parent="Teapot" unique_id=84795924]
 script = ExtResource("7_p8s74")
@@ -264,26 +338,62 @@ texture = ExtResource("22_yh4yk")
 [node name="거름망Front" type="Sprite2D" parent="Teapot/Graphic" unique_id=800210251]
 texture = ExtResource("23_p8s74")
 
+[node name="DragArea거름망" parent="Teapot" unique_id=992993842 node_paths=PackedStringArray("teapot", "hoverHighlight") instance=ExtResource("3_d5x1h")]
+position = Vector2(4.500122, -87.50003)
+rotation = 0.00015149689
+scale = Vector2(0.92678493, 1.0842611)
+script = ExtResource("19_uws2o")
+teapot = NodePath("../../DragArea티팟")
+hoverHighlight = NodePath("../Graphic")
+
 [node name="포트Front" type="Sprite2D" parent="." unique_id=6731051]
 position = Vector2(1241.5, 536.5)
 texture = ExtResource("24_o4fqm")
 
 [node name="DragArea컵" parent="." unique_id=1608700770 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
-position = Vector2(1793, 661)
-scale = Vector2(2.1737232, 2.1013157)
-script = ExtResource("24_y5ved")
+position = Vector2(1822, 623.00006)
+scale = Vector2(1.4911515, 2.3032079)
+script = ExtResource("28_uws2o")
 cupScene = ExtResource("25_kv3aw")
-hoverHighlight = NodePath("../컵목업")
+hoverHighlight = NodePath("../찻잔들")
 
-[node name="컵목업" type="Sprite2D" parent="." unique_id=220143113]
-position = Vector2(1701, 667)
-texture = ExtResource("14_42l1d")
+[node name="찻잔들" type="Node2D" parent="." unique_id=494467168]
+z_index = -10
+position = Vector2(1826, 623)
 script = ExtResource("7_p8s74")
+
+[node name="찻잔들2" type="Sprite2D" parent="찻잔들" unique_id=1569823222]
+position = Vector2(19, -28)
+texture = ExtResource("30_p8s74")
+
+[node name="찻잔들" type="Sprite2D" parent="찻잔들" unique_id=1191660420]
+position = Vector2(-32, 49)
+texture = ExtResource("30_p8s74")
+
+[node name="DragArea접시" parent="." unique_id=1088177615 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+position = Vector2(1607, 622)
+scale = Vector2(1.7012744, 2.3447175)
+script = ExtResource("28_uws2o")
+cupScene = ExtResource("31_gfmxp")
+hoverHighlight = NodePath("../접시들")
+
+[node name="접시들" type="Node2D" parent="." unique_id=73588140]
+z_index = -10
+position = Vector2(1602, 635)
+script = ExtResource("7_p8s74")
+
+[node name="접시들" type="Sprite2D" parent="접시들" unique_id=303759334]
+position = Vector2(20, -39)
+texture = ExtResource("31_o4fqm")
+
+[node name="접시들2" type="Sprite2D" parent="접시들" unique_id=1945615646]
+position = Vector2(-26, 51)
+texture = ExtResource("31_o4fqm")
 
 [node name="DragArea화분1" parent="." unique_id=1896093268 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(105.00012, 949)
 scale = Vector2(1.3501889, 1.9199816)
-script = ExtResource("29_ijoax")
+script = ExtResource("33_iylel")
 hoverHighlight = NodePath("../화분3")
 
 [node name="화분3" type="Sprite2D" parent="." unique_id=373862369]
@@ -294,7 +404,7 @@ script = ExtResource("7_p8s74")
 [node name="DragArea화분2" parent="." unique_id=1199281266 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(286, 952)
 scale = Vector2(1.3501889, 1.9199816)
-script = ExtResource("29_ijoax")
+script = ExtResource("33_iylel")
 hoverHighlight = NodePath("../화분4")
 
 [node name="화분4" type="Sprite2D" parent="." unique_id=664870024]
@@ -305,7 +415,7 @@ script = ExtResource("7_p8s74")
 [node name="DragArea화분3" parent="." unique_id=1756660582 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(460, 954)
 scale = Vector2(1.3501889, 1.9199816)
-script = ExtResource("29_ijoax")
+script = ExtResource("33_iylel")
 hoverHighlight = NodePath("../화분5")
 
 [node name="화분5" type="Sprite2D" parent="." unique_id=598187701]
@@ -316,7 +426,7 @@ script = ExtResource("7_p8s74")
 [node name="DragArea제출" parent="." unique_id=988752156 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(772.00006, 339)
 scale = Vector2(2.3795717, 1.6278205)
-script = ExtResource("29_ijoax")
+script = ExtResource("34_yj5sn")
 hoverHighlight = NodePath("../화분6")
 
 [node name="화분6" type="Sprite2D" parent="." unique_id=2001652969]
@@ -328,10 +438,9 @@ script = ExtResource("7_p8s74")
 [node name="Hourglass" type="Node2D" parent="." unique_id=1392905190]
 position = Vector2(142, 386)
 
-[node name="우유" type="Sprite2D" parent="Hourglass" unique_id=1126469732]
+[node name="모래시계" type="Sprite2D" parent="Hourglass" unique_id=1126469732]
 position = Vector2(4, -97)
-texture = ExtResource("11_m35m6")
-script = ExtResource("10_2jcla")
+texture = ExtResource("34_1n88h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hourglass" unique_id=1187942096]
 libraries/ = SubResource("AnimationLibrary_yh4yk")

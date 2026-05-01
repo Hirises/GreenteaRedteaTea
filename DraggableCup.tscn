@@ -1,9 +1,24 @@
 [gd_scene format=3 uid="uid://dl0l7xxsms1ll"]
 
-[ext_resource type="Texture2D" uid="uid://babrx24smaet" path="res://Sprites/화분.png" id="1_rs16t"]
-[ext_resource type="Script" uid="uid://dfpuj12t88ggg" path="res://DraggableCup.cs" id="2_nfqwo"]
+[ext_resource type="Texture2D" uid="uid://cfh7kp14gh706" path="res://Sprites/찻잔/찻잔_Back.png" id="1_nfqwo"]
+[ext_resource type="Texture2D" uid="uid://b5p62qemjbvlj" path="res://Sprites/찻잔/찻잔_Water.png" id="2_7eqsp"]
+[ext_resource type="Script" uid="uid://kn8cm2cmjirc" path="res://HoverHighlightable.cs" id="2_bu0hg"]
+[ext_resource type="Script" uid="uid://dfpuj12t88ggg" path="res://Scripts/Draggable/DraggableCup.cs" id="2_nfqwo"]
+[ext_resource type="Texture2D" uid="uid://b0lm8ynbaq56d" path="res://Sprites/찻잔/찻잔_Front.png" id="3_bu0hg"]
 
-[node name="화분3" type="Sprite2D" unique_id=312595368]
-scale = Vector2(0.5595238, 0.4051724)
-texture = ExtResource("1_rs16t")
+[node name="DraggableCup" type="Node2D" unique_id=1037602541 node_paths=PackedStringArray("liquidSprite", "hoverHighlight")]
 script = ExtResource("2_nfqwo")
+liquidSprite = NodePath("Graphic/찻잔Water")
+hoverHighlight = NodePath("Graphic")
+
+[node name="Graphic" type="Node2D" parent="." unique_id=1696305867]
+script = ExtResource("2_bu0hg")
+
+[node name="찻잔Back" type="Sprite2D" parent="Graphic" unique_id=1795532283]
+texture = ExtResource("1_nfqwo")
+
+[node name="찻잔Water" type="Sprite2D" parent="Graphic" unique_id=1602287372]
+texture = ExtResource("2_7eqsp")
+
+[node name="찻잔Front" type="Sprite2D" parent="Graphic" unique_id=1527032120]
+texture = ExtResource("3_bu0hg")

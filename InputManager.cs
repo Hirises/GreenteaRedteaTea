@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class InputManager : Node
 {
@@ -18,6 +19,9 @@ public partial class InputManager : Node
     List<DragArea> currentHoverAreas = new();
     public DragArea currentHoverArea => currentHoverAreas.Count > 0 ? GetSmallestArea(currentHoverAreas) : null;
 
+    public ClickArea CurrentHoverClickArea { get; private set; }
+
+
     Vector2 lastClickPosition;
     [Export] float dragThreshold = 10f;
 
@@ -34,6 +38,12 @@ public partial class InputManager : Node
         Instance = this;
     }
 
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+    }
+
+
     public void OnAreaEntered(DragArea area)
     {
         if (!currentHoverAreas.Contains(area))
@@ -47,6 +57,19 @@ public partial class InputManager : Node
         if (currentHoverAreas.Contains(area))
         {
             currentHoverAreas.Remove(area);
+        }
+    }
+
+    public void OnClickAreaEntered(ClickArea area)
+    {
+        CurrentHoverClickArea = area;
+    }
+
+    public void OnClickAreaExited(ClickArea area)
+    {
+        if (CurrentHoverClickArea == area)
+        {
+            CurrentHoverClickArea = null;
         }
     }
 
@@ -85,6 +108,7 @@ public partial class InputManager : Node
                 else if (inputState == InputState.MouseDown)
                 {
                     OnClick(lastClickArea);
+                    CurrentHoverClickArea?.OnClick();
                 }
                 inputState = InputState.None;
             }

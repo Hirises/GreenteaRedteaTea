@@ -12,7 +12,8 @@ public partial class DragArea : Area2D
         if (hoverHighlight == null) return;
 
         if (InputManager.Instance.currentHoverArea == this &&
-            InputManager.Instance.inputState == InputManager.InputState.None)
+            InputManager.Instance.inputState == InputManager.InputState.None &&
+            Visible)
         {
             hoverHighlight.SetHover();
         }
@@ -31,5 +32,16 @@ public partial class DragArea : Area2D
     public virtual IDraggable GetDraggable()
     {
         return null;
+    }
+    
+    public void SetHoverHighlight(HoverHighlightable highlight)
+    {
+        hoverHighlight = highlight;
+    }
+
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+        InputManager.Instance.OnAreaExited(this);
     }
 }
