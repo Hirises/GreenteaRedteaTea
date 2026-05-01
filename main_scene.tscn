@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://baoyco4ib5mpd" path="res://drag_area.tscn" id="3_d5x1h"]
 [ext_resource type="Script" uid="uid://d1wy472gcm56l" path="res://Scripts/DragArea/DragAreaLeafJar.cs" id="4_66tet"]
 [ext_resource type="Texture2D" uid="uid://bjoo3c60v3tta" path="res://Sprites/홍차.png" id="4_d5x1h"]
+[ext_resource type="Texture2D" uid="uid://w6ayy282jr2w" path="res://Sprites/말풍선.png" id="5_3wiol"]
 [ext_resource type="PackedScene" uid="uid://m4d8ws80fk0i" path="res://DraggableLeaf.tscn" id="5_66tet"]
 [ext_resource type="Script" uid="uid://kn8cm2cmjirc" path="res://HoverHighlightable.cs" id="7_p8s74"]
 [ext_resource type="Texture2D" uid="uid://babrx24smaet" path="res://Sprites/화분.png" id="9_7ycvg"]
@@ -55,6 +56,69 @@
 [ext_resource type="Texture2D" uid="uid://i877aa6alvy3" path="res://Sprites/달력_1.png" id="47_si2mt"]
 [ext_resource type="Texture2D" uid="uid://ru7l30hwa7mf" path="res://Sprites/달력_Base.png" id="48_sp30j"]
 [ext_resource type="Texture2D" uid="uid://ceyuoc7mdis64" path="res://Sprites/달력_Open.png" id="49_7tmle"]
+[ext_resource type="Texture2D" uid="uid://bmnwenkdlmmi" path="res://Sprites/쓰레기통_Back.png" id="54_ya33n"]
+[ext_resource type="Texture2D" uid="uid://byqtoxx1fterl" path="res://Sprites/쓰레기통_Front.png" id="55_3wiol"]
+[ext_resource type="Texture2D" uid="uid://dm0isqlby24mm" path="res://Sprites/쓰레기통_뚜껑.png" id="56_6a02w"]
+
+[sub_resource type="Animation" id="Animation_6a02w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("말풍선:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("말풍선:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3wiol"]
+resource_name = "speech_open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("말풍선:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8333333),
+"transitions": PackedFloat32Array(0.3077861, 1),
+"update": 0,
+"values": [-0.8552113334772214, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("말풍선:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8333333),
+"transitions": PackedFloat32Array(0.30778614, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6a02w"]
+_data = {
+&"RESET": SubResource("Animation_6a02w"),
+&"speech_open": SubResource("Animation_3wiol")
+}
 
 [sub_resource type="Animation" id="Animation_ijoax"]
 length = 0.001
@@ -456,15 +520,27 @@ z_index = -51
 position = Vector2(769, 274)
 texture = ExtResource("35_opjno")
 script = ExtResource("35_1n88h")
+TextPath = NodePath("Speech/말풍선/Text")
 
-[node name="Text" type="Label" parent="CustomerUI" unique_id=1591529178]
-offset_left = 180.0
-offset_top = -95.0
-offset_right = 220.0
-offset_bottom = -72.0
+[node name="Speech" type="Node2D" parent="CustomerUI" unique_id=1465021053]
+
+[node name="말풍선" type="Sprite2D" parent="CustomerUI/Speech" unique_id=2003454699]
+position = Vector2(138, 13)
+texture = ExtResource("5_3wiol")
+centered = false
+offset = Vector2(0, -250)
+
+[node name="Text" type="Label" parent="CustomerUI/Speech/말풍선" unique_id=1591529178]
+offset_left = 111.0
+offset_top = -115.0
+offset_right = 168.0
+offset_bottom = -92.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Default"
 script = ExtResource("37_meb7l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CustomerUI/Speech" unique_id=15386469]
+libraries/ = SubResource("AnimationLibrary_6a02w")
 
 [node name="매대" type="Sprite2D" parent="." unique_id=1072516668]
 z_index = -50
@@ -792,6 +868,18 @@ texture = ExtResource("46_0hwxg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Calendar" unique_id=612593321]
 libraries/ = SubResource("AnimationLibrary_si2mt")
+
+[node name="TrashBin" type="Node2D" parent="." unique_id=1300806526]
+position = Vector2(1699, 1101)
+
+[node name="쓰레기통Back" type="Sprite2D" parent="TrashBin" unique_id=1828322806]
+texture = ExtResource("54_ya33n")
+
+[node name="쓰레기통Front" type="Sprite2D" parent="TrashBin" unique_id=1580613626]
+texture = ExtResource("55_3wiol")
+
+[node name="쓰레기통뚜껑" type="Sprite2D" parent="TrashBin" unique_id=1203594729]
+texture = ExtResource("56_6a02w")
 
 [node name="GameManager" type="Node" parent="." unique_id=2122933545]
 script = ExtResource("33_o4fqm")
