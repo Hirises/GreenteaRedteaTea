@@ -115,8 +115,10 @@ public partial class DraggableCup : Node2D, IDraggableContained
         }
         if (hasContent)
         {
-            GD.Print("Cup already has content! Cannot fill.");
-            return false;
+            var mix = new MixedLiquidExpression(liquidContent, liquid);
+            liquidContent = mix;
+            GD.Print($"Cup already has content. Mixed to {mix.DisplayName}.");
+            return true;
         }
         liquidContent = liquid;
         hasContent = true;

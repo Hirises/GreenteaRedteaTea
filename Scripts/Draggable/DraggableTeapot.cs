@@ -74,8 +74,10 @@ public partial class DraggableTeapot : Node2D, IDraggable
         }
         if (hasContent)
         {
-            GD.Print("Teapot already has content! Cannot fill.");
-            return false;
+            var mix = new MixedLiquidExpression(liquidContent, liquid);
+            liquidContent = mix;
+            GD.Print($"Teapot already has content. Mixed to {mix.DisplayName}.");
+            return true;
         }
         liquidContent = liquid;
         hasContent = true;
