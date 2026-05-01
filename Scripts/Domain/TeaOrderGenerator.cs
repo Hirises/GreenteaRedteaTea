@@ -14,18 +14,23 @@ public sealed class TeaOrderGenerator
 
 	public ProductExpression GenerateProduct(int maxDepth)
 	{
+		return GenerateProduct(maxDepth, TeaOrderGenerationRules.Any);
+    }
+
+    public ProductExpression GenerateProduct(int maxDepth, TeaOrderGenerationRules rules)
+    {
 		ArgumentOutOfRangeException.ThrowIfNegative(maxDepth);
 
 		var choices = new List<Func<int, ProductExpression>>
 		{
-			GenerateBase,
-			GenerateLeaf,
-			GenerateLiquid,
+			depth => GenerateBase(depth, rules),
+            depth => GenerateLeaf(depth, rules),
+            depth => GenerateLiquid(depth, rules),
 		};
 
 		if (maxDepth > 0)
 		{
-			choices.Add(GenerateTea);
+			choices.Add(depth => GenerateTea(depth, rules));
 		}
 
 		return Pick(choices)(maxDepth);
@@ -33,24 +38,47 @@ public sealed class TeaOrderGenerator
 
 	public ProductExpression GenerateBase(int maxDepth)
 	{
+		return GenerateBase(maxDepth, TeaOrderGenerationRules.Any);
+    }
+
+    public ProductExpression GenerateBase(int maxDepth, TeaOrderGenerationRules rules)
+    {
 		ArgumentOutOfRangeException.ThrowIfNegative(maxDepth);
-		return _random.Next(2) == 0 ? TeaRecipeBook.TeaBase() : TeaRecipeBook.MilkTeaBase();
+		var kind = Pick(rules.BaseKinds);
+
+        return kind switch
+        {
+            BaseKind.Tea => TeaRecipeBook.TeaBase(),
+            BaseKind.MilkTea => TeaRecipeBook.MilkTeaBase(),
+            _ => throw new ArgumentOutOfRangeException(nameof(rules), kind, null),
+        };	
 	}
 
 	public ProductExpression GenerateLeaf(int maxDepth)
 	{
+		return GenerateLeaf(maxDepth, TeaOrderGenerationRules.Any);
+    }
+
+    public ProductExpression GenerateLeaf(int maxDepth, TeaOrderGenerationRules rules)
+    {
 		ArgumentOutOfRangeException.ThrowIfNegative(maxDepth);
 
-		var choices = new List<Func<int, ProductExpression>>
+		var choices = new List<Func<int, ProductExpression>>();
+
+        foreach (var kind in rules.BasicLeafKinds)
 		{
-			_ => TeaRecipeBook.GreenLeaf(),
-			_ => TeaRecipeBook.BlackLeaf(),
-		};
+			choices.Add(_ => kind switch
+            {
+                BasicLeafKind.Green => TeaRecipeBook.GreenLeaf(),
+                BasicLeafKind.Black => TeaRecipeBook.BlackLeaf(),
+                _ => throw new ArgumentOutOfRangeException(nameof(rules), kind, null),
+            });
+        }
 
 		if (maxDepth > 0)
 		{
-			choices.Add(depth => TeaRecipeBook.BrewLeaf(GenerateLeaf(depth - 1), GenerateLiquid(depth - 1)));
-			choices.Add(depth => TeaRecipeBook.CombineLeaves(GenerateLeaf(depth - 1), GenerateLeaf(depth - 1)));
+            choices.Add(depth => TeaRecipeBook.BrewLeaf(GenerateLeaf(depth - 1, rules), GenerateLiquid(depth - 1, rules)));
+            choices.Add(depth => TeaRecipeBook.CombineLeaves(GenerateLeaf(depth - 1, rules), GenerateLeaf(depth - 1, rules)));
 		}
 
 		return Pick(choices)(maxDepth);
@@ -58,6 +86,11 @@ public sealed class TeaOrderGenerator
 
 	public ProductExpression GenerateTea(int maxDepth)
 	{
+		return GenerateTea(maxDepth, TeaOrderGenerationRules.Any);
+    }
+
+    public ProductExpression GenerateTea(int maxDepth, TeaOrderGenerationRules rules)
+    {
 		ArgumentOutOfRangeException.ThrowIfNegative(maxDepth);
 
 		if (maxDepth == 0)
@@ -65,29 +98,48 @@ public sealed class TeaOrderGenerator
 			throw new ArgumentException("Tea requires at least depth 1.", nameof(maxDepth));
 		}
 
-		return TeaRecipeBook.BrewTea(GenerateLeaf(maxDepth - 1), GenerateLiquid(maxDepth - 1));
+        return TeaRecipeBook.BrewTea(GenerateLeaf(maxDepth - 1, rules), GenerateLiquid(maxDepth - 1, rules));
 	}
 
 	public ProductExpression GenerateLiquid(int maxDepth)
 	{
+		return GenerateLiquid(maxDepth, TeaOrderGenerationRules.Any);
+    }
+
+    public ProductExpression GenerateLiquid(int maxDepth, TeaOrderGenerationRules rules)
+    {
 		ArgumentOutOfRangeException.ThrowIfNegative(maxDepth);
 
 		var choices = new List<Func<int, ProductExpression>>
 		{
-			GenerateBase,
+            depth => GenerateBase(depth, rules),
 		};
 
 		if (maxDepth > 0)
 		{
-			choices.Add(GenerateTea);
-			choices.Add(depth => TeaRecipeBook.MixLiquids(GenerateLiquid(depth - 1), GenerateLiquid(depth - 1)));
+            choices.Add(depth => GenerateTea(depth, rules));
+            choices.Add(depth => TeaRecipeBook.MixLiquids(GenerateLiquid(depth - 1, rules), GenerateLiquid(depth - 1, rules)));
 		}
 
 		return Pick(choices)(maxDepth);
 	}
+	public ProductExpression GenerateProductFromBase(int maxDepth, BaseKind baseKind)
+    {
+        return GenerateProduct(maxDepth, TeaOrderGenerationRules.ForBase(baseKind));
+    }
+
+    public ProductExpression GenerateProductFromLeaf(int maxDepth, BasicLeafKind leafKind)
+    {
+        return GenerateProduct(maxDepth, TeaOrderGenerationRules.ForLeaf(leafKind));
+    }
 
 	private Func<int, ProductExpression> Pick(IReadOnlyList<Func<int, ProductExpression>> choices)
 	{
 		return choices[_random.Next(choices.Count)];
 	}
+	
+    private T Pick<T>(IReadOnlyList<T> choices)
+    {
+        return choices[_random.Next(choices.Count)];
+    }
 }

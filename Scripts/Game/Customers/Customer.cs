@@ -7,11 +7,31 @@ public abstract class Customer
 		Number = number;
 	}
 
+	protected bool isOrderGenerated = false;
+
 	public int Number { get; }
+	public string Name { get; protected set; } = "Default";
 	public ProductExpression Order { get; protected set; }
 	public float PatienceSeconds { get; protected set; }
 
-	public abstract ProductExpression GenerateOrder();
-	public abstract void Thank();
-	public abstract void Complain(OrderResult result);
+	public ProductExpression GenerateOrder()
+	{
+		if (isOrderGenerated)
+		{
+			return Order;
+		}
+
+		return _GenerateOrder();
+	}
+
+	protected abstract ProductExpression _GenerateOrder();
+
+	public abstract string SayOrder();
+	public abstract string Thank();
+	public abstract string Complain(OrderResult result);
+
+	protected string GetOrderName()
+	{
+		return "\"" + Order.DisplayName + "\"";
+	}
 }
