@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://d4j6f3iyhsjux" path="res://Sprites/Teapot/포트_Front.png" id="24_o4fqm"]
 [ext_resource type="Script" uid="uid://dobquj4bam6hw" path="res://DragAreaCupPile.cs" id="24_y5ved"]
 [ext_resource type="PackedScene" uid="uid://dl0l7xxsms1ll" path="res://DraggableCup.tscn" id="25_kv3aw"]
+[ext_resource type="Script" uid="uid://bn8nosouc8rdx" path="res://DragAreaFlowerPot.cs" id="29_ijoax"]
 
 [node name="MainScene" type="Node2D" unique_id=2097108586]
 
@@ -149,3 +150,30 @@ cupScene = ExtResource("25_kv3aw")
 [node name="컵목업" type="Sprite2D" parent="." unique_id=220143113]
 position = Vector2(1701, 667)
 texture = ExtResource("14_42l1d")
+
+[node name="DragArea화분1" parent="." unique_id=1896093268 instance=ExtResource("3_d5x1h")]
+position = Vector2(105.00012, 949)
+scale = Vector2(1.3501889, 1.9199816)
+script = ExtResource("29_ijoax")
+
+[node name="화분3" type="Sprite2D" parent="." unique_id=373862369]
+position = Vector2(106, 1085)
+texture = ExtResource("9_7ycvg")
+
+[node name="DragArea화분2" parent="." unique_id=1199281266 instance=ExtResource("3_d5x1h")]
+position = Vector2(286, 952)
+scale = Vector2(1.3501889, 1.9199816)
+script = ExtResource("29_ijoax")
+
+[node name="화분4" type="Sprite2D" parent="." unique_id=664870024]
+position = Vector2(281, 1082)
+texture = ExtResource("9_7ycvg")
+
+[node name="DragArea화분3" parent="." unique_id=1756660582 instance=ExtResource("3_d5x1h")]
+position = Vector2(460, 954)
+scale = Vector2(1.3501889, 1.9199816)
+script = ExtResource("29_ijoax")
+
+[node name="화분5" type="Sprite2D" parent="." unique_id=598187701]
+position = Vector2(455, 1085)
+texture = ExtResource("9_7ycvg")
