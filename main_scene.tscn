@@ -45,6 +45,14 @@
 [ext_resource type="Script" uid="uid://brvmmisl2f4mw" path="res://Scripts/Game/UI/CustomerUi.cs" id="35_1n88h"]
 [ext_resource type="Texture2D" uid="uid://dsfpuk28h4us2" path="res://Sprites/모래시계/모래시계_1.png" id="35_opjno"]
 [ext_resource type="Script" uid="uid://d2lnljcifpjqh" path="res://Scripts/Game/UI/Text.cs" id="37_meb7l"]
+[ext_resource type="Texture2D" uid="uid://b76paxanslqrd" path="res://Sprites/시간 게이지_Bottom.png" id="42_jef5d"]
+[ext_resource type="Texture2D" uid="uid://cdfmnojr7erbe" path="res://Sprites/시간 게이지_Inner.png" id="43_q1yuq"]
+[ext_resource type="Texture2D" uid="uid://c2gohdsvtx02n" path="res://Sprites/시간 게이지_Outline.png" id="44_uacds"]
+[ext_resource type="Texture2D" uid="uid://xsuhhv46ue3j" path="res://Sprites/달력_2.png" id="45_84x1k"]
+[ext_resource type="Texture2D" uid="uid://b6em4nx8673xg" path="res://Sprites/달력_Close.png" id="46_0hwxg"]
+[ext_resource type="Texture2D" uid="uid://i877aa6alvy3" path="res://Sprites/달력_1.png" id="47_si2mt"]
+[ext_resource type="Texture2D" uid="uid://ru7l30hwa7mf" path="res://Sprites/달력_Base.png" id="48_sp30j"]
+[ext_resource type="Texture2D" uid="uid://ceyuoc7mdis64" path="res://Sprites/달력_Open.png" id="49_7tmle"]
 
 [sub_resource type="Animation" id="Animation_ijoax"]
 length = 0.001
@@ -438,7 +446,7 @@ texture = ExtResource("9_7ycvg")
 script = ExtResource("7_p8s74")
 
 [node name="Hourglass" type="Node2D" parent="." unique_id=1392905190]
-position = Vector2(142, 386)
+position = Vector2(335, 392)
 
 [node name="모래시계" type="Sprite2D" parent="Hourglass" unique_id=1126469732]
 position = Vector2(4, -97)
@@ -448,19 +456,36 @@ texture = ExtResource("34_1n88h")
 libraries/ = SubResource("AnimationLibrary_yh4yk")
 
 [node name="TimerGraph" type="Node2D" parent="." unique_id=615243180 node_paths=PackedStringArray("graphSprite")]
-position = Vector2(256, 381)
+position = Vector2(440, 297)
 script = ExtResource("30_j8kkg")
-graphSprite = NodePath("우유2")
+graphSprite = NodePath("시간게이지Inner")
 
-[node name="물" type="Sprite2D" parent="TimerGraph" unique_id=509597559]
-position = Vector2(-2.0000076, -86)
-scale = Vector2(0.34474885, 1)
-texture = ExtResource("9_42l1d")
+[node name="시간게이지Bottom" type="Sprite2D" parent="TimerGraph" unique_id=1102667474]
+texture = ExtResource("42_jef5d")
 
-[node name="우유2" type="Sprite2D" parent="TimerGraph" unique_id=48868108]
-position = Vector2(-2, -85)
-scale = Vector2(0.2798165, 1)
-texture = ExtResource("11_m35m6")
+[node name="시간게이지Inner" type="Sprite2D" parent="TimerGraph" unique_id=1312576362]
+texture = ExtResource("43_q1yuq")
+
+[node name="시간게이지Outline" type="Sprite2D" parent="TimerGraph" unique_id=837150087]
+texture = ExtResource("44_uacds")
+
+[node name="Calendar" type="Node2D" parent="." unique_id=1817888089]
+position = Vector2(137, 267)
+
+[node name="달력2" type="Sprite2D" parent="Calendar" unique_id=759853669]
+texture = ExtResource("45_84x1k")
+
+[node name="달력Close" type="Sprite2D" parent="Calendar" unique_id=800215320]
+texture = ExtResource("46_0hwxg")
+
+[node name="달력1" type="Sprite2D" parent="Calendar" unique_id=1988055026]
+texture = ExtResource("47_si2mt")
+
+[node name="달력Base" type="Sprite2D" parent="Calendar" unique_id=873444434]
+texture = ExtResource("48_sp30j")
+
+[node name="달력Open" type="Sprite2D" parent="Calendar" unique_id=1753476459]
+texture = ExtResource("49_7tmle")
 
 [node name="GameManager" type="Node" parent="." unique_id=2122933545]
 script = ExtResource("33_o4fqm")
