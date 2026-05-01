@@ -13,7 +13,7 @@ public class EasyCustomer : Customer
     protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
-        Order = orderGenerator.GenerateProduct(Number);
+        Order = orderGenerator.GenerateProductByMaxLength(2);
         isOrderGenerated = true;
         return Order;
     }

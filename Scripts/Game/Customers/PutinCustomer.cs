@@ -14,7 +14,7 @@ public class PutinCustomer : Customer
     {
         var orderGenerator = new TeaOrderGenerator();
         var rules = TeaOrderGenerationRules.ForLeaf(BasicLeafKind.Black);
-        Order = orderGenerator.GenerateProductByLength(5, rules);
+        Order = orderGenerator.GenerateProduct(2, rules);
         isOrderGenerated = true;
         return Order;
     }

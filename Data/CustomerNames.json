@@ -9,10 +9,16 @@
   "NormalCustomer": [
     "Default"
   ],
-  "RandomCustomer": [
-    "Ryu"
+  "HardCustomer": [
+    "Default"
   ],
   "PutinCustomer": [
     "Putin"
+  ],
+  "RyuCustomer": [
+    "Prof.Ryu"
+  ],
+  "RandomCustomer": [
+    "Ryu"
   ]
 }
