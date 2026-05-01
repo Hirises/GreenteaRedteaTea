@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using RedteaGreenteaTea.Domain;
 
@@ -24,6 +25,7 @@ public partial class GameManager : Node
 	private Customer currentCustomer;
 	private float timer;
 	public bool isHard {get; protected set;} = false;
+	public int rating {get; protected set; }
 
 	public ProductExpression CurrentOrder => currentCustomer?.Order;
 	public bool IsOnOrder => isOnOrder;
@@ -44,7 +46,7 @@ public partial class GameManager : Node
 			GD.PushError($"GameManager needs a CustomerUi node at path: {CustomerUiPath}");
 		}
 
-		startOrder();
+		StartGame();
 	}
 
 	public override void _Process(double delta)
@@ -63,7 +65,18 @@ public partial class GameManager : Node
 		}
 	}
 
-	public void StartOrder()
+	public void StartGame()
+	{
+		rating = 5;
+		StartOrder();
+	}
+
+	private void GameOver()
+	{
+		
+	}
+
+	private void StartOrder()
 	{
 		if (isOnOrder)
 		{
@@ -133,11 +146,13 @@ public partial class GameManager : Node
 		switch (result)
 		{
 			case OrderResult.Success:
+				rating = Math.Min(10, rating + 2);
 				text = currentCustomer.Thank();
 				break;
 			case OrderResult.WrongMenu:
 			case OrderResult.Timeout:
 			case OrderResult.KickedOut:
+				rating--;
 				text = currentCustomer.Complain(result);
 				break;
 		}
@@ -149,6 +164,12 @@ public partial class GameManager : Node
 		customerUi?.sayText(text);
 
 		EmitSignal(SignalName.OrderEnded, (int)result, orderName);
+		
+		if(rating == 0)
+		{
+			GameOver();
+			return;
+		}
 		startOrder();
 	}
 }
