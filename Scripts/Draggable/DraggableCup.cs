@@ -58,10 +58,11 @@ public partial class DraggableCup : Node2D, IDraggableContained
         if (dropArea is DragAreaTeapot)
         {
             var teapotArea = dropArea as DragAreaTeapot;
-            if (teapotArea.TryFill(liquidContent))
+            if (hasContent && teapotArea.TryFill(liquidContent))
             {
                 hasContent = false;
                 liquidContent = null;
+                ReturnToOriginalPosition();
                 GD.Print("Cup successfully poured into teapot.");
             }
             else
@@ -105,16 +106,22 @@ public partial class DraggableCup : Node2D, IDraggableContained
         }
     }
 
-    public void Fill(ProductExpression liquid)
+    public bool TryFill(ProductExpression liquid)
     {
         if (!liquid.Is(ProductCategory.Liquid))
         {
             GD.Print("Cannot fill cup with non-liquid product.");
-            return;
+            return false;
+        }
+        if (hasContent)
+        {
+            GD.Print("Cup already has content! Cannot fill.");
+            return false;
         }
         liquidContent = liquid;
         hasContent = true;
         GD.Print($"Cup filled with {liquid.DisplayName}.");
+        return true;
     }
 
     public HoverHighlightable GetHoverHighlight()

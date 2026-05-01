@@ -155,6 +155,7 @@ _data = {
 script = ExtResource("1_gyfs4")
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=2050139955]
+z_index = -50
 texture = ExtResource("1_0f027")
 centered = false
 
@@ -216,6 +217,7 @@ texture = ExtResource("11_m35m6")
 script = ExtResource("7_p8s74")
 
 [node name="카펫" type="Sprite2D" parent="." unique_id=1790975314]
+z_index = -10
 position = Vector2(714, 681)
 texture = ExtResource("13_xy6fp")
 
@@ -349,6 +351,7 @@ cupScene = ExtResource("25_kv3aw")
 hoverHighlight = NodePath("../찻잔들")
 
 [node name="찻잔들" type="Node2D" parent="." unique_id=494467168]
+z_index = -10
 position = Vector2(1826, 623)
 script = ExtResource("7_p8s74")
 
@@ -368,6 +371,7 @@ cupScene = ExtResource("31_gfmxp")
 hoverHighlight = NodePath("../접시들")
 
 [node name="접시들" type="Node2D" parent="." unique_id=73588140]
+z_index = -10
 position = Vector2(1602, 635)
 script = ExtResource("7_p8s74")
 

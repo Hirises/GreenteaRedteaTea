@@ -65,15 +65,21 @@ public partial class DraggableTeapot : Node2D, IDraggable
         GD.Print("Teapot drag cancelled.");
     }
 
-    public void Fill(ProductExpression liquid)
+    public bool TryFill(ProductExpression liquid)
     {
         if (!liquid.Is(ProductCategory.Liquid))
         {
             GD.Print("Cannot fill teapot with non-liquid product.");
-            return;
+            return false;
+        }
+        if (hasContent)
+        {
+            GD.Print("Teapot already has content! Cannot fill.");
+            return false;
         }
         liquidContent = liquid;
         hasContent = true;
         GD.Print($"Teapot filled with {liquid.DisplayName}.");
+        return true;
     }
 }

@@ -50,15 +50,8 @@ public partial class DragAreaContainer : DragArea, IDragAreaContainer
             return false;
         }
 
-        if (!liquid.Is(ProductCategory.Liquid))
-        {
-            GD.Print("Only liquids can be filled into the cup!");
-            return false;
-        }
-
         var cup = currentDraggable as DraggableCup;
-        cup.Fill(liquid);
-        return true;
+        return cup.TryFill(liquid);
     }
 
     public bool TryPutLeafOnPlate(DraggableLeaf leaf)
