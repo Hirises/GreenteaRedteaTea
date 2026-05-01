@@ -52,8 +52,12 @@
 [ext_resource type="Texture2D" uid="uid://crvouhoel81vc" path="res://Sprites/메뉴.png" id="43_si2mt"]
 [ext_resource type="Texture2D" uid="uid://c2gohdsvtx02n" path="res://Sprites/시간 게이지_Outline.png" id="44_uacds"]
 [ext_resource type="Texture2D" uid="uid://xsuhhv46ue3j" path="res://Sprites/달력_2.png" id="45_84x1k"]
+[ext_resource type="Script" uid="uid://dvcoe6lwrjt60" path="res://HourglassAnim.cs" id="45_fxe4o"]
 [ext_resource type="Texture2D" uid="uid://b6em4nx8673xg" path="res://Sprites/달력_Close.png" id="46_0hwxg"]
+[ext_resource type="Texture2D" uid="uid://ceuxku8icm4i3" path="res://Sprites/모래시계/모래시계_2.png" id="46_bqoel"]
+[ext_resource type="Texture2D" uid="uid://b4eagi7msd44s" path="res://Sprites/모래시계/모래시계_3.png" id="47_id12a"]
 [ext_resource type="Texture2D" uid="uid://i877aa6alvy3" path="res://Sprites/달력_1.png" id="47_si2mt"]
+[ext_resource type="Texture2D" uid="uid://cfvuiwslumq2o" path="res://Sprites/모래시계/모래시계_4.png" id="48_rs42p"]
 [ext_resource type="Texture2D" uid="uid://ru7l30hwa7mf" path="res://Sprites/달력_Base.png" id="48_sp30j"]
 [ext_resource type="Texture2D" uid="uid://ceyuoc7mdis64" path="res://Sprites/달력_Open.png" id="49_7tmle"]
 [ext_resource type="Texture2D" uid="uid://bmnwenkdlmmi" path="res://Sprites/쓰레기통_Back.png" id="54_ya33n"]
@@ -225,10 +229,27 @@ tracks/3/keys = {
 "values": [ExtResource("34_1n88h"), ExtResource("35_opjno")]
 }
 
+[sub_resource type="Animation" id="Animation_8quq7"]
+resource_name = "hourglass_progress"
+length = 0.53333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("모래시계:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.033333335, 0.1, 0.2, 0.33333334, 0.43333334, 0.5),
+"transitions": PackedFloat32Array(1, 0.18946466, -2, -2, -2, -2, -2, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.452040276266531, -0.2617993877991494, 0.17453292519943295, -0.08726646259971647, 0.05235987755982989, 0.017453292]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yh4yk"]
 _data = {
 &"RESET": SubResource("Animation_ijoax"),
-&"flip_hourglass": SubResource("Animation_j8kkg")
+&"flip_hourglass": SubResource("Animation_j8kkg"),
+&"hourglass_progress": SubResource("Animation_8quq7")
 }
 
 [sub_resource type="Animation" id="Animation_84x1k"]
@@ -554,13 +575,13 @@ z_index = -52
 texture = ExtResource("1_0f027")
 centered = false
 
-[node name="CustomerUI" type="Sprite2D" parent="." unique_id=1782127251 node_paths=PackedStringArray("AnimationPlayer")]
+[node name="CustomerUI" type="Sprite2D" parent="." unique_id=1782127251 node_paths=PackedStringArray("SpeechAnimation")]
 z_index = -51
 position = Vector2(769, 274)
 texture = ExtResource("35_opjno")
 script = ExtResource("35_1n88h")
 TextPath = NodePath("Speech/말풍선/Text")
-AnimationPlayer = NodePath("Speech/AnimationPlayer")
+SpeechAnimation = NodePath("Speech/AnimationPlayer")
 
 [node name="Speech" type="Node2D" parent="CustomerUI" unique_id=1465021053]
 
@@ -866,8 +887,12 @@ position = Vector2(779, 379)
 texture = ExtResource("43_si2mt")
 script = ExtResource("7_p8s74")
 
-[node name="Hourglass" type="Node2D" parent="." unique_id=1392905190]
+[node name="Hourglass" type="Node2D" parent="." unique_id=1392905190 node_paths=PackedStringArray("animPlayer", "hourglassSprite")]
 position = Vector2(335, 392)
+script = ExtResource("45_fxe4o")
+animPlayer = NodePath("AnimationPlayer")
+hourglassSprite = NodePath("모래시계")
+hourglassTextures = Array[Texture2D]([ExtResource("35_opjno"), ExtResource("46_bqoel"), ExtResource("47_id12a"), ExtResource("48_rs42p"), ExtResource("34_1n88h")])
 
 [node name="모래시계" type="Sprite2D" parent="Hourglass" unique_id=1126469732]
 position = Vector2(4, -97)
@@ -949,3 +974,7 @@ script = ExtResource("33_o4fqm")
 
 [node name="CustomerManager" type="Node" parent="GameManager" unique_id=265326387]
 script = ExtResource("34_7jlmu")
+
+[connection signal="OrderStarted" from="GameManager" to="Hourglass" method="OnGameStart"]
+[connection signal="OrderTimerChanged" from="GameManager" to="Hourglass" method="OnOrderTimerChanged"]
+[connection signal="OrderTimerChanged" from="GameManager" to="TimerGraph" method="OnOrderTimerChanged"]

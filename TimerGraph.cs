@@ -7,24 +7,14 @@ public partial class TimerGraph : Node2D
 
     Vector2 graphOriginalPosition;
 
-    float timeLeft = 30f;
-    float totalTime = 30f;
 
-    public override void _Ready()
+    public void OnOrderTimerChanged(float remainingSeconds, float timeLimitSeconds)
     {
-        graphSprite.RegionEnabled = true;
-        graphOriginalPosition = graphSprite.Position;
+        SetGraphFill(remainingSeconds / timeLimitSeconds);
     }
 
-    public override void _Process(double delta)
+    public void SetGraphFill(float fillAmount)
     {
-        timeLeft -= (float)delta;
-        UpdateGraph(timeLeft, totalTime);
-    }
-
-    public void UpdateGraph(float timeLeft, float totalTime)
-    {
-        float fillAmount = Mathf.Clamp(timeLeft / totalTime, 0f, 1f);
         var textureSize = graphSprite.Texture.GetSize();
         var currentSize = textureSize * graphSprite.Scale;
         graphSprite.RegionRect = new Rect2(
