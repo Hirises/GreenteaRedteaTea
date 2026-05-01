@@ -15,7 +15,11 @@ public partial class GameManager : Node
 	[Export]
 	public NodePath CustomerManagerPath { get; set; } = "CustomerManager";
 
+	[Export]
+	public NodePath CustomerUiPath { get; set; } = "../CustomerUI";
+
 	private CustomerManager customerManager;
+	private CustomerUi customerUi;
 	private bool isOnOrder;
 	private Customer currentCustomer;
 	private float timer;
@@ -27,11 +31,19 @@ public partial class GameManager : Node
 	public override void _Ready()
 	{
 		customerManager = GetNodeOrNull<CustomerManager>(CustomerManagerPath);
+		customerUi = GetNodeOrNull<CustomerUi>(CustomerUiPath);
 
 		if (customerManager == null)
 		{
 			GD.PushError($"GameManager needs a CustomerManager child at path: {CustomerManagerPath}");
 		}
+
+		if (customerUi == null)
+		{
+			GD.PushError($"GameManager needs a CustomerUi node at path: {CustomerUiPath}");
+		}
+
+		startOrder();
 	}
 
 	public override void _Process(double delta)
@@ -64,6 +76,7 @@ public partial class GameManager : Node
 		}
 
 		currentCustomer = customerManager.GenerateNextCustomer();
+		customerUi?.setTexture(currentCustomer.Name);
 		timer = 0f;
 		isOnOrder = true;
 

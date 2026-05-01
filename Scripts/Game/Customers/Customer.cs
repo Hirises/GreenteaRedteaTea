@@ -8,10 +8,11 @@ public abstract class Customer
 	}
 
 	public int Number { get; }
+	public string Name { get; protected set; } = "Default";
 	public ProductExpression Order { get; protected set; }
 	public float PatienceSeconds { get; protected set; }
 
 	public abstract ProductExpression GenerateOrder();
-	public abstract void Thank();
-	public abstract void Complain(OrderResult result);
+	public abstract string Thank();
+	public abstract string Complain(OrderResult result);
 }

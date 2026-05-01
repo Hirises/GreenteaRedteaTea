@@ -34,6 +34,8 @@
 [ext_resource type="Script" uid="uid://okjihqk21var" path="res://TimerGraph.cs" id="30_j8kkg"]
 [ext_resource type="Script" uid="uid://ceuu1mqtj0omh" path="res://Scripts/Game/GameManager.cs" id="33_o4fqm"]
 [ext_resource type="Script" uid="uid://bxql0al8axl3o" path="res://Scripts/Game/CustomerManager.cs" id="34_7jlmu"]
+[ext_resource type="Script" uid="uid://brvmmisl2f4mw" path="res://Scripts/Game/UI/CustomerUi.cs" id="35_1n88h"]
+[ext_resource type="Texture2D" uid="uid://blmvx4aa5nkmi" path="res://Sprites/Customers/Default.png" id="35_opjno"]
 
 [sub_resource type="Animation" id="Animation_ijoax"]
 length = 0.001
@@ -351,5 +353,10 @@ texture = ExtResource("11_m35m6")
 [node name="GameManager" type="Node" parent="." unique_id=2122933545]
 script = ExtResource("33_o4fqm")
 
-[node name="CustomerManager" type="Node" parent="GameManager"]
+[node name="CustomerManager" type="Node" parent="GameManager" unique_id=265326387]
 script = ExtResource("34_7jlmu")
+
+[node name="CustomerUI" type="Sprite2D" parent="." unique_id=1782127251]
+position = Vector2(769, 274)
+texture = ExtResource("35_opjno")
+script = ExtResource("35_1n88h")
