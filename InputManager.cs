@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class InputManager : Node
 {
@@ -14,7 +15,8 @@ public partial class InputManager : Node
 
     InputState inputState = InputState.None;
     DragArea lastClickArea;
-    DragArea currentHoverArea;
+    List<DragArea> currentHoverAreas = new();
+    DragArea currentHoverArea => currentHoverAreas.Count > 0 ? GetSmallestArea(currentHoverAreas) : null;
 
     Vector2 lastClickPosition;
     [Export] float dragThreshold = 10f;
@@ -34,15 +36,34 @@ public partial class InputManager : Node
 
     public void OnAreaEntered(DragArea area)
     {
-        currentHoverArea = area;
+        if (!currentHoverAreas.Contains(area))
+        {
+            currentHoverAreas.Add(area);
+        }
     }
 
     public void OnAreaExited(DragArea area)
     {
-        if (currentHoverArea == area)
+        if (currentHoverAreas.Contains(area))
         {
-            currentHoverArea = null;
+            currentHoverAreas.Remove(area);
         }
+    }
+
+    DragArea GetSmallestArea(List<DragArea> areas)
+    {
+        DragArea smallest = null;
+        float smallestSize = float.MaxValue;
+        foreach (var area in areas)
+        {
+            var size = area.Scale.Length();
+            if (size < smallestSize)
+            {
+                smallestSize = size;
+                smallest = area;
+            }
+        }
+        return smallest;
     }
 
     public override void _UnhandledInput(InputEvent @event)

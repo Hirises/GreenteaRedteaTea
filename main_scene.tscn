@@ -127,7 +127,8 @@ texture = ExtResource("1_0f027")
 centered = false
 
 [node name="DragArea녹차" parent="." unique_id=112241637 instance=ExtResource("3_d5x1h")]
-position = Vector2(161, 498)
+position = Vector2(160, 544)
+scale = Vector2(1.4562218, 2.171475)
 script = ExtResource("4_66tet")
 leafScene = ExtResource("5_66tet")
 
@@ -136,8 +137,8 @@ position = Vector2(168, 552)
 texture = ExtResource("2_gyfs4")
 
 [node name="DragArea홍차" parent="." unique_id=1076561759 instance=ExtResource("3_d5x1h")]
-position = Vector2(328, 500)
-scale = Vector2(1.0095243, 1.0040802)
+position = Vector2(331, 552)
+scale = Vector2(1.4812725, 2.3731213)
 script = ExtResource("4_66tet")
 leafScene = ExtResource("5_66tet")
 
@@ -201,6 +202,13 @@ texture = ExtResource("15_j8kkg")
 [node name="DragArea티팟" parent="." unique_id=1802254503 node_paths=PackedStringArray("draggableTeapot") instance=ExtResource("3_d5x1h")]
 position = Vector2(1250, 494)
 scale = Vector2(3.3338063, 2.7465036)
+script = ExtResource("16_o7u2a")
+draggableTeapot = NodePath("../Teapot")
+
+[node name="DragArea거름망" parent="." unique_id=992993842 node_paths=PackedStringArray("draggableTeapot") instance=ExtResource("3_d5x1h")]
+position = Vector2(1246.0001, 448.99997)
+rotation = 0.0001514969
+scale = Vector2(1.3464576, 1.8819572)
 script = ExtResource("16_o7u2a")
 draggableTeapot = NodePath("../Teapot")
 
