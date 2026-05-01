@@ -17,8 +17,9 @@ public partial class DraggableLeaf : Node2D, IDraggableContained
     public override void _Process(double delta)
     {
         base._Process(delta);
+        bool contained = returnArea is DragAreaPlate or DragAreaTeapotInside;
         DraggableUtil.DefaultDragBehavior(this, this, delta, returnArea?.GetNode(),
-            returnArea is DragAreaPlate ? 1 : 10);
+            contained ? 1 : 10, contained ? 90f : 20f);
 
         if (leafContent == null)
         {
@@ -57,7 +58,22 @@ public partial class DraggableLeaf : Node2D, IDraggableContained
             }
             return;
         }
-        Destroy();
+        else if (dropArea is DragAreaTeapot)
+        {
+            var teapot = dropArea as DragAreaTeapot;
+            if (teapot.TryPutLeafInTeapot(this))
+            {
+                returnArea = teapot.GetInsideArea();
+                GD.Print("Leaf successfully put in teapot.");
+            }
+            else
+            {
+                GD.Print("Failed to put leaf in teapot. Returning to original position.");
+                ReturnToOriginalPosition();
+            }
+            return;
+        }
+        ReturnToOriginalPosition();
     }
 
     public void OnCancelDrag()

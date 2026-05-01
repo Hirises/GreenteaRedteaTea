@@ -7,7 +7,10 @@ public partial class DragAreaTeapotInside : DragArea, IDragAreaContainer
 
     public override IDraggable GetDraggable()
     {
-        return currentDraggable;
+        var draggable = currentDraggable;
+        currentDraggable = null;
+        SetHoverHighlight(null);
+        return draggable;
     }
 
     public bool TryDropDraggable(IDraggable draggable)
@@ -31,5 +34,10 @@ public partial class DragAreaTeapotInside : DragArea, IDragAreaContainer
     public Node2D GetNode()
     {
         return this;
+    }
+
+    public bool HasLeaf()
+    {
+        return currentDraggable != null;
     }
 }
