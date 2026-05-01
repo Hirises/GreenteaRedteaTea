@@ -101,8 +101,8 @@ public partial class DraggableTeapot : Node2D, IDraggable
 
         var leaf = insideArea.GetLeaf();
         var brewed = new TeaExpression(leaf, liquidContent);
+        insideArea.SetLeaf(new BrewedLeafExpression(leaf, liquidContent));
         liquidContent = brewed;
-        insideArea.SetLeaf(new BrewedLeafExpression(leaf, brewed));
         GD.Print($"Brewed tea in teapot. Now contains {brewed.DisplayName}.");
 
         return true;
