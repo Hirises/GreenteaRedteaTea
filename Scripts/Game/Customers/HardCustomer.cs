@@ -13,7 +13,7 @@ public class HardCustomer : Customer
     protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
-        Order = orderGenerator.GenerateProductByMaxLength(8);
+        Order = orderGenerator.GenerateProductByMaxLength(10);
         PatienceSeconds = Order.Length * 5 + 15;
         isOrderGenerated = true;
         return Order;
