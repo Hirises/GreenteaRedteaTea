@@ -8,12 +8,6 @@ public class EasyCustomer : Customer
     public EasyCustomer(int number) : base(number)
     {
         PatienceSeconds = DefaultPatienceSeconds;
-        Name = GenerateName(number);
-    }
-
-    private string GenerateName(int seed)
-    {
-        return "Putin";
     }
 
     protected override ProductExpression _GenerateOrder()
