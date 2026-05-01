@@ -72,6 +72,33 @@ public partial class DragAreaContainer : DragArea, IDragAreaContainer
         return plate.TryPutOnPlate(leaf);
     }
 
+    public bool TryMergeLeaf(DraggableLeaf leaf)
+    {
+        if (currentDraggable == null)
+        {
+            GD.Print("No draggable item in container to merge leaf with!");
+            return false;
+        }
+
+        if (currentDraggable is DraggableLeaf)
+        {
+            var existingLeaf = currentDraggable as DraggableLeaf;
+            var mix = new CombinedLeafExpression(existingLeaf.GetLeafContent(), leaf.GetLeafContent());
+            existingLeaf.SetLeafContent(mix);
+            GD.Print($"Merged leaf with existing leaf in container to create {mix.DisplayName}.");
+            return true;
+        }
+
+        if (currentDraggable is DraggablePlate)
+        {
+            var plate = currentDraggable as DraggablePlate;
+            return plate.TryMergeLeaf(leaf);
+        }
+
+        GD.Print("Cannot merge leaf!");
+        return false;
+    }
+
     public DragArea GetPlateDragArea()
     {
         if (currentDraggable is DraggablePlate)

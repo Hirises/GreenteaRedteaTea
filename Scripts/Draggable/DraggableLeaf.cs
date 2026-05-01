@@ -51,6 +51,11 @@ public partial class DraggableLeaf : Node2D, IDraggableContained
                 returnArea = container.GetPlateDragArea() as DragAreaPlate;
                 GD.Print("Leaf successfully put on plate.");
             }
+            else if (container.TryMergeLeaf(this))
+            {
+                GD.Print("Leaf successfully merged with existing leaf on plate.");
+                Destroy();
+            }
             else
             {
                 GD.Print("Failed to drop leaf into container. Returning to original position.");

@@ -87,6 +87,12 @@ public partial class DraggablePlate : Node2D, IDraggableContained
         return dragArea.TryDropDraggable(leaf);
     }
 
+    public bool TryMergeLeaf(DraggableLeaf leaf)
+    {
+        GD.Print("Trying to merge leaf with existing leaf on plate.");
+        return dragArea.TryMergeLeaf(leaf);
+    }
+
     public HoverHighlightable GetHoverHighlight()
     {
         return hoverHighlight;

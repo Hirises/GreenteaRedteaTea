@@ -52,4 +52,19 @@ public partial class DragAreaPlate : DragArea, IDragAreaContainer
             currentDraggable.Destroy();
         }
     }
+
+    public bool TryMergeLeaf(DraggableLeaf newLeaf)
+    {
+        if (currentDraggable == null)
+        {
+            GD.Print("No existing leaf to merge with on the plate!");
+            return false;
+        }
+
+        var existingLeaf = currentDraggable;
+        var mix = new CombinedLeafExpression(existingLeaf.GetLeafContent(), newLeaf.GetLeafContent());
+        existingLeaf.SetLeafContent(mix);
+        GD.Print($"Merged leaf on plate to create {mix.DisplayName}.");
+        return true;
+    }
 }
