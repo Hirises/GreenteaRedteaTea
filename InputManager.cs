@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class InputManager : Node
 {
@@ -33,6 +34,12 @@ public partial class InputManager : Node
         }
         Instance = this;
     }
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+    }
+
 
     public void OnAreaEntered(DragArea area)
     {

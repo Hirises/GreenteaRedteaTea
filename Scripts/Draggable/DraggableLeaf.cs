@@ -5,7 +5,9 @@ using System;
 public partial class DraggableLeaf : Node2D, IDraggable
 {
     [Export] Sprite2D leafSprite;
-    DragAreaContainer returnArea;
+    [Export] HoverHighlightable hoverHighlight;
+    public HoverHighlightable HoverHighlight => hoverHighlight;
+    IDragAreaContainer returnArea;
     ProductExpression leafContent;
 
     public void Initialize(BasicLeafKind kind)
@@ -16,7 +18,8 @@ public partial class DraggableLeaf : Node2D, IDraggable
     public override void _Process(double delta)
     {
         base._Process(delta);
-        DraggableUtil.DefaultDragBehavior(this, this, delta, returnArea);
+        DraggableUtil.DefaultDragBehavior(this, this, delta, returnArea?.GetNode(),
+            returnArea is DragAreaPlate ? 1 : 10);
 
         if (leafContent == null)
         {
@@ -43,6 +46,11 @@ public partial class DraggableLeaf : Node2D, IDraggable
                 returnArea = container;
                 GD.Print("Leaf successfully dropped into container.");
             }
+            else if (container.TryPutLeafOnPlate(this))
+            {
+                returnArea = container.GetPlateDragArea() as DragAreaPlate;
+                GD.Print("Leaf successfully put on plate.");
+            }
             else
             {
                 GD.Print("Failed to drop leaf into container. Returning to original position.");
@@ -59,7 +67,7 @@ public partial class DraggableLeaf : Node2D, IDraggable
         ReturnToOriginalPosition();
     }
 
-    void Destroy()
+    public void Destroy()
     {
         GD.Print("Leaf destroyed.");
         QueueFree();

@@ -2,10 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://exgfcjd1b624" path="res://Sprites/찻잎.png" id="2_ecqhw"]
 [ext_resource type="Script" uid="uid://qpph2jxqsj1k" path="res://Scripts/Draggable/DraggableLeaf.cs" id="2_v6cep"]
+[ext_resource type="Script" uid="uid://kn8cm2cmjirc" path="res://HoverHighlightable.cs" id="3_v6cep"]
 
-[node name="DraggableLeaf" type="Node2D" unique_id=260276720 node_paths=PackedStringArray("leafSprite")]
+[node name="DraggableLeaf" type="Node2D" unique_id=260276720 node_paths=PackedStringArray("leafSprite", "hoverHighlight")]
 script = ExtResource("2_v6cep")
-leafSprite = NodePath("찻잎")
+leafSprite = NodePath("Graphic/찻잎")
+hoverHighlight = NodePath("Graphic")
 
-[node name="찻잎" type="Sprite2D" parent="." unique_id=247694236]
+[node name="Graphic" type="Node2D" parent="." unique_id=805680455]
+script = ExtResource("3_v6cep")
+
+[node name="찻잎" type="Sprite2D" parent="Graphic" unique_id=247694236]
 texture = ExtResource("2_ecqhw")

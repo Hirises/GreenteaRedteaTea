@@ -2,9 +2,14 @@ using Godot;
 using RedteaGreenteaTea.Domain;
 using System;
 
-public partial class DragAreaContainer : DragArea
+public partial class DragAreaContainer : DragArea, IDragAreaContainer
 {
     IDraggable currentDraggable;
+
+    public Node2D GetNode()
+    {
+        return this;
+    }
 
     public override IDraggable GetDraggable()
     {
@@ -24,27 +29,56 @@ public partial class DragAreaContainer : DragArea
         return true;
     }
 
-    public void TryFill(ProductExpression liquid)
+    public bool TryFill(ProductExpression liquid)
     {
         if (currentDraggable == null)
         {
             GD.Print("No draggable item in container to fill!");
-            return;
+            return false;
         }
 
         if (currentDraggable is not DraggableCup)
         {
             GD.Print("Only cups can be filled in the container!");
-            return;
+            return false;
         }
 
         if (!liquid.Is(ProductCategory.Liquid))
         {
             GD.Print("Only liquids can be filled into the cup!");
-            return;
+            return false;
         }
 
         var cup = currentDraggable as DraggableCup;
         cup.Fill(liquid);
+        return true;
+    }
+
+    public bool TryPutLeafOnPlate(DraggableLeaf leaf)
+    {
+        if (currentDraggable == null)
+        {
+            GD.Print("No draggable item in container to put leaf on!");
+            return false;
+        }
+
+        if (currentDraggable is not DraggablePlate)
+        {
+            GD.Print("Only plates can have leaves put on them in the container!");
+            return false;
+        }
+
+        var plate = currentDraggable as DraggablePlate;
+        return plate.TryPutOnPlate(leaf);
+    }
+
+    public DragArea GetPlateDragArea()
+    {
+        if (currentDraggable is DraggablePlate)
+        {
+            var plate = currentDraggable as DraggablePlate;
+            return plate.DragArea;
+        }
+        return null;
     }
 }

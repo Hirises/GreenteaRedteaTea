@@ -5,7 +5,7 @@ public static class DraggableUtil
 {
     public const int DragZIndex = 100; // ZIndex to use for dragged items
 
-    public static void DefaultDragBehavior(Node2D node, IDraggable draggable, double delta, DragAreaContainer returnArea)
+    public static void DefaultDragBehavior(Node2D node, IDraggable draggable, double delta, Node2D returnArea, int zIndexMult = 10)
     {
         if (InputManager.Instance?.currentDragItem == draggable)
         {
@@ -15,7 +15,7 @@ public static class DraggableUtil
         else if (returnArea != null)
         {
             node.Position = node.Position.Lerp(returnArea.GlobalPosition, 10f * (float)delta);
-            node.ZIndex = returnArea?.ZIndex*10 + 1 ?? 1; // Reset ZIndex when not being dragged
+            node.ZIndex = returnArea?.ZIndex*zIndexMult + 1 ?? 1; // Reset ZIndex when not being dragged
         }
     }
 }

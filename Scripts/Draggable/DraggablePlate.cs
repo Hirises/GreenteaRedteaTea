@@ -1,14 +1,20 @@
 using Godot;
+using RedteaGreenteaTea.Domain;
 using System;
 
 public partial class DraggablePlate : Node2D, IDraggable
 {
+    [Export] DragAreaPlate dragArea;
+    public DragAreaPlate DragArea => dragArea;
     DragAreaContainer returnArea;
 
     public override void _Process(double delta)
     {
         base._Process(delta);
         DraggableUtil.DefaultDragBehavior(this, this, delta, returnArea);
+
+        dragArea.Visible = dragArea.HasLeaf() && InputManager.Instance.currentDragItem != this;
+        dragArea.ZIndex = ZIndex;
     }
 
     public void OnPick()
@@ -19,6 +25,12 @@ public partial class DraggablePlate : Node2D, IDraggable
     public void OnDrop(DragArea dropArea)
     {
         GD.Print($"Plate dropped on {dropArea?.Name}!");
+        if (dropArea == dragArea)
+        {
+            GD.Print("Plate dropped back on its own drag area. Returning to original position.");
+            ReturnToOriginalPosition();
+            return;
+        }
         if (dropArea is DragAreaContainer)
         {
             var container = dropArea as DragAreaContainer;
@@ -66,5 +78,11 @@ public partial class DraggablePlate : Node2D, IDraggable
             GD.Print("Failed to return plate to original position. Destroying plate.");
             Destroy();
         }
+    }
+
+    public bool TryPutOnPlate(DraggableLeaf leaf)
+    {
+        GD.Print("Putting leaf on plate.");
+        return dragArea.TryDropDraggable(leaf);
     }
 }

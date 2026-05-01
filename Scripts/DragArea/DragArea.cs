@@ -32,4 +32,15 @@ public partial class DragArea : Area2D
     {
         return null;
     }
+    
+    public void SetHoverHighlight(HoverHighlightable highlight)
+    {
+        hoverHighlight = highlight;
+    }
+
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+        InputManager.Instance.OnAreaExited(this);
+    }
 }
