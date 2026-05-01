@@ -3,23 +3,43 @@ using System;
 
 public partial class DragAreaSubmit : DragArea
 {
-    IDraggable currentDraggable;
+    [Export] GameManager GameManager;
 
     public override IDraggable GetDraggable()
     {
-        var draggable = currentDraggable;
-        currentDraggable = null;
-        return draggable;
+        return null;
     }
 
-    public bool TryDropDraggable(IDraggable draggable)
+    public bool TrySubmit(IDraggable draggable)
     {
-        if (currentDraggable != null)
+        if (draggable is DraggableCup)
         {
-            GD.Print("Container already has a draggable item!");
-            return false;
+            var cup = draggable as DraggableCup;
+            if (!cup.HasContent)
+            {
+                GD.Print("Cannot submit empty cup!");
+                return false;
+            }
+
+            GD.Print($"Submitting cup with content: {cup.LiquidContent.DisplayName}");
+            GameManager.Serve(cup.LiquidContent);
+            return true;
         }
-        currentDraggable = draggable;
-        return true;
+        if (draggable is DraggablePlate)
+        {
+            var plate = draggable as DraggablePlate;
+            if (!plate.DragArea.HasLeaf())
+            {
+                GD.Print("Cannot submit empty plate!");
+                return false;
+            }
+
+            var leaf = plate.DragArea.GetLeaf().GetLeafContent();
+            GD.Print($"Submitting plate with leaf: {leaf.DisplayName}");
+            GameManager.Serve(leaf);
+            return true;
+        }
+        GD.Print("Unknown draggable type submitted. Rejecting.");
+        return false;
     }
 }

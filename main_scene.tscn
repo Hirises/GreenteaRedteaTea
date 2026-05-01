@@ -882,10 +882,11 @@ script = ExtResource("7_p8s74")
 
 [node name="FlowerPot3" parent="화분3" unique_id=544094018 instance=ExtResource("42_bqoel")]
 
-[node name="DragArea제출" parent="." unique_id=988752156 node_paths=PackedStringArray("hoverHighlight") instance=ExtResource("3_d5x1h")]
+[node name="DragArea제출" parent="." unique_id=988752156 node_paths=PackedStringArray("GameManager", "hoverHighlight") instance=ExtResource("3_d5x1h")]
 position = Vector2(772.00006, 339)
 scale = Vector2(2.3795717, 1.6278205)
 script = ExtResource("34_yj5sn")
+GameManager = NodePath("../GameManager")
 hoverHighlight = NodePath("../메뉴")
 
 [node name="메뉴" type="Sprite2D" parent="." unique_id=1399463259]
