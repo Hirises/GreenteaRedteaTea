@@ -5,14 +5,22 @@ public partial class ClickAreaCandle : ClickArea
 {
     [Export] float candleMaxTime = 3f;
     [Export] DraggableTeapot teapot;
+    [Export] Node2D flameOn;
+    [Export] Node2D flameOff;
     float candleTime = 0f;
     bool isLit = false;
 
     public override void OnClick()
     {
+        if (isLit)
+        {
+            GD.Print($"Candle {Name} is already lit.");
+            return;
+        }
         GD.Print($"Lit candle {Name}!");
         isLit = true;
         candleTime = 0f;
+        SetFlameState(true);
     }
 
     public override void _Process(double delta)
@@ -27,14 +35,30 @@ public partial class ClickAreaCandle : ClickArea
                 isLit = false;
                 GD.Print($"Candle {Name} has burned out. Trying brew the tea in teapot...");
                 teapot.TryBrew();
+                SetFlameState(false);
                 return;
             }
             if (InputManager.Instance.currentDragItem == teapot)
             {
                 isLit = false;
                 GD.Print($"Teapot is lifted while candle {Name} is lit. Extinguishing candle.");
+                SetFlameState(false);
                 return;
             }
+        }
+    }
+
+    void SetFlameState(bool lit)
+    {
+        if (lit)
+        {
+            flameOff.Hide();
+            flameOn.Show();
+        }
+        else
+        {
+            flameOff.Show();
+            flameOn.Hide();
         }
     }
 }
