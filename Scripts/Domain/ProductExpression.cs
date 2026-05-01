@@ -18,6 +18,7 @@ public abstract record ProductExpression
 {
 	public abstract ProductCategory Categories { get; }
 	public abstract int Depth { get; }
+	public abstract int Length {get; }
 	public abstract string DisplayName { get; }
 	public abstract string DisplayNameWithBrackets { get; }
 	public abstract ProductColor Color { get; }
@@ -40,6 +41,7 @@ public sealed record BaseExpression(BaseKind Kind) : ProductExpression
 {
 	public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Base | ProductCategory.Liquid;
 	public override int Depth => 0;
+    public override int Length => 1;
 	public override string DisplayName => ProductVisualCatalog.Current.GetBaseName(Kind);
 	public override string DisplayNameWithBrackets => DisplayName;
 	public override ProductColor Color => ProductVisualCatalog.Current.GetBaseColor(Kind);
@@ -49,6 +51,7 @@ public sealed record BasicLeafExpression(BasicLeafKind Kind) : ProductExpression
 {
 	public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Leaf;
 	public override int Depth => 0;
+	public override int Length =>1;
 	public override string DisplayName => ProductVisualCatalog.Current.GetBasicLeafName(Kind);
 	public override string DisplayNameWithBrackets => DisplayName;
 	public override ProductColor Color => ProductVisualCatalog.Current.GetBasicLeafColor(Kind);
@@ -68,6 +71,7 @@ public sealed record BrewedLeafExpression : ProductExpression
 	public ProductExpression Liquid { get; }
 	public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Leaf;
 	public override int Depth => 1 + Math.Max(Leaf.Depth, Liquid.Depth);
+	public override int Length => 1 + Leaf.Length + Liquid.Length;
 	public override string DisplayName => $"{Leaf.DisplayName}{Liquid.DisplayName}{ProductVisualCatalog.Current.BrewedLeafSuffix}";
 	public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
 		$"{Leaf.DisplayNameWithBrackets}{Liquid.DisplayNameWithBrackets}{ProductVisualCatalog.Current.BrewedLeafSuffix}");
@@ -88,6 +92,7 @@ public sealed record CombinedLeafExpression : ProductExpression
 	public ProductExpression Right { get; }
 	public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Leaf;
 	public override int Depth => 1 + Math.Max(Left.Depth, Right.Depth);
+	public override int Length => 1 + Left.Length + Right.Length;
 	public override string DisplayName => $"{Left.DisplayName}{Right.DisplayName}{ProductVisualCatalog.Current.CombinedLeafSuffix}";
 	public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
 		$"{Left.DisplayNameWithBrackets}{Right.DisplayNameWithBrackets}{ProductVisualCatalog.Current.CombinedLeafSuffix}");
@@ -108,6 +113,7 @@ public sealed record TeaExpression : ProductExpression
 	public ProductExpression Liquid { get; }
 	public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Tea | ProductCategory.Liquid;
 	public override int Depth => 1 + Math.Max(Leaf.Depth, Liquid.Depth);
+	public override int Length => Leaf.Length + Liquid.Length;
 	public override string DisplayName => $"{Leaf.DisplayName}{Liquid.DisplayName}";
 	public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
 		$"{Leaf.DisplayNameWithBrackets}{Liquid.DisplayNameWithBrackets}");
@@ -128,6 +134,7 @@ public sealed record MixedLiquidExpression : ProductExpression
 	public ProductExpression Right { get; }
 	public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Liquid;
 	public override int Depth => 1 + Math.Max(Left.Depth, Right.Depth);
+	public override int Length => 1 + Left.Length + Right.Length;
 	public override string DisplayName => $"{Left.DisplayName}{Right.DisplayName}{ProductVisualCatalog.Current.MixedLiquidSuffix}";
 	public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
 		$"{Left.DisplayNameWithBrackets}{Right.DisplayNameWithBrackets}{ProductVisualCatalog.Current.MixedLiquidSuffix}");

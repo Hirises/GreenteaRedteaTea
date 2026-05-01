@@ -14,7 +14,8 @@ public class PutinCustomer : Customer
     protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
-        Order = orderGenerator.GenerateProductFromLeaf(3,BasicLeafKind.Black);
+        var rules = TeaOrderGenerationRules.ForLeaf(BasicLeafKind.Black);
+        Order = orderGenerator.GenerateProductByLength(7, rules);
         isOrderGenerated = true;
         return Order;
     }
