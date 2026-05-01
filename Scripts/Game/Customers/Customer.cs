@@ -26,9 +26,20 @@ public abstract class Customer
 
 	protected abstract ProductExpression _GenerateOrder();
 
-	public abstract string SayOrder();
-	public abstract string Thank();
-	public abstract string Complain(OrderResult result);
+	public virtual string SayOrder()
+	{
+		return CustomerDialogueBook.GetOrder(GetType().Name, GetOrderName());
+	}
+
+	public virtual string Thank()
+	{
+		return CustomerDialogueBook.GetThank(GetType().Name);
+	}
+
+	public virtual string Complain(OrderResult result)
+	{
+		return CustomerDialogueBook.GetComplaint(GetType().Name, result);
+	}
 
 	protected string GetOrderName()
 	{

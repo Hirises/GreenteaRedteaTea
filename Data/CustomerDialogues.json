@@ -1,0 +1,85 @@
+{
+  "DefaultCustomer": {
+    "order": [
+      "{order} please"
+    ],
+    "thank": [
+      "thx"
+    ],
+    "complaint": {
+      "timeout": [
+        "Customer complains: order timed out."
+      ],
+      "wrongMenu": [
+        "Customer complains: wrong menu."
+      ],
+      "kickedOut": [
+        "Customer complains: kicked out."
+      ]
+    }
+  },
+  "EasyCustomer": {
+    "order": [
+      "{order} 주세요.",
+      "{order} 하나 부탁해요.",
+      "저는 {order} 마실게요."
+    ],
+    "thank": [
+      "고마워요!",
+      "잘 마실게요.",
+      "감사합니다."
+    ],
+    "complaint": {
+      "timeout": [
+        "너무 오래 걸렸어요.",
+        "아직도 안 나왔나요?"
+      ],
+      "wrongMenu": [
+        "이거 제가 주문한 게 아닌데요.",
+        "메뉴가 잘못 나왔어요."
+      ],
+      "kickedOut": [
+        "왜 쫓아내는 거예요?",
+        "다시는 안 올게요."
+      ]
+    }
+  },
+  "NormalCustomer": {
+    "order": [
+      "{order} please"
+    ],
+    "thank": [
+      "thx"
+    ],
+    "complaint": {
+      "timeout": [
+        "Customer complains: order timed out."
+      ],
+      "wrongMenu": [
+        "Customer complains: wrong menu."
+      ],
+      "kickedOut": [
+        "Customer complains: kicked out."
+      ]
+    }
+  },
+  "PutinCustomer": {
+    "order": [
+      "{order}."
+    ],
+    "thank": [
+      "thx"
+    ],
+    "complaint": {
+      "timeout": [
+        "Customer complains: order timed out."
+      ],
+      "wrongMenu": [
+        "Customer complains: wrong menu."
+      ],
+      "kickedOut": [
+        "Customer complains: kicked out."
+      ]
+    }
+  }
+}

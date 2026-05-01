@@ -11,7 +11,7 @@ public partial class CustomerManager : Node
 	{
 		customerCount++;
 
-		var customer = new PutinCustomer(customerCount);
+		var customer = new EasyCustomer(customerCount);
 		customer.GenerateOrder();
 
 		return customer;

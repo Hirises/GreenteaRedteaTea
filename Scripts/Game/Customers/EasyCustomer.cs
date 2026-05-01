@@ -1,21 +1,25 @@
 using RedteaGreenteaTea.Domain;
 
-public class PutinCustomer : Customer
+public class EasyCustomer : Customer
 {
     private const float DefaultPatienceSeconds = 30f;
     private const int DefaultOrderMaxDepth = 2;
 
-    public PutinCustomer(int number) : base(number)
+    public EasyCustomer(int number) : base(number)
     {
         PatienceSeconds = DefaultPatienceSeconds;
-        Name = "Putin";
+        Name = GenerateName(number);
+    }
+
+    private string GenerateName(int seed)
+    {
+        return "Putin";
     }
 
     protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
-        var rules = TeaOrderGenerationRules.ForLeaf(BasicLeafKind.Black);
-        Order = orderGenerator.GenerateProductByLength(5, rules);
+        Order = orderGenerator.GenerateProduct(Number);
         isOrderGenerated = true;
         return Order;
     }

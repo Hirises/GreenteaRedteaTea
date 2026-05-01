@@ -24,31 +24,4 @@ public class DefaultCustomer : Customer
         return Order;
     }
 
-    public override string SayOrder()
-    {
-        return GetOrderName() + "please";
-    }
-
-    public override string Thank()
-    {
-        return "thx";
-    }
-
-    public override string Complain(OrderResult result)
-    {
-        string comp = "";
-        switch (result)
-        {
-            case OrderResult.WrongMenu:
-                comp = "Customer complains: wrong menu.";
-                break;
-            case OrderResult.Timeout:
-                comp = "Customer complains: order timed out.";
-                break;
-            case OrderResult.KickedOut:
-                comp = "Customer complains: kicked out.";
-                break;
-        }
-        return comp;
-    }
 }
