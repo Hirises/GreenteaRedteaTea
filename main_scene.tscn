@@ -1299,7 +1299,7 @@ theme_override_font_sizes/font_size = 32
 text = "Default asdf asdf "
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
 script = ExtResource("26_ixb38")
 
 [node name="SpeechAnimation" type="AnimationPlayer" parent="CustomerUI/Speech" unique_id=15386469]

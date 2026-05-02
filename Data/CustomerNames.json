@@ -21,6 +21,9 @@
     "Arthur", "Genevieve", "Socrates", "Hildegard", "Constantine", 
     "Zenith", "Balthazar", "Lucretia", "Dante"
   ],
+  "BadCustomer": [
+    "Default"
+  ],
   "PutinCustomer": [
     "Putin"
   ],
