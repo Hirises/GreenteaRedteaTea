@@ -98,6 +98,8 @@ public partial class GameManager : Node
 		GD.Print($"Customer {currentCustomer.Number} entered and ordered: {currentCustomer.Order.DisplayNameWithBrackets}");
 		EmitSignal(SignalName.OrderStarted, currentCustomer.Order.DisplayNameWithBrackets, currentCustomer.PatienceSeconds);
 		EmitSignal(SignalName.OrderTimerChanged, RemainingOrderSeconds, currentCustomer.PatienceSeconds);
+		
+		SoundManager.Play(SFXType.CustomerEnter);
 	}
 
 	public void startOrder()
@@ -148,14 +150,14 @@ public partial class GameManager : Node
 			case OrderResult.Success:
 				rating = Math.Min(10, rating + 2);
 				text = currentCustomer.Thank();
-        		SoundManager.Play(SFXType.Success);
+				SoundManager.Play(SFXType.Success);
 				break;
 			case OrderResult.WrongMenu:
 			case OrderResult.Timeout:
 			case OrderResult.KickedOut:
 				rating--;
 				text = currentCustomer.Complain(result);
-        		SoundManager.Play(SFXType.Fail);
+				SoundManager.Play(SFXType.Fail);
 				break;
 		}
 
