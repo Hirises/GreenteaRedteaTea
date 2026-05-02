@@ -93,6 +93,7 @@
 [ext_resource type="Texture2D" uid="uid://mm2nw00cb36k" path="res://Sprites/별점들_Back.png" id="68_gs8nl"]
 [ext_resource type="Texture2D" uid="uid://d1t5rw3x6lelq" path="res://Sprites/별점들_Fill.png" id="69_jl0ou"]
 [ext_resource type="Texture2D" uid="uid://dl4tfl6d4je8a" path="res://Sprites/별점들_Outline.png" id="70_2k5xf"]
+[ext_resource type="Script" uid="uid://c2evabtmr637p" path="res://Scripts/DragArea/ClickAreaGameStart.cs" id="75_ixb38"]
 
 [sub_resource type="Animation" id="Animation_6a02w"]
 length = 0.001
@@ -632,6 +633,20 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(0, -20), Vector2(0, 0)]
 }
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../ClickArea달력")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.96666664),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"OnAnimationEnd"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_si2mt"]
 _data = {
@@ -1150,6 +1165,7 @@ texture = ExtResource("31_lwncm")
 process_material = SubResource("ParticleProcessMaterial_30vx0")
 
 [node name="ClickArea초" parent="." unique_id=1204339295 node_paths=PackedStringArray("teapot", "flameOn", "flameOff", "particle", "hoverHighlight") instance=ExtResource("18_uws2o")]
+position = Vector2(1242, 678)
 script = ExtResource("19_iylel")
 candleMaxTime = 3.0
 teapot = NodePath("../Teapot")
@@ -1336,8 +1352,17 @@ texture = ExtResource("43_q1yuq")
 [node name="시간게이지Outline" type="Sprite2D" parent="TimerGraph" unique_id=837150087]
 texture = ExtResource("44_uacds")
 
+[node name="ClickArea달력" parent="." unique_id=1160333453 node_paths=PackedStringArray("animationPlayer", "gameManager", "hoverHighlight") instance=ExtResource("18_uws2o")]
+position = Vector2(136, 298)
+scale = Vector2(17.299416, 13.933637)
+script = ExtResource("75_ixb38")
+animationPlayer = NodePath("../Calendar/AnimationPlayer")
+gameManager = NodePath("../GameManager")
+hoverHighlight = NodePath("../Calendar")
+
 [node name="Calendar" type="Node2D" parent="." unique_id=1817888089]
 position = Vector2(137, 267)
+script = ExtResource("7_p8s74")
 
 [node name="Graphic" type="Node2D" parent="Calendar" unique_id=1016375928]
 
