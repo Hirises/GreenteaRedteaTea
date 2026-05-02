@@ -35,7 +35,7 @@ public partial class ClickAreaGameStart : ClickArea
 		nextOpenPanel.Add(openPanel);
 		animationPlayer.Play("flip_close");
 		SetHoverHighlight(null);
-		SoundManager.Play(SFXType.CalendarFlip);
+		SoundManager.Play(SFXType.CalendarOpen);
 	}
 
 	public void OnOrderEnded(int result, string orderName)
@@ -52,6 +52,7 @@ public partial class ClickAreaGameStart : ClickArea
 		if (score > 99) score = 99;
 		nextOpenPanel.Add(numPanel01[score % 10]);
 		nextOpenPanel.Add(numPanel10[score / 10]);
+		SoundManager.Play(SFXType.CalendarFlip);
 		animationPlayer.Play("flip_close");
 	}
 

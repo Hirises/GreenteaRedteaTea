@@ -1109,6 +1109,16 @@ stream = ExtResource("24_bkdqi")
 volume_db = -8.0
 pitch_scale = 2.0
 
+[node name="CalendarOpen" type="Node" parent="SoundManager" unique_id=1507108084 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 34
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CalendarOpen" unique_id=185019932]
+stream = ExtResource("24_bkdqi")
+volume_db = -8.0
+pitch_scale = 2.0
+
 [node name="Kick" type="Node" parent="SoundManager" unique_id=1405328621 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
 sfxType = 33
