@@ -25,7 +25,8 @@ public partial class GameManager : Node
 	private Customer currentCustomer;
 	private float timer;
 	public bool isHard {get; protected set;} = false;
-	public int rating {get; protected set; }
+	public int rating {get; protected set;}
+	public int score {get; protected set;}
 
 	public ProductExpression CurrentOrder => currentCustomer?.Order;
 	public bool IsOnOrder => isOnOrder;
@@ -68,6 +69,7 @@ public partial class GameManager : Node
 	public void StartGame()
 	{
 		rating = 5;
+		score = 0;
 		StartOrder();
 	}
 
@@ -89,7 +91,7 @@ public partial class GameManager : Node
 			return;
 		}
 
-		currentCustomer = customerManager.GenerateNextCustomer();
+		currentCustomer = customerManager.GenerateNextCustomer(score, rating);
 		customerUi?.setCustomer(currentCustomer);
 		timer = 0f;
 		isOnOrder = true;
@@ -149,6 +151,7 @@ public partial class GameManager : Node
 		{
 			case OrderResult.Success:
 				rating = Math.Min(10, rating + 1);
+				score++;
 				text = currentCustomer.Thank();
 				SoundManager.Play(SFXType.Success);
 				break;
