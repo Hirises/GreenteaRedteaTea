@@ -35,6 +35,8 @@ public enum SFXType
 	LeafPutWet,
 	JarPut,
 	TeapotPut,
+	TreeGrow,
+	TreeDie
 }
 
 public partial class SoundManager : Node

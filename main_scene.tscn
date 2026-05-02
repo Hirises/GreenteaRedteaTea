@@ -52,6 +52,7 @@
 [ext_resource type="Script" uid="uid://svua1rrnnn0c" path="res://Scripts/Game/UI/CustomerUI/CustomerUi.cs" id="22_7y85w"]
 [ext_resource type="AudioStream" uid="uid://cky7o8slwwe8u" path="res://NeoSFX/젖은찻잎.wav" id="22_ldlqy"]
 [ext_resource type="Texture2D" uid="uid://cjjr17u4vweat" path="res://Sprites/Teapot/거름망_Back.png" id="22_yh4yk"]
+[ext_resource type="AudioStream" uid="uid://cnhmw116ujish" path="res://NeoSFX/뾰잉.mp3" id="23_3s6xx"]
 [ext_resource type="Texture2D" uid="uid://cg3lcnelvqkew" path="res://Sprites/Teapot/거름망_Front.png" id="23_p8s74"]
 [ext_resource type="Script" uid="uid://u7ji25tgg1cn" path="res://Scripts/Game/UI/CustomerUI/Special.cs" id="24_7y85w"]
 [ext_resource type="Texture2D" uid="uid://d4j6f3iyhsjux" path="res://Sprites/Teapot/포트_Front.png" id="24_o4fqm"]
@@ -988,7 +989,8 @@ sfxType = 18
 player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TreeBloom" unique_id=874364242]
-stream = ExtResource("9_ixb38")
+stream = ExtResource("23_3s6xx")
+volume_db = -16.0
 pitch_scale = 2.0
 
 [node name="TreePick" type="Node" parent="SoundManager" unique_id=666173125 node_paths=PackedStringArray("player")]
@@ -1089,6 +1091,26 @@ player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TeapotPut" unique_id=1932900848]
 stream = ExtResource("7_k2ony")
+pitch_scale = 2.0
+
+[node name="TreeGrow" type="Node" parent="SoundManager" unique_id=1133976384 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 30
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TreeGrow" unique_id=1674051814]
+stream = ExtResource("10_ixb38")
+volume_db = -8.0
+pitch_scale = 2.0
+
+[node name="TreeDie" type="Node" parent="SoundManager" unique_id=1405328621 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 31
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TreeDie" unique_id=1731890765]
+stream = ExtResource("14_s2ody")
+volume_db = -8.0
 pitch_scale = 2.0
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=2050139955]

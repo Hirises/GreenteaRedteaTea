@@ -75,14 +75,16 @@ public partial class FlowerPot : Node2D
             GD.PushWarning("FlowerPot has no leaves to pick.");
             return null;
         }
-
-        bloomCount -= 1;
-        OnBloomCountChanged();
         if (bloomCount <= 0)
         {
             bloomed = false;
             animPlayer.Play("disappear");
+            SoundManager.Play(SFXType.TreeDie);
+            return null;
         }
+
+        bloomCount -= 1;
+        OnBloomCountChanged();
 
         var leaf = draggableLeafScene.Instantiate<DraggableLeaf>();
         LeafRoot.AddChild(leaf);
@@ -102,6 +104,7 @@ public partial class FlowerPot : Node2D
                 bloomTimer = 0f;
                 bloomCount += 1;
                 OnBloomCountChanged();
+                SoundManager.Play(SFXType.TreeGrow);
             }
 
             var leafs = isLeaf1 ? leafSprites1 : leafSprites2;
