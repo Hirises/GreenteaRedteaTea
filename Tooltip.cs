@@ -45,6 +45,7 @@ public partial class Tooltip : Node2D
         if (showing)
         {
             Scale = Scale.Lerp(new Vector2(1, 1), 10f * (float)delta); // Smoothly scale up when showing
+            textNode.Text = currentHoverDragArea.GetTooltipText();
         }
         else
         {
