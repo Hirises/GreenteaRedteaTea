@@ -20,13 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://c4a8atyo2j1p4" path="res://Sprites/물.png" id="9_42l1d"]
 [ext_resource type="AudioStream" uid="uid://csj1pyl1nhpo5" path="res://NeoSFX/낙옆_1.wav" id="9_ixb38"]
 [ext_resource type="Script" uid="uid://cpmli88ybuka1" path="res://Scripts/DragArea/DragAreaBaseJar.cs" id="9_meb7l"]
-[ext_resource type="AudioStream" uid="uid://ulsmmvtyf84q" path="res://SFX/sfx_cap_charm.wav" id="9_v118d"]
 [ext_resource type="AudioStream" uid="uid://wrg8awbcbyor" path="res://NeoSFX/낙엽_short.wav" id="10_ixb38"]
 [ext_resource type="AudioStream" uid="uid://dfutbuxhftd5c" path="res://NeoSFX/물소리_3.wav" id="10_ldlqy"]
 [ext_resource type="Script" uid="uid://cqfs3moev56ed" path="res://Scripts/Draggable/DraggableBaseJar.cs" id="10_w30ff"]
 [ext_resource type="AudioStream" uid="uid://dcbdbggx7gfow" path="res://NeoSFX/달그락_3.wav" id="11_l8no8"]
 [ext_resource type="Texture2D" uid="uid://c3hhub2ni5k7i" path="res://Sprites/우유.png" id="11_m35m6"]
-[ext_resource type="AudioStream" uid="uid://dw0080og6qlpx" path="res://SFX/sfx_broom_fail.wav" id="11_o63de"]
 [ext_resource type="AudioStream" uid="uid://c8pn0qqih8k1p" path="res://NeoSFX/보글보글_3초.wav" id="12_3s6xx"]
 [ext_resource type="AudioStream" uid="uid://bvq3qqjiqegub" path="res://NeoSFX/띵.wav" id="12_ubkm4"]
 [ext_resource type="AudioStream" uid="uid://bye6s7kigiwbx" path="res://NeoSFX/라이터_On.wav" id="13_bkdqi"]
@@ -39,8 +37,10 @@
 [ext_resource type="Texture2D" uid="uid://ci1mcg13xpuwn" path="res://Sprites/Teapot/초_꺼짐.png" id="16_5smuj"]
 [ext_resource type="Texture2D" uid="uid://sa3og0mgifbo" path="res://Sprites/Teapot/주전자_FrontGrad.png" id="17_y5ved"]
 [ext_resource type="Texture2D" uid="uid://dhv8jangkpr65" path="res://Sprites/Teapot/주전자_Full.png" id="18_kv3aw"]
+[ext_resource type="AudioStream" uid="uid://du51v0wixbls" path="res://NeoSFX/디리링_저음.wav" id="18_l8no8"]
 [ext_resource type="PackedScene" uid="uid://blfc3725i487a" path="res://click_area.tscn" id="18_uws2o"]
 [ext_resource type="Script" uid="uid://b5oee2s1w76rp" path="res://Scripts/DragArea/DragAreaTeapot.cs" id="18_xy6fp"]
+[ext_resource type="AudioStream" uid="uid://650fngffa0xh" path="res://NeoSFX/디딧.mp3" id="19_3s6xx"]
 [ext_resource type="Script" uid="uid://u4ml7sm7kt5g" path="res://Scripts/DragArea/ClickAreaCandle.cs" id="19_iylel"]
 [ext_resource type="Texture2D" uid="uid://cwq2lr05jgw45" path="res://Sprites/Teapot/주전자_Half.png" id="19_o7u2a"]
 [ext_resource type="AudioStream" uid="uid://cu23gg77gblvv" path="res://NeoSFX/차임_1.wav" id="19_o48om"]
@@ -1015,7 +1015,7 @@ sfxType = 21
 player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/Success" unique_id=746049080]
-stream = ExtResource("9_v118d")
+stream = ExtResource("18_l8no8")
 pitch_scale = 2.0
 
 [node name="Fail" type="Node" parent="SoundManager" unique_id=79496429 node_paths=PackedStringArray("player")]
@@ -1024,7 +1024,7 @@ sfxType = 22
 player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/Fail" unique_id=326349089]
-stream = ExtResource("11_o63de")
+stream = ExtResource("19_3s6xx")
 pitch_scale = 2.0
 
 [node name="CustomerEnter" type="Node" parent="SoundManager" unique_id=494289125 node_paths=PackedStringArray("player")]
