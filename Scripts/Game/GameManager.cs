@@ -70,7 +70,7 @@ public partial class GameManager : Node
 	public void StartGame()
 	{
 		rating = 5;
-		score = 0;
+		score = 30;
 		customerManager.init();
 		StartOrder();
 	}
