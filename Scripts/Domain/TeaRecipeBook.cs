@@ -42,8 +42,14 @@ public static class TeaRecipeBook
 		return new MixedLiquidExpression(left, right);
 	}
 
+	public static ImposibleExpression Impossible(string name)
+	{
+		return new ImposibleExpression(name);
+	}
+
 	public static bool CanServe(ProductExpression made, ProductExpression order)
 	{
+		if(order.GetType() == typeof(ImposibleExpression)) return false;
 		return made == order;
 	}
 }

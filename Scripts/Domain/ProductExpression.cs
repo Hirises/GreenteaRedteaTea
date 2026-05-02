@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace RedteaGreenteaTea.Domain;
 
@@ -22,6 +23,7 @@ public abstract record ProductExpression
 	public abstract string DisplayName { get; }
 	public abstract string DisplayNameWithBrackets { get; }
 	public abstract ProductColor Color { get; }
+	public abstract bool isWet { get; }
 
 	public bool Is(ProductCategory category)
 	{
@@ -45,6 +47,8 @@ public sealed record BaseExpression(BaseKind Kind) : ProductExpression
 	public override string DisplayName => ProductVisualCatalog.Current.GetBaseName(Kind);
 	public override string DisplayNameWithBrackets => DisplayName;
 	public override ProductColor Color => ProductVisualCatalog.Current.GetBaseColor(Kind);
+    public override bool isWet => true;
+
 }
 
 public sealed record BasicLeafExpression(BasicLeafKind Kind) : ProductExpression
@@ -55,6 +59,7 @@ public sealed record BasicLeafExpression(BasicLeafKind Kind) : ProductExpression
 	public override string DisplayName => ProductVisualCatalog.Current.GetBasicLeafName(Kind);
 	public override string DisplayNameWithBrackets => DisplayName;
 	public override ProductColor Color => ProductVisualCatalog.Current.GetBasicLeafColor(Kind);
+	public override bool isWet => false;
 }
 
 public sealed record BrewedLeafExpression : ProductExpression
@@ -76,6 +81,7 @@ public sealed record BrewedLeafExpression : ProductExpression
 	public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
 		$"{Leaf.DisplayNameWithBrackets}{Liquid.DisplayNameWithBrackets}{ProductVisualCatalog.Current.TeaSuffix}{ProductVisualCatalog.Current.BrewedLeafSuffix}");
 	public override ProductColor Color => ProductVisualCatalog.Current.CalculateBrewedLeafColor(Leaf.Color, Liquid.Color);
+	public override bool isWet => true;
 }
 
 public sealed record CombinedLeafExpression : ProductExpression
@@ -97,6 +103,7 @@ public sealed record CombinedLeafExpression : ProductExpression
 	public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
 		$"{Left.DisplayNameWithBrackets}{Right.DisplayNameWithBrackets}{ProductVisualCatalog.Current.CombinedLeafSuffix}");
 	public override ProductColor Color => ProductVisualCatalog.Current.CalculateCombinedLeafColor(Left.Color, Right.Color);
+	public override bool isWet => Left.isWet || Right.isWet;
 }
 
 public sealed record TeaExpression : ProductExpression
@@ -118,6 +125,7 @@ public sealed record TeaExpression : ProductExpression
 	public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
 		$"{Leaf.DisplayNameWithBrackets}{Liquid.DisplayNameWithBrackets}{ProductVisualCatalog.Current.TeaSuffix}");
 	public override ProductColor Color => ProductVisualCatalog.Current.CalculateBrewedTeaColor(Leaf.Color, Liquid.Color);
+	public override bool isWet => true;
 }
 
 public sealed record MixedLiquidExpression : ProductExpression
@@ -139,4 +147,22 @@ public sealed record MixedLiquidExpression : ProductExpression
 	public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
 		$"{Left.DisplayNameWithBrackets}{Right.DisplayNameWithBrackets}{ProductVisualCatalog.Current.MixedLiquidSuffix}");
 	public override ProductColor Color => ProductVisualCatalog.Current.CalculateMixedLiquidColor(Left.Color, Right.Color);
+	public override bool isWet => true;
+}
+
+public sealed record ImposibleExpression : ProductExpression
+{
+	public ImposibleExpression(string name)
+	{
+		Name = name;
+	}
+	private string Name;
+	public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Liquid;
+	public override int Depth => 1;
+	public override int Length => 1;
+	public override string DisplayName => $"{Name}";
+	public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
+		$"{Name}");
+	public override ProductColor Color => ProductColor.FromRgb255(0, 0, 0, 1);
+	public override bool isWet => false;
 }
