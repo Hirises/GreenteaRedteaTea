@@ -288,6 +288,58 @@ public sealed class TeaOrderGenerator
 		return TeaRecipeBook.Impossible(name);
 	}
 
+	public ProductExpression GenerateInvalid()
+	{
+		return GenerateInvalid(2);
+	}
+
+	public ProductExpression GenerateInvalid(int maxDepth)
+	{
+		ArgumentOutOfRangeException.ThrowIfNegative(maxDepth);
+
+		var imp = GenerateImpossible(Pick(ImpossibleStringCatalog.Current.Strings));
+		var safeDepth = Math.Max(0, maxDepth);
+		var choices = new List<Func<ProductExpression>>
+		{
+			() => TeaRecipeBook.BrewTea(
+				TeaRecipeBook.CombineLeaves(GenerateLeaf(safeDepth), imp),
+				GenerateLiquid(safeDepth)),
+			() => TeaRecipeBook.BrewTea(
+				GenerateLeaf(safeDepth),
+				TeaRecipeBook.MixLiquids(imp, GenerateLiquid(safeDepth))),
+			() => TeaRecipeBook.BrewTea(
+				GenerateLeaf(safeDepth),
+				TeaRecipeBook.MixLiquids(GenerateLiquid(safeDepth), imp)),
+			() => TeaRecipeBook.BrewLeaf(
+				TeaRecipeBook.CombineLeaves(GenerateLeaf(safeDepth), imp),
+				GenerateLiquid(safeDepth)),
+			() => TeaRecipeBook.BrewLeaf(
+				GenerateLeaf(safeDepth),
+				TeaRecipeBook.MixLiquids(GenerateLiquid(safeDepth), imp)),
+			() => TeaRecipeBook.CombineLeaves(
+				TeaRecipeBook.BrewLeaf(GenerateLeaf(safeDepth), imp),
+				GenerateLeaf(safeDepth)),
+			() => TeaRecipeBook.MixLiquids(
+				TeaRecipeBook.BrewTea(GenerateLeaf(safeDepth), imp),
+				GenerateLiquid(safeDepth)),
+			() => TeaRecipeBook.MixLiquids(
+				GenerateLiquid(safeDepth),
+				TeaRecipeBook.BrewTea(GenerateLeaf(safeDepth), imp)),
+		};
+
+		if (maxDepth > 0)
+		{
+			choices.Add(() => TeaRecipeBook.BrewTea(
+				GenerateLeaf(maxDepth - 1),
+				TeaRecipeBook.MixLiquids(imp, GenerateLiquid(maxDepth - 1))));
+			choices.Add(() => TeaRecipeBook.BrewLeaf(
+				TeaRecipeBook.CombineLeaves(GenerateLeaf(maxDepth - 1), imp),
+				GenerateLiquid(maxDepth - 1)));
+		}
+
+		return Pick(choices)();
+	}
+
 	private BaseExpression CreateBase(BaseKind kind)
 	{
 		return kind switch

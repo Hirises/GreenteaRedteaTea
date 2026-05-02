@@ -32,7 +32,7 @@ public abstract record ProductExpression
 
 	protected static void Require(ProductExpression expression, ProductCategory category, string parameterName)
 	{
-		if (!expression.Is(category))
+		if (!expression.Is(category) && !(expression.GetType() == typeof(ImposibleExpression)))
 		{
 			throw new ArgumentException($"{parameterName} must be {category}.", parameterName);
 		}

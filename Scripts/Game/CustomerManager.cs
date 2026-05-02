@@ -57,7 +57,8 @@ public partial class CustomerManager : Node
 		}
 		else
 		{
-			customer = new RandomCustomer(customerCount);
+			if(_random.Next(10) == 0) customer = new BadCustomer(customerCount);
+			else customer = new RandomCustomer(customerCount);
 		}
 		customer.GenerateOrder();
 		return customer;
