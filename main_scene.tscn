@@ -40,7 +40,6 @@
 [ext_resource type="AudioStream" uid="uid://du51v0wixbls" path="res://NeoSFX/디리링_저음.wav" id="18_l8no8"]
 [ext_resource type="PackedScene" uid="uid://blfc3725i487a" path="res://click_area.tscn" id="18_uws2o"]
 [ext_resource type="Script" uid="uid://b5oee2s1w76rp" path="res://Scripts/DragArea/DragAreaTeapot.cs" id="18_xy6fp"]
-[ext_resource type="AudioStream" uid="uid://650fngffa0xh" path="res://NeoSFX/디딧.mp3" id="19_3s6xx"]
 [ext_resource type="Script" uid="uid://u4ml7sm7kt5g" path="res://Scripts/DragArea/ClickAreaCandle.cs" id="19_iylel"]
 [ext_resource type="Texture2D" uid="uid://cwq2lr05jgw45" path="res://Sprites/Teapot/주전자_Half.png" id="19_o7u2a"]
 [ext_resource type="AudioStream" uid="uid://cu23gg77gblvv" path="res://NeoSFX/차임_1.wav" id="19_o48om"]
@@ -48,6 +47,7 @@
 [ext_resource type="Script" uid="uid://pw6cex1g4tnc" path="res://Scripts/Draggable/DraggableTeapot.cs" id="19_xy6fp"]
 [ext_resource type="Texture2D" uid="uid://c0m2lwkcodvap" path="res://Sprites/Teapot/주전자_Water_Side.png" id="20_ijoax"]
 [ext_resource type="AudioStream" uid="uid://c2l4shw73h7fi" path="res://NeoSFX/라이터_Off.wav" id="20_k2ony"]
+[ext_resource type="AudioStream" uid="uid://dt1eytjrg2f2o" path="res://NeoSFX/부부.mp3" id="20_uush8"]
 [ext_resource type="Texture2D" uid="uid://cgbgqitus6pyi" path="res://Sprites/Teapot/주전자_Water_Top.png" id="21_j8kkg"]
 [ext_resource type="Script" uid="uid://svua1rrnnn0c" path="res://Scripts/Game/UI/CustomerUI/CustomerUi.cs" id="22_7y85w"]
 [ext_resource type="AudioStream" uid="uid://cky7o8slwwe8u" path="res://NeoSFX/젖은찻잎.wav" id="22_ldlqy"]
@@ -1002,7 +1002,8 @@ sfxType = 22
 player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/Fail" unique_id=326349089]
-stream = ExtResource("19_3s6xx")
+stream = ExtResource("20_uush8")
+volume_db = -6.0
 pitch_scale = 2.0
 
 [node name="CustomerEnter" type="Node" parent="SoundManager" unique_id=494289125 node_paths=PackedStringArray("player")]
@@ -1503,12 +1504,14 @@ texture = ExtResource("43_q1yuq")
 [node name="시간게이지Outline" type="Sprite2D" parent="TimerGraph" unique_id=837150087]
 texture = ExtResource("44_uacds")
 
-[node name="ClickArea달력" parent="." unique_id=1160333453 node_paths=PackedStringArray("animationPlayer", "gameManager", "hoverHighlight") instance=ExtResource("18_uws2o")]
+[node name="ClickArea달력" parent="." unique_id=1160333453 node_paths=PackedStringArray("animationPlayer", "gameManager", "numPanel10", "numPanel01", "hoverHighlight") instance=ExtResource("18_uws2o")]
 position = Vector2(136, 298)
 scale = Vector2(17.299416, 13.933637)
 script = ExtResource("75_ixb38")
 animationPlayer = NodePath("../Calendar/AnimationPlayer")
 gameManager = NodePath("../GameManager")
+numPanel10 = []
+numPanel01 = []
 hoverHighlight = NodePath("../Calendar")
 
 [node name="Calendar" type="Node2D" parent="." unique_id=1817888089]
