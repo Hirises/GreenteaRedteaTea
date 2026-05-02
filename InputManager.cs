@@ -29,12 +29,6 @@ public partial class InputManager : Node
 
     public override void _Ready()
     {
-        if (Instance != null)
-        {
-            GD.PrintErr("Multiple instances of InputManager detected!");
-            QueueFree();
-            return;
-        }
         Instance = this;
     }
 

@@ -33,6 +33,8 @@ public partial class GameManager : Node
 	public bool IsOnOrder => isOnOrder;
 	public float RemainingOrderSeconds => currentCustomer == null ? 0f : Mathf.Max(currentCustomer.PatienceSeconds - timer, 0f);
 
+	public bool gameover { get; private set; } = false;
+
 	public override void _Ready()
 	{
 		customerManager = GetNodeOrNull<CustomerManager>(CustomerManagerPath);
@@ -75,7 +77,7 @@ public partial class GameManager : Node
 
 	private void GameOver()
 	{
-		
+		gameover = true;
 	}
 
 	private void StartOrder()
