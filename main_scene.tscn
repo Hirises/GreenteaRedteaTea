@@ -121,6 +121,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("말풍선:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3wiol"]
 resource_name = "speech_open"
@@ -148,11 +160,129 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("말풍선:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6a02w"]
 _data = {
 &"RESET": SubResource("Animation_6a02w"),
 &"speech_open": SubResource("Animation_3wiol")
+}
+
+[sub_resource type="Animation" id="Animation_ixb38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Customer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2200, 274)]
+}
+
+[sub_resource type="Animation" id="Animation_l8no8"]
+resource_name = "appear"
+length = 1.8666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Customer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7666667),
+"transitions": PackedFloat32Array(0.27739242, 1),
+"update": 0,
+"values": [Vector2(-200, 274), Vector2(769, 274)]
+}
+
+[sub_resource type="Animation" id="Animation_ldlqy"]
+resource_name = "disappear"
+length = 1.2333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Customer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1666666),
+"transitions": PackedFloat32Array(3.3635843, 1),
+"update": 0,
+"values": [Vector2(769, 274), Vector2(-300, 274)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.1666666),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"OnDisappear"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l8no8"]
+_data = {
+&"RESET": SubResource("Animation_ixb38"),
+&"appear": SubResource("Animation_l8no8"),
+&"disappear": SubResource("Animation_ldlqy")
+}
+
+[sub_resource type="Animation" id="Animation_3s6xx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Customer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bkdqi"]
+resource_name = "idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Customer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1, 0.98), Vector2(1, 1.02)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s2ody"]
+_data = {
+&"RESET": SubResource("Animation_3s6xx"),
+&"idle": SubResource("Animation_bkdqi")
 }
 
 [sub_resource type="Curve" id="Curve_o63de"]
@@ -966,37 +1096,43 @@ z_index = -100
 texture = ExtResource("1_0f027")
 centered = false
 
-[node name="CustomerUI" type="Node" parent="." unique_id=1785388897 node_paths=PackedStringArray("SpeechAnimation")]
+[node name="CustomerUI" type="Node" parent="." unique_id=1785388897 node_paths=PackedStringArray("SpeechAnimation", "MoveAnimation", "gameManager")]
 script = ExtResource("22_7y85w")
 TextPath = NodePath("Speech/말풍선/Text")
-SpeechAnimation = NodePath("Speech/AnimationPlayer")
+SpeechAnimation = NodePath("Speech/SpeechAnimation")
+MoveAnimation = NodePath("MoveAnimation")
+SpecialPath = NodePath("Customer/Special")
+HeadPath = NodePath("Customer/Head")
+BodyPath = NodePath("Customer/Body")
+ClothPath = NodePath("Customer/Cloth")
+ExpressionPath = NodePath("Customer/Expression")
+gameManager = NodePath("../GameManager")
 
-[node name="Special" type="Sprite2D" parent="CustomerUI" unique_id=1782127251]
+[node name="Customer" type="Node2D" parent="CustomerUI" unique_id=1681495625]
+position = Vector2(2200, 274)
+
+[node name="Special" type="Sprite2D" parent="CustomerUI/Customer" unique_id=1782127251]
 z_index = -80
-position = Vector2(769, 274)
 texture = ExtResource("35_opjno")
 script = ExtResource("24_7y85w")
 
-[node name="Head" type="Sprite2D" parent="CustomerUI" unique_id=1375482850]
+[node name="Head" type="Sprite2D" parent="CustomerUI/Customer" unique_id=1375482850]
 z_index = -76
-position = Vector2(769, 274)
 
-[node name="Body" type="Sprite2D" parent="CustomerUI" unique_id=1095287183]
+[node name="Body" type="Sprite2D" parent="CustomerUI/Customer" unique_id=1095287183]
 z_index = -79
-position = Vector2(769, 274)
 
-[node name="Cloth" type="Sprite2D" parent="CustomerUI" unique_id=951144663]
+[node name="Cloth" type="Sprite2D" parent="CustomerUI/Customer" unique_id=951144663]
 z_index = -78
-position = Vector2(769, 274)
 
-[node name="Expression" type="Sprite2D" parent="CustomerUI" unique_id=2060636487]
+[node name="Expression" type="Sprite2D" parent="CustomerUI/Customer" unique_id=2060636487]
 z_index = -77
-position = Vector2(769, 274)
 
 [node name="Speech" type="Node2D" parent="CustomerUI" unique_id=1465021053]
 position = Vector2(769, 274)
 
 [node name="말풍선" type="Sprite2D" parent="CustomerUI/Speech" unique_id=2003454699]
+visible = false
 position = Vector2(138, 13)
 texture = ExtResource("5_3wiol")
 centered = false
@@ -1018,8 +1154,15 @@ vertical_alignment = 1
 autowrap_mode = 2
 script = ExtResource("26_ixb38")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CustomerUI/Speech" unique_id=15386469]
+[node name="SpeechAnimation" type="AnimationPlayer" parent="CustomerUI/Speech" unique_id=15386469]
 libraries/ = SubResource("AnimationLibrary_6a02w")
+
+[node name="MoveAnimation" type="AnimationPlayer" parent="CustomerUI" unique_id=431831985]
+libraries/ = SubResource("AnimationLibrary_l8no8")
+
+[node name="IdleAnimation" type="AnimationPlayer" parent="CustomerUI" unique_id=1988725458]
+libraries/ = SubResource("AnimationLibrary_s2ody")
+autoplay = &"idle"
 
 [node name="매대" type="Sprite2D" parent="." unique_id=1072516668]
 z_index = -50
