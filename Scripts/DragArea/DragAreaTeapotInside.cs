@@ -80,6 +80,25 @@ public partial class DragAreaTeapotInside : DragArea, IDragAreaContainer
         leaf.Shake();
     }
 
+    public void RemoveLeaf()
+    {
+        if (currentDraggable == null)
+        {
+            GD.Print("No leaf in teapot inside to remove!");
+            return;
+        }
+
+        if (currentDraggable is not DraggableLeaf)
+        {
+            GD.Print("Current draggable in teapot inside is not a leaf!");
+            return;
+        }
+
+        currentDraggable.Destroy();
+        currentDraggable = null;
+        SetHoverHighlight(null);
+    }
+
     public bool TryFillTeapot(ProductExpression liquid)
     {
         return teapot.TryFill(liquid);
