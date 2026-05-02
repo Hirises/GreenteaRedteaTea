@@ -47,6 +47,7 @@
 [ext_resource type="Script" uid="uid://okjihqk21var" path="res://TimerGraph.cs" id="30_j8kkg"]
 [ext_resource type="Texture2D" uid="uid://bre1jmy3044v8" path="res://Sprites/찻잔/찻잔들.png" id="30_p8s74"]
 [ext_resource type="PackedScene" uid="uid://dhpchgbxmiqfp" path="res://DraggablePlate.tscn" id="31_gfmxp"]
+[ext_resource type="Texture2D" uid="uid://bpk3duigat8gt" path="res://smoke.png" id="31_lwncm"]
 [ext_resource type="Texture2D" uid="uid://vg5dum1i2308" path="res://Sprites/접시들.png" id="31_o4fqm"]
 [ext_resource type="Script" uid="uid://bn8nosouc8rdx" path="res://Scripts/DragArea/DragAreaFlowerPot.cs" id="33_iylel"]
 [ext_resource type="Script" uid="uid://ceuu1mqtj0omh" path="res://Scripts/Game/GameManager.cs" id="33_o4fqm"]
@@ -140,6 +141,22 @@ _data = {
 &"RESET": SubResource("Animation_6a02w"),
 &"speech_open": SubResource("Animation_3wiol")
 }
+
+[sub_resource type="Curve" id="Curve_o63de"]
+_data = [Vector2(0, 0), 0.0, 2.0309105, 0, 0, Vector2(0.14248021, 0.39380395), 1.3184369, 1.3184369, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_q4750"]
+curve = SubResource("Curve_o63de")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_30vx0"]
+particle_flag_disable_z = true
+angle_min = -49.09999
+angle_max = 40.700012
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 56.5
+gravity = Vector3(0, -98, 0)
+scale_curve = SubResource("CurveTexture_q4750")
 
 [sub_resource type="Animation" id="Animation_id12a"]
 length = 0.001
@@ -1018,12 +1035,20 @@ texture = ExtResource("16_5smuj")
 visible = false
 texture = ExtResource("15_j8kkg")
 
-[node name="ClickArea초" parent="." unique_id=1204339295 node_paths=PackedStringArray("teapot", "flameOn", "flameOff", "hoverHighlight") instance=ExtResource("18_uws2o")]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="초Graphic" unique_id=757109724]
+position = Vector2(-1.5, 85.5)
+emitting = false
+amount = 2
+texture = ExtResource("31_lwncm")
+process_material = SubResource("ParticleProcessMaterial_30vx0")
+
+[node name="ClickArea초" parent="." unique_id=1204339295 node_paths=PackedStringArray("teapot", "flameOn", "flameOff", "particle", "hoverHighlight") instance=ExtResource("18_uws2o")]
 script = ExtResource("19_iylel")
 candleMaxTime = 3.0
 teapot = NodePath("../Teapot")
 flameOn = NodePath("../초Graphic/초켜짐")
 flameOff = NodePath("../초Graphic/초꺼짐")
+particle = NodePath("../초Graphic/GPUParticles2D")
 hoverHighlight = NodePath("../초Graphic")
 
 [node name="DragArea티팟" parent="." unique_id=1802254503 node_paths=PackedStringArray("draggableTeapot", "insideArea", "hoverHighlight") instance=ExtResource("3_d5x1h")]

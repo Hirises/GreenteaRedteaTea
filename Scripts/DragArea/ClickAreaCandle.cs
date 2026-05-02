@@ -7,6 +7,7 @@ public partial class ClickAreaCandle : ClickArea
     [Export] DraggableTeapot teapot;
     [Export] Node2D flameOn;
     [Export] Node2D flameOff;
+    [Export] GpuParticles2D particle;
     float candleTime = 0f;
     bool isLit = false;
 
@@ -55,11 +56,13 @@ public partial class ClickAreaCandle : ClickArea
         {
             flameOff.Hide();
             flameOn.Show();
+            particle.Emitting = true;
         }
         else
         {
             flameOff.Show();
             flameOn.Hide();
+            particle.Emitting = false;
         }
     }
 }
