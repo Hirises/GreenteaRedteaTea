@@ -8,6 +8,8 @@ namespace RedteaGreenteaTea.Domain;
 
 public sealed class ProductVisualCatalog
 {
+    private const string DefaultJsonPath = "res://Scripts/Domain/ProductVisualSettings.json";
+
     private static ProductVisualCatalog? _current;
 
     private readonly ProductVisualSettings _settings;
@@ -18,7 +20,7 @@ public sealed class ProductVisualCatalog
         _settings.Validate();
     }
 
-    public static ProductVisualCatalog Current => _current ??= LoadFromFile(FindDefaultJsonPath());
+    public static ProductVisualCatalog Current => _current ??= LoadFromFile(DefaultJsonPath);
 
     public string TeaSuffix => _settings.Names.Suffix.Tea;
     public string BrewedLeafSuffix => _settings.Names.Suffix.BrewedLeaf;
@@ -42,7 +44,7 @@ public sealed class ProductVisualCatalog
             throw new ArgumentException("Path cannot be empty.", nameof(path));
         }
 
-        var json = File.ReadAllText(path);
+        var json = ReadAllText(path);
         var settings = JsonSerializer.Deserialize<ProductVisualSettings>(json, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true,
@@ -156,24 +158,20 @@ public sealed class ProductVisualCatalog
             left.A * leftWeight + right.A * rightWeight).Clamped();
     }
 
-    private static string FindDefaultJsonPath()
+    private static string ReadAllText(string path)
     {
-        foreach (var root in new[] { Directory.GetCurrentDirectory(), AppContext.BaseDirectory })
+        if (path.StartsWith("res://", StringComparison.OrdinalIgnoreCase)
+            || path.StartsWith("user://", StringComparison.OrdinalIgnoreCase))
         {
-            var directory = new DirectoryInfo(root);
-            while (directory is not null)
+            if (!Godot.FileAccess.FileExists(path))
             {
-                var candidate = Path.Combine(directory.FullName, "Scripts", "Domain", "ProductVisualSettings.json");
-                if (File.Exists(candidate))
-                {
-                    return candidate;
-                }
-
-                directory = directory.Parent;
+                throw new FileNotFoundException($"Could not find {path}.");
             }
+
+            return Godot.FileAccess.GetFileAsString(path);
         }
 
-        throw new FileNotFoundException("Could not find Scripts/Domain/ProductVisualSettings.json.");
+        return File.ReadAllText(path);
     }
 
     public sealed record ProductVisualSettings(

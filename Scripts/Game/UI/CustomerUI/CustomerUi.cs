@@ -189,26 +189,14 @@ public partial class CustomerUi : Node
     private List<string> GetTexturePaths(string directoryPath)
     {
         var paths = new List<string>();
-        var directory = DirAccess.Open(directoryPath);
-        if (directory == null)
+        foreach (var fileName in ResourceLoader.ListDirectory(directoryPath))
         {
-            GD.PushWarning($"Customer texture directory not found: {directoryPath}");
-            return paths;
-        }
-
-        directory.ListDirBegin();
-        var fileName = directory.GetNext();
-        while (!string.IsNullOrEmpty(fileName))
-        {
-            if (!directory.CurrentIsDir() && fileName.EndsWith(TextureExtension, StringComparison.OrdinalIgnoreCase))
+            if (!fileName.EndsWith("/") && fileName.EndsWith(TextureExtension, StringComparison.OrdinalIgnoreCase))
             {
                 paths.Add($"{directoryPath}/{fileName}");
             }
-
-            fileName = directory.GetNext();
         }
 
-        directory.ListDirEnd();
         paths.Sort(StringComparer.Ordinal);
         return paths;
     }

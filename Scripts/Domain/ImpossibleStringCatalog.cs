@@ -9,6 +9,8 @@ namespace RedteaGreenteaTea.Domain;
 
 public sealed class ImpossibleStringCatalog
 {
+	private const string DefaultJsonPath = "res://Scripts/Domain/ImpossibleStrings.json";
+
 	private static ImpossibleStringCatalog? _current;
 
 	private ImpossibleStringCatalog(IReadOnlyList<string> strings)
@@ -21,7 +23,7 @@ public sealed class ImpossibleStringCatalog
 		Strings = strings;
 	}
 
-	public static ImpossibleStringCatalog Current => _current ??= LoadFromFile(FindDefaultJsonPath());
+	public static ImpossibleStringCatalog Current => _current ??= LoadFromFile(DefaultJsonPath);
 
 	public IReadOnlyList<string> Strings { get; }
 
@@ -42,7 +44,7 @@ public sealed class ImpossibleStringCatalog
 			throw new ArgumentException("Path cannot be empty.", nameof(path));
 		}
 
-		var json = File.ReadAllText(path);
+		var json = ReadAllText(path);
 		var settings = JsonSerializer.Deserialize<ImpossibleStringSettings>(json, new JsonSerializerOptions
 		{
 			PropertyNameCaseInsensitive = true,
@@ -65,24 +67,20 @@ public sealed class ImpossibleStringCatalog
 		return new ImpossibleStringCatalog(strings);
 	}
 
-	private static string FindDefaultJsonPath()
+	private static string ReadAllText(string path)
 	{
-		foreach (var root in new[] { Directory.GetCurrentDirectory(), AppContext.BaseDirectory })
+		if (path.StartsWith("res://", StringComparison.OrdinalIgnoreCase)
+			|| path.StartsWith("user://", StringComparison.OrdinalIgnoreCase))
 		{
-			var directory = new DirectoryInfo(root);
-			while (directory is not null)
+			if (!Godot.FileAccess.FileExists(path))
 			{
-				var candidate = Path.Combine(directory.FullName, "Scripts", "Domain", "ImpossibleStrings.json");
-				if (File.Exists(candidate))
-				{
-					return candidate;
-				}
-
-				directory = directory.Parent;
+				throw new FileNotFoundException($"Could not find {path}.");
 			}
+
+			return Godot.FileAccess.GetFileAsString(path);
 		}
 
-		throw new FileNotFoundException("Could not find Scripts/Domain/ImpossibleStrings.json.");
+		return File.ReadAllText(path);
 	}
 
 	public sealed record ImpossibleStringSettings(IReadOnlyList<string> Strings);
