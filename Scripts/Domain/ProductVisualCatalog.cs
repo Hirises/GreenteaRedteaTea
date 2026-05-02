@@ -20,6 +20,7 @@ public sealed class ProductVisualCatalog
 
     public static ProductVisualCatalog Current => _current ??= LoadFromFile(FindDefaultJsonPath());
 
+    public string TeaSuffix => _settings.Names.Suffix.Tea;
     public string BrewedLeafSuffix => _settings.Names.Suffix.BrewedLeaf;
     public string CombinedLeafSuffix => _settings.Names.Suffix.CombinedLeaf;
     public string MixedLiquidSuffix => _settings.Names.Suffix.MixedLiquid;
@@ -208,7 +209,7 @@ public sealed class ProductVisualCatalog
 
     public sealed record BaseNames(string Tea, string MilkTea);
     public sealed record LeafNames(string Green, string Black);
-    public sealed record SuffixNames(string BrewedLeaf, string CombinedLeaf, string MixedLiquid);
+    public sealed record SuffixNames(string Tea, string BrewedLeaf, string CombinedLeaf, string MixedLiquid);
     public sealed record BracketNames(string Open, string Close);
 
     public sealed record ProductColors(BaseColors Base, LeafColors Leaf)

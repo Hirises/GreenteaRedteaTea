@@ -4,7 +4,7 @@ using System;
 public partial class Tooltip : Node2D
 {
     [Export] Label textNode;
-    [Export] float tooltipDelaySeconds = 0.5f;
+    [Export] float tooltipDelaySeconds = 0.3f;
 
     bool showing = false;
     DragArea currentHoverDragArea = null;
@@ -45,6 +45,7 @@ public partial class Tooltip : Node2D
         if (showing)
         {
             Scale = Scale.Lerp(new Vector2(1, 1), 10f * (float)delta); // Smoothly scale up when showing
+            textNode.Text = currentHoverDragArea.GetTooltipText();
         }
         else
         {

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djpmgdp6rdvm"
-path="res://.godot/imported/Putin.png-5d766b309e3593359653ca7fbf04b1b3.ctex"
+uid="uid://bdsfj4taaw048"
+path="res://.godot/imported/윙크.png-1ff5812699d46b78fb592a2214cb2ac3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Customers/Putin.png"
-dest_files=["res://.godot/imported/Putin.png-5d766b309e3593359653ca7fbf04b1b3.ctex"]
+source_file="res://Sprites/Customers/표정/윙크.png"
+dest_files=["res://.godot/imported/윙크.png-1ff5812699d46b78fb592a2214cb2ac3.ctex"]
 
 [params]
 

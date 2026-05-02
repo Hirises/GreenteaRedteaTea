@@ -1,14 +1,15 @@
 {
   "names": {
     "base": {
-      "tea": "\uCC28",
-      "milkTea": "\uBC00\uD06C\uD2F0"
+      "tea": "\uBB3C",
+      "milkTea": "\uC6B0\uC720"
     },
     "leaf": {
       "green": "\uB179\uCC3B\uC78E",
       "black": "\uD64D\uCC3B\uC78E"
     },
     "suffix": {
+      "Tea":"\uCC28",
       "brewedLeaf": "\uC6B0\uB9B0\uCC3B\uC78E",
       "combinedLeaf": "\uCC3B\uC78E",
       "mixedLiquid": "\uBBF9\uC2A4"

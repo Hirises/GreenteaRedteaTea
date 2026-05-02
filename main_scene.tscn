@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://ci1mcg13xpuwn" path="res://Sprites/Teapot/초_꺼짐.png" id="16_5smuj"]
 [ext_resource type="Texture2D" uid="uid://sa3og0mgifbo" path="res://Sprites/Teapot/주전자_FrontGrad.png" id="17_y5ved"]
 [ext_resource type="Texture2D" uid="uid://dhv8jangkpr65" path="res://Sprites/Teapot/주전자_Full.png" id="18_kv3aw"]
-[ext_resource type="PackedScene" uid="uid://blfc3725i487a" path="res://click_area.tscn" id="18_uws2o"]
+[ext_resource type="PackedScene" path="res://click_area.tscn" id="18_uws2o"]
 [ext_resource type="Script" uid="uid://b5oee2s1w76rp" path="res://Scripts/DragArea/DragAreaTeapot.cs" id="18_xy6fp"]
 [ext_resource type="Script" uid="uid://u4ml7sm7kt5g" path="res://Scripts/DragArea/ClickAreaCandle.cs" id="19_iylel"]
 [ext_resource type="Texture2D" uid="uid://cwq2lr05jgw45" path="res://Sprites/Teapot/주전자_Half.png" id="19_o7u2a"]
@@ -48,10 +48,13 @@
 [ext_resource type="Texture2D" uid="uid://c0m2lwkcodvap" path="res://Sprites/Teapot/주전자_Water_Side.png" id="20_ijoax"]
 [ext_resource type="AudioStream" uid="uid://c2l4shw73h7fi" path="res://NeoSFX/라이터_Off.wav" id="20_k2ony"]
 [ext_resource type="Texture2D" uid="uid://cgbgqitus6pyi" path="res://Sprites/Teapot/주전자_Water_Top.png" id="21_j8kkg"]
+[ext_resource type="Script" uid="uid://svua1rrnnn0c" path="res://Scripts/Game/UI/CustomerUI/CustomerUi.cs" id="22_7y85w"]
 [ext_resource type="Texture2D" uid="uid://cjjr17u4vweat" path="res://Sprites/Teapot/거름망_Back.png" id="22_yh4yk"]
 [ext_resource type="Texture2D" uid="uid://cg3lcnelvqkew" path="res://Sprites/Teapot/거름망_Front.png" id="23_p8s74"]
+[ext_resource type="Script" uid="uid://u7ji25tgg1cn" path="res://Scripts/Game/UI/CustomerUI/Special.cs" id="24_7y85w"]
 [ext_resource type="Texture2D" uid="uid://d4j6f3iyhsjux" path="res://Sprites/Teapot/포트_Front.png" id="24_o4fqm"]
 [ext_resource type="PackedScene" uid="uid://dl0l7xxsms1ll" path="res://DraggableCup.tscn" id="25_kv3aw"]
+[ext_resource type="Script" uid="uid://dfgoe8vu5o2y" path="res://Scripts/Game/UI/CustomerUI/Text.cs" id="26_ixb38"]
 [ext_resource type="Script" uid="uid://dobquj4bam6hw" path="res://Scripts/DragArea/DragAreaCupPile.cs" id="28_uws2o"]
 [ext_resource type="Script" uid="uid://okjihqk21var" path="res://TimerGraph.cs" id="30_j8kkg"]
 [ext_resource type="Texture2D" uid="uid://bre1jmy3044v8" path="res://Sprites/찻잔/찻잔들.png" id="30_p8s74"]
@@ -63,9 +66,7 @@
 [ext_resource type="Texture2D" uid="uid://cr06ruay45g11" path="res://Sprites/모래시계/모래시계_5.png" id="34_1n88h"]
 [ext_resource type="Script" uid="uid://bxql0al8axl3o" path="res://Scripts/Game/CustomerManager.cs" id="34_7jlmu"]
 [ext_resource type="Script" uid="uid://cnvdxxhuh7fm2" path="res://Scripts/DragArea/DragAreaSubmit.cs" id="34_yj5sn"]
-[ext_resource type="Script" uid="uid://brvmmisl2f4mw" path="res://Scripts/Game/UI/CustomerUi.cs" id="35_1n88h"]
 [ext_resource type="Texture2D" uid="uid://dsfpuk28h4us2" path="res://Sprites/모래시계/모래시계_1.png" id="35_opjno"]
-[ext_resource type="Script" uid="uid://d2lnljcifpjqh" path="res://Scripts/Game/UI/Text.cs" id="37_meb7l"]
 [ext_resource type="PackedScene" uid="uid://78ufxvjm8sh0" path="res://flower_pot.tscn" id="42_bqoel"]
 [ext_resource type="Texture2D" uid="uid://b76paxanslqrd" path="res://Sprites/시간 게이지_Bottom.png" id="42_jef5d"]
 [ext_resource type="Texture2D" uid="uid://cdfmnojr7erbe" path="res://Sprites/시간 게이지_Inner.png" id="43_q1yuq"]
@@ -905,19 +906,39 @@ stream = ExtResource("20_k2ony")
 pitch_scale = 2.0
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=2050139955]
-z_index = -52
+z_index = -100
 texture = ExtResource("1_0f027")
 centered = false
 
-[node name="CustomerUI" type="Sprite2D" parent="." unique_id=1782127251 node_paths=PackedStringArray("SpeechAnimation")]
-z_index = -51
-position = Vector2(769, 274)
-texture = ExtResource("35_opjno")
-script = ExtResource("35_1n88h")
+[node name="CustomerUI" type="Node" parent="." unique_id=1785388897 node_paths=PackedStringArray("SpeechAnimation")]
+script = ExtResource("22_7y85w")
 TextPath = NodePath("Speech/말풍선/Text")
 SpeechAnimation = NodePath("Speech/AnimationPlayer")
 
+[node name="Special" type="Sprite2D" parent="CustomerUI" unique_id=1782127251]
+z_index = -80
+position = Vector2(769, 274)
+texture = ExtResource("35_opjno")
+script = ExtResource("24_7y85w")
+
+[node name="Head" type="Sprite2D" parent="CustomerUI" unique_id=1375482850]
+z_index = -76
+position = Vector2(769, 274)
+
+[node name="Body" type="Sprite2D" parent="CustomerUI" unique_id=1095287183]
+z_index = -79
+position = Vector2(769, 274)
+
+[node name="Cloth" type="Sprite2D" parent="CustomerUI" unique_id=951144663]
+z_index = -78
+position = Vector2(769, 274)
+
+[node name="Expression" type="Sprite2D" parent="CustomerUI" unique_id=2060636487]
+z_index = -77
+position = Vector2(769, 274)
+
 [node name="Speech" type="Node2D" parent="CustomerUI" unique_id=1465021053]
+position = Vector2(769, 274)
 
 [node name="말풍선" type="Sprite2D" parent="CustomerUI/Speech" unique_id=2003454699]
 position = Vector2(138, 13)
@@ -939,7 +960,7 @@ text = "Default asdf asdf "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-script = ExtResource("37_meb7l")
+script = ExtResource("26_ixb38")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CustomerUI/Speech" unique_id=15386469]
 libraries/ = SubResource("AnimationLibrary_6a02w")

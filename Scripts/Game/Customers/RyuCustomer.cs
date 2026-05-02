@@ -8,6 +8,7 @@ public class RyuCustomer : Customer
     public RyuCustomer(int number) : base(number)
     {
         PatienceSeconds = DefaultPatienceSeconds;
+        isSpecial = true;
     }
 
     protected override ProductExpression _GenerateOrder()

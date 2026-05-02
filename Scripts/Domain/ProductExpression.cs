@@ -72,9 +72,9 @@ public sealed record BrewedLeafExpression : ProductExpression
 	public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Leaf;
 	public override int Depth => 1 + Math.Max(Leaf.Depth, Liquid.Depth);
 	public override int Length => 1 + Leaf.Length + Liquid.Length;
-	public override string DisplayName => $"{Leaf.DisplayName}{Liquid.DisplayName}{ProductVisualCatalog.Current.BrewedLeafSuffix}";
+	public override string DisplayName => $"{Leaf.DisplayName}{Liquid.DisplayName}{ProductVisualCatalog.Current.TeaSuffix}{ProductVisualCatalog.Current.BrewedLeafSuffix}";
 	public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
-		$"{Leaf.DisplayNameWithBrackets}{Liquid.DisplayNameWithBrackets}{ProductVisualCatalog.Current.BrewedLeafSuffix}");
+		$"{Leaf.DisplayNameWithBrackets}{Liquid.DisplayNameWithBrackets}{ProductVisualCatalog.Current.TeaSuffix}{ProductVisualCatalog.Current.BrewedLeafSuffix}");
 	public override ProductColor Color => ProductVisualCatalog.Current.CalculateBrewedLeafColor(Leaf.Color, Liquid.Color);
 }
 
@@ -114,9 +114,9 @@ public sealed record TeaExpression : ProductExpression
 	public override ProductCategory Categories => ProductCategory.Product | ProductCategory.Tea | ProductCategory.Liquid;
 	public override int Depth => 1 + Math.Max(Leaf.Depth, Liquid.Depth);
 	public override int Length => Leaf.Length + Liquid.Length;
-	public override string DisplayName => $"{Leaf.DisplayName}{Liquid.DisplayName}";
+	public override string DisplayName => $"{Leaf.DisplayName}{Liquid.DisplayName}{ProductVisualCatalog.Current.TeaSuffix}";
 	public override string DisplayNameWithBrackets => ProductVisualCatalog.Current.WrapDepthIncreasedName(
-		$"{Leaf.DisplayNameWithBrackets}{Liquid.DisplayNameWithBrackets}");
+		$"{Leaf.DisplayNameWithBrackets}{Liquid.DisplayNameWithBrackets}{ProductVisualCatalog.Current.TeaSuffix}");
 	public override ProductColor Color => ProductVisualCatalog.Current.CalculateBrewedTeaColor(Leaf.Color, Liquid.Color);
 }
 
