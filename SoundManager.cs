@@ -40,6 +40,7 @@ public enum SFXType
 	CalendarFlip,
 	Kick,
 	CalendarOpen,
+	DoorOpen,
 }
 
 public partial class SoundManager : Node

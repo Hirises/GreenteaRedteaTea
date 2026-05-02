@@ -102,6 +102,7 @@ public partial class GameManager : Node
 		EmitSignal(SignalName.OrderTimerChanged, RemainingOrderSeconds, currentCustomer.PatienceSeconds);
 		
 		SoundManager.Play(SFXType.CustomerEnter);
+		SoundManager.Play(SFXType.DoorOpen);
 	}
 
 	public void startOrder()
