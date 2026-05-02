@@ -57,6 +57,7 @@
 [ext_resource type="Script" uid="uid://u7ji25tgg1cn" path="res://Scripts/Game/UI/CustomerUI/Special.cs" id="24_7y85w"]
 [ext_resource type="AudioStream" uid="uid://dblqndb4ha1e" path="res://NeoSFX/드로우.mp3" id="24_bkdqi"]
 [ext_resource type="Texture2D" uid="uid://d4j6f3iyhsjux" path="res://Sprites/Teapot/포트_Front.png" id="24_o4fqm"]
+[ext_resource type="AudioStream" uid="uid://c1h5vtlrtmx2r" path="res://NeoSFX/킥.mp3" id="25_77al4"]
 [ext_resource type="PackedScene" uid="uid://dl0l7xxsms1ll" path="res://DraggableCup.tscn" id="25_kv3aw"]
 [ext_resource type="Script" uid="uid://dfgoe8vu5o2y" path="res://Scripts/Game/UI/CustomerUI/Text.cs" id="26_ixb38"]
 [ext_resource type="Script" uid="uid://b0n3qvflg3ven" path="res://Scripts/DragArea/ClickAreaKick.cs" id="26_uush8"]
@@ -1091,13 +1092,23 @@ stream = ExtResource("14_s2ody")
 volume_db = -8.0
 pitch_scale = 2.0
 
-[node name="CalendarFlip" type="Node" parent="SoundManager" unique_id=1405328621 node_paths=PackedStringArray("player")]
+[node name="CalendarFlip" type="Node" parent="SoundManager" unique_id=1351471529 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
 sfxType = 32
 player = NodePath("AudioStreamPlayer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CalendarFlip" unique_id=1731890765]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CalendarFlip" unique_id=660847725]
 stream = ExtResource("24_bkdqi")
+volume_db = -8.0
+pitch_scale = 2.0
+
+[node name="Kick" type="Node" parent="SoundManager" unique_id=1405328621 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 33
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/Kick" unique_id=1731890765]
+stream = ExtResource("25_77al4")
 volume_db = -8.0
 pitch_scale = 2.0
 

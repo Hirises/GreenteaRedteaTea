@@ -8,6 +8,7 @@ public partial class ClickAreaKick : ClickArea
 
 	public override void OnClick()
 	{
+		SoundManager.Play(SFXType.Kick);
 		gameManager.KickOutCustomer();
 	}
 }

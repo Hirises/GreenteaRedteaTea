@@ -38,6 +38,7 @@ public enum SFXType
 	TreeGrow,
 	TreeDie,
 	CalendarFlip,
+	Kick,
 }
 
 public partial class SoundManager : Node
