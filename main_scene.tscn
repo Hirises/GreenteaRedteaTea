@@ -59,6 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://d4j6f3iyhsjux" path="res://Sprites/Teapot/포트_Front.png" id="24_o4fqm"]
 [ext_resource type="PackedScene" uid="uid://dl0l7xxsms1ll" path="res://DraggableCup.tscn" id="25_kv3aw"]
 [ext_resource type="Script" uid="uid://dfgoe8vu5o2y" path="res://Scripts/Game/UI/CustomerUI/Text.cs" id="26_ixb38"]
+[ext_resource type="Script" uid="uid://b0n3qvflg3ven" path="res://Scripts/DragArea/ClickAreaKick.cs" id="26_uush8"]
 [ext_resource type="Script" uid="uid://dobquj4bam6hw" path="res://Scripts/DragArea/DragAreaCupPile.cs" id="28_uws2o"]
 [ext_resource type="Script" uid="uid://okjihqk21var" path="res://TimerGraph.cs" id="30_j8kkg"]
 [ext_resource type="Texture2D" uid="uid://bre1jmy3044v8" path="res://Sprites/찻잔/찻잔들.png" id="30_p8s74"]
@@ -1105,36 +1106,46 @@ z_index = -100
 texture = ExtResource("1_0f027")
 centered = false
 
+[node name="ClickArea진상" parent="." unique_id=1204339295 node_paths=PackedStringArray("gameManager", "hoverHighlight") instance=ExtResource("18_uws2o")]
+position = Vector2(774, 66)
+scale = Vector2(25.233898, 18.091127)
+script = ExtResource("26_uush8")
+gameManager = NodePath("../GameManager")
+hoverHighlight = NodePath("../CustomerUI/Customer/Hovering")
+
 [node name="CustomerUI" type="Node" parent="." unique_id=1785388897 node_paths=PackedStringArray("SpeechAnimation", "MoveAnimation", "gameManager")]
 script = ExtResource("22_7y85w")
 TextPath = NodePath("Speech/말풍선/Text")
 SpeechAnimation = NodePath("Speech/SpeechAnimation")
 MoveAnimation = NodePath("MoveAnimation")
-SpecialPath = NodePath("Customer/Special")
-HeadPath = NodePath("Customer/Head")
-BodyPath = NodePath("Customer/Body")
-ClothPath = NodePath("Customer/Cloth")
-ExpressionPath = NodePath("Customer/Expression")
+SpecialPath = NodePath("Customer/Hovering/Special")
+HeadPath = NodePath("Customer/Hovering/Head")
+BodyPath = NodePath("Customer/Hovering/Body")
+ClothPath = NodePath("Customer/Hovering/Cloth")
+ExpressionPath = NodePath("Customer/Hovering/Expression")
 gameManager = NodePath("../GameManager")
 
 [node name="Customer" type="Node2D" parent="CustomerUI" unique_id=1681495625]
 position = Vector2(2200, 274)
 
-[node name="Special" type="Sprite2D" parent="CustomerUI/Customer" unique_id=1782127251]
+[node name="Hovering" type="Node2D" parent="CustomerUI/Customer" unique_id=2127277534]
+script = ExtResource("7_p8s74")
+
+[node name="Special" type="Sprite2D" parent="CustomerUI/Customer/Hovering" unique_id=1782127251]
 z_index = -80
 texture = ExtResource("35_opjno")
 script = ExtResource("24_7y85w")
 
-[node name="Head" type="Sprite2D" parent="CustomerUI/Customer" unique_id=1375482850]
+[node name="Head" type="Sprite2D" parent="CustomerUI/Customer/Hovering" unique_id=1375482850]
 z_index = -76
 
-[node name="Body" type="Sprite2D" parent="CustomerUI/Customer" unique_id=1095287183]
+[node name="Body" type="Sprite2D" parent="CustomerUI/Customer/Hovering" unique_id=1095287183]
 z_index = -79
 
-[node name="Cloth" type="Sprite2D" parent="CustomerUI/Customer" unique_id=951144663]
+[node name="Cloth" type="Sprite2D" parent="CustomerUI/Customer/Hovering" unique_id=951144663]
 z_index = -78
 
-[node name="Expression" type="Sprite2D" parent="CustomerUI/Customer" unique_id=2060636487]
+[node name="Expression" type="Sprite2D" parent="CustomerUI/Customer/Hovering" unique_id=2060636487]
 z_index = -77
 
 [node name="Speech" type="Node2D" parent="CustomerUI" unique_id=1465021053]
@@ -1316,7 +1327,7 @@ amount = 2
 texture = ExtResource("31_lwncm")
 process_material = SubResource("ParticleProcessMaterial_30vx0")
 
-[node name="ClickArea초" parent="." unique_id=1204339295 node_paths=PackedStringArray("teapot", "flameOn", "flameOff", "particle", "hoverHighlight") instance=ExtResource("18_uws2o")]
+[node name="ClickArea초" parent="." unique_id=1672989845 node_paths=PackedStringArray("teapot", "flameOn", "flameOff", "particle", "hoverHighlight") instance=ExtResource("18_uws2o")]
 position = Vector2(1242, 678)
 script = ExtResource("19_iylel")
 candleMaxTime = 3.0

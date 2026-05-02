@@ -127,7 +127,7 @@ public partial class GameManager : Node
 
 	public void KickOutCustomer()
 	{
-		if (!isOnOrder)
+		if (!isOnOrder || timer < 2f)
 		{
 			return;
 		}
