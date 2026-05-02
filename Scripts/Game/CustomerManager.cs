@@ -53,7 +53,7 @@ public partial class CustomerManager : Node
     	}
 		else if(score <= 32)
 		{
-			customer = new RyuCustomer(customerCount, score-29);
+			customer = new RyuCustomer(customerCount, score-30);
 		}
 		else
 		{

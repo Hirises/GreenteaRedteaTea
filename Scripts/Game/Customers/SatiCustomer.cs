@@ -14,12 +14,12 @@ public class SatiCustomer : Customer
     protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
-        Order = orderGenerator.GenerateProduct(5);
-        while(Order.Depth <= 4)
+        Order = orderGenerator.GenerateProductByMaxLength(12);
+        while(Order.Length < 8)
         {
-            Order = orderGenerator.GenerateProduct(5);
+            Order = orderGenerator.GenerateProductByMaxLength(12);
         }
-        PatienceSeconds = Order.Length * 15;
+        PatienceSeconds = Order.Length * 5 + 15;
         isOrderGenerated = true;
         return Order;
     }
