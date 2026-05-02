@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Godot;
 using RedteaGreenteaTea.Domain;
 
@@ -93,6 +94,7 @@ public partial class GameManager : Node
 		customerUi?.setCustomer(currentCustomer);
 		timer = 0f;
 		isOnOrder = true;
+		customerUi?.Appear();
 		customerUi?.sayText(currentCustomer.SayOrder());
 
 		GD.Print($"Customer {currentCustomer.Number} entered and ordered: {currentCustomer.Order.DisplayNameWithBrackets}");
@@ -166,10 +168,14 @@ public partial class GameManager : Node
 		isOnOrder = false;
 		timer = 0f;
 
+		customerUi?.Disappear();
 		customerUi?.sayText(text);
 
 		EmitSignal(SignalName.OrderEnded, (int)result, orderName);
-		
+	}
+
+	public void NextOrder()
+	{
 		if(rating == 0)
 		{
 			GameOver();
