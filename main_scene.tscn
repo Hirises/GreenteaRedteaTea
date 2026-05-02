@@ -970,54 +970,54 @@ position = Vector2(714, 681)
 texture = ExtResource("13_xy6fp")
 
 [node name="DragArea도마1" parent="." unique_id=2060282876 instance=ExtResource("3_d5x1h")]
-position = Vector2(572, 597)
-scale = Vector2(1.5460404, 0.6762485)
+position = Vector2(573, 584)
+scale = Vector2(1.5042205, 0.6600325)
 script = ExtResource("13_w30ff")
 
 [node name="DragArea도마2" parent="." unique_id=1469751056 instance=ExtResource("3_d5x1h")]
-position = Vector2(732, 598)
-scale = Vector2(1.5460404, 0.6762485)
+position = Vector2(733, 585)
+scale = Vector2(1.5042205, 0.6600326)
 script = ExtResource("13_w30ff")
 
 [node name="DragArea도마3" parent="." unique_id=1038028413 instance=ExtResource("3_d5x1h")]
-position = Vector2(896, 600)
-scale = Vector2(1.5460404, 0.6762489)
+position = Vector2(897, 587)
+scale = Vector2(1.5042204, 0.660033)
 script = ExtResource("13_w30ff")
 
 [node name="DragArea도마4" parent="." unique_id=331881062 instance=ExtResource("3_d5x1h")]
 z_index = 1
-position = Vector2(549, 668)
-scale = Vector2(1.5460404, 0.6762485)
+position = Vector2(550, 655)
+scale = Vector2(1.5042205, 0.6600325)
 script = ExtResource("13_w30ff")
 
 [node name="DragArea도마5" parent="." unique_id=274940628 instance=ExtResource("3_d5x1h")]
 z_index = 1
-position = Vector2(721, 668.9999)
-scale = Vector2(1.5460404, 0.6762485)
+position = Vector2(722, 655.9999)
+scale = Vector2(1.5042205, 0.6600325)
 script = ExtResource("13_w30ff")
 
 [node name="DragArea도마6" parent="." unique_id=964057553 instance=ExtResource("3_d5x1h")]
 z_index = 1
-position = Vector2(894, 670)
-scale = Vector2(1.5460404, 0.6762485)
+position = Vector2(895, 657)
+scale = Vector2(1.5042205, 0.6600325)
 script = ExtResource("13_w30ff")
 
 [node name="DragArea도마7" parent="." unique_id=1120033533 instance=ExtResource("3_d5x1h")]
 z_index = 2
-position = Vector2(532, 739)
-scale = Vector2(1.5460404, 0.6762485)
+position = Vector2(538, 724.00006)
+scale = Vector2(1.5042204, 0.6600326)
 script = ExtResource("13_w30ff")
 
 [node name="DragArea도마8" parent="." unique_id=1877028849 instance=ExtResource("3_d5x1h")]
 z_index = 2
-position = Vector2(706.00006, 736.99994)
-scale = Vector2(1.5460404, 0.6762485)
+position = Vector2(712.00006, 722)
+scale = Vector2(1.5042205, 0.6600325)
 script = ExtResource("13_w30ff")
 
 [node name="DragArea도마9" parent="." unique_id=1455570040 instance=ExtResource("3_d5x1h")]
 z_index = 2
-position = Vector2(890, 739)
-scale = Vector2(1.5460404, 0.6762485)
+position = Vector2(896, 724.00006)
+scale = Vector2(1.5042205, 0.6600326)
 script = ExtResource("13_w30ff")
 
 [node name="포트Back" type="Sprite2D" parent="." unique_id=1502514953]
