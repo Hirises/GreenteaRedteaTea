@@ -46,8 +46,6 @@ public partial class GameManager : Node
 		{
 			GD.PushError($"GameManager needs a CustomerUi node at path: {CustomerUiPath}");
 		}
-
-		StartGame();
 	}
 
 	public override void _Process(double delta)
