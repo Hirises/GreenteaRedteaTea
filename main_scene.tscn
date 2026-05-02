@@ -1096,15 +1096,17 @@ z_index = -100
 texture = ExtResource("1_0f027")
 centered = false
 
-[node name="CustomerUI" type="Node" parent="." unique_id=1785388897 node_paths=PackedStringArray("SpeechAnimation")]
+[node name="CustomerUI" type="Node" parent="." unique_id=1785388897 node_paths=PackedStringArray("SpeechAnimation", "MoveAnimation", "gameManager")]
 script = ExtResource("22_7y85w")
 TextPath = NodePath("Speech/말풍선/Text")
 SpeechAnimation = NodePath("Speech/SpeechAnimation")
+MoveAnimation = NodePath("MoveAnimation")
 SpecialPath = NodePath("Customer/Special")
 HeadPath = NodePath("Customer/Head")
 BodyPath = NodePath("Customer/Body")
 ClothPath = NodePath("Customer/Cloth")
 ExpressionPath = NodePath("Customer/Expression")
+gameManager = NodePath("../GameManager")
 
 [node name="Customer" type="Node2D" parent="CustomerUI" unique_id=1681495625]
 position = Vector2(2200, 274)

@@ -82,7 +82,26 @@
       ]
     }
   },
-    "PutinCustomer": {
+  "RandomCustomer": {
+    "order": [
+      "{order} please"
+    ],
+    "thank": [
+      "thx"
+    ],
+    "complaint": {
+      "timeout": [
+        "Customer complains: order timed out."
+      ],
+      "wrongMenu": [
+        "Customer complains: wrong menu."
+      ],
+      "kickedOut": [
+        "Customer complains: kicked out."
+      ]
+    }
+  },
+  "PutinCustomer": {
     "order": [
       "{order}."
     ],
@@ -120,9 +139,12 @@
       ]
     }
   },
-  "RandomCustomer": {
+  "BorichaCustomer": {
     "order": [
-      "{order} please"
+      "{order} 주세요",
+      "이봐라 {order}가 먹고 싶구나",
+      "{order}",
+      "하... 아무도 없는건가. 필로빈 님 {order}라도 주세요"
     ],
     "thank": [
       "thx"
