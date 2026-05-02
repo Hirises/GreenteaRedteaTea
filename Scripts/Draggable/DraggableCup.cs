@@ -112,15 +112,18 @@ public partial class DraggableCup : Node2D, IDraggableContained
             if (submitArea.TrySubmit(this))
             {
                 Destroy();
+                SoundManager.Play(SFXType.CupPut);
                 GD.Print("Cup successfully submitted.");
             }
             else
             {
+                SoundManager.Play(SFXType.CupPut);
                 GD.Print("Failed to submit cup. Returning to original position.");
                 ReturnToOriginalPosition();
             }
             return;
         }
+        SoundManager.Play(SFXType.CupPut);
         ReturnToOriginalPosition();
     }
 
