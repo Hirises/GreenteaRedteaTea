@@ -46,6 +46,7 @@
 [ext_resource type="Script" uid="uid://ls14mvmdeo2u" path="res://Scripts/DragArea/DragAreaTeapotInside.cs" id="19_uws2o"]
 [ext_resource type="Script" uid="uid://pw6cex1g4tnc" path="res://Scripts/Draggable/DraggableTeapot.cs" id="19_xy6fp"]
 [ext_resource type="Texture2D" uid="uid://c0m2lwkcodvap" path="res://Sprites/Teapot/주전자_Water_Side.png" id="20_ijoax"]
+[ext_resource type="AudioStream" uid="uid://c2l4shw73h7fi" path="res://NeoSFX/라이터_Off.wav" id="20_k2ony"]
 [ext_resource type="Texture2D" uid="uid://cgbgqitus6pyi" path="res://Sprites/Teapot/주전자_Water_Top.png" id="21_j8kkg"]
 [ext_resource type="Texture2D" uid="uid://cjjr17u4vweat" path="res://Sprites/Teapot/거름망_Back.png" id="22_yh4yk"]
 [ext_resource type="Texture2D" uid="uid://cg3lcnelvqkew" path="res://Sprites/Teapot/거름망_Front.png" id="23_p8s74"]
@@ -876,13 +877,31 @@ player = NodePath("AudioStreamPlayer")
 stream = ExtResource("11_o63de")
 pitch_scale = 2.0
 
-[node name="CustomerEnter" type="Node" parent="SoundManager" unique_id=1050201433 node_paths=PackedStringArray("player")]
+[node name="CustomerEnter" type="Node" parent="SoundManager" unique_id=494289125 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
 sfxType = 23
 player = NodePath("AudioStreamPlayer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CustomerEnter" unique_id=1932900848]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CustomerEnter" unique_id=1419342991]
 stream = ExtResource("19_o48om")
+pitch_scale = 2.0
+
+[node name="CandleExtinguish" type="Node" parent="SoundManager" unique_id=770902801 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 24
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CandleExtinguish" unique_id=1420807406]
+stream = ExtResource("20_k2ony")
+pitch_scale = 2.0
+
+[node name="CandleLitFail" type="Node" parent="SoundManager" unique_id=1050201433 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 25
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CandleLitFail" unique_id=1932900848]
+stream = ExtResource("20_k2ony")
 pitch_scale = 2.0
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=2050139955]

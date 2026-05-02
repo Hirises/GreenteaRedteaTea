@@ -29,6 +29,8 @@ public enum SFXType
 	Success,
 	Fail,
 	CustomerEnter,
+	CandleExtinguish,
+	CandleLitFail,
 }
 
 public partial class SoundManager : Node

@@ -15,7 +15,16 @@ public partial class ClickAreaCandle : ClickArea
 	{
 		if (isLit)
 		{
-			GD.Print($"Candle {Name} is already lit.");
+			isLit = false;
+			SoundManager.Stop(SFXType.TeapotBrewing);
+			SoundManager.Play(SFXType.CandleExtinguish);
+			GD.Print($"Extinguishing candle {Name}.");
+			SetFlameState(false);
+			return;
+		}
+		if (!teapot.CanBrew()) {
+			GD.Print($"Cannot lit candle {Name} because teapot is unable to brew.");
+			SoundManager.Play(SFXType.CandleLitFail);
 			return;
 		}
 		GD.Print($"Lit candle {Name}!");
