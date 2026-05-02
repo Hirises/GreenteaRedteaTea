@@ -82,8 +82,8 @@ public partial class ClickAreaGameStart : ClickArea
 			panel.Visible = true;
 	}
 
-    public override bool CanClick()
-    {
-        return state == State.Before;
-    }
+	public override bool CanClick()
+	{
+		return state == State.Before;
+	}
 }

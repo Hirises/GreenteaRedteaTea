@@ -46,11 +46,11 @@ public partial class CustomerManager : Node
 		}
 		else if (score <= 29)
 		{
-        if (score == hardBorichaScore)
-            customer = new BorichaCustomer(customerCount);
-        else
-            customer = new HardCustomer(customerCount);
-    	}
+		if (score == hardBorichaScore)
+			customer = new BorichaCustomer(customerCount);
+		else
+			customer = new HardCustomer(customerCount);
+		}
 		else if(score <= 32)
 		{
 			customer = new RyuCustomer(customerCount, score-30);
