@@ -1526,14 +1526,16 @@ texture = ExtResource("43_q1yuq")
 [node name="시간게이지Outline" type="Sprite2D" parent="TimerGraph" unique_id=837150087]
 texture = ExtResource("44_uacds")
 
-[node name="ClickArea달력" parent="." unique_id=1160333453 node_paths=PackedStringArray("animationPlayer", "gameManager", "numPanel10", "numPanel01", "hoverHighlight") instance=ExtResource("18_uws2o")]
+[node name="ClickArea달력" parent="." unique_id=1160333453 node_paths=PackedStringArray("animationPlayer", "gameManager", "closePanel", "openPanel", "numPanel10", "numPanel01", "hoverHighlight") instance=ExtResource("18_uws2o")]
 position = Vector2(136, 298)
 scale = Vector2(17.299416, 13.933637)
 script = ExtResource("75_ixb38")
 animationPlayer = NodePath("../Calendar/AnimationPlayer")
 gameManager = NodePath("../GameManager")
-numPanel10 = []
-numPanel01 = []
+closePanel = NodePath("../Calendar/Graphic/달력Close")
+openPanel = NodePath("../Calendar/Graphic/달력Open")
+numPanel10 = [NodePath("../Calendar/Graphic/숫자10/달력좌0"), NodePath("../Calendar/Graphic/숫자10/달력좌1"), NodePath("../Calendar/Graphic/숫자10/달력좌2"), NodePath("../Calendar/Graphic/숫자10/달력좌3"), NodePath("../Calendar/Graphic/숫자10/달력좌4"), NodePath("../Calendar/Graphic/숫자10/달력좌5"), NodePath("../Calendar/Graphic/숫자10/달력좌6"), NodePath("../Calendar/Graphic/숫자10/달력좌7"), NodePath("../Calendar/Graphic/숫자10/달력좌8"), NodePath("../Calendar/Graphic/숫자10/달력좌9")]
+numPanel01 = [NodePath("../Calendar/Graphic/숫자01/달력우0"), NodePath("../Calendar/Graphic/숫자01/달력우1"), NodePath("../Calendar/Graphic/숫자01/달력우2"), NodePath("../Calendar/Graphic/숫자01/달력우3"), NodePath("../Calendar/Graphic/숫자01/달력우4"), NodePath("../Calendar/Graphic/숫자01/달력우5"), NodePath("../Calendar/Graphic/숫자01/달력우6"), NodePath("../Calendar/Graphic/숫자01/달력우7"), NodePath("../Calendar/Graphic/숫자01/달력우8"), NodePath("../Calendar/Graphic/숫자01/달력우9")]
 hoverHighlight = NodePath("../Calendar")
 
 [node name="Calendar" type="Node2D" parent="." unique_id=1817888089]
