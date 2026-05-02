@@ -3,14 +3,23 @@
     "Default"
   ],
   "EasyCustomer": [
-    "Default",
-    "Putin"
+    "Default", "Ana", "Paul", "Allcho", "Pink", "Red",
+    "Sunny", "Toby", "Nina", "Mint", "Coco", "Berry", 
+    "Leo", "Joy", "Momo", "Cookie", "Panda", "Goma", 
+    "Rio", "Bibi", "Hana", "Dambi", "Lulu", "Zizi"
   ],
   "NormalCustomer": [
-    "Default"
+    "Default", "Minho", "Ji-won", "James", "Sarah", "Kevin", 
+    "Elena", "David", "Chloe", "Sang-hyuk", "Maria", "Robert", 
+    "Yuki", "Alex", "Suji", "Thomas", "Rachel", "Hyeon-woo", 
+    "Lisa", "Ken", "Sophie", "Brian", "Olivia", "Daniel"
   ],
   "HardCustomer": [
-    "Default"
+    "Default", "Maximilian", "Seraphina", "Alistair", "Victoria", 
+    "Ragnar", "Beatrice", "Xerxes", "Morpheus", "Valentina", 
+    "Bartholomew", "Eleanor", "Cipher", "Onyx", "Winter", 
+    "Arthur", "Genevieve", "Socrates", "Hildegard", "Constantine", 
+    "Zenith", "Balthazar", "Lucretia", "Dante"
   ],
   "PutinCustomer": [
     "Putin"
@@ -22,7 +31,7 @@
     "Ryu"
   ],
   "RandomCustomer": [
-    "1"
+    "1", "2", "3", "4", "5"
   ],
   "BorichaCustomer": [
     "Boricha"

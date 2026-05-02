@@ -41,9 +41,11 @@ public partial class CustomerUi : Node
     private Sprite2D cloth;
     private Sprite2D expression;
     private Text textLabel;
+    private Random _rand;
 
     public override void _Ready()
     {
+        _rand = new Random();
         special = GetNodeOrNull<Sprite2D>(SpecialPath);
         head = GetNodeOrNull<Sprite2D>(HeadPath);
         body = GetNodeOrNull<Sprite2D>(BodyPath);
@@ -121,10 +123,10 @@ public partial class CustomerUi : Node
         SetVisible(cloth, true);
         SetVisible(expression, true);
 
-        SetRandomBodyTexture(body, seed);
-        SetRandomLayerTexture(cloth, ClothDir, seed + 1);
-        SetRandomLayerTexture(head, HeadDir, seed + 2);
-        SetRandomLayerTexture(expression, ExpressionDir, seed + 3);
+        SetRandomBodyTexture(body, seed + _rand.Next());
+        SetRandomLayerTexture(cloth, ClothDir, seed + _rand.Next());
+        SetRandomLayerTexture(head, HeadDir, seed + _rand.Next());
+        SetRandomLayerTexture(expression, ExpressionDir, seed + _rand.Next());
     }
 
     private void SetRandomBodyTexture(Sprite2D sprite, int seed)
