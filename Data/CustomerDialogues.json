@@ -120,6 +120,25 @@
       ]
     }
   },
+  "SatiCustomer": {
+    "order": [
+      "{order} 주세요 (복슬복슬)"
+    ],
+    "thank": [
+      "감사합니다 (복슬복슬)"
+    ],
+    "complaint": {
+      "timeout": [
+        "Customer complains: order timed out."
+      ],
+      "wrongMenu": [
+        "Customer complains: wrong menu."
+      ],
+      "kickedOut": [
+        "Customer complains: kicked out."
+      ]
+    }
+  },
   "RyuCustomer": {
     "order": [
       "{order}."

@@ -1,25 +1,23 @@
 using RedteaGreenteaTea.Domain;
 
-public class RyuCustomer : Customer
+public class SatiCustomer : Customer
 {
     private const float DefaultPatienceSeconds = 30f;
     private const int DefaultOrderMaxDepth = 2;
-    private int c;
 
-    public RyuCustomer(int number, int count) : base(number)
+    public SatiCustomer(int number) : base(number)
     {
         PatienceSeconds = DefaultPatienceSeconds;
         isSpecial = true;
-        c = count;
     }
 
     protected override ProductExpression _GenerateOrder()
     {
         var orderGenerator = new TeaOrderGenerator();
-        Order = orderGenerator.GenerateProduct(4 + c);
-        while(Order.Depth < 4 + c)
+        Order = orderGenerator.GenerateProduct(5);
+        while(Order.Depth <= 4)
         {
-            Order = orderGenerator.GenerateProduct(4 + c);
+            Order = orderGenerator.GenerateProduct(5);
         }
         PatienceSeconds = Order.Length * 15;
         isOrderGenerated = true;

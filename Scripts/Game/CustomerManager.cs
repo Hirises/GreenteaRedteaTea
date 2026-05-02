@@ -42,8 +42,7 @@ public partial class CustomerManager : Node
 		}
 		else if (score == 16)
 		{
-			// TODO: 중간 보스(사티?)
-			customer = new HardCustomer(customerCount);
+			customer = new SatiCustomer(customerCount);
 		}
 		else if (score <= 29)
 		{
@@ -54,7 +53,7 @@ public partial class CustomerManager : Node
     	}
 		else if(score <= 32)
 		{
-			customer = new RyuCustomer(customerCount);
+			customer = new RyuCustomer(customerCount, score-29);
 		}
 		else
 		{
