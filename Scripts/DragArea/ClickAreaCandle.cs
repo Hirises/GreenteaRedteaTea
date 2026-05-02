@@ -77,8 +77,8 @@ public partial class ClickAreaCandle : ClickArea
 		}
 	}
 
-    public override bool CanClick()
-    {
-        return teapot.CanBrew();
-    }
+	public override bool CanClick()
+	{
+		return teapot.CanBrew();
+	}
 }

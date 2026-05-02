@@ -4,186 +4,186 @@ using System;
 
 public partial class DraggableLeaf : Node2D, IDraggableContained
 {
-    [Export] Sprite2D leafSprite;
-    [Export] HoverHighlightable hoverHighlight;
-    [Export] AnimationPlayer animationPlayer;
-    IDragAreaContainer returnArea;
-    ProductExpression leafContent;
+	[Export] Sprite2D leafSprite;
+	[Export] HoverHighlightable hoverHighlight;
+	[Export] AnimationPlayer animationPlayer;
+	IDragAreaContainer returnArea;
+	ProductExpression leafContent;
 
-    public void Initialize(BasicLeafKind kind)
-    {
-        leafContent = new BasicLeafExpression(kind);
-    }
+	public void Initialize(BasicLeafKind kind)
+	{
+		leafContent = new BasicLeafExpression(kind);
+	}
 
-    public override void _Process(double delta)
-    {
-        base._Process(delta);
-        bool contained = returnArea is DragAreaPlate or DragAreaTeapotInside;
-        DraggableUtil.DefaultDragBehavior(this, this, delta, returnArea?.GetNode(),
-            contained ? 1 : 10, contained ? 90f : 20f);
+	public override void _Process(double delta)
+	{
+		base._Process(delta);
+		bool contained = returnArea is DragAreaPlate or DragAreaTeapotInside;
+		DraggableUtil.DefaultDragBehavior(this, this, delta, returnArea?.GetNode(),
+			contained ? 1 : 10, contained ? 90f : 20f);
 
-        if (leafContent == null)
-        {
-            GD.PrintErr("Leaf content is null! This should not happen.");
-            return;
-        }
+		if (leafContent == null)
+		{
+			GD.PrintErr("Leaf content is null! This should not happen.");
+			return;
+		}
 
-        leafSprite.Modulate = leafContent.Color.ToGodotColor();
-    }
+		leafSprite.Modulate = leafContent.Color.ToGodotColor();
+	}
 
-    public void OnPick()
-    {
-        GD.Print("Leaf picked up!");
-        SoundManager.Play(SFXType.LeafPick);
-    }
+	public void OnPick()
+	{
+		GD.Print("Leaf picked up!");
+		SoundManager.Play(SFXType.LeafPick);
+	}
 
-    public void OnDrop(DragArea dropArea)
-    {
-        GD.Print($"Leaf dropped on {dropArea?.Name}!");
-        SoundManager.Play(SFXType.LeafPut);
-        if (dropArea is DragAreaContainer)
-        {
-            var container = dropArea as DragAreaContainer;
-            if (container.TryDropDraggable(this))
-            {
-                returnArea = container;
-                GD.Print("Leaf successfully dropped into container.");
-            }
-            else if (container.TryPutLeafOnPlate(this))
-            {
-                returnArea = container.GetPlateDragArea() as DragAreaPlate;
-                GD.Print("Leaf successfully put on plate.");
-            }
-            else if (container.TryMergeLeaf(this))
-            {
-                GD.Print("Leaf successfully merged with existing leaf on plate.");
-                Destroy();
-            }
-            else
-            {
-                GD.Print("Failed to drop leaf into container. Returning to original position.");
-                ReturnToOriginalPosition();
-            }
-            return;
-        }
-        if (dropArea is DragAreaPlate)
-        {
-            var plate = dropArea as DragAreaPlate;
-            if (plate.TryMergeLeaf(this))
-            {
-                GD.Print("Leaf successfully merged with existing leaf on plate.");
-                Destroy();
-            }
-            else
-            {
-                GD.Print("Failed to merge with leaf in plate. Returning to original position.");
-                ReturnToOriginalPosition();
-            }
-            return;
-        }
-        if (dropArea is DragAreaTeapot)
-        {
-            var teapot = dropArea as DragAreaTeapot;
-            if (teapot.TryPutLeafInTeapot(this))
-            {
-                returnArea = teapot.GetInsideArea();
-                GD.Print("Leaf successfully put in teapot.");
-            }
-            else
-            {
-                GD.Print("Failed to put leaf in teapot. Returning to original position.");
-                ReturnToOriginalPosition();
-            }
-            return;
-        }
-        if (dropArea is DragAreaTrash)
-        {
-            GD.Print("Leaf dropped into trash. Destroying leaf.");
-            (dropArea as DragAreaTrash).OnTrash();
-            Destroy();
-            return;
-        }
-        if (dropArea is DragAreaFlowerPot)
-        {
-            var flowerPot = dropArea as DragAreaFlowerPot;
-            if (flowerPot.TryBloom(this))
-            {
-                GD.Print("Leaf successfully bloomed in flower pot.");
-                Destroy();
-            }
-            else
-            {
-                GD.Print("Failed to bloom leaf in flower pot. Returning to original position.");
-                ReturnToOriginalPosition();
-            }
-            return;
-        }
-        ReturnToOriginalPosition();
-    }
+	public void OnDrop(DragArea dropArea)
+	{
+		GD.Print($"Leaf dropped on {dropArea?.Name}!");
+		SoundManager.Play(SFXType.LeafPut);
+		if (dropArea is DragAreaContainer)
+		{
+			var container = dropArea as DragAreaContainer;
+			if (container.TryDropDraggable(this))
+			{
+				returnArea = container;
+				GD.Print("Leaf successfully dropped into container.");
+			}
+			else if (container.TryPutLeafOnPlate(this))
+			{
+				returnArea = container.GetPlateDragArea() as DragAreaPlate;
+				GD.Print("Leaf successfully put on plate.");
+			}
+			else if (container.TryMergeLeaf(this))
+			{
+				GD.Print("Leaf successfully merged with existing leaf on plate.");
+				Destroy();
+			}
+			else
+			{
+				GD.Print("Failed to drop leaf into container. Returning to original position.");
+				ReturnToOriginalPosition();
+			}
+			return;
+		}
+		if (dropArea is DragAreaPlate)
+		{
+			var plate = dropArea as DragAreaPlate;
+			if (plate.TryMergeLeaf(this))
+			{
+				GD.Print("Leaf successfully merged with existing leaf on plate.");
+				Destroy();
+			}
+			else
+			{
+				GD.Print("Failed to merge with leaf in plate. Returning to original position.");
+				ReturnToOriginalPosition();
+			}
+			return;
+		}
+		if (dropArea is DragAreaTeapot)
+		{
+			var teapot = dropArea as DragAreaTeapot;
+			if (teapot.TryPutLeafInTeapot(this))
+			{
+				returnArea = teapot.GetInsideArea();
+				GD.Print("Leaf successfully put in teapot.");
+			}
+			else
+			{
+				GD.Print("Failed to put leaf in teapot. Returning to original position.");
+				ReturnToOriginalPosition();
+			}
+			return;
+		}
+		if (dropArea is DragAreaTrash)
+		{
+			GD.Print("Leaf dropped into trash. Destroying leaf.");
+			(dropArea as DragAreaTrash).OnTrash();
+			Destroy();
+			return;
+		}
+		if (dropArea is DragAreaFlowerPot)
+		{
+			var flowerPot = dropArea as DragAreaFlowerPot;
+			if (flowerPot.TryBloom(this))
+			{
+				GD.Print("Leaf successfully bloomed in flower pot.");
+				Destroy();
+			}
+			else
+			{
+				GD.Print("Failed to bloom leaf in flower pot. Returning to original position.");
+				ReturnToOriginalPosition();
+			}
+			return;
+		}
+		ReturnToOriginalPosition();
+	}
 
-    public void OnCancelDrag()
-    {
-        GD.Print("Leaf drag cancelled. Returning to original position.");
-        ReturnToOriginalPosition();
-    }
+	public void OnCancelDrag()
+	{
+		GD.Print("Leaf drag cancelled. Returning to original position.");
+		ReturnToOriginalPosition();
+	}
 
-    public void Destroy()
-    {
-        GD.Print("Leaf destroyed.");
-        QueueFree();
-    }
+	public void Destroy()
+	{
+		GD.Print("Leaf destroyed.");
+		QueueFree();
+	}
 
-    void ReturnToOriginalPosition()
-    {
-        if (returnArea == null)
-        {
-            GD.Print("No return area set. Destroying leaf.");
-            Destroy();
-            return;
-        }
-        if (returnArea.TryDropDraggable(this))
-        {
-            GD.Print("Leaf returned to original position.");
-        }
-        else
-        {
-            GD.Print("Failed to return leaf to original position. Destroying leaf.");
-            Destroy();
-        }
-    }
+	void ReturnToOriginalPosition()
+	{
+		if (returnArea == null)
+		{
+			GD.Print("No return area set. Destroying leaf.");
+			Destroy();
+			return;
+		}
+		if (returnArea.TryDropDraggable(this))
+		{
+			GD.Print("Leaf returned to original position.");
+		}
+		else
+		{
+			GD.Print("Failed to return leaf to original position. Destroying leaf.");
+			Destroy();
+		}
+	}
 
-    public HoverHighlightable GetHoverHighlight()
-    {
-        return hoverHighlight;
-    }
+	public HoverHighlightable GetHoverHighlight()
+	{
+		return hoverHighlight;
+	}
 
-    public ProductExpression GetLeafContent()
-    {
-        if (leafContent == null)
-        {
-            GD.PrintErr("Leaf content is null! This should not happen.");
-            return null;
-        }
-        return leafContent;
-    }
+	public ProductExpression GetLeafContent()
+	{
+		if (leafContent == null)
+		{
+			GD.PrintErr("Leaf content is null! This should not happen.");
+			return null;
+		}
+		return leafContent;
+	}
 
-    public void SetLeafContent(ProductExpression content)
-    {
-        if (content == null)
-        {
-            GD.PrintErr("Cannot set leaf content to null!");
-            return;
-        }
-        if (!content.Is(ProductCategory.Leaf))
-        {
-            GD.PrintErr("Cannot set leaf content to non-leaf product!");
-            return;
-        }
-        leafContent = content;
-    }
+	public void SetLeafContent(ProductExpression content)
+	{
+		if (content == null)
+		{
+			GD.PrintErr("Cannot set leaf content to null!");
+			return;
+		}
+		if (!content.Is(ProductCategory.Leaf))
+		{
+			GD.PrintErr("Cannot set leaf content to non-leaf product!");
+			return;
+		}
+		leafContent = content;
+	}
 
-    public void Shake()
-    {
-        animationPlayer.Play("shake");
-    }
+	public void Shake()
+	{
+		animationPlayer.Play("shake");
+	}
 }
