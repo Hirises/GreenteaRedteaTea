@@ -283,6 +283,11 @@ public sealed class TeaOrderGenerator
 		return Pick(choices)();
 	}
 
+	public ProductExpression GenerateImpossible(string name)
+	{
+		return TeaRecipeBook.Impossible(name);
+	}
+
 	private BaseExpression CreateBase(BaseKind kind)
 	{
 		return kind switch
