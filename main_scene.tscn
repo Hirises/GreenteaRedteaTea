@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://c3hhub2ni5k7i" path="res://Sprites/우유.png" id="11_m35m6"]
 [ext_resource type="AudioStream" uid="uid://dw0080og6qlpx" path="res://SFX/sfx_broom_fail.wav" id="11_o63de"]
 [ext_resource type="AudioStream" uid="uid://c8pn0qqih8k1p" path="res://NeoSFX/보글보글_3초.wav" id="12_3s6xx"]
+[ext_resource type="AudioStream" uid="uid://bvq3qqjiqegub" path="res://NeoSFX/띵.wav" id="12_ubkm4"]
 [ext_resource type="AudioStream" uid="uid://bye6s7kigiwbx" path="res://NeoSFX/라이터_On.wav" id="13_bkdqi"]
 [ext_resource type="Script" uid="uid://dnyq8dix5b66i" path="res://Scripts/DragArea/DragAreaContainer.cs" id="13_w30ff"]
 [ext_resource type="Texture2D" uid="uid://d31beon55wiyd" path="res://Sprites/카펫.png" id="13_xy6fp"]
@@ -41,6 +42,7 @@
 [ext_resource type="Script" uid="uid://b5oee2s1w76rp" path="res://Scripts/DragArea/DragAreaTeapot.cs" id="18_xy6fp"]
 [ext_resource type="Script" uid="uid://u4ml7sm7kt5g" path="res://Scripts/DragArea/ClickAreaCandle.cs" id="19_iylel"]
 [ext_resource type="Texture2D" uid="uid://cwq2lr05jgw45" path="res://Sprites/Teapot/주전자_Half.png" id="19_o7u2a"]
+[ext_resource type="AudioStream" uid="uid://cu23gg77gblvv" path="res://NeoSFX/차임_1.wav" id="19_o48om"]
 [ext_resource type="Script" uid="uid://ls14mvmdeo2u" path="res://Scripts/DragArea/DragAreaTeapotInside.cs" id="19_uws2o"]
 [ext_resource type="Script" uid="uid://pw6cex1g4tnc" path="res://Scripts/Draggable/DraggableTeapot.cs" id="19_xy6fp"]
 [ext_resource type="Texture2D" uid="uid://c0m2lwkcodvap" path="res://Sprites/Teapot/주전자_Water_Side.png" id="20_ijoax"]
@@ -802,18 +804,27 @@ player = NodePath("AudioStreamPlayer")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TeapotPour" unique_id=1914147549]
 stream = ExtResource("10_ldlqy")
 
-[node name="TeapotBrew" type="Node" parent="SoundManager" unique_id=853168842 node_paths=PackedStringArray("player")]
+[node name="TeapotBrew" type="Node" parent="SoundManager" unique_id=410976431 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 16
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TeapotBrew" unique_id=1180623401]
+stream = ExtResource("12_ubkm4")
+pitch_scale = 2.0
+
+[node name="TeapotBrewing" type="Node" parent="SoundManager" unique_id=853168842 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
 sfxType = 15
 player = NodePath("AudioStreamPlayer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TeapotBrew" unique_id=1482041349]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TeapotBrewing" unique_id=1482041349]
 stream = ExtResource("12_3s6xx")
 pitch_scale = 2.0
 
 [node name="CandleLit" type="Node" parent="SoundManager" unique_id=1145611150 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
-sfxType = 16
+sfxType = 17
 player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CandleLit" unique_id=1117073331]
@@ -822,7 +833,7 @@ pitch_scale = 2.0
 
 [node name="TreeBloom" type="Node" parent="SoundManager" unique_id=54134880 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
-sfxType = 17
+sfxType = 18
 player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TreeBloom" unique_id=874364242]
@@ -831,7 +842,7 @@ pitch_scale = 2.0
 
 [node name="TreePick" type="Node" parent="SoundManager" unique_id=666173125 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
-sfxType = 18
+sfxType = 19
 player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TreePick" unique_id=1096899784]
@@ -840,7 +851,7 @@ pitch_scale = 2.0
 
 [node name="Trashbin" type="Node" parent="SoundManager" unique_id=1718887922 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
-sfxType = 19
+sfxType = 20
 player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/Trashbin" unique_id=10149730]
@@ -849,20 +860,29 @@ pitch_scale = 2.0
 
 [node name="Success" type="Node" parent="SoundManager" unique_id=271711304 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
-sfxType = 20
+sfxType = 21
 player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/Success" unique_id=746049080]
 stream = ExtResource("9_v118d")
 pitch_scale = 2.0
 
-[node name="Fail" type="Node" parent="SoundManager" unique_id=1081517104 node_paths=PackedStringArray("player")]
+[node name="Fail" type="Node" parent="SoundManager" unique_id=79496429 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
-sfxType = 21
+sfxType = 22
 player = NodePath("AudioStreamPlayer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/Fail" unique_id=1163702299]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/Fail" unique_id=326349089]
 stream = ExtResource("11_o63de")
+pitch_scale = 2.0
+
+[node name="CustomerEnter" type="Node" parent="SoundManager" unique_id=1050201433 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 23
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CustomerEnter" unique_id=1932900848]
+stream = ExtResource("19_o48om")
 pitch_scale = 2.0
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=2050139955]
