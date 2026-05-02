@@ -1,58 +1,66 @@
 using Godot;
+using System;
 using RedteaGreenteaTea.Domain;
 
 public partial class CustomerManager : Node
 {
 	private int customerCount;
-
+	private int easyBorichaScore;
+	private int normalBorichaScore;
+	private int hardBorichaScore;
+	private readonly Random _random = new Random();
 	public int CustomerCount => customerCount;
+	public void init()
+	{
+		easyBorichaScore = _random.Next(4, 8);
+		normalBorichaScore = _random.Next(10, 16);
+		hardBorichaScore = _random.Next(18, 28);
+	}
 
 	public Customer GenerateNextCustomer(int score, int rating)
 	{
 		customerCount++;
+		Customer customer;
 
-		if(score <= 7)
+		if (score <= 7)
 		{
-			var customer = new EasyCustomer(customerCount);
-			customer.GenerateOrder();
-			return customer;
+			if (score == easyBorichaScore)
+				customer = new BorichaCustomer(customerCount);
+			else
+				customer = new EasyCustomer(customerCount);
 		}
-		else if(score == 8)
+		else if (score == 8)
 		{
-			var customer = new PutinCustomer(customerCount);
-			customer.GenerateOrder();
-			return customer;
+			customer = new PutinCustomer(customerCount);
 		}
-		else if(score <= 15)
+		else if (score <= 15)
 		{
-			var customer = new NormalCustomer(customerCount);
-			customer.GenerateOrder();
-			return customer;
+			if (score == normalBorichaScore)
+				customer = new BorichaCustomer(customerCount);
+			else
+				customer = new NormalCustomer(customerCount);
 		}
-		else if(score == 16)
+		else if (score == 16)
 		{
-			//TODO 중간 보스 추가
-			var customer = new HardCustomer(customerCount);
-			customer.GenerateOrder();
-			return customer;
+			// TODO: 중간 보스(사티?)
+			customer = new HardCustomer(customerCount);
 		}
-		else if(score <= 29)
+		else if (score <= 29)
 		{
-			var customer = new HardCustomer(customerCount);
-			customer.GenerateOrder();
-			return customer;
-		}
+        if (score == hardBorichaScore)
+            customer = new BorichaCustomer(customerCount);
+        else
+            customer = new HardCustomer(customerCount);
+    	}
 		else if(score <= 32)
 		{
-			var customer = new RyuCustomer(customerCount);
-			customer.GenerateOrder();
-			return customer;
+			customer = new RyuCustomer(customerCount);
 		}
 		else
 		{
-			var customer = new RandomCustomer(customerCount);
-			customer.GenerateOrder();
-			return customer;
+			customer = new RandomCustomer(customerCount);
 		}
+		customer.GenerateOrder();
+		return customer;
 	}
 }

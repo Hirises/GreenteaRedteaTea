@@ -69,6 +69,7 @@ public partial class GameManager : Node
 	{
 		rating = 5;
 		score = 0;
+		customerManager.init();
 		StartOrder();
 	}
 
