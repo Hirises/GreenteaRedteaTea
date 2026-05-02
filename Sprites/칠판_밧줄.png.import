@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p6nsn6fresti"
-path="res://.godot/imported/칠판.png-d346105a36d68e09480816e416b436a7.ctex"
+uid="uid://dqh8cvc7xn0be"
+path="res://.godot/imported/칠판_밧줄.png-c52413a49824983362eb838bfa91e47a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/칠판.png"
-dest_files=["res://.godot/imported/칠판.png-d346105a36d68e09480816e416b436a7.ctex"]
+source_file="res://Sprites/칠판_밧줄.png"
+dest_files=["res://.godot/imported/칠판_밧줄.png-c52413a49824983362eb838bfa91e47a.ctex"]
 
 [params]
 
