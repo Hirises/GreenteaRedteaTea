@@ -7,42 +7,42 @@ public partial class CustomerManager : Node
 
 	public int CustomerCount => customerCount;
 
-	public Customer GenerateNextCustomer()
+	public Customer GenerateNextCustomer(int score, int rating)
 	{
 		customerCount++;
 
-		if(customerCount <= 7)
+		if(score <= 7)
 		{
 			var customer = new EasyCustomer(customerCount);
 			customer.GenerateOrder();
 			return customer;
 		}
-		else if(customerCount == 8)
+		else if(score == 8)
 		{
 			var customer = new PutinCustomer(customerCount);
 			customer.GenerateOrder();
 			return customer;
 		}
-		else if(customerCount <= 15)
+		else if(score <= 15)
 		{
 			var customer = new NormalCustomer(customerCount);
 			customer.GenerateOrder();
 			return customer;
 		}
-		else if(customerCount == 16)
+		else if(score == 16)
 		{
 			//TODO 중간 보스 추가
 			var customer = new HardCustomer(customerCount);
 			customer.GenerateOrder();
 			return customer;
 		}
-		else if(customerCount <= 29)
+		else if(score <= 29)
 		{
 			var customer = new HardCustomer(customerCount);
 			customer.GenerateOrder();
 			return customer;
 		}
-		else if(customerCount <= 32)
+		else if(score <= 32)
 		{
 			var customer = new RyuCustomer(customerCount);
 			customer.GenerateOrder();
