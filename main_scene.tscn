@@ -126,6 +126,7 @@
 [ext_resource type="Texture2D" uid="uid://bv7r0rx1v6c7o" path="res://Sprites/Cursor/집음.png" id="122_tnorr"]
 [ext_resource type="Texture2D" uid="uid://cxdbohrlofr72" path="res://Sprites/Cursor/차기.png" id="123_0dwp6"]
 [ext_resource type="Texture2D" uid="uid://b68v8mlkj1jni" path="res://Sprites/Cursor/클릭.png" id="124_4kqa1"]
+[ext_resource type="Texture2D" uid="uid://ceg1l8obbncru" path="res://Sprites/칠판.png" id="126_7ggmy"]
 
 [sub_resource type="Animation" id="Animation_6a02w"]
 length = 0.001
@@ -806,6 +807,67 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_clqk1"),
 &"trash": SubResource("Animation_fxe4o")
+}
+
+[sub_resource type="Animation" id="Animation_7ggmy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("칠판:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1509, 182)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("별점:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-250, 67)]
+}
+
+[sub_resource type="Animation" id="Animation_tnorr"]
+resource_name = "game_start"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("칠판:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.4, 1.1333333),
+"transitions": PackedFloat32Array(0.5176328, 2.0000005, 0.8705507, 1),
+"update": 0,
+"values": [Vector2(1509, 182), Vector2(1509, 200), Vector2(1509, 150), Vector2(1509, -220)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("별점:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.0666667),
+"transitions": PackedFloat32Array(0.16493869, 1),
+"update": 0,
+"values": [Vector2(-250, 67), Vector2(244, 67)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0dwp6"]
+_data = {
+&"RESET": SubResource("Animation_7ggmy"),
+&"game_start": SubResource("Animation_tnorr")
 }
 
 [node name="MainScene" type="Node2D" unique_id=2097108586]
@@ -1554,16 +1616,17 @@ texture = ExtResource("43_q1yuq")
 [node name="시간게이지Outline" type="Sprite2D" parent="TimerGraph" unique_id=837150087]
 texture = ExtResource("44_uacds")
 
-[node name="ClickArea달력" parent="." unique_id=1160333453 node_paths=PackedStringArray("animationPlayer", "gameManager", "closePanel", "openPanel", "numPanel10", "numPanel01", "hoverHighlight") instance=ExtResource("18_uws2o")]
+[node name="ClickArea달력" parent="." unique_id=1160333453 node_paths=PackedStringArray("calendarAnimation", "gameManager", "closePanel", "openPanel", "numPanel10", "numPanel01", "gameStartAnimation", "hoverHighlight") instance=ExtResource("18_uws2o")]
 position = Vector2(136, 298)
 scale = Vector2(17.299416, 13.933637)
 script = ExtResource("75_ixb38")
-animationPlayer = NodePath("../Calendar/AnimationPlayer")
+calendarAnimation = NodePath("../Calendar/AnimationPlayer")
 gameManager = NodePath("../GameManager")
 closePanel = NodePath("../Calendar/Graphic/달력Close")
 openPanel = NodePath("../Calendar/Graphic/달력Open")
 numPanel10 = [NodePath("../Calendar/Graphic/숫자10/달력좌0"), NodePath("../Calendar/Graphic/숫자10/달력좌1"), NodePath("../Calendar/Graphic/숫자10/달력좌2"), NodePath("../Calendar/Graphic/숫자10/달력좌3"), NodePath("../Calendar/Graphic/숫자10/달력좌4"), NodePath("../Calendar/Graphic/숫자10/달력좌5"), NodePath("../Calendar/Graphic/숫자10/달력좌6"), NodePath("../Calendar/Graphic/숫자10/달력좌7"), NodePath("../Calendar/Graphic/숫자10/달력좌8"), NodePath("../Calendar/Graphic/숫자10/달력좌9")]
 numPanel01 = [NodePath("../Calendar/Graphic/숫자01/달력우0"), NodePath("../Calendar/Graphic/숫자01/달력우1"), NodePath("../Calendar/Graphic/숫자01/달력우2"), NodePath("../Calendar/Graphic/숫자01/달력우3"), NodePath("../Calendar/Graphic/숫자01/달력우4"), NodePath("../Calendar/Graphic/숫자01/달력우5"), NodePath("../Calendar/Graphic/숫자01/달력우6"), NodePath("../Calendar/Graphic/숫자01/달력우7"), NodePath("../Calendar/Graphic/숫자01/달력우8"), NodePath("../Calendar/Graphic/숫자01/달력우9")]
+gameStartAnimation = NodePath("../GameStartAnimation")
 hoverHighlight = NodePath("../Calendar")
 
 [node name="Calendar" type="Node2D" parent="." unique_id=1817888089]
@@ -1731,7 +1794,7 @@ text = "Default asdf asdf "
 autowrap_mode = 2
 
 [node name="별점" type="Node2D" parent="." unique_id=1163087531 node_paths=PackedStringArray("graphSprite", "gameManager")]
-position = Vector2(244, 67)
+position = Vector2(-250, 67)
 script = ExtResource("67_pw1oq")
 graphSprite = NodePath("별점들Fill")
 gameManager = NodePath("../GameManager")
@@ -1784,6 +1847,13 @@ texture = ExtResource("124_4kqa1")
 visible = false
 position = Vector2(7, 7)
 texture = ExtResource("123_0dwp6")
+
+[node name="칠판" type="Sprite2D" parent="." unique_id=913903452]
+position = Vector2(1509, 182)
+texture = ExtResource("126_7ggmy")
+
+[node name="GameStartAnimation" type="AnimationPlayer" parent="." unique_id=2138467618]
+libraries/ = SubResource("AnimationLibrary_0dwp6")
 
 [connection signal="OrderEnded" from="GameManager" to="ClickArea달력" method="OnOrderEnded"]
 [connection signal="OrderStarted" from="GameManager" to="Hourglass" method="OnGameStart"]

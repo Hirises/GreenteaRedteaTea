@@ -4,13 +4,15 @@ using System.Collections.Generic;
 
 public partial class ClickAreaGameStart : ClickArea
 {
-	[Export] AnimationPlayer animationPlayer;
+	[Export] AnimationPlayer calendarAnimation;
 	[Export] GameManager gameManager;
 
 	[Export] Sprite2D closePanel;
 	[Export] Sprite2D openPanel;
 	[Export] Sprite2D[] numPanel10;
 	[Export] Sprite2D[] numPanel01;
+
+	[Export] AnimationPlayer gameStartAnimation;
 
 	List<Sprite2D> nextOpenPanel = new();
 	int prevScore = 0;
@@ -33,7 +35,8 @@ public partial class ClickAreaGameStart : ClickArea
 		state = State.Animating;
 		nextOpenPanel.Clear();
 		nextOpenPanel.Add(openPanel);
-		animationPlayer.Play("flip_close");
+		calendarAnimation.Play("flip_close");
+		gameStartAnimation.Play("game_start");
 		SetHoverHighlight(null);
 		SoundManager.Play(SFXType.CalendarOpen);
 	}
@@ -53,7 +56,7 @@ public partial class ClickAreaGameStart : ClickArea
 		nextOpenPanel.Add(numPanel01[score % 10]);
 		nextOpenPanel.Add(numPanel10[score / 10]);
 		SoundManager.Play(SFXType.CalendarFlip);
-		animationPlayer.Play("flip_close");
+		calendarAnimation.Play("flip_close");
 	}
 
 	public void OnAnimationEnd()
