@@ -26,4 +26,9 @@ public partial class DragAreaFlowerPot : DragArea
         var leafContent = flowerPot.LeafContent;
         return leafContent.DisplayName;
     }
+
+    public override bool CanDrag()
+    {
+        return flowerPot.Bloomed;
+    }
 }

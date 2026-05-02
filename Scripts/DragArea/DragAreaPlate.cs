@@ -86,4 +86,9 @@ public partial class DragAreaPlate : DragArea, IDragAreaContainer
             return leafContent.DisplayName;
         }
     }
+
+    public override bool CanDrag()
+    {
+        return currentDraggable != null;
+    }
 }

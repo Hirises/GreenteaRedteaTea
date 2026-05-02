@@ -125,12 +125,15 @@ public partial class GameManager : Node
 		EndOrder(OrderResult.WrongMenu);
 	}
 
+	public bool CanKick()
+	{
+		return isOnOrder && timer >= 1.2f;
+	}
+
 	public void KickOutCustomer()
 	{
-		if (!isOnOrder || timer < 1f)
-		{
+		if (!CanKick())
 			return;
-		}
 
 		EndOrder(OrderResult.KickedOut);
 	}

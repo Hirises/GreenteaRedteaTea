@@ -138,4 +138,9 @@ public partial class DragAreaContainer : DragArea, IDragAreaContainer
         }
         return "";
     }
+
+    public override bool CanDrag()
+    {
+        return currentDraggable != null;
+    }
 }

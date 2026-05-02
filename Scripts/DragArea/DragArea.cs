@@ -47,4 +47,9 @@ public partial class DragArea : Area2D
     {
         return string.Empty;
     }
+
+    public virtual bool CanDrag()
+    {
+        return true;
+    }
 }

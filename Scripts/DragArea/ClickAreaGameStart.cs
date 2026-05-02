@@ -76,4 +76,9 @@ public partial class ClickAreaGameStart : ClickArea
 		foreach (var panel in nextOpenPanel)
 			panel.Visible = true;
 	}
+
+    public override bool CanClick()
+    {
+        return state == State.Before;
+    }
 }

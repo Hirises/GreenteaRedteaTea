@@ -76,4 +76,9 @@ public partial class ClickAreaCandle : ClickArea
 			particle.Emitting = false;
 		}
 	}
+
+    public override bool CanClick()
+    {
+        return teapot.CanBrew();
+    }
 }

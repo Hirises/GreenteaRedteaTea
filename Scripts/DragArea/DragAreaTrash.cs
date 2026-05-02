@@ -15,4 +15,9 @@ public partial class DragAreaTrash : DragArea
         animationPlayer.Play("trash");
         SoundManager.Play(SFXType.Trashbin);
     }
+
+    public override bool CanDrag()
+    {
+        return false;
+    }
 }

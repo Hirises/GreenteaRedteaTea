@@ -118,6 +118,13 @@
 [ext_resource type="Texture2D" uid="uid://thhva5g3pgoh" path="res://Sprites/달력/달력_우_7.png" id="100_ude2c"]
 [ext_resource type="Texture2D" uid="uid://c0rncpf8u0bnp" path="res://Sprites/달력/달력_우_8.png" id="101_s717c"]
 [ext_resource type="Texture2D" uid="uid://0hmixsbj5ldk" path="res://Sprites/달력/달력_우_9.png" id="102_wonw5"]
+[ext_resource type="Script" uid="uid://ce6x01oxbkqq" path="res://Cursor.cs" id="119_ly7qr"]
+[ext_resource type="Texture2D" uid="uid://brf4wcfu5t7io" path="res://Sprites/Cursor/기본.png" id="119_ubwhq"]
+[ext_resource type="Texture2D" uid="uid://c45ae4lng7not" path="res://Sprites/Cursor/앵커확인용.png" id="120_ly7qr"]
+[ext_resource type="Texture2D" uid="uid://y12ff4tn378o" path="res://Sprites/Cursor/집기.png" id="121_7ggmy"]
+[ext_resource type="Texture2D" uid="uid://bv7r0rx1v6c7o" path="res://Sprites/Cursor/집음.png" id="122_tnorr"]
+[ext_resource type="Texture2D" uid="uid://cxdbohrlofr72" path="res://Sprites/Cursor/차기.png" id="123_0dwp6"]
+[ext_resource type="Texture2D" uid="uid://b68v8mlkj1jni" path="res://Sprites/Cursor/클릭.png" id="124_4kqa1"]
 
 [sub_resource type="Animation" id="Animation_6a02w"]
 length = 0.001
@@ -1718,6 +1725,44 @@ centered = false
 
 [node name="별점들Outline" type="Sprite2D" parent="별점" unique_id=342160668]
 texture = ExtResource("70_2k5xf")
+
+[node name="Cursor" type="Node2D" parent="." unique_id=1081034681 node_paths=PackedStringArray("defaultSpr", "draggableSpr", "draggingSpr", "clickableSpr", "kickSpr")]
+z_index = 200
+script = ExtResource("119_ly7qr")
+defaultSpr = NodePath("기본")
+draggableSpr = NodePath("집기")
+draggingSpr = NodePath("집음")
+clickableSpr = NodePath("클릭")
+kickSpr = NodePath("차기")
+
+[node name="앵커확인용" type="Sprite2D" parent="Cursor" unique_id=1652429531]
+visible = false
+position = Vector2(7, 7)
+texture = ExtResource("120_ly7qr")
+
+[node name="기본" type="Sprite2D" parent="Cursor" unique_id=1352482002]
+position = Vector2(7, 7)
+texture = ExtResource("119_ubwhq")
+
+[node name="집기" type="Sprite2D" parent="Cursor" unique_id=1175572590]
+visible = false
+position = Vector2(7, 7)
+texture = ExtResource("121_7ggmy")
+
+[node name="집음" type="Sprite2D" parent="Cursor" unique_id=606638628]
+visible = false
+position = Vector2(7, 7)
+texture = ExtResource("122_tnorr")
+
+[node name="클릭" type="Sprite2D" parent="Cursor" unique_id=1234187291]
+visible = false
+position = Vector2(7, 7)
+texture = ExtResource("124_4kqa1")
+
+[node name="차기" type="Sprite2D" parent="Cursor" unique_id=928141356]
+visible = false
+position = Vector2(7, 7)
+texture = ExtResource("123_0dwp6")
 
 [connection signal="OrderEnded" from="GameManager" to="ClickArea달력" method="OnOrderEnded"]
 [connection signal="OrderStarted" from="GameManager" to="Hourglass" method="OnGameStart"]
