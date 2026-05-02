@@ -50,6 +50,7 @@
 [ext_resource type="AudioStream" uid="uid://c2l4shw73h7fi" path="res://NeoSFX/라이터_Off.wav" id="20_k2ony"]
 [ext_resource type="Texture2D" uid="uid://cgbgqitus6pyi" path="res://Sprites/Teapot/주전자_Water_Top.png" id="21_j8kkg"]
 [ext_resource type="Script" uid="uid://svua1rrnnn0c" path="res://Scripts/Game/UI/CustomerUI/CustomerUi.cs" id="22_7y85w"]
+[ext_resource type="AudioStream" uid="uid://cky7o8slwwe8u" path="res://NeoSFX/젖은찻잎.wav" id="22_ldlqy"]
 [ext_resource type="Texture2D" uid="uid://cjjr17u4vweat" path="res://Sprites/Teapot/거름망_Back.png" id="22_yh4yk"]
 [ext_resource type="Texture2D" uid="uid://cg3lcnelvqkew" path="res://Sprites/Teapot/거름망_Front.png" id="23_p8s74"]
 [ext_resource type="Script" uid="uid://u7ji25tgg1cn" path="res://Scripts/Game/UI/CustomerUI/Special.cs" id="24_7y85w"]
@@ -780,6 +781,7 @@ player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/JarPick" unique_id=1810871882]
 stream = ExtResource("6_o48om")
+volume_db = -4.0
 pitch_scale = 2.0
 
 [node name="JarPour" type="Node" parent="SoundManager" unique_id=803390786 node_paths=PackedStringArray("player")]
@@ -814,6 +816,7 @@ player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TeapotBrew" unique_id=1180623401]
 stream = ExtResource("12_ubkm4")
+volume_db = -8.0
 pitch_scale = 2.0
 
 [node name="TeapotBrewing" type="Node" parent="SoundManager" unique_id=853168842 node_paths=PackedStringArray("player")]
@@ -886,6 +889,7 @@ player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CustomerEnter" unique_id=1419342991]
 stream = ExtResource("19_o48om")
+volume_db = 4.0
 pitch_scale = 2.0
 
 [node name="CandleExtinguish" type="Node" parent="SoundManager" unique_id=770902801 node_paths=PackedStringArray("player")]
@@ -897,13 +901,49 @@ player = NodePath("AudioStreamPlayer")
 stream = ExtResource("20_k2ony")
 pitch_scale = 2.0
 
-[node name="CandleLitFail" type="Node" parent="SoundManager" unique_id=1050201433 node_paths=PackedStringArray("player")]
+[node name="CandleLitFail" type="Node" parent="SoundManager" unique_id=439490553 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
 sfxType = 25
 player = NodePath("AudioStreamPlayer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CandleLitFail" unique_id=1932900848]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CandleLitFail" unique_id=1571786995]
 stream = ExtResource("20_k2ony")
+pitch_scale = 2.0
+
+[node name="LeafPickWet" type="Node" parent="SoundManager" unique_id=590767363 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 26
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/LeafPickWet" unique_id=431336825]
+stream = ExtResource("22_ldlqy")
+pitch_scale = 2.0
+
+[node name="LeafPutWet" type="Node" parent="SoundManager" unique_id=352896337 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 27
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/LeafPutWet" unique_id=1113020305]
+stream = ExtResource("22_ldlqy")
+pitch_scale = 2.0
+
+[node name="JarPut" type="Node" parent="SoundManager" unique_id=1850123445 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 28
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/JarPut" unique_id=1906527658]
+stream = ExtResource("5_ubkm4")
+pitch_scale = 2.0
+
+[node name="TeapotPut" type="Node" parent="SoundManager" unique_id=1050201433 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 29
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TeapotPut" unique_id=1932900848]
+stream = ExtResource("7_k2ony")
 pitch_scale = 2.0
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=2050139955]

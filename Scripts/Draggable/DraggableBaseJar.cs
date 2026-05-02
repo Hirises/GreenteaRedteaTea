@@ -37,6 +37,7 @@ public partial class DraggableBaseJar : Node2D, IDraggable
 
     public void OnDrop(DragArea dropArea)
     {
+		SoundManager.Play(SFXType.JarPut);
         if (dropArea is DragAreaContainer)
         {
             var container = dropArea as DragAreaContainer;
