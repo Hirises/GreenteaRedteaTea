@@ -86,6 +86,7 @@ public partial class DragAreaContainer : DragArea, IDragAreaContainer
             var mix = new CombinedLeafExpression(existingLeaf.GetLeafContent(), leaf.GetLeafContent());
             existingLeaf.SetLeafContent(mix);
             GD.Print($"Merged leaf with existing leaf in container to create {mix.DisplayName}.");
+            existingLeaf.Shake();
             return true;
         }
 

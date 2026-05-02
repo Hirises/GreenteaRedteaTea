@@ -77,6 +77,7 @@ public partial class DragAreaTeapotInside : DragArea, IDragAreaContainer
 
         var leaf = currentDraggable;
         leaf.SetLeafContent(leafContent);
+        leaf.Shake();
     }
 
     public bool TryFillTeapot(ProductExpression liquid)

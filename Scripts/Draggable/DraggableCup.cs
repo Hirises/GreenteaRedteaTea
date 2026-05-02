@@ -6,6 +6,7 @@ public partial class DraggableCup : Node2D, IDraggableContained
 {
     [Export] Sprite2D liquidSprite;
     [Export] HoverHighlightable hoverHighlight;
+    [Export] AnimationPlayer animationPlayer;
 
     DragAreaContainer returnArea;
 
@@ -166,11 +167,13 @@ public partial class DraggableCup : Node2D, IDraggableContained
             var mix = new MixedLiquidExpression(liquidContent, liquid);
             liquidContent = mix;
             GD.Print($"Cup already has content. Mixed to {mix.DisplayName}.");
+            animationPlayer.Play("shake");
             return true;
         }
         liquidContent = liquid;
         hasContent = true;
         GD.Print($"Cup filled with {liquid.DisplayName}.");
+        animationPlayer.Play("shake");
         return true;
     }
 

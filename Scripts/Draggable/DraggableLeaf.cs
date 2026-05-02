@@ -6,6 +6,7 @@ public partial class DraggableLeaf : Node2D, IDraggableContained
 {
     [Export] Sprite2D leafSprite;
     [Export] HoverHighlightable hoverHighlight;
+    [Export] AnimationPlayer animationPlayer;
     IDragAreaContainer returnArea;
     ProductExpression leafContent;
 
@@ -179,5 +180,10 @@ public partial class DraggableLeaf : Node2D, IDraggableContained
             return;
         }
         leafContent = content;
+    }
+
+    public void Shake()
+    {
+        animationPlayer.Play("shake");
     }
 }

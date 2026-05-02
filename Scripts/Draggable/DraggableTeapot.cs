@@ -94,11 +94,13 @@ public partial class DraggableTeapot : Node2D, IDraggable
             var mix = new MixedLiquidExpression(liquidContent, liquid);
             liquidContent = mix;
             GD.Print($"Teapot already has content. Mixed to {mix.DisplayName}.");
+            animationPlayer.Play("shake");
             return true;
         }
         liquidContent = liquid;
         hasContent = true;
         GD.Print($"Teapot filled with {liquid.DisplayName}.");
+        animationPlayer.Play("shake");
         return true;
     }
 

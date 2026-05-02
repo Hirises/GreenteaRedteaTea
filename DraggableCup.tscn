@@ -6,10 +6,32 @@
 [ext_resource type="Script" uid="uid://dfpuj12t88ggg" path="res://Scripts/Draggable/DraggableCup.cs" id="2_nfqwo"]
 [ext_resource type="Texture2D" uid="uid://b0lm8ynbaq56d" path="res://Sprites/찻잔/찻잔_Front.png" id="3_bu0hg"]
 
-[node name="DraggableCup" type="Node2D" unique_id=1037602541 node_paths=PackedStringArray("liquidSprite", "hoverHighlight")]
+[sub_resource type="Animation" id="Animation_bu0hg"]
+resource_name = "shake"
+length = 0.76666665
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.06676667, 0.10000001, 0.16666667, 0.26666668, 0.4, 0.5, 0.56666666),
+"transitions": PackedFloat32Array(1, 0.18946466, -2, -2, -2, -2, -2, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.452040276266531, -0.2617993877991494, 0.17453292519943295, -0.08726646259971647, 0.05235987755982989, 0.017453292]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p3yvq"]
+_data = {
+&"shake": SubResource("Animation_bu0hg")
+}
+
+[node name="DraggableCup" type="Node2D" unique_id=1037602541 node_paths=PackedStringArray("liquidSprite", "hoverHighlight", "animationPlayer")]
 script = ExtResource("2_nfqwo")
 liquidSprite = NodePath("Graphic/찻잔Water")
 hoverHighlight = NodePath("Graphic")
+animationPlayer = NodePath("AnimationPlayer")
 
 [node name="Graphic" type="Node2D" parent="." unique_id=1696305867]
 script = ExtResource("2_bu0hg")
@@ -22,3 +44,6 @@ texture = ExtResource("2_7eqsp")
 
 [node name="찻잔Front" type="Sprite2D" parent="Graphic" unique_id=1527032120]
 texture = ExtResource("3_bu0hg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=158388879]
+libraries/ = SubResource("AnimationLibrary_p3yvq")
