@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Godot;
 
 public partial class CustomerUi : Node
@@ -22,6 +23,21 @@ public partial class CustomerUi : Node
     public NodePath ExpressionPath { get; set; } = "Expression";
     [Export]
     public GameManager gameManager;
+
+    [Export]
+    public Texture2D SpecialCustomerFallbackTextures;
+    [Export]
+    public string[] SpecialCustomerNameMap;
+    [Export]
+    public Texture2D[] SpecialCustomerTextureMap;
+    [Export]
+    public Texture2D[] CustomerBodyTextures;
+    [Export]
+    public Texture2D[] CustomerHearTextures;
+    [Export]
+    public Texture2D[] CustomerClothTextures;
+    [Export]
+    public Texture2D[] CustomerExpressionTextures;
 
     private const string CustomerSpriteDirectory = "res://Sprites/Customers";
     private const string SpecialDir = "Special";
@@ -100,17 +116,14 @@ public partial class CustomerUi : Node
         ClearCustomerTextures();
         SetVisible(special, true);
 
-        var customerName = string.IsNullOrWhiteSpace(name) ? DefaultCustomerName : name;
-        var texturePath = $"{CustomerSpriteDirectory}/{SpecialDir}/{customerName}{TextureExtension}";
-
-        if (!ResourceLoader.Exists(texturePath))
+        if (!SpecialCustomerNameMap.Contains(name))
         {
-            var fallbackPath = $"{CustomerSpriteDirectory}/{DefaultCustomerName}{TextureExtension}";
-            GD.PushWarning($"Special customer texture not found: {texturePath}. Loading default customer texture.");
-            texturePath = fallbackPath;
+            GD.PushWarning($"Special customer name does not contain directory: {name}. Loading default customer texture.");
+            SetTexture(special, SpecialCustomerFallbackTextures);
+            return;
         }
 
-        SetTexture(special, texturePath);
+        SetTexture(special, SpecialCustomerTextureMap[Array.IndexOf(SpecialCustomerNameMap, name)]);
     }
 
     private void GenerateTexture(int seed)
@@ -121,59 +134,17 @@ public partial class CustomerUi : Node
         SetVisible(cloth, true);
         SetVisible(expression, true);
 
-        SetRandomBodyTexture(body, seed);
-        SetRandomLayerTexture(cloth, ClothDir, seed + 1);
-        SetRandomLayerTexture(head, HeadDir, seed + 2);
-        SetRandomLayerTexture(expression, ExpressionDir, seed + 3);
+        SetRandomLayerTexture(body, CustomerBodyTextures, seed);
+        SetRandomLayerTexture(cloth, CustomerClothTextures, seed + 1);
+        SetRandomLayerTexture(head, CustomerHearTextures, seed + 2);
+        SetRandomLayerTexture(expression, CustomerExpressionTextures, seed + 3);
     }
 
-    private void SetRandomBodyTexture(Sprite2D sprite, int seed)
+    private void SetRandomLayerTexture(Sprite2D sprite, IReadOnlyList<Texture2D> textures, int seed)
     {
-        var textures = GetTexturePaths($"{CustomerSpriteDirectory}/{BodyDir}");
         if (textures.Count == 0)
         {
-            GD.PushWarning($"Customer texture directory has no png files: {CustomerSpriteDirectory}/{BodyDir}");
-            SetVisible(sprite, false);
-            return;
-        }
-
-        SetTexture(sprite, SelectWeightedBodyTexture(textures, seed));
-    }
-
-    private string SelectWeightedBodyTexture(IReadOnlyList<string> textures, int seed)
-    {
-        var totalWeight = 0;
-        foreach (var texture in textures)
-        {
-            totalWeight += GetBodyTextureWeight(texture);
-        }
-
-        var roll = SelectIndex(seed, totalWeight);
-        foreach (var texture in textures)
-        {
-            roll -= GetBodyTextureWeight(texture);
-            if (roll < 0)
-            {
-                return texture;
-            }
-        }
-
-        return textures[0];
-    }
-
-    private int GetBodyTextureWeight(string texturePath)
-    {
-        return texturePath.EndsWith($"/{RareGreenBodyTexture}", StringComparison.OrdinalIgnoreCase)
-            ? RareGreenBodyTextureWeight
-            : DefaultBodyTextureWeight;
-    }
-
-    private void SetRandomLayerTexture(Sprite2D sprite, string directoryName, int seed)
-    {
-        var textures = GetTexturePaths($"{CustomerSpriteDirectory}/{directoryName}");
-        if (textures.Count == 0)
-        {
-            GD.PushWarning($"Customer texture directory has no png files: {CustomerSpriteDirectory}/{directoryName}");
+            GD.PushWarning($"Textures array is empty");
             SetVisible(sprite, false);
             return;
         }
@@ -184,33 +155,6 @@ public partial class CustomerUi : Node
     private int SelectIndex(int seed, int count)
     {
         return count <= 1 ? 0 : (int)((uint)seed % (uint)count);
-    }
-
-    private List<string> GetTexturePaths(string directoryPath)
-    {
-        var paths = new List<string>();
-        var directory = DirAccess.Open(directoryPath);
-        if (directory == null)
-        {
-            GD.PushWarning($"Customer texture directory not found: {directoryPath}");
-            return paths;
-        }
-
-        directory.ListDirBegin();
-        var fileName = directory.GetNext();
-        while (!string.IsNullOrEmpty(fileName))
-        {
-            if (!directory.CurrentIsDir() && fileName.EndsWith(TextureExtension, StringComparison.OrdinalIgnoreCase))
-            {
-                paths.Add($"{directoryPath}/{fileName}");
-            }
-
-            fileName = directory.GetNext();
-        }
-
-        directory.ListDirEnd();
-        paths.Sort(StringComparer.Ordinal);
-        return paths;
     }
 
     private int GetCustomerSeed(Customer customer)
@@ -254,23 +198,10 @@ public partial class CustomerUi : Node
         ClearTexture(expression);
     }
 
-    private void SetTexture(Sprite2D sprite, string texturePath)
+    private void SetTexture(Sprite2D sprite, Texture2D texture)
     {
-        if (sprite == null || string.IsNullOrEmpty(texturePath))
+        if (sprite == null || texture == null)
         {
-            return;
-        }
-
-        if (!ResourceLoader.Exists(texturePath))
-        {
-            GD.PushError($"Customer texture not found: {texturePath}");
-            return;
-        }
-
-        var texture = ResourceLoader.Load<Texture2D>(texturePath);
-        if (texture == null)
-        {
-            GD.PushError($"Failed to load customer texture: {texturePath}");
             return;
         }
 

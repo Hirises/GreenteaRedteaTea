@@ -77,7 +77,10 @@
 [ext_resource type="Texture2D" uid="uid://cr06ruay45g11" path="res://Sprites/모래시계/모래시계_5.png" id="34_1n88h"]
 [ext_resource type="Script" uid="uid://bxql0al8axl3o" path="res://Scripts/Game/CustomerManager.cs" id="34_7jlmu"]
 [ext_resource type="Script" uid="uid://cnvdxxhuh7fm2" path="res://Scripts/DragArea/DragAreaSubmit.cs" id="34_yj5sn"]
+[ext_resource type="Texture2D" uid="uid://sityrm0jgss7" path="res://Sprites/Customers/몸/사람_몸_녹색.png" id="35_greh8"]
 [ext_resource type="Texture2D" uid="uid://dsfpuk28h4us2" path="res://Sprites/모래시계/모래시계_1.png" id="35_opjno"]
+[ext_resource type="Texture2D" uid="uid://bq68mt82bec1j" path="res://Sprites/Customers/몸/사람_몸_백색.png" id="36_573ql"]
+[ext_resource type="Texture2D" uid="uid://dajxeiev8pv23" path="res://Sprites/Customers/몸/사람_몸_황색.png" id="37_u0vb1"]
 [ext_resource type="PackedScene" uid="uid://78ufxvjm8sh0" path="res://flower_pot.tscn" id="42_bqoel"]
 [ext_resource type="Texture2D" uid="uid://b76paxanslqrd" path="res://Sprites/시간 게이지_Bottom.png" id="42_jef5d"]
 [ext_resource type="Texture2D" uid="uid://cdfmnojr7erbe" path="res://Sprites/시간 게이지_Inner.png" id="43_q1yuq"]
@@ -1252,6 +1255,11 @@ BodyPath = NodePath("Customer/Hovering/Body")
 ClothPath = NodePath("Customer/Hovering/Cloth")
 ExpressionPath = NodePath("Customer/Hovering/Expression")
 gameManager = NodePath("../GameManager")
+SpecialCustomerTextureMap = Array[Texture2D]([])
+CustomerBodyTextures = Array[Texture2D]([ExtResource("35_greh8"), ExtResource("36_573ql"), ExtResource("36_573ql"), ExtResource("36_573ql"), ExtResource("36_573ql"), ExtResource("36_573ql"), ExtResource("37_u0vb1"), ExtResource("37_u0vb1"), ExtResource("37_u0vb1"), ExtResource("37_u0vb1"), ExtResource("37_u0vb1"), null, null, null, null, null, null, null, null, null, null, null])
+CustomerHearTextures = Array[Texture2D]([])
+CustomerClothTextures = Array[Texture2D]([])
+CustomerExpressionTextures = Array[Texture2D]([])
 
 [node name="Customer" type="Node2D" parent="CustomerUI" unique_id=1681495625]
 position = Vector2(2200, 274)
