@@ -8,6 +8,7 @@ public class PutinCustomer : Customer
     public PutinCustomer(int number) : base(number)
     {
         PatienceSeconds = DefaultPatienceSeconds;
+        isSpecial = true;
     }
 
     protected override ProductExpression _GenerateOrder()

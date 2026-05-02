@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di7x6sonlww5"
-path="res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"
+uid="uid://dj6wtuifnfqk8"
+path="res://.godot/imported/발랄.png-b10e4e369f36f8fc0bd6ff2534895d67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Customers/Default.png"
-dest_files=["res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"]
+source_file="res://Sprites/Customers/표정/발랄.png"
+dest_files=["res://.godot/imported/발랄.png-b10e4e369f36f8fc0bd6ff2534895d67.ctex"]
 
 [params]
 

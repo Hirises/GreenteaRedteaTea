@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di7x6sonlww5"
-path="res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"
+uid="uid://blb1se4v8e1o4"
+path="res://.godot/imported/검정포니테일.png-bc3b5baa060e7f0fe6962728cb0bcc54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Customers/Default.png"
-dest_files=["res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"]
+source_file="res://Sprites/Customers/머리/검정포니테일.png"
+dest_files=["res://.godot/imported/검정포니테일.png-bc3b5baa060e7f0fe6962728cb0bcc54.ctex"]
 
 [params]
 

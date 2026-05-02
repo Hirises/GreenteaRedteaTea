@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di7x6sonlww5"
-path="res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"
+uid="uid://cyhkfvo8mbi8o"
+path="res://.godot/imported/민트색후드.png-5045f5fbf62a114e55919e71455696c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Customers/Default.png"
-dest_files=["res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"]
+source_file="res://Sprites/Customers/옷/민트색후드.png"
+dest_files=["res://.godot/imported/민트색후드.png-5045f5fbf62a114e55919e71455696c0.ctex"]
 
 [params]
 

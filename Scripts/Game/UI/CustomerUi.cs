@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Godot;
 public partial class CustomerUi : Sprite2D
 {
@@ -5,6 +6,7 @@ public partial class CustomerUi : Sprite2D
 	public NodePath TextPath { get; set; } = "Text";
 	[Export] public AnimationPlayer SpeechAnimation;
 	private const string CustomerSpriteDirectory = "res://Sprites/Customers";
+	private const string SpecialCustomerDir = "/Special";
 	private const string DefaultCustomerName = "Default";
 	private Text textLabel;
 
@@ -21,10 +23,15 @@ public partial class CustomerUi : Sprite2D
 
 	public void setCustomer(Customer customer)
 	{
-		setTexture(customer.Name);
+		if (customer.isSpecial)
+		{
+			setSpecialTexture(customer.Name);
+			return;
+		}
+		
 	}
 
-	private void setTexture(string name)
+	private void setSpecialTexture(string name)
 	{
 		var customerName = string.IsNullOrWhiteSpace(name) ? DefaultCustomerName : name;
 		var texturePath = $"{CustomerSpriteDirectory}/{customerName}.png";
@@ -32,7 +39,7 @@ public partial class CustomerUi : Sprite2D
 		if (!ResourceLoader.Exists(texturePath))
 		{
 			GD.PushWarning($"Customer texture not found: {texturePath}. Loading default customer texture.");
-			texturePath = $"{CustomerSpriteDirectory}/{DefaultCustomerName}.png";
+			texturePath = $"{CustomerSpriteDirectory}{SpecialCustomerDir}/{DefaultCustomerName}.png";
 		}
 
 		var texture = ResourceLoader.Load<Texture2D>(texturePath);

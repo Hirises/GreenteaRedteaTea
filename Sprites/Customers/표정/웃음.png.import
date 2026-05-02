@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di7x6sonlww5"
-path="res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"
+uid="uid://fntr6gyxp2tc"
+path="res://.godot/imported/웃음.png-7c17ba0727c89efa7e591993e3915d97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Customers/Default.png"
-dest_files=["res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"]
+source_file="res://Sprites/Customers/표정/웃음.png"
+dest_files=["res://.godot/imported/웃음.png-7c17ba0727c89efa7e591993e3915d97.ctex"]
 
 [params]
 

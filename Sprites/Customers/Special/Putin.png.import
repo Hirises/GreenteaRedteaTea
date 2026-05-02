@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di7x6sonlww5"
-path="res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"
+uid="uid://blp84v47wciw4"
+path="res://.godot/imported/Putin.png-0f6c0daf9c3b08c52b0c9b1e8d4195fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Customers/Default.png"
-dest_files=["res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"]
+source_file="res://Sprites/Customers/Special/Putin.png"
+dest_files=["res://.godot/imported/Putin.png-0f6c0daf9c3b08c52b0c9b1e8d4195fc.ctex"]
 
 [params]
 

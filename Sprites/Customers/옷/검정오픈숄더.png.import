@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di7x6sonlww5"
-path="res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"
+uid="uid://bh1md4f8nft6d"
+path="res://.godot/imported/검정오픈숄더.png-4a54f3378c9df771dc0920d9bbb160a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Customers/Default.png"
-dest_files=["res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"]
+source_file="res://Sprites/Customers/옷/검정오픈숄더.png"
+dest_files=["res://.godot/imported/검정오픈숄더.png-4a54f3378c9df771dc0920d9bbb160a1.ctex"]
 
 [params]
 

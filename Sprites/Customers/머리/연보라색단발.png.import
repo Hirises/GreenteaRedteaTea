@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di7x6sonlww5"
-path="res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"
+uid="uid://cha8cu1pfdb7i"
+path="res://.godot/imported/연보라색단발.png-b6b9ad77b7a8c1a5d34f6928dcf94f6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Customers/Default.png"
-dest_files=["res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"]
+source_file="res://Sprites/Customers/머리/연보라색단발.png"
+dest_files=["res://.godot/imported/연보라색단발.png-b6b9ad77b7a8c1a5d34f6928dcf94f6e.ctex"]
 
 [params]
 

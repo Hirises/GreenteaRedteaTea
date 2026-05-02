@@ -12,6 +12,7 @@ public abstract class Customer
 
 	public int Number { get; }
 	public string Name { get; protected set; } = "Default";
+	public bool isSpecial { get; protected set; } = false;
 	public ProductExpression Order { get; protected set; }
 	public float PatienceSeconds { get; protected set; }
 

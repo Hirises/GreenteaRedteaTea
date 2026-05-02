@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di7x6sonlww5"
-path="res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"
+uid="uid://dajxeiev8pv23"
+path="res://.godot/imported/사람_몸_황색.png-44293e78fd9f867470c8d22dc78522ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Customers/Default.png"
-dest_files=["res://.godot/imported/Default.png-79f3fe252b121563c33d14c26a340cc2.ctex"]
+source_file="res://Sprites/Customers/몸/사람_몸_황색.png"
+dest_files=["res://.godot/imported/사람_몸_황색.png-44293e78fd9f867470c8d22dc78522ce.ctex"]
 
 [params]
 
