@@ -51,6 +51,7 @@ public partial class DraggableTeapot : Node2D, IDraggable
 
 	public void OnDrop(DragArea dropArea)
 	{
+		SoundManager.Play(SFXType.TeapotPut);
 		if (dropArea is DragAreaContainer)
 		{
 			var container = dropArea as DragAreaContainer;

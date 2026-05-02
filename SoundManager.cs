@@ -31,6 +31,10 @@ public enum SFXType
 	CustomerEnter,
 	CandleExtinguish,
 	CandleLitFail,
+	LeafPickWet,
+	LeafPutWet,
+	JarPut,
+	TeapotPut,
 }
 
 public partial class SoundManager : Node
