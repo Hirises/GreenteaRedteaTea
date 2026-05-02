@@ -44,4 +44,9 @@ public partial class ClickArea : Area2D
     {
         GD.Print($"Clicked on {Name}!");
     }
+
+    public virtual bool CanClick()
+    {
+        return true;
+    }
 }

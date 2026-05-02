@@ -94,4 +94,9 @@ public partial class DragAreaTeapotInside : DragArea, IDragAreaContainer
         var leafContent = currentDraggable.GetLeafContent();
         return leafContent.DisplayName;
     }
+
+    public override bool CanDrag()
+    {
+        return currentDraggable != null;
+    }
 }

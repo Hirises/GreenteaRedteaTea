@@ -11,4 +11,9 @@ public partial class ClickAreaKick : ClickArea
 		SoundManager.Play(SFXType.Kick);
 		gameManager.KickOutCustomer();
 	}
+
+    public override bool CanClick()
+    {
+        return gameManager.CanKick();
+    }
 }

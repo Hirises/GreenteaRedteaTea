@@ -42,4 +42,9 @@ public partial class DragAreaSubmit : DragArea
         GD.Print("Unknown draggable type submitted. Rejecting.");
         return false;
     }
+
+    public override bool CanDrag()
+    {
+        return false;
+    }
 }
