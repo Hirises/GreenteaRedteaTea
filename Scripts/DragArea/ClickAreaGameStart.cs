@@ -35,6 +35,7 @@ public partial class ClickAreaGameStart : ClickArea
 		nextOpenPanel.Add(openPanel);
 		animationPlayer.Play("flip_close");
 		SetHoverHighlight(null);
+		SoundManager.Play(SFXType.CalendarFlip);
 	}
 
 	public void OnOrderEnded(int result, string orderName)

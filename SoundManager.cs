@@ -36,7 +36,8 @@ public enum SFXType
 	JarPut,
 	TeapotPut,
 	TreeGrow,
-	TreeDie
+	TreeDie,
+	CalendarFlip,
 }
 
 public partial class SoundManager : Node

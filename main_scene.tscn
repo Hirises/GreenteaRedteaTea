@@ -55,6 +55,7 @@
 [ext_resource type="AudioStream" uid="uid://cnhmw116ujish" path="res://NeoSFX/뾰잉.mp3" id="23_3s6xx"]
 [ext_resource type="Texture2D" uid="uid://cg3lcnelvqkew" path="res://Sprites/Teapot/거름망_Front.png" id="23_p8s74"]
 [ext_resource type="Script" uid="uid://u7ji25tgg1cn" path="res://Scripts/Game/UI/CustomerUI/Special.cs" id="24_7y85w"]
+[ext_resource type="AudioStream" uid="uid://dblqndb4ha1e" path="res://NeoSFX/드로우.mp3" id="24_bkdqi"]
 [ext_resource type="Texture2D" uid="uid://d4j6f3iyhsjux" path="res://Sprites/Teapot/포트_Front.png" id="24_o4fqm"]
 [ext_resource type="PackedScene" uid="uid://dl0l7xxsms1ll" path="res://DraggableCup.tscn" id="25_kv3aw"]
 [ext_resource type="Script" uid="uid://dfgoe8vu5o2y" path="res://Scripts/Game/UI/CustomerUI/Text.cs" id="26_ixb38"]
@@ -1078,13 +1079,23 @@ stream = ExtResource("10_ixb38")
 volume_db = -8.0
 pitch_scale = 2.0
 
-[node name="TreeDie" type="Node" parent="SoundManager" unique_id=1405328621 node_paths=PackedStringArray("player")]
+[node name="TreeDie" type="Node" parent="SoundManager" unique_id=1594278824 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
 sfxType = 31
 player = NodePath("AudioStreamPlayer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TreeDie" unique_id=1731890765]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/TreeDie" unique_id=758300545]
 stream = ExtResource("14_s2ody")
+volume_db = -8.0
+pitch_scale = 2.0
+
+[node name="CalendarFlip" type="Node" parent="SoundManager" unique_id=1405328621 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 32
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/CalendarFlip" unique_id=1731890765]
+stream = ExtResource("24_bkdqi")
 volume_db = -8.0
 pitch_scale = 2.0
 
@@ -1492,16 +1503,12 @@ texture = ExtResource("43_q1yuq")
 [node name="시간게이지Outline" type="Sprite2D" parent="TimerGraph" unique_id=837150087]
 texture = ExtResource("44_uacds")
 
-[node name="ClickArea달력" parent="." unique_id=1160333453 node_paths=PackedStringArray("animationPlayer", "gameManager", "closePanel", "openPanel", "numPanel10", "numPanel01", "hoverHighlight") instance=ExtResource("18_uws2o")]
+[node name="ClickArea달력" parent="." unique_id=1160333453 node_paths=PackedStringArray("animationPlayer", "gameManager", "hoverHighlight") instance=ExtResource("18_uws2o")]
 position = Vector2(136, 298)
 scale = Vector2(17.299416, 13.933637)
 script = ExtResource("75_ixb38")
 animationPlayer = NodePath("../Calendar/AnimationPlayer")
 gameManager = NodePath("../GameManager")
-closePanel = NodePath("../Calendar/Graphic/달력Close")
-openPanel = NodePath("../Calendar/Graphic/달력Open")
-numPanel10 = [NodePath("../Calendar/Graphic/숫자10/달력좌0"), NodePath("../Calendar/Graphic/숫자10/달력좌1"), NodePath("../Calendar/Graphic/숫자10/달력좌2"), NodePath("../Calendar/Graphic/숫자10/달력좌3"), NodePath("../Calendar/Graphic/숫자10/달력좌4"), NodePath("../Calendar/Graphic/숫자10/달력좌5"), NodePath("../Calendar/Graphic/숫자10/달력좌6"), NodePath("../Calendar/Graphic/숫자10/달력좌7"), NodePath("../Calendar/Graphic/숫자10/달력좌8"), NodePath("../Calendar/Graphic/숫자10/달력좌9")]
-numPanel01 = [NodePath("../Calendar/Graphic/숫자01/달력우0"), NodePath("../Calendar/Graphic/숫자01/달력우1"), NodePath("../Calendar/Graphic/숫자01/달력우2"), NodePath("../Calendar/Graphic/숫자01/달력우3"), NodePath("../Calendar/Graphic/숫자01/달력우4"), NodePath("../Calendar/Graphic/숫자01/달력우5"), NodePath("../Calendar/Graphic/숫자01/달력우6"), NodePath("../Calendar/Graphic/숫자01/달력우7"), NodePath("../Calendar/Graphic/숫자01/달력우8"), NodePath("../Calendar/Graphic/숫자01/달력우9")]
 hoverHighlight = NodePath("../Calendar")
 
 [node name="Calendar" type="Node2D" parent="." unique_id=1817888089]
