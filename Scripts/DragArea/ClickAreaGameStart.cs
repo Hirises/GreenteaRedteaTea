@@ -39,6 +39,7 @@ public partial class ClickAreaGameStart : ClickArea
 		gameStartAnimation.Play("game_start");
 		SetHoverHighlight(null);
 		SoundManager.Play(SFXType.CalendarOpen);
+		SoundManager.Play(SFXType.ShopOpen);
 	}
 
 	public void OnOrderEnded(int result, string orderName)

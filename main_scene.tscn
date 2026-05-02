@@ -60,6 +60,7 @@
 [ext_resource type="AudioStream" uid="uid://ctv3o504ywhyj" path="res://NeoSFX/나무문열기.mp3" id="25_7ggmy"]
 [ext_resource type="AudioStream" uid="uid://c1h5vtlrtmx2r" path="res://NeoSFX/킥.mp3" id="25_77al4"]
 [ext_resource type="PackedScene" uid="uid://dl0l7xxsms1ll" path="res://DraggableCup.tscn" id="25_kv3aw"]
+[ext_resource type="AudioStream" uid="uid://dwbf3ux2hqpxk" path="res://NeoSFX/오픈준비.mp3" id="26_0dwp6"]
 [ext_resource type="Script" uid="uid://dfgoe8vu5o2y" path="res://Scripts/Game/UI/CustomerUI/Text.cs" id="26_ixb38"]
 [ext_resource type="Script" uid="uid://b0n3qvflg3ven" path="res://Scripts/DragArea/ClickAreaKick.cs" id="26_uush8"]
 [ext_resource type="Script" uid="uid://dobquj4bam6hw" path="res://Scripts/DragArea/DragAreaCupPile.cs" id="28_uws2o"]
@@ -1189,6 +1190,16 @@ player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/DoorOpen" unique_id=42776728]
 stream = ExtResource("25_7ggmy")
+volume_db = -8.0
+pitch_scale = 2.0
+
+[node name="ShopOpen" type="Node" parent="SoundManager" unique_id=1742491422 node_paths=PackedStringArray("player")]
+script = ExtResource("3_2k5xf")
+sfxType = 36
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager/ShopOpen" unique_id=878504806]
+stream = ExtResource("26_0dwp6")
 volume_db = -8.0
 pitch_scale = 2.0
 
