@@ -74,13 +74,13 @@ public partial class SoundManager : Node
 		bgmReady.Play();
 	}
 
-    public override void _ExitTree()
-    {
-        base._ExitTree();
+	public override void _ExitTree()
+	{
+		base._ExitTree();
 
-        bgmReady.Stop();
-        bgmIngame.Stop();
-    }
+		bgmReady.Stop();
+		bgmIngame.Stop();
+	}
 
 
 	public static void Play(SFXType sfxType)
@@ -109,11 +109,11 @@ public partial class SoundManager : Node
 		}
 	}
 
-    public void PlayIngameBGM()
-    {
-        bgmIngame.Play();
-        bgmReady.Stop();
-    }
+	public void PlayIngameBGM()
+	{
+		bgmIngame.Play();
+		bgmReady.Stop();
+	}
 
 
 	public static void PlayHourglassFlip() => Play(SFXType.HourglassFlip);

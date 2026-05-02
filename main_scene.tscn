@@ -1223,9 +1223,11 @@ pitch_scale = 2.0
 
 [node name="BGM_Ready" type="AudioStreamPlayer" parent="SoundManager" unique_id=1199082441]
 stream = ExtResource("29_s717c")
+volume_db = -16.0
 
 [node name="BGM_Game" type="AudioStreamPlayer" parent="SoundManager" unique_id=1518129286]
 stream = ExtResource("30_wonw5")
+volume_db = -24.0
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=2050139955]
 z_index = -100
