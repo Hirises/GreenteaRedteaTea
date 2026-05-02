@@ -5,6 +5,8 @@ public partial class Title : Node2D
 {
     [Export] AnimationPlayer shutterLogoAnimation;
     [Export] PackedScene mainScene;
+    [Export] SoundPlayer shutterDown;
+    [Export] SoundPlayer shutterUp;
 
     enum State
     {
@@ -32,6 +34,7 @@ public partial class Title : Node2D
 
                 shutterLogoAnimation.Play("open");
                 state = State.Game;
+                shutterUp.Play();
             }
         }
     }
@@ -51,6 +54,7 @@ public partial class Title : Node2D
     {
         shutterLogoAnimation.Play("close");
         state = State.GameOver;
+        shutterDown.Play();
     }
 
     public void OnGameOverAnimationEnd()
@@ -62,5 +66,6 @@ public partial class Title : Node2D
         gameManager = mainSceneInst.gameManager;
 
         shutterLogoAnimation.Play("reopen");
+        shutterUp.Play();
     }
 }

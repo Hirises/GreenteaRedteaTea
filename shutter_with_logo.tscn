@@ -1,9 +1,12 @@
-[gd_scene format=3 uid="uid://ckh67bhwqptd6"]
+[gd_scene format=3 uid="uid://3kap0t2b7ook"]
 
 [ext_resource type="Script" uid="uid://4atbteuulekw" path="res://Title.cs" id="1_cnfki"]
 [ext_resource type="PackedScene" uid="uid://beypyudpl6dv1" path="res://main_scene.tscn" id="1_jmuuf"]
 [ext_resource type="Texture2D" uid="uid://ciy4rr3sx77l4" path="res://Sprites/셔터.png" id="2_cnfki"]
 [ext_resource type="Texture2D" uid="uid://bbwfopgfvtb7a" path="res://Sprites/Logo_Full.png" id="2_jmuuf"]
+[ext_resource type="Script" uid="uid://uduehapgih3c" path="res://SoundPlayer.cs" id="5_o1k5s"]
+[ext_resource type="AudioStream" uid="uid://d2fyi2ikej4l7" path="res://NeoSFX/셔터내리기.wav" id="6_m6wyr"]
+[ext_resource type="AudioStream" uid="uid://b2v8tbw0338pf" path="res://NeoSFX/셔터_Up.wav" id="7_o1k5s"]
 
 [sub_resource type="Animation" id="Animation_suy5o"]
 length = 0.001
@@ -138,10 +141,12 @@ _data = {
 &"reopen": SubResource("Animation_o1k5s")
 }
 
-[node name="ShutterWithLogo" type="Node2D" unique_id=1293095971 node_paths=PackedStringArray("shutterLogoAnimation")]
+[node name="ShutterWithLogo" type="Node2D" unique_id=1293095971 node_paths=PackedStringArray("shutterLogoAnimation", "shutterDown", "shutterUp")]
 script = ExtResource("1_cnfki")
 shutterLogoAnimation = NodePath("AnimationPlayer")
 mainScene = ExtResource("1_jmuuf")
+shutterDown = NodePath("ShutterDown")
+shutterUp = NodePath("ShutterUp")
 
 [node name="셔터" type="Sprite2D" parent="." unique_id=1765342565]
 z_index = 250
@@ -156,3 +161,19 @@ texture = ExtResource("2_jmuuf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=434365527]
 libraries/ = SubResource("AnimationLibrary_4pjnl")
+
+[node name="ShutterDown" type="Node" parent="." unique_id=1550795788 node_paths=PackedStringArray("player")]
+script = ExtResource("5_o1k5s")
+sfxType = 38
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ShutterDown" unique_id=1117055716]
+stream = ExtResource("6_m6wyr")
+
+[node name="ShutterUp" type="Node" parent="." unique_id=2136302398 node_paths=PackedStringArray("player")]
+script = ExtResource("5_o1k5s")
+sfxType = 37
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ShutterUp" unique_id=1558240795]
+stream = ExtResource("7_o1k5s")
