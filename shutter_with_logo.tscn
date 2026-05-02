@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://ckh67bhwqptd6"]
+
+[ext_resource type="Script" uid="uid://4atbteuulekw" path="res://Title.cs" id="1_cnfki"]
+[ext_resource type="PackedScene" uid="uid://beypyudpl6dv1" path="res://main_scene.tscn" id="1_jmuuf"]
+[ext_resource type="Texture2D" uid="uid://ciy4rr3sx77l4" path="res://Sprites/셔터.png" id="2_cnfki"]
+[ext_resource type="Texture2D" uid="uid://bbwfopgfvtb7a" path="res://Sprites/Logo_Full.png" id="2_jmuuf"]
+
+[sub_resource type="Animation" id="Animation_suy5o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("셔터:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -265)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LogoFull:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(888, 347)]
+}
+
+[sub_resource type="Animation" id="Animation_4pjnl"]
+resource_name = "close"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("셔터:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(2.7320738, 1),
+"update": 0,
+"values": [Vector2(0, -1366), Vector2(0, -265)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LogoFull:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(944, -456)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.4333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"OnGameOverAnimationEnd"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_leneh"]
+resource_name = "open"
+length = 2.9666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("셔터:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.866066, 1),
+"update": 0,
+"values": [Vector2(0, -265), Vector2(0, -1392)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LogoFull:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.56666666, 2.0666666),
+"transitions": PackedFloat32Array(0.40612632, 2.3784149, 1),
+"update": 0,
+"values": [Vector2(888, 347), Vector2(888, 390), Vector2(888, -400)]
+}
+
+[sub_resource type="Animation" id="Animation_o1k5s"]
+resource_name = "reopen"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("셔터:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.866066, 1),
+"update": 0,
+"values": [Vector2(0, -265), Vector2(0, -1392)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LogoFull:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(888, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4pjnl"]
+_data = {
+&"RESET": SubResource("Animation_suy5o"),
+&"close": SubResource("Animation_4pjnl"),
+&"open": SubResource("Animation_leneh"),
+&"reopen": SubResource("Animation_o1k5s")
+}
+
+[node name="ShutterWithLogo" type="Node2D" unique_id=1293095971 node_paths=PackedStringArray("shutterLogoAnimation")]
+script = ExtResource("1_cnfki")
+shutterLogoAnimation = NodePath("AnimationPlayer")
+mainScene = ExtResource("1_jmuuf")
+
+[node name="셔터" type="Sprite2D" parent="." unique_id=1765342565]
+z_index = 250
+position = Vector2(0, -265)
+texture = ExtResource("2_cnfki")
+centered = false
+
+[node name="LogoFull" type="Sprite2D" parent="." unique_id=293083849]
+z_index = 252
+position = Vector2(888, 347)
+texture = ExtResource("2_jmuuf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=434365527]
+libraries/ = SubResource("AnimationLibrary_4pjnl")

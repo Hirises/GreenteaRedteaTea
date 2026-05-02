@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://beypyudpl6dv1"]
 
+[ext_resource type="Script" uid="uid://coahw2kjjd58f" path="res://MainScene.cs" id="1_0dwp6"]
 [ext_resource type="Texture2D" uid="uid://8ujk5dbp0mqs" path="res://Sprites/BG.png" id="1_0f027"]
 [ext_resource type="Script" uid="uid://bgivx2fjusyl0" path="res://InputManager.cs" id="1_gyfs4"]
 [ext_resource type="Texture2D" uid="uid://dltfxyeb6ltqk" path="res://Sprites/녹차.png" id="2_gyfs4"]
@@ -871,7 +872,9 @@ _data = {
 &"game_start": SubResource("Animation_tnorr")
 }
 
-[node name="MainScene" type="Node2D" unique_id=2097108586]
+[node name="MainScene" type="Node2D" unique_id=2097108586 node_paths=PackedStringArray("gameManager")]
+script = ExtResource("1_0dwp6")
+gameManager = NodePath("GameManager")
 
 [node name="InputManager" type="Node" parent="." unique_id=24486516]
 script = ExtResource("1_gyfs4")
