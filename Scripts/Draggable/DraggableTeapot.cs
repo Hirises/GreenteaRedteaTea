@@ -49,34 +49,47 @@ public partial class DraggableTeapot : Node2D, IDraggable
         SoundManager.Play(SFXType.TeapotPick);
     }
 
-    public void OnDrop(DragArea dropArea)
-    {
-        SoundManager.Play(SFXType.TeapotPut);
-        if (dropArea is DragAreaContainer)
-        {
-            var container = dropArea as DragAreaContainer;
-            if (hasContent && container.TryFill(liquidContent))
-            {
-                hasContent = false;
-                liquidContent = null;
-                SoundManager.Play(SFXType.TeapotPour);
-            }
-            else
-            {
-                GD.Print("Failed to pour teapot into container.");
-            }
-        }
-        else if (dropArea is DragAreaTrash)
-        {
-            GD.Print("Teapot dropped into trash. Emptying teapot.");
-            (dropArea as DragAreaTrash).OnTrash();
-            hasContent = false;
-            liquidContent = null;
-            SoundManager.Play(SFXType.TeapotPour);
-            return;
-        }
-        GD.Print($"Teapot dropped on {dropArea?.Name}!");
-    }
+	public void OnDrop(DragArea dropArea)
+	{
+		SoundManager.Play(SFXType.TeapotPut);
+		if (dropArea is DragAreaContainer)
+		{
+			var container = dropArea as DragAreaContainer;
+			if (hasContent && container.TryFill(liquidContent))
+			{
+				hasContent = false;
+				liquidContent = null;
+				SoundManager.Play(SFXType.TeapotPour);
+			}
+			else
+			{
+				GD.Print("Failed to pour teapot into container.");
+			}
+		}
+		else if (dropArea is DragAreaTrash)
+		{
+			(dropArea as DragAreaTrash).OnTrash();
+			if (hasContent)
+			{
+				hasContent = false;
+				liquidContent = null;
+				SoundManager.Play(SFXType.TeapotPour);
+				GD.Print("Teapot liquid dropped into trash. Emptying teapot.");
+			}
+			else if (insideArea.HasLeaf())
+			{
+				insideArea.RemoveLeaf();
+				SoundManager.Play(SFXType.LeafPut);
+				GD.Print("Leaf dropped into trash.");
+			}
+			else
+			{
+				GD.Print("Nothing in teapot to drop into trash.");
+			}
+			return;
+		}
+		GD.Print($"Teapot dropped on {dropArea?.Name}!");
+	}
 
     public void OnCancelDrag()
     {
