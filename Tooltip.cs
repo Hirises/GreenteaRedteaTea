@@ -4,7 +4,7 @@ using System;
 public partial class Tooltip : Node2D
 {
     [Export] Label textNode;
-    [Export] float tooltipDelaySeconds = 0.5f;
+    [Export] float tooltipDelaySeconds = 0.3f;
 
     bool showing = false;
     DragArea currentHoverDragArea = null;
