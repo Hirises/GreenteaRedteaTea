@@ -42,6 +42,8 @@ public enum SFXType
 	CalendarOpen,
 	DoorOpen,
 	ShopOpen,
+	ShutterUp,
+	ShutterDown,
 }
 
 public partial class SoundManager : Node
