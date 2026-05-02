@@ -157,8 +157,13 @@ public partial class GameManager : Node
 				break;
 			case OrderResult.WrongMenu:
 			case OrderResult.Timeout:
-			case OrderResult.KickedOut:
 				rating = Math.Max(0, rating - 2);;
+				text = currentCustomer.Complain(result);
+				SoundManager.Play(SFXType.Fail);
+				break;
+			case OrderResult.KickedOut:
+				if (currentCustomer.isBad) score++;
+				else rating = Math.Max(0, rating - 2);;
 				text = currentCustomer.Complain(result);
 				SoundManager.Play(SFXType.Fail);
 				break;

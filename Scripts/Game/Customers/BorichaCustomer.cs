@@ -9,6 +9,7 @@ public class BorichaCustomer : Customer
     {
         PatienceSeconds = DefaultPatienceSeconds;
         isSpecial = true;
+        isBad = true;
     }
 
     protected override ProductExpression _GenerateOrder()
