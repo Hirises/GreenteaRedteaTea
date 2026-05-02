@@ -128,7 +128,8 @@
 [ext_resource type="Texture2D" uid="uid://bv7r0rx1v6c7o" path="res://Sprites/Cursor/집음.png" id="122_tnorr"]
 [ext_resource type="Texture2D" uid="uid://cxdbohrlofr72" path="res://Sprites/Cursor/차기.png" id="123_0dwp6"]
 [ext_resource type="Texture2D" uid="uid://b68v8mlkj1jni" path="res://Sprites/Cursor/클릭.png" id="124_4kqa1"]
-[ext_resource type="Texture2D" uid="uid://ceg1l8obbncru" path="res://Sprites/칠판.png" id="126_7ggmy"]
+[ext_resource type="Texture2D" uid="uid://p6nsn6fresti" path="res://Sprites/칠판.png" id="126_7ggmy"]
+[ext_resource type="Texture2D" uid="uid://dqh8cvc7xn0be" path="res://Sprites/칠판_밧줄.png" id="130_5v6ep"]
 
 [sub_resource type="Animation" id="Animation_6a02w"]
 length = 0.001
@@ -1862,9 +1863,17 @@ visible = false
 position = Vector2(7, 7)
 texture = ExtResource("123_0dwp6")
 
-[node name="칠판" type="Sprite2D" parent="." unique_id=913903452]
+[node name="칠판" type="Node2D" parent="." unique_id=344638646]
 position = Vector2(1509, 182)
+
+[node name="칠판" type="Sprite2D" parent="칠판" unique_id=1104473404]
+position = Vector2(-0.5, -108.5)
 texture = ExtResource("126_7ggmy")
+
+[node name="칠판밧줄" type="Sprite2D" parent="칠판" unique_id=349707969]
+z_index = -1
+position = Vector2(-0.5, -108.5)
+texture = ExtResource("130_5v6ep")
 
 [node name="GameStartAnimation" type="AnimationPlayer" parent="." unique_id=2138467618]
 libraries/ = SubResource("AnimationLibrary_0dwp6")
