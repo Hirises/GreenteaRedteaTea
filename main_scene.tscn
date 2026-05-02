@@ -75,15 +75,15 @@
 [ext_resource type="Texture2D" uid="uid://cdfmnojr7erbe" path="res://Sprites/시간 게이지_Inner.png" id="43_q1yuq"]
 [ext_resource type="Texture2D" uid="uid://crvouhoel81vc" path="res://Sprites/메뉴.png" id="43_si2mt"]
 [ext_resource type="Texture2D" uid="uid://c2gohdsvtx02n" path="res://Sprites/시간 게이지_Outline.png" id="44_uacds"]
-[ext_resource type="Texture2D" uid="uid://xsuhhv46ue3j" path="res://Sprites/달력_2.png" id="45_84x1k"]
+[ext_resource type="Texture2D" uid="uid://xsuhhv46ue3j" path="res://Sprites/달력/달력_2.png" id="45_84x1k"]
 [ext_resource type="Script" uid="uid://dvcoe6lwrjt60" path="res://HourglassAnim.cs" id="45_fxe4o"]
-[ext_resource type="Texture2D" uid="uid://b6em4nx8673xg" path="res://Sprites/달력_Close.png" id="46_0hwxg"]
+[ext_resource type="Texture2D" uid="uid://b6em4nx8673xg" path="res://Sprites/달력/달력_Close.png" id="46_0hwxg"]
 [ext_resource type="Texture2D" uid="uid://ceuxku8icm4i3" path="res://Sprites/모래시계/모래시계_2.png" id="46_bqoel"]
 [ext_resource type="Texture2D" uid="uid://b4eagi7msd44s" path="res://Sprites/모래시계/모래시계_3.png" id="47_id12a"]
-[ext_resource type="Texture2D" uid="uid://i877aa6alvy3" path="res://Sprites/달력_1.png" id="47_si2mt"]
+[ext_resource type="Texture2D" uid="uid://i877aa6alvy3" path="res://Sprites/달력/달력_1.png" id="47_si2mt"]
 [ext_resource type="Texture2D" uid="uid://cfvuiwslumq2o" path="res://Sprites/모래시계/모래시계_4.png" id="48_rs42p"]
-[ext_resource type="Texture2D" uid="uid://ru7l30hwa7mf" path="res://Sprites/달력_Base.png" id="48_sp30j"]
-[ext_resource type="Texture2D" uid="uid://ceyuoc7mdis64" path="res://Sprites/달력_Open.png" id="49_7tmle"]
+[ext_resource type="Texture2D" uid="uid://ru7l30hwa7mf" path="res://Sprites/달력/달력_Base.png" id="48_sp30j"]
+[ext_resource type="Texture2D" uid="uid://ceyuoc7mdis64" path="res://Sprites/달력/달력_Open.png" id="49_7tmle"]
 [ext_resource type="Texture2D" uid="uid://bmnwenkdlmmi" path="res://Sprites/쓰레기통_Back.png" id="54_ya33n"]
 [ext_resource type="Texture2D" uid="uid://byqtoxx1fterl" path="res://Sprites/쓰레기통_Front.png" id="55_3wiol"]
 [ext_resource type="Script" uid="uid://db1i2dsr7cm2o" path="res://HoverHighlightableTrash.cs" id="55_6a02w"]
@@ -95,6 +95,26 @@
 [ext_resource type="Texture2D" uid="uid://d1t5rw3x6lelq" path="res://Sprites/별점들_Fill.png" id="69_jl0ou"]
 [ext_resource type="Texture2D" uid="uid://dl4tfl6d4je8a" path="res://Sprites/별점들_Outline.png" id="70_2k5xf"]
 [ext_resource type="Script" uid="uid://c2evabtmr637p" path="res://Scripts/DragArea/ClickAreaGameStart.cs" id="75_ixb38"]
+[ext_resource type="Texture2D" uid="uid://bmqqs76uy62cw" path="res://Sprites/달력/달력_좌_0.png" id="83_8jixl"]
+[ext_resource type="Texture2D" uid="uid://c8melx8j7jwni" path="res://Sprites/달력/달력_좌_1.png" id="84_wmw63"]
+[ext_resource type="Texture2D" uid="uid://dumdnprmw4ow" path="res://Sprites/달력/달력_좌_2.png" id="85_uush8"]
+[ext_resource type="Texture2D" uid="uid://dg44kpeh84ymf" path="res://Sprites/달력/달력_좌_3.png" id="86_dftep"]
+[ext_resource type="Texture2D" uid="uid://cf8sdmaml3geo" path="res://Sprites/달력/달력_좌_4.png" id="87_77al4"]
+[ext_resource type="Texture2D" uid="uid://urqhnsw6fffe" path="res://Sprites/달력/달력_좌_5.png" id="88_8g87k"]
+[ext_resource type="Texture2D" uid="uid://d2uaah4cbnbdl" path="res://Sprites/달력/달력_좌_6.png" id="89_2umrp"]
+[ext_resource type="Texture2D" uid="uid://dc86sbmcakl72" path="res://Sprites/달력/달력_좌_7.png" id="90_cqe75"]
+[ext_resource type="Texture2D" uid="uid://v0k07yi0mc0h" path="res://Sprites/달력/달력_좌_8.png" id="91_evxhs"]
+[ext_resource type="Texture2D" uid="uid://b31pok5n8n2hq" path="res://Sprites/달력/달력_좌_9.png" id="92_gmgvx"]
+[ext_resource type="Texture2D" uid="uid://clkqvkiqq4i7k" path="res://Sprites/달력/달력_우_0.png" id="93_ubwhq"]
+[ext_resource type="Texture2D" uid="uid://dist3vyritdh0" path="res://Sprites/달력/달력_우_1.png" id="94_ly7qr"]
+[ext_resource type="Texture2D" uid="uid://ksvg5f54hi21" path="res://Sprites/달력/달력_우_2.png" id="95_7ggmy"]
+[ext_resource type="Texture2D" uid="uid://chejvt1vkbiex" path="res://Sprites/달력/달력_우_3.png" id="96_tnorr"]
+[ext_resource type="Texture2D" uid="uid://bv077h6r5h7xx" path="res://Sprites/달력/달력_우_4.png" id="97_0dwp6"]
+[ext_resource type="Texture2D" uid="uid://ddp6o8eoahkmq" path="res://Sprites/달력/달력_우_5.png" id="98_4kqa1"]
+[ext_resource type="Texture2D" uid="uid://o0yyt1t2ese1" path="res://Sprites/달력/달력_우_6.png" id="99_5v6ep"]
+[ext_resource type="Texture2D" uid="uid://thhva5g3pgoh" path="res://Sprites/달력/달력_우_7.png" id="100_ude2c"]
+[ext_resource type="Texture2D" uid="uid://c0rncpf8u0bnp" path="res://Sprites/달력/달력_우_8.png" id="101_s717c"]
+[ext_resource type="Texture2D" uid="uid://0hmixsbj5ldk" path="res://Sprites/달력/달력_우_9.png" id="102_wonw5"]
 
 [sub_resource type="Animation" id="Animation_6a02w"]
 length = 0.001
@@ -500,19 +520,19 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphic/달력Open:visible")
+tracks/0/path = NodePath("Graphic/달력2:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphic/달력2:visible")
+tracks/1/path = NodePath("Graphic/달력1:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -524,55 +544,55 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphic/달력1:visible")
+tracks/2/path = NodePath("Graphic:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphic/달력Close:visible")
+tracks/3/path = NodePath("Graphic:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Graphic:position")
+tracks/4/path = NodePath("Graphic:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(1, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphic:rotation")
+tracks/5/path = NodePath("Graphic/달력2:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(1, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Graphic:scale")
+tracks/6/path = NodePath("Graphic/달력1:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -584,46 +604,22 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Graphic/달력2:scale")
+tracks/7/path = NodePath("Graphic/달력1:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Graphic/달력1:scale")
+tracks/8/path = NodePath("Graphic/달력2:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Graphic/달력1:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Graphic/달력2:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -635,23 +631,23 @@ resource_name = "flip_close"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphic/달력Open:visible")
+tracks/0/path = NodePath("Graphic/달력2:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.53333336),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.23333335, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphic/달력2:visible")
+tracks/1/path = NodePath("Graphic/달력1:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.23333335, 0.36666667),
+"times": PackedFloat32Array(0, 0.36666667, 0.53333336),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -659,121 +655,100 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphic/달력1:visible")
+tracks/2/path = NodePath("Graphic:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.36666667, 0.53333336),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Graphic/달력Close:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.53333336),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Graphic:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.26666668, 0.53333336, 0.56666666, 0.73333335),
 "transitions": PackedFloat32Array(0.40612632, 5.8563395, 1, 0.39229202, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -67), Vector2(0, 0), Vector2(0, 20), Vector2(0, 0)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Graphic:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphic:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.26666668, 0.53333336),
 "transitions": PackedFloat32Array(0.29730177, 3.999999, 1),
 "update": 0,
 "values": [0.0, -0.19939105, 0.0]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Graphic:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Graphic:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0.53333336, 0.56666666, 0.73333335),
 "transitions": PackedFloat32Array(1, 0.36602134, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.2, 0.8), Vector2(1, 1)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Graphic/달력2:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Graphic/달력2:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0.23333333, 0.36666667),
 "transitions": PackedFloat32Array(0.5743492, 1),
 "update": 0,
 "values": [Vector2(1, 0.5), Vector2(1, 1)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Graphic/달력1:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Graphic/달력1:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0.36666667, 0.53957486),
 "transitions": PackedFloat32Array(2.4622886, 1),
 "update": 0,
 "values": [Vector2(1, 1.5), Vector2(1, 0.2)]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Graphic/달력1:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Graphic/달력1:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0.36666667, 0.53333336),
 "transitions": PackedFloat32Array(2.297397, 1),
 "update": 0,
 "values": [Vector2(0, 25), Vector2(0, -15)]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Graphic/달력2:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Graphic/달력2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0.23333335, 0.36666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, -20), Vector2(0, 0)]
 }
-tracks/11/type = "method"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("../ClickArea달력")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0.96666664),
-"transitions": PackedFloat32Array(1),
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../ClickArea달력")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.53333336, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"OnChangePanel"
+}, {
 "args": [],
 "method": &"OnAnimationEnd"
 }]
@@ -1517,12 +1492,16 @@ texture = ExtResource("43_q1yuq")
 [node name="시간게이지Outline" type="Sprite2D" parent="TimerGraph" unique_id=837150087]
 texture = ExtResource("44_uacds")
 
-[node name="ClickArea달력" parent="." unique_id=1160333453 node_paths=PackedStringArray("animationPlayer", "gameManager", "hoverHighlight") instance=ExtResource("18_uws2o")]
+[node name="ClickArea달력" parent="." unique_id=1160333453 node_paths=PackedStringArray("animationPlayer", "gameManager", "closePanel", "openPanel", "numPanel10", "numPanel01", "hoverHighlight") instance=ExtResource("18_uws2o")]
 position = Vector2(136, 298)
 scale = Vector2(17.299416, 13.933637)
 script = ExtResource("75_ixb38")
 animationPlayer = NodePath("../Calendar/AnimationPlayer")
 gameManager = NodePath("../GameManager")
+closePanel = NodePath("../Calendar/Graphic/달력Close")
+openPanel = NodePath("../Calendar/Graphic/달력Open")
+numPanel10 = [NodePath("../Calendar/Graphic/숫자10/달력좌0"), NodePath("../Calendar/Graphic/숫자10/달력좌1"), NodePath("../Calendar/Graphic/숫자10/달력좌2"), NodePath("../Calendar/Graphic/숫자10/달력좌3"), NodePath("../Calendar/Graphic/숫자10/달력좌4"), NodePath("../Calendar/Graphic/숫자10/달력좌5"), NodePath("../Calendar/Graphic/숫자10/달력좌6"), NodePath("../Calendar/Graphic/숫자10/달력좌7"), NodePath("../Calendar/Graphic/숫자10/달력좌8"), NodePath("../Calendar/Graphic/숫자10/달력좌9")]
+numPanel01 = [NodePath("../Calendar/Graphic/숫자01/달력우0"), NodePath("../Calendar/Graphic/숫자01/달력우1"), NodePath("../Calendar/Graphic/숫자01/달력우2"), NodePath("../Calendar/Graphic/숫자01/달력우3"), NodePath("../Calendar/Graphic/숫자01/달력우4"), NodePath("../Calendar/Graphic/숫자01/달력우5"), NodePath("../Calendar/Graphic/숫자01/달력우6"), NodePath("../Calendar/Graphic/숫자01/달력우7"), NodePath("../Calendar/Graphic/숫자01/달력우8"), NodePath("../Calendar/Graphic/숫자01/달력우9")]
 hoverHighlight = NodePath("../Calendar")
 
 [node name="Calendar" type="Node2D" parent="." unique_id=1817888089]
@@ -1542,12 +1521,96 @@ texture = ExtResource("45_84x1k")
 visible = false
 texture = ExtResource("47_si2mt")
 
-[node name="달력Open" type="Sprite2D" parent="Calendar/Graphic" unique_id=1753476459]
+[node name="달력Close" type="Sprite2D" parent="Calendar/Graphic" unique_id=1753476459]
 texture = ExtResource("49_7tmle")
 
-[node name="달력Close" type="Sprite2D" parent="Calendar/Graphic" unique_id=800215320]
+[node name="달력Open" type="Sprite2D" parent="Calendar/Graphic" unique_id=800215320]
 visible = false
 texture = ExtResource("46_0hwxg")
+
+[node name="숫자10" type="Node2D" parent="Calendar/Graphic" unique_id=1751456319]
+
+[node name="달력좌0" type="Sprite2D" parent="Calendar/Graphic/숫자10" unique_id=1890245864]
+visible = false
+texture = ExtResource("83_8jixl")
+
+[node name="달력좌1" type="Sprite2D" parent="Calendar/Graphic/숫자10" unique_id=1547219645]
+visible = false
+texture = ExtResource("84_wmw63")
+
+[node name="달력좌2" type="Sprite2D" parent="Calendar/Graphic/숫자10" unique_id=1289142642]
+visible = false
+texture = ExtResource("85_uush8")
+
+[node name="달력좌3" type="Sprite2D" parent="Calendar/Graphic/숫자10" unique_id=1178274036]
+visible = false
+texture = ExtResource("86_dftep")
+
+[node name="달력좌4" type="Sprite2D" parent="Calendar/Graphic/숫자10" unique_id=503863511]
+visible = false
+texture = ExtResource("87_77al4")
+
+[node name="달력좌5" type="Sprite2D" parent="Calendar/Graphic/숫자10" unique_id=1791037036]
+visible = false
+texture = ExtResource("88_8g87k")
+
+[node name="달력좌6" type="Sprite2D" parent="Calendar/Graphic/숫자10" unique_id=1930205031]
+visible = false
+texture = ExtResource("89_2umrp")
+
+[node name="달력좌7" type="Sprite2D" parent="Calendar/Graphic/숫자10" unique_id=641768413]
+visible = false
+texture = ExtResource("90_cqe75")
+
+[node name="달력좌8" type="Sprite2D" parent="Calendar/Graphic/숫자10" unique_id=197186589]
+visible = false
+texture = ExtResource("91_evxhs")
+
+[node name="달력좌9" type="Sprite2D" parent="Calendar/Graphic/숫자10" unique_id=269325311]
+visible = false
+texture = ExtResource("92_gmgvx")
+
+[node name="숫자01" type="Node2D" parent="Calendar/Graphic" unique_id=544270485]
+
+[node name="달력우0" type="Sprite2D" parent="Calendar/Graphic/숫자01" unique_id=1331033028]
+visible = false
+texture = ExtResource("93_ubwhq")
+
+[node name="달력우1" type="Sprite2D" parent="Calendar/Graphic/숫자01" unique_id=829647625]
+visible = false
+texture = ExtResource("94_ly7qr")
+
+[node name="달력우2" type="Sprite2D" parent="Calendar/Graphic/숫자01" unique_id=1354998121]
+visible = false
+texture = ExtResource("95_7ggmy")
+
+[node name="달력우3" type="Sprite2D" parent="Calendar/Graphic/숫자01" unique_id=1895410996]
+visible = false
+texture = ExtResource("96_tnorr")
+
+[node name="달력우4" type="Sprite2D" parent="Calendar/Graphic/숫자01" unique_id=1887795762]
+visible = false
+texture = ExtResource("97_0dwp6")
+
+[node name="달력우5" type="Sprite2D" parent="Calendar/Graphic/숫자01" unique_id=1933369162]
+visible = false
+texture = ExtResource("98_4kqa1")
+
+[node name="달력우6" type="Sprite2D" parent="Calendar/Graphic/숫자01" unique_id=2864506]
+visible = false
+texture = ExtResource("99_5v6ep")
+
+[node name="달력우7" type="Sprite2D" parent="Calendar/Graphic/숫자01" unique_id=1430359614]
+visible = false
+texture = ExtResource("100_ude2c")
+
+[node name="달력우8" type="Sprite2D" parent="Calendar/Graphic/숫자01" unique_id=456930752]
+visible = false
+texture = ExtResource("101_s717c")
+
+[node name="달력우9" type="Sprite2D" parent="Calendar/Graphic/숫자01" unique_id=936124048]
+visible = false
+texture = ExtResource("102_wonw5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Calendar" unique_id=612593321]
 libraries/ = SubResource("AnimationLibrary_si2mt")
@@ -1622,6 +1685,7 @@ centered = false
 [node name="별점들Outline" type="Sprite2D" parent="별점" unique_id=342160668]
 texture = ExtResource("70_2k5xf")
 
+[connection signal="OrderEnded" from="GameManager" to="ClickArea달력" method="OnOrderEnded"]
 [connection signal="OrderStarted" from="GameManager" to="Hourglass" method="OnGameStart"]
 [connection signal="OrderTimerChanged" from="GameManager" to="Hourglass" method="OnOrderTimerChanged"]
 [connection signal="OrderTimerChanged" from="GameManager" to="TimerGraph" method="OnOrderTimerChanged"]

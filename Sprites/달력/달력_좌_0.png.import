@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xsuhhv46ue3j"
-path="res://.godot/imported/달력_2.png-ce2db24473047ce557d88f1746fcbdc4.ctex"
+uid="uid://bmqqs76uy62cw"
+path="res://.godot/imported/달력_좌_0.png-871685c21f41d3f0ae259c4ecb4aeefa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/달력_2.png"
-dest_files=["res://.godot/imported/달력_2.png-ce2db24473047ce557d88f1746fcbdc4.ctex"]
+source_file="res://Sprites/달력/달력_좌_0.png"
+dest_files=["res://.godot/imported/달력_좌_0.png-871685c21f41d3f0ae259c4ecb4aeefa.ctex"]
 
 [params]
 
