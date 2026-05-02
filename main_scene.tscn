@@ -65,8 +65,10 @@
 [ext_resource type="Script" uid="uid://dfgoe8vu5o2y" path="res://Scripts/Game/UI/CustomerUI/Text.cs" id="26_ixb38"]
 [ext_resource type="Script" uid="uid://b0n3qvflg3ven" path="res://Scripts/DragArea/ClickAreaKick.cs" id="26_uush8"]
 [ext_resource type="Script" uid="uid://dobquj4bam6hw" path="res://Scripts/DragArea/DragAreaCupPile.cs" id="28_uws2o"]
+[ext_resource type="AudioStream" uid="uid://ylxofpuda63f" path="res://BGM/BGM_Outgame.mp3" id="29_s717c"]
 [ext_resource type="Script" uid="uid://okjihqk21var" path="res://TimerGraph.cs" id="30_j8kkg"]
 [ext_resource type="Texture2D" uid="uid://bre1jmy3044v8" path="res://Sprites/찻잔/찻잔들.png" id="30_p8s74"]
+[ext_resource type="AudioStream" uid="uid://dlxmchljejitg" path="res://BGM/BGM_Ingame.mp3" id="30_wonw5"]
 [ext_resource type="PackedScene" uid="uid://dhpchgbxmiqfp" path="res://DraggablePlate.tscn" id="31_gfmxp"]
 [ext_resource type="Texture2D" uid="uid://bpk3duigat8gt" path="res://smoke.png" id="31_lwncm"]
 [ext_resource type="Texture2D" uid="uid://vg5dum1i2308" path="res://Sprites/접시들.png" id="31_o4fqm"]
@@ -880,8 +882,10 @@ gameManager = NodePath("GameManager")
 [node name="InputManager" type="Node" parent="." unique_id=24486516]
 script = ExtResource("1_gyfs4")
 
-[node name="SoundManager" type="Node" parent="." unique_id=990319057]
+[node name="SoundManager" type="Node" parent="." unique_id=990319057 node_paths=PackedStringArray("bgmReady", "bgmIngame")]
 script = ExtResource("2_jl0ou")
+bgmReady = NodePath("BGM_Ready")
+bgmIngame = NodePath("BGM_Game")
 
 [node name="HourglassFlip" type="Node" parent="SoundManager" unique_id=1627493191 node_paths=PackedStringArray("player")]
 script = ExtResource("3_2k5xf")
@@ -1216,6 +1220,12 @@ player = NodePath("AudioStreamPlayer")
 stream = ExtResource("25_77al4")
 volume_db = -8.0
 pitch_scale = 2.0
+
+[node name="BGM_Ready" type="AudioStreamPlayer" parent="SoundManager" unique_id=1199082441]
+stream = ExtResource("29_s717c")
+
+[node name="BGM_Game" type="AudioStreamPlayer" parent="SoundManager" unique_id=1518129286]
+stream = ExtResource("30_wonw5")
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=2050139955]
 z_index = -100

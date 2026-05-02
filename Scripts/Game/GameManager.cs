@@ -73,6 +73,8 @@ public partial class GameManager : Node
 		score = 0;
 		customerManager.init();
 		StartOrder();
+
+		SoundManager.Instance.PlayIngameBGM();
 	}
 
 	private void GameOver()

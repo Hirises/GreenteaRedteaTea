@@ -52,6 +52,9 @@ public partial class SoundManager : Node
 
 	Dictionary<SFXType, SoundPlayer> soundDictionary = new();
 
+	[Export] AudioStreamPlayer bgmReady;
+	[Export] AudioStreamPlayer bgmIngame;
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -67,7 +70,17 @@ public partial class SoundManager : Node
 				soundDictionary[sfxType] = player;
 			}
 		}
+
+		bgmReady.Play();
 	}
+
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+
+        bgmReady.Stop();
+        bgmIngame.Stop();
+    }
 
 
 	public static void Play(SFXType sfxType)
@@ -95,6 +108,12 @@ public partial class SoundManager : Node
 			soundDictionary[sfxType].Stop();
 		}
 	}
+
+    public void PlayIngameBGM()
+    {
+        bgmIngame.Play();
+        bgmReady.Stop();
+    }
 
 
 	public static void PlayHourglassFlip() => Play(SFXType.HourglassFlip);
