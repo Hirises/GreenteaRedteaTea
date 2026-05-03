@@ -139,12 +139,12 @@
       ]
     }
   },
-  "SatiCustomer": {
+  "MiniBossCustomer": {
     "order": [
-      "{order} 주세요 (복슬복슬)"
+      "{order}"
     ],
     "thank": [
-      "감사합니다 (복슬복슬)"
+      "좋군"
     ],
     "complaint": {
       "timeout": [

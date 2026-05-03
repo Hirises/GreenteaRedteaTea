@@ -42,7 +42,7 @@ public partial class CustomerManager : Node
 		}
 		else if (score == 16)
 		{
-			customer = new SatiCustomer(customerCount);
+			customer = new MiniBossCustomer(customerCount);
 		}
 		else if (score <= 29)
 		{
