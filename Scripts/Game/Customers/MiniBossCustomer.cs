@@ -1,11 +1,11 @@
 using RedteaGreenteaTea.Domain;
 
-public class SatiCustomer : Customer
+public class MiniBossCustomer : Customer
 {
     private const float DefaultPatienceSeconds = 30f;
     private const int DefaultOrderMaxDepth = 2;
 
-    public SatiCustomer(int number) : base(number)
+    public MiniBossCustomer(int number) : base(number)
     {
         PatienceSeconds = DefaultPatienceSeconds;
         isSpecial = true;
