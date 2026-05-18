@@ -1,4 +1,4 @@
-﻿class_name DraggableBaseJar
+class_name DraggableBaseJar
 extends Node2D
 
 @export_enum("Tea", "MilkTea") var baseKind: int = BaseKind.TEA
@@ -36,4 +36,3 @@ func OnDrop(dropArea: DragArea) -> void:
 
 func OnCancelDrag() -> void:
 	print("BaseJar drag cancelled.")
-

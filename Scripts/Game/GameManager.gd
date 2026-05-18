@@ -114,8 +114,6 @@ func _EndOrder(result: int) -> void:
 				rating = maxi(0, rating - 2)
 			text = currentCustomer.Complain(result)
 			SoundManager.Play(SFXType.FAIL)
-	if rating == 0:
-		_GameOver()
 	currentCustomer = null
 	isOnOrder = false
 	timer = 0.0

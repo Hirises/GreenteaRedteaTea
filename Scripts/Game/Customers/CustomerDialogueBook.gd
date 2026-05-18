@@ -25,10 +25,10 @@ static func _get_line(customerClassName: String, key: String, fallback: String) 
 	return str(lines[index])
 
 static func _get_lines(customerClassName: String, key: String) -> Array:
-	var dialogue: Dictionary = _load_dialogues().get(customerClassName, {})
+	var dialogue: Dictionary = _dict_get(_load_dialogues(), customerClassName, {})
 	if key.begins_with("Complaint."):
-		return dialogue.get("Complaint", {}).get(key.get_slice(".", 1), [])
-	return dialogue.get(key, [])
+		return _dict_get(_dict_get(dialogue, "Complaint", {}), key.get_slice(".", 1), [])
+	return _dict_get(dialogue, key, [])
 
 static func _complaint_key(result: int) -> String:
 	match result:
@@ -51,3 +51,12 @@ static func _load_dialogues() -> Dictionary:
 	var parsed = JSON.parse_string(FileAccess.get_file_as_string(DIALOGUE_PATH))
 	dialogues = parsed if typeof(parsed) == TYPE_DICTIONARY else {}
 	return dialogues
+
+static func _dict_get(source: Dictionary, key: String, fallback = null):
+	if source.has(key):
+		return source[key]
+	var lower_key := key.to_lower()
+	for existing_key in source.keys():
+		if str(existing_key).to_lower() == lower_key:
+			return source[existing_key]
+	return fallback
