@@ -123,7 +123,9 @@ func _EndOrder(result: int) -> void:
 	emit_signal("OrderEnded", result, orderName)
 
 func NextOrder() -> void:
-	if rating == 0:
+	print("check rating %d!" % rating)
+	if rating <= 0:
+		print("game over")
 		_GameOver()
 		return
 	startOrder()

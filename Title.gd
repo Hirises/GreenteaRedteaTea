@@ -38,5 +38,6 @@ func OnGameOverAnimationEnd() -> void:
 	mainSceneInst = mainScene.instantiate()
 	add_child(mainSceneInst)
 	gameManager = mainSceneInst.gameManager
+	state = State.GAME
 	shutterLogoAnimation.play("reopen")
 	shutterUp.Play()
