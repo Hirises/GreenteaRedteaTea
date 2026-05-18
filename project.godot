@@ -23,6 +23,10 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
+[gui]
+
+theme/custom_font="res://Fonts/NotoSansKR-VF.ttf"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
