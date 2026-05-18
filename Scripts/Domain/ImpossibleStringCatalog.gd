@@ -19,7 +19,7 @@ static func load_from_file(path: String) -> ImpossibleStringCatalog:
 	var parsed = JSON.parse_string(FileAccess.get_file_as_string(path))
 	var values: Array[String] = []
 	if typeof(parsed) == TYPE_DICTIONARY:
-		for value in parsed.get("Strings", []):
+		for value in _dict_get(parsed, "Strings", []):
 			var s := str(value)
 			if !s.strip_edges().is_empty():
 				values.append(s)
@@ -27,3 +27,12 @@ static func load_from_file(path: String) -> ImpossibleStringCatalog:
 
 func _init(p_strings: Array[String] = []) -> void:
 	strings = p_strings
+
+static func _dict_get(source: Dictionary, key: String, fallback = null):
+	if source.has(key):
+		return source[key]
+	var lower_key := key.to_lower()
+	for existing_key in source.keys():
+		if str(existing_key).to_lower() == lower_key:
+			return source[existing_key]
+	return fallback
