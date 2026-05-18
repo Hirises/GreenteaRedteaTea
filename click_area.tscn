@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blfc3725i487a"]
 
-[ext_resource type="Script" uid="uid://bxjax0l1c53hb" path="res://Scripts/DragArea/ClickArea.cs" id="1_3meqa"]
+[ext_resource type="Script" path="res://Scripts/DragArea/ClickArea.gd" id="1_3meqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy6fp"]
 

@@ -1,4 +1,4 @@
-; Engine configuration file.
+﻿; Engine configuration file.
 ; It's best edited using the editor UI and not directly,
 ; since the parameters that go here are not all obvious.
 ;
@@ -12,7 +12,7 @@ config_version=5
 
 config/name="RedteaGreenteaTea"
 run/main_scene="res://shutter_with_logo.tscn"
-config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
@@ -21,9 +21,6 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
-[dotnet]
-
-project/assembly_name="RedteaGreenteaTea"
 
 [physics]
 
@@ -34,3 +31,4 @@ project/assembly_name="RedteaGreenteaTea"
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+

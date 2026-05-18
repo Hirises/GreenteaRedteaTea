@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://3kap0t2b7ook"]
 
-[ext_resource type="Script" uid="uid://4atbteuulekw" path="res://Title.cs" id="1_cnfki"]
+[ext_resource type="Script" path="res://Title.gd" id="1_cnfki"]
 [ext_resource type="PackedScene" uid="uid://beypyudpl6dv1" path="res://main_scene.tscn" id="1_jmuuf"]
 [ext_resource type="Texture2D" uid="uid://ciy4rr3sx77l4" path="res://Sprites/셔터.png" id="2_cnfki"]
 [ext_resource type="Texture2D" uid="uid://bbwfopgfvtb7a" path="res://Sprites/Logo_Full.png" id="2_jmuuf"]
-[ext_resource type="Script" uid="uid://uduehapgih3c" path="res://SoundPlayer.cs" id="5_o1k5s"]
+[ext_resource type="Script" path="res://SoundPlayer.gd" id="5_o1k5s"]
 [ext_resource type="AudioStream" uid="uid://d2fyi2ikej4l7" path="res://NeoSFX/셔터내리기.wav" id="6_m6wyr"]
 [ext_resource type="AudioStream" uid="uid://b2v8tbw0338pf" path="res://NeoSFX/셔터_Up.wav" id="7_o1k5s"]
 

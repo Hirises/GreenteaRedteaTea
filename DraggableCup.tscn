@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cfh7kp14gh706" path="res://Sprites/찻잔/찻잔_Back.png" id="1_nfqwo"]
 [ext_resource type="Texture2D" uid="uid://b5p62qemjbvlj" path="res://Sprites/찻잔/찻잔_Water.png" id="2_7eqsp"]
-[ext_resource type="Script" uid="uid://kn8cm2cmjirc" path="res://HoverHighlightable.cs" id="2_bu0hg"]
-[ext_resource type="Script" uid="uid://dfpuj12t88ggg" path="res://Scripts/Draggable/DraggableCup.cs" id="2_nfqwo"]
+[ext_resource type="Script" path="res://HoverHighlightable.gd" id="2_bu0hg"]
+[ext_resource type="Script" path="res://Scripts/Draggable/DraggableCup.gd" id="2_nfqwo"]
 [ext_resource type="Texture2D" uid="uid://b0lm8ynbaq56d" path="res://Sprites/찻잔/찻잔_Front.png" id="3_bu0hg"]
 
 [sub_resource type="Animation" id="Animation_bu0hg"]

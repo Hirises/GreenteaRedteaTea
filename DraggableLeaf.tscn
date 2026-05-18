@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://m4d8ws80fk0i"]
 
 [ext_resource type="Texture2D" uid="uid://exgfcjd1b624" path="res://Sprites/찻잎.png" id="2_ecqhw"]
-[ext_resource type="Script" uid="uid://qpph2jxqsj1k" path="res://Scripts/Draggable/DraggableLeaf.cs" id="2_v6cep"]
-[ext_resource type="Script" uid="uid://kn8cm2cmjirc" path="res://HoverHighlightable.cs" id="3_v6cep"]
+[ext_resource type="Script" path="res://Scripts/Draggable/DraggableLeaf.gd" id="2_v6cep"]
+[ext_resource type="Script" path="res://HoverHighlightable.gd" id="3_v6cep"]
 
 [sub_resource type="Animation" id="Animation_bu0hg"]
 resource_name = "shake"
