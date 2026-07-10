@@ -46,115 +46,157 @@
   },
   "NormalCustomer": {
     "order": [
-      "{order} please"
+      "{order} 주세요.",
+      "{order} 하나 부탁해요.",
+      "저는 {order} 마실게요."
     ],
     "thank": [
-      "thx"
+      "고마워요!",
+      "잘 마실게요.",
+      "감사합니다."
     ],
     "complaint": {
       "timeout": [
-        "Customer complains: order timed out."
+        "너무 오래 걸렸어요.",
+        "아직도 안 나왔나요?"
       ],
       "wrongMenu": [
-        "Customer complains: wrong menu."
+        "이거 제가 주문한 게 아닌데요.",
+        "메뉴가 잘못 나왔어요."
       ],
       "kickedOut": [
-        "Customer complains: kicked out."
+        "왜 쫓아내는 거예요?",
+        "다시는 안 올게요."
       ]
     }
   },
   "HardCustomer": {
     "order": [
-      "{order} please"
+      "{order}. 정확히 만들어 주시겠습니까?",
+      "{order}로 부탁드립니다. 실수 없이요.",
+      "오늘은 {order}를 마시고 싶군요."
     ],
     "thank": [
-      "thx"
+      "괜찮군요.",
+      "기대 이상입니다.",
+      "수고하셨습니다."
     ],
     "complaint": {
       "timeout": [
-        "Customer complains: order timed out."
+        "기다림도 맛의 일부라지만, 이건 지나치군요.",
+        "아직 준비가 안 됐습니까?"
       ],
       "wrongMenu": [
-        "Customer complains: wrong menu."
+        "제가 주문한 것과 다릅니다.",
+        "이 정도 주문도 구분하지 못하시나요?"
       ],
       "kickedOut": [
-        "Customer complains: kicked out."
+        "손님을 이렇게 대접하는 곳이었습니까?",
+        "품격 없는 마무리군요."
       ]
     }
   },
   "RandomCustomer": {
     "order": [
-      "{order} please"
+      "{order}! 아니면 비슷한 거라도요!",
+      "오늘의 운세가 {order}라고 하네요.",
+      "{order} 주세요. 왜냐고 묻진 말아 주세요."
     ],
     "thank": [
-      "thx"
+      "오, 이거 재밌네요!",
+      "생각보다 맛있는데요?",
+      "오늘도 무사히 한 잔!"
     ],
     "complaint": {
       "timeout": [
-        "Customer complains: order timed out."
+        "기다리다 제 취향이 또 바뀌겠어요!",
+        "혹시 제 주문도 길을 잃었나요?"
       ],
       "wrongMenu": [
-        "Customer complains: wrong menu."
+        "아무거나 같아 보여도 이건 아니에요!",
+        "랜덤 손님이라고 랜덤 메뉴를 주시면 곤란해요."
       ],
       "kickedOut": [
-        "Customer complains: kicked out."
+        "퇴장 이벤트까지 있는 가게였나요?",
+        "다음엔 다른 번호로 올게요!"
       ]
     }
   },
   "BadCustomer": {
     "order": [
-      "{order}."
+      "{order}! 아니면 비슷한 거라도요!",
+      "오늘의 운세가 {order}라고 하네요.",
+      "{order} 주세요. 왜냐고 묻진 말아 주세요."
     ],
     "thank": [
-      "thx"
+      "오, 이거 재밌네요!",
+      "생각보다 맛있는데요?",
+      "오늘도 무사히 한 잔!"
     ],
     "complaint": {
       "timeout": [
-        "Customer complains: order timed out."
+        "기다리다 제 취향이 또 바뀌겠어요!",
+        "혹시 제 주문도 길을 잃었나요?"
       ],
       "wrongMenu": [
-        "Customer complains: wrong menu."
+        "아무거나 같아 보여도 이건 아니에요!",
+        "랜덤 손님이라고 랜덤 메뉴를 주시면 곤란해요."
       ],
       "kickedOut": [
-        "Customer complains: kicked out."
+        "퇴장 이벤트까지 있는 가게였나요?",
+        "다음엔 다른 번호로 올게요!"
       ]
     }
   },
   "PutinCustomer": {
     "order": [
-      "{order}."
+      "{order}. 진하게.",
+      "{order}를 준비하게.",
+      "홍차 향이 강한 {order}로 하지."
     ],
     "thank": [
-      "thx"
+      "좋다.",
+      "충분하군.",
+      "향이 마음에 든다."
     ],
     "complaint": {
       "timeout": [
-        "Customer complains: order timed out."
+        "나를 기다리게 하는군.",
+        "시간은 그리 너그럽지 않다."
       ],
       "wrongMenu": [
-        "Customer complains: wrong menu."
+        "이건 내가 명한 것이 아니다.",
+        "홍차의 방향이 틀렸다."
       ],
       "kickedOut": [
-        "Customer complains: kicked out."
+        "대담한 결정이군.",
+        "이 일을 잊지 않겠다."
       ]
     }
   },
   "MiniBossCustomer": {
     "order": [
-      "{order}"
+      "{order}. 이 정도는 가능하겠지?",
+      "가게의 실력을 보겠다. {order}.",
+      "긴 주문이라도 따라와 봐. {order}."
     ],
     "thank": [
-      "좋군"
+      "좋군",
+      "제법이군.",
+      "다음 단계로 넘어가도 되겠어."
     ],
     "complaint": {
       "timeout": [
-        "Customer complains: order timed out."
+        "보스전을 시간 초과로 끝낼 셈인가?",
+        "내 인내심도 게이지가 있다."
       ],
       "wrongMenu": [
-        "Customer complains: wrong menu."
+        "공략법을 잘못 읽었군.",
+        "내가 주문한 패턴과 다르다."
       ],
       "kickedOut": [
-        "Customer complains: kicked out."
+        "중간 보스를 이렇게 넘기겠다고?",
+        "아직 페이즈가 남았는데 말이지."
       ]
     }
   },
@@ -163,17 +205,23 @@
       "{order}."
     ],
     "thank": [
-      "So far so good"
+      "So far so good.",
+      "좋습니다. 계속 갑시다.",
+      "통과입니다."
     ],
     "complaint": {
       "timeout": [
-        "Customer complains: order timed out."
+        "Are you with me?",
+        "시간 복잡도가 꽤 높군요.",
+        "아직 실행 중인가요?"
       ],
       "wrongMenu": [
-        "Customer complains: wrong menu."
+        "이 출력은 기대값과 다릅니다.",
+        "테스트 케이스를 다시 확인하세요."
       ],
       "kickedOut": [
-        "Customer complains: kicked out."
+        "강의실에서 퇴장인가요?",
+        "출석은 인정되는 겁니까?"
       ]
     }
   },
@@ -185,17 +233,19 @@
       "하... 아무도 없는건가. 필로빈 님 {order}라도 주세요"
     ],
     "thank": [
-      "thx"
+      "그래, 이게 필요했다",
+      "회장직보다 낫군",
+      "보리차는 언제나 옳지"
     ],
     "complaint": {
       "timeout": [
-        "Customer complains: order timed out."
+        "내 회장 임기가 더 빨리 끝나겠군"
       ],
       "wrongMenu": [
-        "Customer complains: wrong menu."
+        "당신, 다음 회장이 하고 싶어?"
       ],
       "kickedOut": [
-        "Customer complains: kicked out."
+        "젠장 또 회장이라니"
       ]
     }
   }
