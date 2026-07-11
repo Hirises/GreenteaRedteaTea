@@ -64,6 +64,7 @@ public partial class Title : Node2D
         mainSceneInst = mainScene.Instantiate<MainScene>();
         AddChild(mainSceneInst);
         gameManager = mainSceneInst.gameManager;
+        state = State.Game;
 
         shutterLogoAnimation.Play("reopen");
         shutterUp.Play();

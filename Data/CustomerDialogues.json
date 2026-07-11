@@ -98,9 +98,9 @@
   },
   "RandomCustomer": {
     "order": [
-      "{order}! 아니면 비슷한 거라도요!",
-      "오늘의 운세가 {order}라고 하네요.",
-      "{order} 주세요. 왜냐고 묻진 말아 주세요."
+      "{order}!",
+      "{order}.",
+      "{order} 주세요."
     ],
     "thank": [
       "오, 이거 재밌네요!",

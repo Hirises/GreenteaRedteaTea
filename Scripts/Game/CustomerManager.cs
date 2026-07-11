@@ -12,6 +12,7 @@ public partial class CustomerManager : Node
 	public int CustomerCount => customerCount;
 	public void init()
 	{
+		customerCount = 0;
 		easyBorichaScore = _random.Next(4, 8);
 		normalBorichaScore = _random.Next(10, 16);
 		hardBorichaScore = _random.Next(18, 28);
