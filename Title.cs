@@ -19,6 +19,26 @@ public partial class Title : Node2D
     MainScene mainSceneInst;
     GameManager gameManager;
 
+    public override void _Input(InputEvent @event)
+    {
+        if (@event is not InputEventKey keyEvent ||
+            !keyEvent.Pressed ||
+            keyEvent.Echo ||
+            keyEvent.Keycode != Key.F11)
+        {
+            return;
+        }
+
+        var currentMode = DisplayServer.WindowGetMode();
+        var nextMode = currentMode == DisplayServer.WindowMode.Fullscreen ||
+                       currentMode == DisplayServer.WindowMode.ExclusiveFullscreen
+            ? DisplayServer.WindowMode.Windowed
+            : DisplayServer.WindowMode.Fullscreen;
+
+        DisplayServer.WindowSetMode(nextMode);
+        GetViewport().SetInputAsHandled();
+    }
+
     public override void _UnhandledInput(InputEvent @event)
     {
         if (state != State.Title)
